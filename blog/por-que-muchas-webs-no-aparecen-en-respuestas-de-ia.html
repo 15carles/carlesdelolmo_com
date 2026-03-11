@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Consent Mode v2 (Initial State) -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'wait_for_update': 500
+        });
+        window.dataLayer.push({ 'event': 'default_consent' });
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Por qué muchas webs no aparecen en respuestas de IA | Carles del Olmo</title>
+    <meta name="description"
+        content="Descubre por qué muchas webs no aparecen en respuestas generadas por IA, qué es el GEO y cómo el modelo DELTA ayuda a mejorar la visibilidad en motores generativos.">
+    <meta name="author" content="Carles del Olmo">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://carlesdelolmo.com/blog/por-que-muchas-webs-no-aparecen-en-respuestas-de-ia">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:title" content="Por qué muchas webs no aparecen en respuestas de IA">
+    <meta property="og:description"
+        content="Descubre por qué muchas webs no aparecen en respuestas generadas por IA, qué es el GEO y cómo el modelo DELTA ayuda a mejorar la visibilidad en motores generativos.">
+    <meta property="og:url"
+        content="https://carlesdelolmo.com/blog/por-que-muchas-webs-no-aparecen-en-respuestas-de-ia">
+    <meta property="og:site_name" content="Carles del Olmo">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Por qué muchas webs no aparecen en respuestas de IA">
+    <meta name="twitter:description"
+        content="Descubre por qué muchas webs no aparecen en respuestas generadas por IA, qué es el GEO y cómo el modelo DELTA ayuda a mejorar la visibilidad en motores generativos.">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/shared.css">
+
+    <!-- SCHEMA: ARTÍCULO + FAQ -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://carlesdelolmo.com/#person",
+      "name": "Carles del Olmo",
+      "url": "https://carlesdelolmo.com",
+      "email": "mailto:hola@carlesdelolmo.com",
+      "jobTitle": "Diseñador Web en Valencia y Especialista en SEO Técnico y Generative Engine Optimization (GEO)",
+      "worksFor": {
+        "@id": "https://carlesdelolmo.com/#business"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Benetússer",
+        "addressRegion": "Valencia",
+        "postalCode": "46910",
+        "addressCountry": "ES"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://carlesdelolmo.com/#business",
+      "name": "Carles del Olmo",
+      "url": "https://carlesdelolmo.com",
+      "founder": {
+        "@id": "https://carlesdelolmo.com/#person"
+      },
+      "email": "mailto:hola@carlesdelolmo.com",
+      "telephone": "+34 668 676 302",
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Valencia"
+        },
+        {
+          "@type": "Country",
+          "name": "España"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Benetússer",
+        "addressRegion": "Valencia",
+        "postalCode": "46910",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.424705,
+        "longitude": -0.400409
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://carlesdelolmo.com/#website",
+      "url": "https://carlesdelolmo.com",
+      "name": "Carles del Olmo",
+      "inLanguage": "es-ES",
+      "publisher": {
+        "@id": "https://carlesdelolmo.com/#business"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://carlesdelolmo.com/blog/por-que-muchas-webs-no-aparecen-en-respuestas-de-ia#webpage",
+      "url": "https://carlesdelolmo.com/blog/por-que-muchas-webs-no-aparecen-en-respuestas-de-ia",
+      "name": "Por qué muchas webs no aparecen en respuestas de IA",
+      "isPartOf": {
+        "@id": "https://carlesdelolmo.com/#website"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Generative Engine Optimization"
+        },
+        {
+          "@type": "Thing",
+          "name": "SEO"
+        },
+        {
+          "@type": "Thing",
+          "name": "Inteligencia artificial"
+        },
+        {
+          "@type": "Thing",
+          "name": "Motores generativos"
+        }
+      ],
+      "primaryImageOfPage": {
+        "@id": "https://carlesdelolmo.com/blog/por-que-muchas-webs-no-aparecen-en-respuestas-de-ia#primaryimage"
+      },
+      "inLanguage": "es-ES"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://carlesdelolmo.com/blog/por-que-muchas-webs-no-aparecen-en-respuestas-de-ia#primaryimage",
+      "url": "https://carlesdelolmo.com/assets/images/blog/por-que-muchas-webs-no-aparecen-en-respuestas-de-ia.webp",
+      "contentUrl": "https://carlesdelolmo.com/assets/images/blog/por-que-muchas-webs-no-aparecen-en-respuestas-de-ia.webp",
+      "caption": "Ilustración conceptual sobre visibilidad en motores generativos y el modelo DELTA"
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://carlesdelolmo.com/blog/por-que-muchas-webs-no-aparecen-en-respuestas-de-ia#blogposting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://carlesdelolmo.com/blog/por-que-muchas-webs-no-aparecen-en-respuestas-de-ia"
+      },
+      "headline": "Por qué muchas webs no aparecen en respuestas de IA",
+      "alternativeHeadline": "Introducción al GEO (Generative Engine Optimization) y al modelo DELTA de visibilidad generativa",
+      "description": "Explicación clara de por qué muchas webs no aparecen en respuestas generadas por IA, qué papel cumple el GEO y cómo el modelo DELTA ayuda a mejorar la visibilidad en motores generativos.",
+      "inLanguage": "es-ES",
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://carlesdelolmo.com/blog/#blog",
+        "name": "Blog | Carles del Olmo",
+        "url": "https://carlesdelolmo.com/blog/"
+      },
+      "author": {
+        "@id": "https://carlesdelolmo.com/#person"
+      },
+      "publisher": {
+        "@id": "https://carlesdelolmo.com/#business"
+      },
+      "datePublished": "2026-03-11",
+      "dateModified": "2026-03-11",
+      "keywords": [
+        "GEO",
+        "Generative Engine Optimization",
+        "SEO",
+        "IA",
+        "ChatGPT",
+        "Perplexity",
+        "Copilot",
+        "Gemini",
+        "contenido LLM-friendly",
+        "modelo DELTA",
+        "visibilidad generativa",
+        "SEO técnico",
+        "motores generativos"
+      ],
+      "articleSection": [
+        "SEO Avanzado",
+        "GEO",
+        "Arquitectura Web"
+      ],
+      "about": [
+        { "@type": "Thing", "name": "Generative Engine Optimization" },
+        { "@type": "Thing", "name": "Contenido LLM-friendly" },
+        { "@type": "Thing", "name": "Modelo DELTA" },
+        { "@type": "Thing", "name": "Visibilidad en motores generativos" },
+        { "@type": "Thing", "name": "Motores generativos de IA" }
+      ],
+      "mentions": [
+        { "@type": "SoftwareApplication", "name": "ChatGPT" },
+        { "@type": "SoftwareApplication", "name": "Perplexity AI" },
+        { "@type": "SoftwareApplication", "name": "Microsoft Copilot" },
+        { "@type": "SoftwareApplication", "name": "Google Gemini" },
+        { "@type": "WebSite", "name": "Google Search" },
+        { "@type": "WebSite", "name": "Microsoft Bing" }
+      ],
+      "articleBody": "Durante más de dos décadas, el posicionamiento en buscadores ha sido una de las disciplinas más importantes del marketing digital. Este artículo explica por qué muchas webs no aparecen en respuestas generadas por IA, introduce el concepto de contenido LLM-friendly, define la paradoja de visibilidad de la IA, presenta el GEO como disciplina emergente y desarrolla el modelo DELTA como marco conceptual de visibilidad en motores generativos."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://carlesdelolmo.com/blog/por-que-muchas-webs-no-aparecen-en-respuestas-de-ia#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es el GEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El GEO (Generative Engine Optimization) es el conjunto de estrategias destinadas a optimizar contenidos digitales para que puedan ser utilizados como fuente por sistemas de inteligencia artificial generativa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿En qué se diferencia el GEO del SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El SEO busca mejorar la visibilidad de una web en los resultados de buscadores como Google o Bing. El GEO busca aumentar la probabilidad de que el contenido sea utilizado dentro de respuestas generadas por sistemas de inteligencia artificial."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué mi web no aparece en respuestas de IA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las causas más comunes suelen ser contenido demasiado genérico, falta de estructura semántica, ausencia de definiciones claras y poca autoridad temática sobre el tema tratado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo seleccionan fuentes los modelos de lenguaje?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los modelos generativos suelen priorizar contenidos claros, bien estructurados, conceptualmente definidos y fáciles de sintetizar dentro de una respuesta."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://carlesdelolmo.com/blog/por-que-muchas-webs-no-aparecen-en-respuestas-de-ia#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://carlesdelolmo.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://carlesdelolmo.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Por qué muchas webs no aparecen en respuestas de IA",
+          "item": "https://carlesdelolmo.com/blog/por-que-muchas-webs-no-aparecen-en-respuestas-de-ia"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="page">
+
+    <!-- NAVBAR (Loaded dynamically) -->
+    <div data-component="navbar"></div>
+
+    <main class="page__content">
+        <!-- HERO DEL ARTÍCULO -->
+        <header class="page-header animate-on-scroll">
+            <div class="container">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs" aria-label="Breadcrumb">
+                    <ul class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="/" class="breadcrumbs__link">Inicio</a>
+                            <span class="breadcrumbs__separator">/</span>
+                        </li>
+                        <li class="breadcrumbs__item">
+                            <a href="../blog/" class="breadcrumbs__link">Blog</a>
+                            <span class="breadcrumbs__separator">/</span>
+                        </li>
+                        <li class="breadcrumbs__item breadcrumbs__current" aria-current="page">
+                            Por qué muchas webs no aparecen en respuestas de IA
+                        </li>
+                    </ul>
+                </nav>
+
+                <h1 class="page-header__title">Por qué muchas webs no aparecen en respuestas de IA</h1>
+                <p class="page-header__subtitle">
+                    Introducción al GEO (Generative Engine Optimization) y al modelo DELTA de visibilidad generativa.
+                </p>
+
+                <!-- Meta Info -->
+                <div class="page-header__meta">
+                    <time datetime="2026-03-09">9 Mar, 2026</time>
+                    <span class="badge badge--blue">SEO Avanzado</span>
+                    <span class="badge badge--teal">GEO</span>
+                    <span class="badge badge--purple">Arquitectura Web</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTENIDO DEL ARTÍCULO -->
+        <article class="section animate-on-scroll">
+            <div class="container">
+                <div class="article-content">
+
+                    <h2>Introducción</h2>
+                    <div class="article-box">
+                        <p>
+                            Durante más de dos décadas, el posicionamiento en buscadores ha sido una de las disciplinas
+                            más importantes del marketing digital. El objetivo era claro: aparecer en los primeros
+                            resultados de buscadores como Google Search o Microsoft Bing.
+                        </p>
+                        <p>
+                            Sin embargo, la forma en que las personas acceden a la información en internet está
+                            cambiando rápidamente.
+                        </p>
+                        <p>
+                            Cada vez más usuarios no realizan búsquedas tradicionales, sino que formulan preguntas
+                            directamente a sistemas de inteligencia artificial conversacional como ChatGPT, Perplexity
+                            AI, Microsoft Copilot o Google Gemini.
+                        </p>
+                        <p>
+                            Estos sistemas no se limitan a mostrar enlaces. En su lugar, generan respuestas completas y
+                            sintetizadas, elaboradas a partir de múltiples fuentes.
+                        </p>
+                        <p>
+                            Este cambio introduce un nuevo problema para muchas webs: pueden seguir existiendo, seguir
+                            posicionando e incluso seguir recibiendo tráfico, pero no aparecen en las respuestas
+                            generadas por IA.
+                        </p>
+                        <p>
+                            Comprender por qué ocurre esto es fundamental para adaptarse a una nueva disciplina
+                            emergente: GEO (Generative Engine Optimization).
+                        </p>
+                    </div>
+
+                    <h2>Resumen rápido (TL;DR)</h2>
+                    <div class="article-box">
+                        <p>
+                            Muchas webs no aparecen en respuestas generadas por inteligencia artificial porque su
+                            contenido no está estructurado de forma que los modelos de lenguaje puedan reutilizarlo
+                            fácilmente.
+                        </p>
+                        <p>
+                            El GEO (Generative Engine Optimization) propone optimizar contenidos para que puedan
+                            convertirse en fuentes dentro de respuestas generadas por sistemas como ChatGPT, Perplexity,
+                            Copilot o Gemini.
+                        </p>
+                        <p>
+                            Uno de los enfoques posibles para mejorar esta visibilidad es el modelo DELTA, un marco
+                            conceptual que describe cinco factores que aumentan la probabilidad de que un contenido sea
+                            utilizado por motores generativos.
+                        </p>
+                    </div>
+
+                    <h2>El cambio de paradigma en el acceso a la información</h2>
+                    <div class="article-box">
+                        <p>
+                            Durante años, la interacción típica con internet seguía un patrón relativamente estable:
+                        </p>
+                        <ol>
+                            <li>El usuario escribía una consulta en un buscador.</li>
+                            <li>El buscador devolvía una lista de resultados.</li>
+                            <li>El usuario elegía qué página visitar.</li>
+                        </ol>
+                        <p>
+                            Este modelo convirtió al SEO en una disciplina central del marketing digital.
+                        </p>
+                        <p>
+                            Sin embargo, la aparición de sistemas de inteligencia artificial generativa está
+                            modificando este proceso.
+                        </p>
+                        <p>
+                            Hoy en día, muchos usuarios prefieren algo diferente:
+                        </p>
+                        <ol>
+                            <li>Formular una pregunta directa a una IA.</li>
+                            <li>Recibir una respuesta sintetizada.</li>
+                            <li>Consultar fuentes adicionales solo si necesitan más profundidad.</li>
+                        </ol>
+                        <p>
+                            Esto implica un cambio importante: la visibilidad digital ya no depende únicamente de
+                            aparecer en buscadores.
+                        </p>
+                        <p>
+                            Ahora también depende de algo distinto: ser utilizado como fuente por sistemas de
+                            inteligencia artificial.
+                        </p>
+                    </div>
+
+                    <h2>La paradoja de visibilidad de la IA</h2>
+                    <div class="article-box">
+                        <p>
+                            Uno de los fenómenos más interesantes que están apareciendo en esta nueva etapa de internet
+                            es lo que podemos denominar la paradoja de visibilidad de la IA.
+                        </p>
+                        <p><strong>Definición</strong></p>
+                        <p>
+                            “La paradoja de visibilidad de la IA describe la situación en la que una web puede
+                            posicionar correctamente en buscadores tradicionales, pero no aparece como fuente en
+                            respuestas generadas por sistemas de inteligencia artificial.”
+                        </p>
+                        <p>
+                            Este fenómeno se está volviendo cada vez más común.
+                        </p>
+                        <p>
+                            Un artículo puede estar bien posicionado en buscadores para una determinada consulta, pero
+                            cuando esa misma pregunta se formula a una IA, la respuesta puede generarse a partir de
+                            otras fuentes.
+                        </p>
+                        <p>
+                            Esto ocurre porque los criterios utilizados por los sistemas generativos para seleccionar
+                            información no son exactamente los mismos que los utilizados por los buscadores
+                            tradicionales.
+                        </p>
+                        <p>
+                            Para entender mejor este fenómeno, primero es necesario comprender cómo obtienen
+                            información los sistemas de inteligencia artificial.
+                        </p>
+                    </div>
+
+                    <h2>Cómo obtienen información las inteligencias artificiales</h2>
+                    <div class="article-box">
+                        <p>
+                            Los sistemas de inteligencia artificial generativa utilizan varias fuentes de información
+                            para producir respuestas.
+                        </p>
+                        <p>
+                            Aunque cada sistema tiene su propia arquitectura, en términos generales podemos identificar
+                            tres mecanismos principales.
+                        </p>
+
+                        <h3>1. Datos de entrenamiento</h3>
+                        <p>
+                            Los modelos de lenguaje han sido entrenados con grandes cantidades de texto procedentes de
+                            diferentes fuentes públicas, incluyendo:
+                        </p>
+                        <ul>
+                            <li>páginas web</li>
+                            <li>libros</li>
+                            <li>artículos</li>
+                            <li>documentación técnica</li>
+                        </ul>
+                        <p>
+                            Este proceso permite que el modelo aprenda patrones lingüísticos y conceptuales.
+                        </p>
+                        <p>
+                            Sin embargo, el entrenamiento no implica acceso completo a todo el contenido existente en
+                            internet ni garantiza que el modelo recuerde información específica de cada página.
+                        </p>
+
+                        <h3>2. Recuperación de información en tiempo real</h3>
+                        <p>
+                            Algunos sistemas combinan el modelo de lenguaje con motores de búsqueda para recuperar
+                            información actualizada.
+                        </p>
+                        <p>Por ejemplo:</p>
+                        <ul>
+                            <li>Perplexity AI realiza búsquedas web en tiempo real.</li>
+                            <li>Microsoft Copilot utiliza Microsoft Bing.</li>
+                            <li>Google Gemini se integra con Google Search.</li>
+                        </ul>
+                        <p>
+                            Aun así, estos sistemas no muestran todas las páginas disponibles. Seleccionan solo algunas
+                            fuentes consideradas especialmente útiles para responder a la pregunta.
+                        </p>
+
+                        <h3>3. Síntesis de múltiples fuentes</h3>
+                        <p>
+                            Una vez recopilada la información, el modelo genera una respuesta sintetizando diferentes
+                            fuentes.
+                        </p>
+                        <p>
+                            Esto implica que el sistema prioriza contenidos que sean:
+                        </p>
+                        <ul>
+                            <li>claros</li>
+                            <li>estructurados</li>
+                            <li>comprensibles</li>
+                            <li>fácilmente reutilizables</li>
+                        </ul>
+                        <p>
+                            Aquí es donde muchas webs quedan fuera del proceso.
+                        </p>
+                    </div>
+
+                    <h2>Contenido LLM-friendly</h2>
+                    <div class="article-box">
+                        <p>
+                            Para entender mejor qué tipo de contenido funciona mejor en este contexto, resulta útil
+                            introducir el concepto de contenido LLM-friendly.
+                        </p>
+                        <p><strong>Definición</strong></p>
+                        <p>
+                            “Un contenido LLM-friendly es aquel que está estructurado y redactado de forma que un
+                            modelo de lenguaje pueda entenderlo fácilmente, resumirlo y reutilizarlo como fuente dentro
+                            de una respuesta generada.”
+                        </p>
+                        <p>
+                            Este tipo de contenido suele presentar características específicas:
+                        </p>
+                        <ul>
+                            <li>estructura clara</li>
+                            <li>explicaciones directas</li>
+                            <li>definiciones explícitas</li>
+                            <li>secciones bien organizadas</li>
+                            <li>ideas fácilmente sintetizables</li>
+                        </ul>
+                        <p>
+                            Muchos contenidos diseñados exclusivamente para SEO tradicional no cumplen estas
+                            características.
+                        </p>
+                    </div>
+
+                    <h2>Por qué muchas webs no aparecen en respuestas de IA</h2>
+                    <div class="article-box">
+                        <p>
+                            Existen múltiples factores que explican por qué una web puede no aparecer en respuestas
+                            generadas por sistemas de inteligencia artificial.
+                        </p>
+                        <p>
+                            A continuación se presentan algunos de los más relevantes.
+                        </p>
+
+                        <h3>1. El contenido no responde preguntas concretas</h3>
+                        <p>
+                            Las inteligencias artificiales funcionan especialmente bien cuando pueden encontrar
+                            respuestas claras a preguntas específicas.
+                        </p>
+                        <p>
+                            Muchos contenidos SEO se centran en keywords amplias, pero no responden de forma directa a
+                            preguntas concretas.
+                        </p>
+                        <p>
+                            Por ejemplo, un artículo titulado:
+                        </p>
+                        <p>“Guía completa de marketing digital”</p>
+                        <p>
+                            puede no ser tan útil para responder preguntas como:
+                        </p>
+                        <ul>
+                            <li>por qué mi web no aparece en respuestas de IA</li>
+                            <li>cómo optimizar contenido para GEO</li>
+                            <li>cómo seleccionan fuentes los modelos de lenguaje</li>
+                        </ul>
+                        <p>
+                            Cuando el contenido no responde claramente a preguntas específicas, es menos probable que
+                            sea utilizado como fuente.
+                        </p>
+
+                        <h3>2. El contenido es demasiado genérico</h3>
+                        <p>
+                            Uno de los mayores problemas del SEO actual es la proliferación de contenido genérico.
+                        </p>
+                        <p>
+                            Miles de artículos repiten las mismas ideas sin aportar perspectivas nuevas.
+                        </p>
+                        <p>
+                            Sin embargo, los sistemas de inteligencia artificial suelen priorizar contenidos que:
+                        </p>
+                        <ul>
+                            <li>introducen marcos conceptuales</li>
+                            <li>aportan análisis propios</li>
+                            <li>presentan explicaciones claras y originales</li>
+                        </ul>
+
+                        <h3>3. Falta de estructura semántica</h3>
+                        <p>
+                            Los modelos de lenguaje interpretan mejor contenidos que presentan una estructura lógica
+                            clara.
+                        </p>
+                        <p>Elementos que ayudan significativamente incluyen:</p>
+                        <ul>
+                            <li>encabezados descriptivos</li>
+                            <li>listas numeradas</li>
+                            <li>definiciones explícitas</li>
+                            <li>secciones temáticas bien delimitadas</li>
+                        </ul>
+                        <p>
+                            Una estructura clara facilita que el contenido sea analizado y reutilizado por sistemas
+                            generativos.
+                        </p>
+
+                        <h3>4. Falta de autoridad temática</h3>
+                        <p>
+                            Otro factor importante es la autoridad semántica profunda.
+                        </p>
+                        <p><strong>Definición</strong></p>
+                        <p>
+                            “La autoridad semántica profunda se produce cuando una web desarrolla un tema específico a
+                            través de múltiples contenidos interconectados que exploran distintas dimensiones del mismo
+                            problema.”
+                        </p>
+                        <p>
+                            Una web que publica regularmente sobre inteligencia artificial, SEO y posicionamiento
+                            generativo tiene más probabilidades de convertirse en una fuente relevante que una web con
+                            contenido muy disperso.
+                        </p>
+
+                        <h3>5. Ausencia de marcos conceptuales</h3>
+                        <p>
+                            Los contenidos que presentan modelos o clasificaciones suelen ser más fáciles de reutilizar.
+                        </p>
+                        <p>Por ejemplo:</p>
+                        <ul>
+                            <li>listas de factores</li>
+                            <li>metodologías</li>
+                            <li>frameworks conceptuales</li>
+                        </ul>
+                        <p>
+                            Este tipo de estructura facilita que la información sea sintetizada por sistemas de
+                            inteligencia artificial.
+                        </p>
+                    </div>
+
+                    <h2>GEO: Generative Engine Optimization</h2>
+                    <div class="article-box">
+                        <p>
+                            El fenómeno descrito anteriormente está dando lugar a una disciplina emergente conocida como
+                            GEO (Generative Engine Optimization).
+                        </p>
+                        <p><strong>Definición</strong></p>
+                        <p>
+                            “GEO (Generative Engine Optimization) es el conjunto de estrategias destinadas a optimizar
+                            contenidos digitales para aumentar la probabilidad de que sean utilizados como fuente por
+                            sistemas de inteligencia artificial generativa.”
+                        </p>
+                        <p>
+                            El GEO no reemplaza al SEO tradicional, sino que introduce una nueva capa de optimización
+                            orientada a los sistemas generativos.
+                        </p>
+                        <p>
+                            Mientras el SEO busca visibilidad en buscadores, el GEO busca visibilidad dentro de
+                            respuestas generadas.
+                        </p>
+                    </div>
+
+                    <h2>El modelo DELTA de visibilidad en GEO</h2>
+                    <div class="article-box">
+                        <p>
+                            Dentro del marco del GEO, propongo lo que denomino modelo DELTA de visibilidad en motores
+                            generativos.
+                        </p>
+                        <p><strong>Definición</strong></p>
+                        <p>
+                            “El modelo DELTA describe cinco factores que aumentan la probabilidad de que un contenido
+                            sea utilizado como fuente por sistemas de inteligencia artificial dentro de estrategias de
+                            Generative Engine Optimization.”
+                        </p>
+                        <p>
+                            DELTA es un acrónimo que representa cinco dimensiones clave.
+                        </p>
+
+                        <h3>Resumen del modelo DELTA</h3>
+                        <p>
+                            D — Definiciones claras<br>
+                            E — Estructura semántica<br>
+                            L — Liderazgo conceptual<br>
+                            T — Tematicidad profunda<br>
+                            A — Atomicidad del conocimiento
+                        </p>
+
+                        <h3>D — Definiciones claras</h3>
+                        <p>
+                            Las inteligencias artificiales reutilizan con facilidad contenidos que incluyen definiciones
+                            explícitas.
+                        </p>
+                        <p>
+                            Las definiciones funcionan como unidades de conocimiento reutilizable.
+                        </p>
+                        <p>Por ejemplo:</p>
+                        <p>“La paradoja de visibilidad de la IA describe…”</p>
+                        <p>
+                            Este tipo de estructura facilita que el contenido sea citado o sintetizado.
+                        </p>
+
+                        <h3>E — Estructura semántica</h3>
+                        <p>
+                            La información debe estar organizada de forma clara y jerárquica.
+                        </p>
+                        <p>Esto incluye:</p>
+                        <ul>
+                            <li>encabezados bien definidos</li>
+                            <li>secciones temáticas</li>
+                            <li>listas estructuradas</li>
+                        </ul>
+                        <p>
+                            Una estructura clara facilita que un modelo de lenguaje identifique qué parte del texto
+                            responde a cada pregunta.

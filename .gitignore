@@ -1,0 +1,31 @@
+# .DS_Store y archivos de sistema de macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Archivos temporales de editores
+*.swp
+*.swo
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs y archivos de error
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs
+*.log
+
+# Entorno y configuración local
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Carpeta de dependencias (si se añade npm en el futuro)
+node_modules/
+dist/
+build/

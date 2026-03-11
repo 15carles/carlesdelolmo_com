@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Consent Mode v2 (Initial State) -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'wait_for_update': 500
+        });
+        window.dataLayer.push({ 'event': 'default_consent' });
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Gracias por contactar — Carles del Olmo</title>
+    <meta name="description" content="Mensaje recibido correctamente. Me pondré en contacto contigo lo antes posible.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+
+    <!-- Theme Toggle Script -->
+    <script>
+        (function () {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+
+<body>
+
+    <!-- NAVBAR (Loaded dynamically) -->
+    <div data-component="navbar"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="section flex items-center justify-center" style="min-height: 80vh;">
+        <div class="container text-center animate-fade-in-up">
+
+            <!-- Success Icon -->
+            <div class="mb-lg">
+                <svg class="text-accent-purple"
+                    style="width: 80px; height: 80px; margin: 0 auto; color: var(--color-accent-purple);" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+
+            <!-- Heading -->
+            <h1 class="mb-md">¡Mensaje Recibido!</h1>
+
+            <!-- Description -->
+            <div class="max-w-2xl mx-auto mb-xl">
+                <p class="text-secondary text-lg">
+                    Gracias por contactar. He recibido tu mensaje correctamente y lo revisaré en breve.<br>
+                    Te responderé al correo que has facilitado lo antes posible.
+                </p>
+            </div>
+
+            <!-- Action Button -->
+            <a href="/" class="btn btn--primary btn--large">
+                Volver al Inicio
+            </a>
+
+        </div>
+    </main>
+
+    <!-- FOOTER (Loaded dynamically) -->
+    <div data-component="footer"></div>
+    <!-- COOKIE BANNER (Loaded dynamically) -->
+    <div data-component="cookie-banner"></div>
+
+
+    <!-- Scripts -->
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-196PEE2941"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-196PEE2941', { 'anonymize_ip': true });
+    </script>
+</body>
+
+</html>

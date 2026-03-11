@@ -1,0 +1,172 @@
+<!-- Contenedor del Formulario de Presupuesto con Diseño de Dos Columnas -->
+<div class="grid grid-cols-3 gap-xl items-start">
+    <!-- Columna Izquierda: Información y Contexto -->
+    <div class="flex flex-col gap-md pr-lg animate-fade-in-up">
+        <div class="badge badge--status self-start">
+            <span class="text-accent-purple font-semibold" style="letter-spacing: 0.05em; font-size: 0.75rem;">RÁPIDO Y
+                SENCILLO</span>
+        </div>
+
+        <!-- Ilustración SVG Representativa -->
+        <div class="pricing-card__illustration" aria-hidden="true">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <!-- Burbuja de Chat Frontal (Soporte) -->
+                <path d="M24 28h32a4 4 0 014 4v20a4 4 0 01-4 4h-24l-8 6v-6a4 4 0 01-4-4V32a4 4 0 014-4z" />
+                <circle cx="34" cy="38" r="3" />
+                <line x1="42" y1="38" x2="52" y2="38" />
+                <line x1="30" y1="46" x2="52" y2="46" />
+
+                <!-- Burbuja de Chat Trasera (Cliente) - Más sutil -->
+                <path d="M40 22V12a4 4 0 00-4-4H8a4 4 0 00-4 4v20a4 4 0 004 4h4" stroke-opacity="0.5" />
+                <circle cx="16" cy="18" r="3" stroke-opacity="0.5" />
+                <line x1="24" y1="18" x2="32" y2="18" stroke-opacity="0.5" />
+            </svg>
+        </div>
+
+        <h3 class="text-2xl font-bold leading-tight flex items-start">
+            Rellena el formulario y me pondré en contacto contigo
+        </h3>
+
+        <p class="text-secondary leading-relaxed" style="text-align: left !important;">
+            Este breve formulario me permite entender tu punto de partida y tus objetivos. Con esa información
+            diseñaré una propuesta adaptada a tu caso: estrategia digital, desarrollo web, optimización avanzada para
+            buscadores e IA...
+        </p>
+        <p class="text-secondary leading-relaxed" style="text-align: left !important;">
+            hola@carlesdelolmo.com</p>
+    </div>
+
+    <!-- Columna Derecha: El Formulario -->
+    <div class="col-span-2">
+        <!-- Formulario de Presupuesto Dynamico -->
+        <form id="budget-form" class="form card card--no-hover" novalidate>
+            <div class="grid grid-cols-2 gap-md mb-md" style="grid-template-columns: repeat(2, 1fr) !important;">
+                <!-- Identificación -->
+                <div class="form__group">
+                    <label for="nombre" class="form__label" style="text-align: left !important;">Nombre *</label>
+                    <input type="text" id="nombre" name="nombre" class="form__input" placeholder="Tu nombre completo"
+                        required autocomplete="name">
+                </div>
+
+                <div class="form__group">
+                    <label for="email" class="form__label" style="text-align: left !important;">Email *</label>
+                    <input type="email" id="email" name="email" class="form__input" placeholder="tu@email.com" required
+                        autocomplete="email">
+                </div>
+            </div>
+
+            <div class="form__group">
+                <label for="telefono" class="form__label" style="text-align: left !important;">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" class="form__input" placeholder="+34 600 000 000"
+                    autocomplete="tel">
+            </div>
+
+            <hr class="border-t mb-md" aria-hidden="true">
+
+            <!-- Selección de Servicios -->
+            <div class="form__group">
+                <label class="form__label" style="text-align: left !important;">¿En qué servicios estás interesado?
+                    *</label>
+                <label class="flex items-center gap-sm cursor-pointer" style="justify-content: flex-start !important;">
+                    <input type="checkbox" name="servicios_interes" value="Auditoría">
+                    <span class="text-secondary">Auditoría SEO/GEO</span>
+                </label>
+                <div class="flex flex-col gap-sm mt-sm">
+                    <label class="flex items-center gap-sm cursor-pointer"
+                        style="justify-content: flex-start !important;">
+                        <input type="checkbox" name="servicios_interes" value="Diseño Web">
+                        <span class="text-secondary">Diseño Web Estratégico</span>
+                    </label>
+                    <label class="flex items-center gap-sm cursor-pointer"
+                        style="justify-content: flex-start !important;">
+                        <input type="checkbox" name="servicios_interes" value="SEO/GEO">
+                        <span class="text-secondary">Posicionamiento SEO + GEO</span>
+                    </label>
+                    <label class="flex items-center gap-sm cursor-pointer"
+                        style="justify-content: flex-start !important;">
+                        <input type="checkbox" name="servicios_interes" value="Automatización">
+                        <span class="text-secondary">Automatizaciones con IA (o sin IA)</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Identidad Visual -->
+            <div class="form__group mt-md">
+                <label for="identidad_visual" class="form__label" style="text-align: left !important;">¿Tienes ya una
+                    identidad visual?</label>
+                <select id="identidad_visual" name="identidad_visual" class="form__input cursor-pointer"
+                    style="width: 100% !important;">
+                    <option value="">Selecciona una opción</option>
+                    <option value="Si, completa">Sí, tengo logotipo y manual de marca</option>
+                    <option value="Tengo algo base">Tengo algo básico (logo solo)</option>
+                    <option value="No, necesito una">No, necesito crearla desde cero</option>
+                    <option value="Quiero rediseñar">Tengo pero quiero un rediseño</option>
+                </select>
+            </div>
+
+            <hr class="border-t mb-md" aria-hidden="true">
+
+            <!-- Servicios Adicionales -->
+            <div class="form__group">
+                <label class="form__label" style="text-align: left !important;">¿Necesitas añadir algo más?</label>
+                <div class="grid grid-cols-2 gap-sm mt-sm">
+                    <label class="flex items-center gap-sm cursor-pointer"
+                        style="justify-content: flex-start !important;">
+                        <input type="checkbox" name="servicios_adicionales" value="Mantenimiento">
+                        <span class="text-secondary">Mantenimiento Proactivo</span>
+                    </label>
+                    <label class="flex items-center gap-sm cursor-pointer"
+                        style="justify-content: flex-start !important;">
+                        <input type="checkbox" name="servicios_adicionales" value="Formación">
+                        <span class="text-secondary">Formación en Herramientas</span>
+                    </label>
+                    <label class="flex items-center gap-sm cursor-pointer"
+                        style="justify-content: flex-start !important;">
+                        <input type="checkbox" name="servicios_adicionales" value="No" id="no-gracias">
+                        <span class="text-secondary">No, de momento solo lo anterior</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-md mt-md">
+                <!-- Planificación -->
+                <div class="form__group">
+                    <label for="fecha_limite" class="form__label" style="text-align: left !important;">Fecha límite
+                        deseada</label>
+                    <input type="date" id="fecha_limite" name="fecha_limite" class="form__input">
+                </div>
+
+                <div class="form__group">
+                    <label for="donde_conocido" class="form__label" style="text-align: left !important;">¿Cómo has
+                        llegado hasta aquí?</label>
+                    <select id="donde_conocido" name="donde_conocido" class="form__input cursor-pointer"
+                        style="width: 100% !important;">
+                        <option value="">Selecciona una opción</option>
+                        <option value="Google">Buscador Google</option>
+                        <option value="Redes Sociales">Redes Sociales (LinkedIn/X)</option>
+                        <option value="Recomendación">Recomendación de un conocido</option>
+                        <option value="Otros">Otros canales</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Consentimiento -->
+            <div class="form__group mt-lg">
+                <label class="flex items-start gap-sm cursor-pointer" style="justify-content: flex-start !important;">
+                    <input type="checkbox" id="acepta_privacidad" name="acepta_privacidad" required>
+                    <span class="text-muted" style="font-size: 0.875rem;">
+                        He leído y acepto la <a href="politica-privacidad" class="text-accent"
+                            style="text-decoration: underline;">política de privacidad</a> *
+                    </span>
+                </label>
+            </div>
+
+            <!-- Botón de Envío -->
+            <button type="submit" id="submit-btn" class="btn btn--primary btn--large btn--block mt-md"
+                style="width: 100% !important;">
+                Enviar Presupuesto
+            </button>
+        </form>
+    </div>
+</div>

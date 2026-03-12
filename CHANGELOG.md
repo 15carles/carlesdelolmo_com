@@ -2,6 +2,19 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [v3.1.0] - 2026-03-12
+### Añadido
+- **Archivos Base de Configuración SEO:** Creado `lib/seo/schemas.ts` para centralizar objetos globales `PERSON_SCHEMA` y `BUSINESS_SCHEMA` (incluyendo su catálogo completo de ofertas `OfferCatalog`) y generar de forma modular el Schema.org dinámico por plantilla.
+- **Utilidad de Metadatos Core:** Creado `lib/seo/metadata.ts` para abstraer la función generadora `constructMetadata()` y manejar la metainformación predeterminada (etiquetas canonicals, robots de indexación genérica y los meta-parámetros unificados de OpenGraph).
+
+### Eliminado
+- **Cierre HTML Legacy:** Purgados integralmente los archivos estáticos en formato `.html` iniciales del directorio principal (`index.html`, `pricing.html`, `.html` en /blog y /diseno-web) y la carpeta de utilitarios JS directos (`assets/js`). Migración purista a la arquitectura Server-Side/App Router de Next.js finalizada.
+
+### Cambiado
+- **Refactor General JSON-LD:** Sustituidos los JSON hardcodeados masivos por los enrutadores dinámicos de `schemas.ts` en `app/blog/[slug]/page.tsx`, `app/diseno-web/valencia/page.tsx`, `app/diseno-web/alicante/page.tsx`, `app/diseno-web/castellon/page.tsx` y `app/proyectos/ledescaparate/page.tsx`.
+- **Refactor General Metadatos Next.js:** Todos los archivos `page.tsx` principales y dinámicos conectan ahora con `constructMetadata` centralizado para garantizar etiquetas meta completas.
+
+
 ## [v3.0.0] - 2026-03-12
 ### Añadido
 - **Next.js Migration (Fase 8.5):** Migración integral de contenidos críticos desde HTML a la aplicación Next.js, asegurando paridad visual y semántica (Pixel-Perfect).

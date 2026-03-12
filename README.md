@@ -23,43 +23,24 @@ Landing page profesional para desarrollador especialista en **Generative Engine 
 
 ```
 carlesdelolmo_web/
-├── index.html              # Página principal
-├── contacto.html           # Página de contacto
-├── pricing.html            # Servicios y tarifas (Diseño Web, SEO, GEO)
-├── politica-cookies.html   # Política de Cookies (Legal)
-├── gracias.html            # Página de agradecimiento (Formulario)
-├── diseno-web/              # Landings SEO por ubicación
-│   └── diseno-web-valencia.html
-├── proyectos/              # Casos de estudio y plantilla
-│   ├── ledescaparate.html
-│   └── plantilla-proyecto.html
-├── blog/                  # Artículos y plantilla de blog
-│   ├── index.html
-│   ├── el-fin-del-seo-la-era-del-geo.html
-│   ├── plantilla-post.html
-│   └── rss.xml             # Feed de noticias (RSS)
-├── assets/                 # Recursos estáticos
-│   ├── css/               # Arquitectura CSS modular
+├── next_app/               # Aplicación principal Next.js (App Router)
+│   ├── app/                # Enrutador base
+│   │   ├── blog/           # Artículos y lógica de CMS local
+│   │   ├── diseno-web/     # Landings SEO por ubicación (Valencia, Alicante, Castellón)
+│   │   ├── proyectos/      # Casos de estudio interactivos
+│   │   ├── servicio-seo/   # Landings de servicios específicos
+│   │   ├── *               # Páginas legales, precios, contacto, sitemap
+│   ├── components/         # Componentes React reutilizables (Navbar, Footer, CookieBanner)
+│   ├── lib/                # Utilidades core
+│   │   └── seo/            # Generadores dinámicos de JSON-LD y Metadatos
+│   ├── public/             # Assets estáticos (imágenes, icons, robots.txt, globals puros)
+│   ├── styles/             # Arquitectura CSS modular
 │   │   ├── main.css
 │   │   ├── components.css
 │   │   └── shared.css
-│   ├── js/                # Lógica JavaScript
-│   │   ├── main.js
-│   │   ├── theme-toggle.js
-│   │   ├── components.js
-│   │   └── form.js
-│   ├── images/            # Imágenes y assets visuales
-│   └── icons/             # Iconografía SVG
-├── components/             # Fragmentos HTML reutilizables
-│   └── footer.html
-├── .well-known/            # Estándares de seguridad y autoridad
-│   └── security.txt
 ├── CHANGELOG.md            # Historial de cambios
 ├── VERSION                 # Versión actual del proyecto
-├── humans.txt              # Créditos y autoría humana
 ├── llms.txt                # Perfil optimizado para modelos de lenguaje
-├── robots.txt              # Configuración para rastreadores
-├── sitemap.xml             # Mapa del sitio incluyendo subdirectorios
 └── README.md               # Documentación principal
 ```
 
@@ -105,5 +86,5 @@ Especialista en Generative Engine Optimization
 
 ---
 
-**Versión**: v3.0.0  
-**Última actualización**: 12 Marzo 2026 (Feat: Migración completa de páginas críticas de servicios, proyectos y blog a Next.js - Fase 8.5)
+**Versión**: v3.1.0  
+**Última actualización**: 12 Marzo 2026 (Feat: Finalizada Fase 9. Centralización de JSON-LD, metadatos y limpieza de HTML legacy)

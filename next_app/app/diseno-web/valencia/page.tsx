@@ -6,14 +6,13 @@ import { Code, MapPin, Zap, Search, Layout, MousePointer2, Check, ArrowRight, Sh
 import Image from 'next/image';
 import Link from 'next/link';
 import { PERSON_SCHEMA, BUSINESS_SCHEMA, generateBreadcrumbSchema, SITE_URL } from '@/lib/seo/schemas';
+import { constructMetadata } from '@/lib/seo/metadata';
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: 'Diseño web en Valencia | Carles del Olmo - SEO y GEO',
   description: 'Diseño web estratégico en Valencia. Optimización para buscadores y motores de IA para destacar en la era digital.',
-  alternates: {
-    canonical: 'https://carlesdelolmo.com/diseno-web/valencia',
-  },
-};
+  exactUrl: `${SITE_URL}/diseno-web/valencia`,
+});
 
 export default function DisenoWebValencia() {
   const breadcrumbs = [

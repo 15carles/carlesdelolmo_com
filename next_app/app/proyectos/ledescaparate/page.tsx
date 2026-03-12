@@ -5,11 +5,13 @@ import PagespeedMetrics from '@/components/PagespeedMetrics';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PERSON_SCHEMA, BUSINESS_SCHEMA, generateBreadcrumbSchema, SITE_URL } from '@/lib/seo/schemas';
+import { constructMetadata } from '@/lib/seo/metadata';
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: 'Caso de Estudio: LEDescaparate.es | Carles del Olmo',
   description: 'Descubre cómo logramos que la IA cite a LEDescaparate.es como autoridad mediante arquitectura de entidades y optimización generativa (GEO).',
-};
+  exactUrl: `${SITE_URL}/proyectos/ledescaparate`,
+});
 
 export default function LedescaparatePage() {
   const breadcrumbs = [

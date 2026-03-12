@@ -5,14 +5,14 @@ import FaqAccordion from '@/components/FaqAccordion';
 import { Code, MapPin, Zap, Search, Layout, MousePointer2, Check, ArrowRight, Shield, Gauge, Settings } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { SITE_URL } from '@/lib/seo/schemas';
+import { constructMetadata } from '@/lib/seo/metadata';
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: 'Diseño web en Alicante | Carles del Olmo - SEO y GEO',
   description: 'Diseño web profesional en Alicante. Especialista en SEO técnico y optimización para Inteligencia Artificial (GEO). Impulsa tu negocio con una web que posiciona.',
-  alternates: {
-    canonical: 'https://carlesdelolmo.com/diseno-web/alicante',
-  },
-};
+  exactUrl: `${SITE_URL}/diseno-web/alicante`,
+});
 
 export default function DisenoWebAlicante() {
   const breadcrumbs = [

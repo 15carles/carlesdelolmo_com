@@ -2,7 +2,8 @@ import React from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { generateBlogSchema } from '@/lib/seo/schemas';
+import { generateBlogSchema, SITE_URL } from '@/lib/seo/schemas';
+import { constructMetadata } from '@/lib/seo/metadata';
 
 interface PostData {
   slug: string;
@@ -378,10 +379,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const post = postsData[params.slug];
   if (!post) return {};
-  return {
+  return constructMetadata({
     title: post.metadata.title,
     description: post.metadata.description,
-  };
+    exactUrl: `${SITE_URL}/blog/${post.slug}`,
+    type: 'article',
+    publishedTime: post.isoDate,
+  });
 }
 
 export default function BlogPost({ params }: { params: { slug: string } }) {

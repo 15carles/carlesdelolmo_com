@@ -6,31 +6,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollReveal from "@/components/ScrollReveal";
+import { constructMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = constructMetadata({
   title: "Diseño web en Valencia | Carles del Olmo - SEO y GEO",
-  description: "Diseñador web en Valencia especializado en SEO técnico y GEO (Generative Engine Optimization).",
-  authors: [{ name: "Carles del Olmo" }],
-  robots: "index, follow",
-  alternates: {
-    canonical: "https://carlesdelolmo.com/",
-  },
-  openGraph: {
-    title: "Diseño web en Valencia | Carles del Olmo - SEO y GEO",
-    description: "Especialista en Generative Engine Optimization. Ayudo a empresas a destacar en la era de las IAs y buscadores inteligentes.",
-    type: "website",
-    url: "https://carlesdelolmo.com/",
-    siteName: "Carles del Olmo",
-    locale: "es_ES",
-    images: [
-      {
-        url: "https://carlesdelolmo.com/assets/images/og-cover.jpg",
-        width: 1200,
-        height: 630,
-      },
-    ],
-  },
-};
+  description: "Especialista en Generative Engine Optimization. Ayudo a empresas a destacar en la era de las IAs y buscadores inteligentes.",
+});
 
 export default function RootLayout({
   children,

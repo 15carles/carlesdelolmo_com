@@ -1,0 +1,13 @@
+@import '../styles/main.css';
+@import '../styles/shared.css';
+@import '../styles/components.css';
+
+/* Sobrescribir estilos base de Next.js si es necesario */
+:root {
+  --background: #0a0a0a; /* Por defecto oscuro para encajar con tu diseño premium */
+  --foreground: #ffffff;
+}
+
+html, body {
+  background-color: var(--bg-dark); /* De tu main.css */
+}

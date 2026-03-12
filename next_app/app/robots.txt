@@ -1,0 +1,76 @@
+# carlesdelolmo.com — robots.txt
+
+# --- IA / Answer Engines (permitido) ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: MetaExternalAgent
+Allow: /
+
+User-agent: Xbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+
+# --- Bloqueo herramientas “competencia” (opcional) ---
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+
+# --- Configuración general ---
+User-agent: *
+Allow: /
+
+# Seguridad y rutas técnicas
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /.agent/
+Disallow: /node_modules/
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /yarn.lock
+Disallow: /pnpm-lock.yaml
+
+# Directorios de trabajo
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /drafts/
+Disallow: /staging/
+Disallow: /test/
+
+Sitemap: https://carlesdelolmo.com/sitemap.xml

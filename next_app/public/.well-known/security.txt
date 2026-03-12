@@ -1,0 +1,5 @@
+Contact: mailto:hola@carlesdelolmo.com
+Preferred-Languages: es, en
+Canonical: https://carlesdelolmo.com/.well-known/security.txt
+Policy: https://carlesdelolmo.com/#contacto
+Expires: 2027-02-09T23:59:59.000Z

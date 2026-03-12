@@ -105,5 +105,5 @@ Especialista en Generative Engine Optimization
 
 ---
 
-**Versión**: v2.9.3  
-**Última actualización**: 08 Marzo 2026 (Feat: Implementación de la página de Política de Cookies con diseño premium e integración global)
+**Versión**: v3.0.0  
+**Última actualización**: 12 Marzo 2026 (Feat: Migración completa de páginas críticas de servicios, proyectos y blog a Next.js - Fase 8.5)

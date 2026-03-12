@@ -2,6 +2,17 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [v3.0.0] - 2026-03-12
+### Añadido
+- **Next.js Migration (Fase 8.5):** Migración integral de contenidos críticos desde HTML a la aplicación Next.js, asegurando paridad visual y semántica (Pixel-Perfect).
+- **Servicios:** Actualización profunda de `/diseno-web/valencia` en Next.js con todas las secciones originales (Sección Proyectos, Keywords Cloud, Herramientas SEO).
+- **Blog:** Migración de artículos de alto valor estratégico (`el-fin-del-seo-la-era-del-geo` y `semantica-avanzada-motores-ia`) con tablas de datos, CTAs y esquemas de BlogPosting/FAQPage.
+- **Proyectos:** Validación y sincronización de `ledescaparate` como caso de estudio principal en el ecosistema Next.js.
+
+### Cambiado
+- **SEO/GEO:** Implementación de metadatos dinámicos básicos y marcado Schema JSON-LD avanzado en todas las nuevas páginas migradas.
+- **Sitemap:** Actualización de `sitemap.xml` para reflejar el estado actual de las rutas en Next.js.
+
 ## [v2.9.3] - 2026-03-08
 ### Añadido
 - **Legal:** Implementación integral de la página de Política de Cookies (`politica-cookies.html`) con diseño premium, integración de componentes globales (Navbar/Footer) y cumplimiento de Consent Mode v2.

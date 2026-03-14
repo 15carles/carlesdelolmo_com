@@ -1,13 +1,15 @@
 import { config, fields, collection, component } from '@keystatic/core';
 
 export default config({
-  storage: {
-    kind: process.env.NODE_ENV === 'development' ? 'local' : 'github',
-    repo: {
-      owner: '15carles',
-      name: 'carlesdelolmo_com',
-    },
-  },
+  storage: process.env.NODE_ENV === 'development'
+    ? { kind: 'local' }
+    : {
+        kind: 'github',
+        repo: {
+          owner: '15carles',
+          name: 'carlesdelolmo_com',
+        },
+      },
   ui: {
     brand: {
       name: 'Carles del Olmo',

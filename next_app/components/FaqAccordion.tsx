@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 interface FaqItemData {
-  question: string;
-  answer: string;
+  readonly question: string;
+  readonly answer: string;
 }
 
 interface FaqAccordionProps {
   title: string;
-  items: FaqItemData[];
+  items: readonly FaqItemData[];
 }
 
 export default function FaqAccordion({ title, items }: FaqAccordionProps) {

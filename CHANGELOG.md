@@ -2,6 +2,18 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [v3.2.0] - 2026-03-12
+### Añadido
+- **CMS (Keystatic):** Integración completa de Keystatic como CMS basado en Git. Configuración de panel de administración y API ruta dedicada.
+- **Rutas Admin:** Panel de administración renderizado en `app/keystatic/` para visual-editing local.
+- **Renderizado Dinámico:** Implementación de `DocumentRenderer` de `@keystatic/core/renderer` en `app/blog/[slug]/page.tsx` garantizando conversión de MDX/Markdoc a HTML e integración completa con Next.js App Router (SSG).
+- **Custom Blocks:** Soporte para componentes MDX dinámicos "articleBox" y "ctaSection" con parámetros editables mediante la UI de Keystatic.
+
+### Cambiado
+- **Migración Markdown:** Transformación de los 3 posts clave de blog (arrays hardcodeados) a archivos Markdoc (`.mdoc`) físicos en `/content/posts/` listos para ser versionados en GitHub.
+- **Automatización SEO:** Reconfiguración de `generateMetadata`, `generateStaticParams` y constructores de JSON-LD en los posts para leer dinámicamente propiedades (slug, metadatos, categorías, autor) usando `reader` nativo de Keystatic.
+
+
 ## [v3.1.0] - 2026-03-12
 ### Añadido
 - **Archivos Base de Configuración SEO:** Creado `lib/seo/schemas.ts` para centralizar objetos globales `PERSON_SCHEMA` y `BUSINESS_SCHEMA` (incluyendo su catálogo completo de ofertas `OfferCatalog`) y generar de forma modular el Schema.org dinámico por plantilla.

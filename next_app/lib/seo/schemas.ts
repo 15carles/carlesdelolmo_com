@@ -203,28 +203,46 @@ export function generateBlogSchema(post: {
   isoDate: string;
   keywords?: string[];
   categories?: string[];
+  faqs?: { question: string; answer: string }[];
 }) {
+  const graph: any[] = [
+    PERSON_SCHEMA,
+    BUSINESS_SCHEMA,
+    {
+      "@type": "BlogPosting",
+      "@id": `${SITE_URL}/blog/${post.slug}#blogposting`,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/blog/${post.slug}`
+      },
+      "headline": typeof post.title === 'string' ? post.title : (post.title as any)?.name || '',
+      "description": post.description,
+      "datePublished": post.isoDate,
+      "dateModified": post.isoDate,
+      "author": { "@id": `${SITE_URL}/#person` },
+      "publisher": { "@id": `${SITE_URL}/#business` },
+      "keywords": post.keywords || [],
+      "articleSection": post.categories || []
+    }
+  ];
+
+  if (post.faqs && post.faqs.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/blog/${post.slug}#faq`,
+      "mainEntity": post.faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    });
+  }
+
   return {
     "@context": "https://schema.org",
-    "@graph": [
-      PERSON_SCHEMA,
-      BUSINESS_SCHEMA,
-      {
-        "@type": "BlogPosting",
-        "@id": `${SITE_URL}/blog/${post.slug}#blogposting`,
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": `${SITE_URL}/blog/${post.slug}`
-        },
-        "headline": post.title,
-        "description": post.description,
-        "datePublished": post.isoDate,
-        "dateModified": post.isoDate,
-        "author": { "@id": `${SITE_URL}/#person` },
-        "publisher": { "@id": `${SITE_URL}/#business` },
-        "keywords": post.keywords || [],
-        "articleSection": post.categories || []
-      }
-    ]
+    "@graph": graph
   };
 }

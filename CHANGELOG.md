@@ -2,6 +2,20 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [Cambios Recientes] - 2026-03-20
+### Añadido
+- **Diseño Web:** Nuevos componentes interactivos `OrbitaMethod` (visualización del ecosistema digital) y `WorkflowTimeline` (línea de tiempo del proceso de trabajo).
+- **Diseño Web:** Implementación de la landing page de servicio local `/diseno-web/valencia` con contenido optimizado para SEO y GEO.
+- **UI/UX:** Nuevas tarjetas de proyectos con efectos glassmorphism y micro-animaciones en la sección de diseño web.
+- **Assets:** Generación de mockups visuales premium para muestras de proyectos (`EcoHogar`, `ColorVibe`, etc.).
+
+### Cambiado
+- **Refactorización (Diseño Web):** Traslado de la lógica a componentes modulares TSX para mejorar la mantenibilidad y paridad con Next.js.
+- **Estilos:** Optimización de `components.css` y `main.css` para soportar las nuevas secciones interactivas y efectos visuales.
+- **SEO:** Actualización de metadatos y esquemas JSON-LD en las nuevas rutas de diseño web.
+- **Sitemap:** Sincronización de rutas de diseño web y unificación de archivos de control de sitemap.
+
+
 ## [v3.2.0] - 2026-03-12
 ### Añadido
 - **CMS (Keystatic):** Integración completa de Keystatic como CMS basado en Git. Configuración de panel de administración y API ruta dedicada.

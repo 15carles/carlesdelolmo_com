@@ -18,6 +18,8 @@ Landing page profesional para desarrollador especialista en **Generative Engine 
 - ✅ **Modo Claro / Oscuro**: Sistema de temas dual con persistencia automática y diseño adaptativo.
 - ✅ **Glassmorphism Theme-Aware**: Efectos de cristal que se adaptan al modo de color seleccionado.
 - ✅ **Caso de Estudio LEDescaparate**: Ejemplo real de visibilidad del 74% en IA con métricas Lighthouse 100/100.
+- ✅ **Componentes Interactivos (Nuevo)**: Implementación de `OrbitaMethod` y `WorkflowTimeline` para visualización dinámica de servicios y procesos.
+- ✅ **GEO-Optimization**: Contenido estructurado específicamente para Gemini, ChatGPT y Perplexity.
 
 ## 📁 Estructura del Proyecto
 
@@ -86,5 +88,5 @@ Especialista en Generative Engine Optimization
 
 ---
 
-**Versión**: v3.1.0  
-**Última actualización**: 12 Marzo 2026 (Feat: Finalizada Fase 9. Centralización de JSON-LD, metadatos y limpieza de HTML legacy)
+**Versión**: v3.2.0  
+**Última actualización**: 20 Marzo 2026 (Feat: Implementación de componentes interactivos y landing de diseño web local)

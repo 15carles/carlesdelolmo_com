@@ -4,9 +4,17 @@ export const PERSON_SCHEMA = {
   "@type": "Person",
   "@id": `${SITE_URL}/#person`,
   "name": "Carles del Olmo",
-  "jobTitle": "Diseñador Web y Especialista SEO/GEO",
+  "jobTitle": "Diseñador Web en Valencia y Especialista en SEO Técnico y Generative Engine Optimization (GEO)",
   "url": SITE_URL,
+  "telephone": "+34 668 676 302",
   "email": "hola@carlesdelolmo.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Benetússer",
+    "addressRegion": "Valencia",
+    "postalCode": "46910",
+    "addressCountry": "ES"
+  },
   "image": `${SITE_URL}/assets/images/carles-del-olmo-logo.webp`,
   "sameAs": [
     "https://www.linkedin.com/in/delolmocarles/",
@@ -204,27 +212,58 @@ export function generateBlogSchema(post: {
   keywords?: string[];
   categories?: string[];
   faqs?: { question: string; answer: string }[];
+  author?: {
+    name: string;
+    email?: string | null;
+    schemaId?: string | null;
+    specialties?: readonly string[] | null;
+    socialLinks?: readonly { platform: string; url: string }[] | null;
+  } | null;
 }) {
   const graph: any[] = [
     PERSON_SCHEMA,
     BUSINESS_SCHEMA,
-    {
-      "@type": "BlogPosting",
-      "@id": `${SITE_URL}/blog/${post.slug}#blogposting`,
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `${SITE_URL}/blog/${post.slug}`
-      },
-      "headline": typeof post.title === 'string' ? post.title : (post.title as any)?.name || '',
-      "description": post.description,
-      "datePublished": post.isoDate,
-      "dateModified": post.isoDate,
-      "author": { "@id": `${SITE_URL}/#person` },
-      "publisher": { "@id": `${SITE_URL}/#business` },
-      "keywords": post.keywords || [],
-      "articleSection": post.categories || []
-    }
   ];
+
+  let authorObject: any;
+
+  if (post.author) {
+    if (post.author.schemaId) {
+      // Caso 1: El autor tiene schemaId, referenciamos por @id
+      authorObject = { "@id": post.author.schemaId };
+    } else {
+      // Caso 2: El autor NO tiene schemaId, creamos un objeto Person independiente
+      authorObject = {
+        "@type": "Person",
+        "name": post.author.name,
+        ...(post.author.email ? { "email": post.author.email.startsWith('mailto:') ? post.author.email : `mailto:${post.author.email}` } : {}),
+        ...(post.author.specialties?.length ? { "knowsAbout": [...post.author.specialties] } : {}),
+        ...(post.author.socialLinks?.length ? { "sameAs": post.author.socialLinks.map(link => link.url) } : {}),
+      };
+      // Si es un autor independiente, lo añadimos al grafo para que tenga su propia entidad si es necesario, 
+      // aunque aquí lo ideal es que vaya embebido en el BlogPosting como pide el usuario para autores invitados.
+    }
+  } else {
+    // Fallback: si no hay autor definido (no debería ocurrir por validación de Keystatic)
+    authorObject = { "@id": `${SITE_URL}/#person` };
+  }
+
+  graph.push({
+    "@type": "BlogPosting",
+    "@id": `${SITE_URL}/blog/${post.slug}#blogposting`,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${post.slug}`
+    },
+    "headline": typeof post.title === 'string' ? post.title : (post.title as any)?.name || '',
+    "description": post.description,
+    "datePublished": post.isoDate,
+    "dateModified": post.isoDate,
+    "author": authorObject,
+    "publisher": { "@id": `${SITE_URL}/#business` },
+    "keywords": post.keywords || [],
+    "articleSection": post.categories || []
+  });
 
   if (post.faqs && post.faqs.length > 0) {
     graph.push({
@@ -239,6 +278,108 @@ export function generateBlogSchema(post: {
         }
       }))
     });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph
+  };
+}
+
+export function generateProjectSchema(project: {
+  slug: string;
+  title: string;
+  description: string;
+  isoDate: string;
+  sector: string;
+  foco: string;
+  client?: {
+    name: string;
+    url?: string;
+    logo?: string;
+  };
+  testimonial?: {
+    text: string;
+    author: string;
+    role?: string;
+  };
+}) {
+  const projectUrl = `${SITE_URL}/proyectos/${project.slug}`;
+  
+  const graph: any[] = [
+    PERSON_SCHEMA,
+    BUSINESS_SCHEMA,
+    {
+      "@type": "WebPage",
+      "@id": `${projectUrl}#webpage`,
+      "url": projectUrl,
+      "name": project.title,
+      "description": project.description,
+      "inLanguage": "es-ES",
+      "isPartOf": { "@id": `${SITE_URL}/#website` },
+      "about": { "@id": `${SITE_URL}/#person` },
+      "publisher": { "@id": `${SITE_URL}/#business` },
+      "mainEntity": { "@id": `${projectUrl}#case-study` },
+      "breadcrumb": { "@id": `${projectUrl}#breadcrumb` }
+    },
+    generateBreadcrumbSchema([
+      { label: 'Inicio', href: '/' },
+      { label: 'Proyectos', href: '/#proyectos' },
+      { label: project.title, href: `/proyectos/${project.slug}` }
+    ]),
+    {
+      "@type": "CreativeWork",
+      "@id": `${projectUrl}#case-study`,
+      "additionalType": "https://schema.org/CaseStudy",
+      "name": project.title,
+      "description": project.description,
+      "inLanguage": "es-ES",
+      "author": { "@id": `${SITE_URL}/#person` },
+      "publisher": { "@id": `${SITE_URL}/#business` },
+      "about": [
+        "Arquitectura de entidades",
+        "SEO técnico",
+        "Generative Engine Optimization",
+        project.sector,
+        project.foco
+      ].filter(Boolean)
+    }
+  ];
+
+  if (project.client) {
+    const clientOrgId = `${project.client.url || projectUrl}#org`;
+    graph.push({
+      "@type": "Organization",
+      "@id": clientOrgId,
+      "name": project.client.name,
+      "url": project.client.url,
+      ...(project.client.logo ? { "logo": project.client.logo } : {})
+    });
+
+    if (project.client.url) {
+      graph.push({
+        "@type": "WebSite",
+        "@id": `${project.client.url}#website`,
+        "url": project.client.url,
+        "name": project.client.name,
+        "publisher": { "@id": clientOrgId }
+      });
+    }
+
+    // Si hay testimonio, añadimos la Review
+    if (project.testimonial) {
+      graph.push({
+        "@type": "Review",
+        "@id": `${projectUrl}#review`,
+        "itemReviewed": { "@id": `${projectUrl}#case-study` },
+        "reviewBody": project.testimonial.text,
+        "author": {
+          "@type": "Person",
+          "name": project.testimonial.author,
+          "affiliation": { "@id": clientOrgId }
+        }
+      });
+    }
   }
 
   return {

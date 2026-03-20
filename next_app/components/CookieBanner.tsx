@@ -115,9 +115,9 @@ export default function CookieBanner() {
         <div id="cookie-banner" className="cookie-banner is-visible" aria-hidden="false">
           <div className="cookie-banner__container">
             <div className="cookie-banner__content">
-              <h3 className="cookie-banner__title">Tu privacidad nos importa</h3>
+              <h3 className="cookie-banner__title">Tu privacidad importa</h3>
               <p className="cookie-banner__text">
-                Utilizamos cookies propias y de terceros para analizar la navegación y mejorar el sitio web.
+                Utilizo cookies propias y de terceros para analizar la navegación y mejorar el sitio web.
                 Puedes aceptar todas las cookies, rechazarlas o configurarlas según tus preferencias.
                 <Link href="/politica-cookies" target="_blank" rel="noopener" className="cookie-banner__link">
                   Política de Cookies

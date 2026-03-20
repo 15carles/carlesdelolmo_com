@@ -1,8 +1,8 @@
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <head>
-        <title>Keystatic Admin</title>
+        <title>Administrador</title>
       </head>
       <body>
         {children}

@@ -2340,8 +2340,7 @@
 
 /* Modo oscuro: Fondo más opaco y profundo para el modal */
 :root[data-theme="dark"] .cookie-modal .card {
-    background: rgba(15, 23, 42, 0.95);
-    /* Azul muy oscuro y casi opaco */
+    background: rgba(15, 23, 42, 0.95); /* Azul muy oscuro y casi opaco */
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);

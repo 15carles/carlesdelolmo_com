@@ -30,12 +30,19 @@ function PageSpeedCircle({ label, value, offset }: MetricProps) {
   );
 }
 
-export default function PagespeedMetrics() {
+export default function PagespeedMetrics({ seo = 100, performance = 100, bestPractices = 98, accessibility = 100 }: { seo?: number, performance?: number, bestPractices?: number, accessibility?: number }) {
+  const calculateOffset = (val: number) => {
+    // 213.6 es la circunferencia total (dasharray)
+    // val 100 -> offset 0
+    // val 0 -> offset 213.6
+    return (213.6 * (100 - val)) / 100;
+  };
+
   const metrics = [
-    { label: 'SEO', value: 100, offset: 0 },
-    { label: 'Rendimiento', value: 100, offset: 4.2 },
-    { label: 'Prácticas', value: 98, offset: 8.5 },
-    { label: 'Accesibilidad', value: 97, offset: 14.9 },
+    { label: 'SEO', value: seo, offset: calculateOffset(seo) },
+    { label: 'Rendimiento', value: performance, offset: calculateOffset(performance) },
+    { label: 'Prácticas', value: bestPractices, offset: calculateOffset(bestPractices) },
+    { label: 'Accesibilidad', value: accessibility, offset: calculateOffset(accessibility) },
   ];
 
   return (

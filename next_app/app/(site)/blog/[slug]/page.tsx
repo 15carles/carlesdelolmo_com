@@ -36,6 +36,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     notFound();
   }
 
+  const author = post.author ? await reader.collections.authors.read(post.author as string) : null;
+
   const breadcrumbs = [
     { label: 'Inicio', href: '/' },
     { label: 'Blog', href: '/blog' },
@@ -49,7 +51,14 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     isoDate: post.isoDate || '',
     keywords: [...(post.keywords || [])],
     categories: [...(post.categories || [])],
-    faqs: [...(post.faqs || [])]
+    faqs: [...(post.faqs || [])],
+    author: author ? {
+      name: (author.name as any)?.name || author.name || '',
+      email: (author as any).email,
+      schemaId: (author as any).schemaId,
+      specialties: (author as any).specialties,
+      socialLinks: (author as any).socialLinks,
+    } : null
   });
 
   const content = await post.content();
@@ -64,7 +73,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <header className="page-header animate-on-scroll">
           <div className="container">
             <Breadcrumbs items={breadcrumbs} />
-            
+
             <h1 className="page-header__title mt-xl">{(post.title as any)?.name || post.title || ''}</h1>
             <p className="page-header__subtitle">{post.subtitle || ''}</p>
 
@@ -82,8 +91,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <article className="section animate-on-scroll">
           <div className="container">
             <div className="article-content">
-              <DocumentRenderer 
-                document={content} 
+              <DocumentRenderer
+                document={content}
                 renderers={{
                   block: {
                     table: (props) => (
@@ -124,8 +133,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                   ),
                   button: (props) => (
                     <div className={`mt-lg mb-lg ${props.centered ? 'text-center' : ''}`}>
-                      <Link 
-                        href={props.link || '#'} 
+                      <Link
+                        href={props.link || '#'}
                         className={`btn btn--${props.variant} ${props.size === 'large' ? 'btn--large' : ''}`}
                       >
                         {props.label}
@@ -135,15 +144,15 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                   styledImage: (props) => (
                     <div className={`mt-xl mb-xl ${props.centered ? 'text-center' : ''}`}>
                       {props.image && (
-                        <img 
-                          src={props.image} 
-                          alt={props.alt || ''} 
+                        <img
+                          src={props.image}
+                          alt={props.alt || ''}
                           className={props.effect === 'glass' ? 'img--glass' : 'img--responsive'}
-                          style={{ 
-                            width: props.width, 
-                            height: 'auto', 
-                            marginLeft: props.centered ? 'auto' : '0', 
-                            marginRight: props.centered ? 'auto' : '0' 
+                          style={{
+                            width: props.width,
+                            height: 'auto',
+                            marginLeft: props.centered ? 'auto' : '0',
+                            marginRight: props.centered ? 'auto' : '0'
                           }}
                         />
                       )}
@@ -154,8 +163,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                       <h2 className="cta-section__title" style={{ fontSize: '1.5rem' }}>{props.title}</h2>
                       <p className="cta-section__text">{props.text}</p>
                       <div className="cta-section__buttons" style={{ marginTop: '2rem' }}>
-                        <Link 
-                          href={props.buttonLink || '/contacto'} 
+                        <Link
+                          href={props.buttonLink || '/contacto'}
                           className={`btn btn--${props.buttonVariant || 'primary'}`}
                         >
                           {props.buttonText}
@@ -175,8 +184,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                       tip: '💡'
                     };
                     return (
-                      <div 
-                        className="article-box mt-lg mb-lg" 
+                      <div
+                        className="article-box mt-lg mb-lg"
                         style={{ borderLeft: `4px solid ${colors[props.type as keyof typeof colors] || colors.info}` }}
                       >
                         <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '0.5rem', fontWeight: 'bold', fontSize: '0.9rem', color: colors[props.type as keyof typeof colors] }}>
@@ -191,9 +200,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     <div className={`grid grid-cols-${props.columns} gap-md mt-xl mb-xl`}>
                       {(props.images || []).map((item: any, i: number) => (
                         <div key={i} className="animate-on-scroll">
-                          <img 
-                            src={item.image} 
-                            alt={item.alt || ''} 
+                          <img
+                            src={item.image}
+                            alt={item.alt || ''}
                             className="img--glass"
                             style={{ width: '100%', height: 'auto', aspectRatio: '4/3', objectFit: 'cover' }}
                           />
@@ -207,9 +216,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
             {post.faqs && post.faqs.length > 0 && (
               <div className="mt-3xl">
-                <FaqAccordion 
-                  title="Preguntas Frecuentes" 
-                  items={post.faqs} 
+                <FaqAccordion
+                  title="Preguntas Frecuentes"
+                  items={post.faqs}
                 />
               </div>
             )}

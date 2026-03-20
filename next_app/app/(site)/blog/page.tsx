@@ -16,7 +16,7 @@ export default async function BlogIndex() {
   ];
 
   const postsData = await reader.collections.posts.all();
-  
+
   const posts = postsData.map(post => ({
     title: post.entry.title,
     excerpt: post.entry.subtitle || post.entry.metaDescription,
@@ -24,8 +24,8 @@ export default async function BlogIndex() {
     date: post.entry.date,
     category: post.entry.categories[0] || 'Blog',
     // Mantenemos colores por categoría si es necesario, pero asignamos un default:
-    categoryColor: (post.entry.categories[0] === 'GEO' ? 'blue' : 
-                   post.entry.categories[0] === 'Análisis' ? 'cyan' : 'purple') as 'blue'|'cyan'|'purple'|'teal'
+    categoryColor: (post.entry.categories[0] === 'GEO' ? 'blue' :
+      post.entry.categories[0] === 'Análisis' ? 'cyan' : 'purple') as 'blue' | 'cyan' | 'purple' | 'teal'
   })).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (

@@ -1,11 +1,14 @@
 "use client";
 
 import React, { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function ScrollReveal() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.15,
+      threshold: 0,
       rootMargin: "0px 0px -50px 0px"
     };
 
@@ -19,13 +22,17 @@ export default function ScrollReveal() {
       });
     }, observerOptions);
 
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    elements.forEach(el => observer.observe(el));
+    // Pequeño timeout para permitir que el DOM se actualice tras el cambio de ruta
+    const timeoutId = setTimeout(() => {
+      const elements = document.querySelectorAll('.animate-on-scroll:not(.animate-fade-in-up)');
+      elements.forEach(el => observer.observe(el));
+    }, 100);
 
     return () => {
-      elements.forEach(el => observer.unobserve(el));
+      clearTimeout(timeoutId);
+      observer.disconnect();
     };
-  }, []);
+  }, [pathname]);
 
   return null; // Este componente no renderiza nada, solo activa la lógica
 }

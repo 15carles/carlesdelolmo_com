@@ -1,0 +1,29 @@
+name: Carles del Olmo
+occupation: >-
+  Diseñador Web en Valencia y Especialista en SEO Técnico y Generative Engine
+  Optimization (GEO)
+bio: >-
+  Consultor digital especializado en diseño web estratégico, SEO técnico y
+  Generative Engine Optimization (GEO). Ayuda a empresas a conseguir clientes
+  construyendo ecosistemas digitales y visibilidad tanto en buscadores como en
+  motores de inteligencia artificial.
+email: hola@carlesdelolmo.com
+schemaId: https://carlesdelolmo.com/#person
+specialties:
+  - Diseño web estratégico
+  - SEO técnico
+  - Generative Engine Optimization (GEO)
+  - Optimización de conversión web
+  - Arquitectura técnica
+  - Estrategia digital para empresas
+  - Automatización de procesos
+  - Ecosistemas digitales
+socialLinks:
+  - platform: linkedin
+    url: https://www.linkedin.com/in/carlesdelolmo/
+  - platform: website
+    url: https://carlesdelolmo.com
+  - platform: github
+    url: https://github.com/15carles
+  - platform: twitter
+    url: https://x.com/15carles

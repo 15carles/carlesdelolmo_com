@@ -250,7 +250,7 @@ export default function DisenoWebValencia() {
 
               <div className="animate-on-scroll flex flex-col justify-center pb-3xl hero-right-col hidden-mobile">
                 <div className="relative w-full aspect-[3/2]">
-                  <Image 
+                  <Image
                     src="/assets/images/stock/ciudad-artes-y-ciencias-valencia.webp"
                     alt="Ciudad de las Artes y las Ciencias de Valencia"
                     fill
@@ -319,8 +319,8 @@ export default function DisenoWebValencia() {
             <div className="grid grid-cols-3 gap-xl items-center">
               <div className="animate-on-scroll flex justify-center">
                 <div className="relative w-full aspect-[3/2] max-w-[300px]">
-                  <Image 
-                    src="/assets/images/stock/bandera-valencia.webp" 
+                  <Image
+                    src="/assets/images/stock/bandera-valencia.webp"
                     alt="Bandera de la Comunitat Valenciana"
                     fill
                     className="img--responsive img--glass object-cover rounded-lg"
@@ -477,18 +477,18 @@ export default function DisenoWebValencia() {
             <div className="tools-grid animate-on-scroll">
               {tools.map((tool, index) => (
                 <div key={index} className="tools-card">
-                  <Image 
-                    src={tool.light} 
-                    alt={`logo de ${tool.name}`} 
-                    width={120} 
-                    height={40} 
+                  <Image
+                    src={tool.light}
+                    alt={`logo de ${tool.name}`}
+                    width={120}
+                    height={40}
                     className="tools-logo show-in-light object-contain"
                   />
-                  <Image 
-                    src={tool.dark} 
-                    alt={`logo de ${tool.name}`} 
-                    width={120} 
-                    height={40} 
+                  <Image
+                    src={tool.dark}
+                    alt={`logo de ${tool.name}`}
+                    width={120}
+                    height={40}
                     className="tools-logo show-in-dark object-contain"
                   />
                 </div>

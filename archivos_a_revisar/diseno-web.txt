@@ -1,0 +1,383 @@
+PÁGINA: /diseno-web/
+FORMATO BASE PARA MAQUETACIÓN HTML
+Sin estilos. Solo estructura y contenido.
+
+========================================
+SECCIÓN 1 — HERO
+========================================
+
+H1
+Diseño web profesional pensado para posicionar
+
+P
+Diseño y desarrollo páginas web rápidas, claras y optimizadas para buscadores y motores de inteligencia artificial.
+
+P
+Una página web no es solo diseño.
+Es una herramienta para atraer clientes, explicar bien lo que haces y generar confianza.
+
+Diseño webs profesionales pensadas para funcionar hoy en buscadores como Google y preparadas para la nueva generación de motores de búsqueda basados en inteligencia artificial.
+
+CTA PRINCIPAL
+Cuéntame tu proyecto
+
+CTA SECUNDARIO
+Ver proyectos
+
+ELEMENTO VISUAL SUGERIDO
+- Mockup de una web en pantalla de ordenador y móvil
+- Captura estilizada de un proyecto real
+- Ilustración o gráfico que represente arquitectura web
+- Interfaz limpia de una web moderna
+
+
+========================================
+SECCIÓN 2 — QUÉ ES EL DISEÑO WEB PROFESIONAL
+========================================
+
+H2
+Qué es realmente el diseño web profesional
+
+P
+Cuando se habla de diseño web muchas veces se piensa solo en la parte visual: colores, tipografía o imágenes. Pero una web profesional va mucho más allá del aspecto estético.
+
+P
+Una buena página web debe estar pensada para comunicar con claridad, generar confianza y facilitar que el visitante entienda rápidamente qué hace la empresa y cómo puede contactar o contratar sus servicios.
+
+P
+Por eso el diseño web profesional combina tres elementos fundamentales: estructura clara, experiencia de usuario y una base técnica optimizada para buscadores. El objetivo no es solo que la web se vea bien, sino que funcione como una herramienta real para atraer clientes y hacer crecer el negocio.
+
+P
+Una web profesional no solo debe verse bien. También debe resolver problemas reales de un negocio.
+
+
+========================================
+SECCIÓN 3 — QUÉ PROBLEMAS SOLUCIONA UNA BUENA WEB
+========================================
+
+H2
+Qué problemas soluciona una buena página web
+
+P
+Muchas empresas tienen una web, pero eso no significa que esté cumpliendo realmente su función. En muchos casos la página existe, pero no ayuda a atraer clientes, explicar bien los servicios o generar confianza en quien la visita.
+
+Una web bien diseñada puede solucionar varios de los problemas más habituales que tienen los negocios en internet.
+
+H3
+No se entiende bien qué hace la empresa
+
+P
+Uno de los problemas más comunes es que la web no explica claramente qué hace la empresa o qué servicios ofrece. Cuando esto ocurre, el visitante se pierde y termina abandonando la página. Una estructura clara permite que cualquier persona entienda en pocos segundos qué hace el negocio y cómo puede ayudarle.
+
+H3
+La web no genera contactos ni oportunidades
+
+P
+Muchas páginas web funcionan como una simple tarjeta de presentación. Están online, pero no generan contactos ni solicitudes de información. Un buen diseño web organiza los contenidos y las llamadas a la acción para facilitar que el visitante dé el siguiente paso.
+
+H3
+La página carga lenta o funciona mal en móvil
+
+P
+La velocidad de carga y la adaptación a dispositivos móviles son factores fundamentales. Si la web es lenta o difícil de usar desde el teléfono, muchos usuarios abandonan antes de explorar el contenido.
+
+H3
+La web no aparece en buscadores
+
+P
+Si una página no está bien estructurada o no está optimizada para buscadores, es difícil que aparezca en Google cuando alguien busca los servicios que ofrece la empresa. Por eso el diseño web profesional también tiene en cuenta aspectos técnicos que ayudan a mejorar la visibilidad online.
+
+
+========================================
+SECCIÓN 4 — QUÉ INCLUYE MI SERVICIO DE DISEÑO WEB
+========================================
+
+H2
+Qué incluye mi servicio de diseño web
+
+P
+Una página web profesional no es solo una cuestión de diseño visual. Para que realmente funcione como una herramienta de negocio es necesario trabajar distintos aspectos: desde la estructura de la información hasta el rendimiento técnico y la optimización para buscadores.
+
+Cuando desarrollo una web, el objetivo es crear un sistema claro, rápido y preparado para atraer y convertir visitas en oportunidades de negocio.
+
+H3
+Estructura clara y fácil de entender
+
+P
+La organización del contenido es uno de los elementos más importantes de cualquier página web. Una estructura bien planteada permite que el visitante encuentre rápidamente la información que busca y entienda qué hace la empresa en pocos segundos.
+
+H3
+Diseño pensado para la experiencia de usuario
+
+P
+El diseño no solo debe ser atractivo, también debe facilitar la navegación y hacer que la página resulte cómoda de usar. Cada sección, cada botón y cada elemento tienen un propósito: ayudar al visitante a avanzar dentro de la web de forma natural.
+
+H3
+Optimización técnica y rendimiento
+
+P
+Una web profesional debe cargar rápido, funcionar bien en cualquier dispositivo y estar construida sobre una base técnica sólida. El rendimiento influye tanto en la experiencia del usuario como en el posicionamiento en buscadores.
+
+H3
+Base preparada para posicionamiento web
+
+P
+La estructura de la web también se diseña teniendo en cuenta cómo funcionan los buscadores. Esto permite que la página tenga más posibilidades de aparecer cuando alguien busca los servicios o productos que ofrece la empresa.
+
+
+========================================
+SECCIÓN 5 — TIPOS DE PÁGINAS WEB
+========================================
+
+H2
+Tipos de páginas web que desarrollo
+
+P
+Cada negocio tiene necesidades diferentes. Por eso el diseño web no consiste en aplicar una plantilla estándar, sino en construir una web adaptada al tipo de empresa, a sus objetivos y a la forma en que quiere presentar sus servicios.
+
+Estos son algunos de los tipos de páginas web más habituales que desarrollo.
+
+H3
+Web corporativa
+
+P
+Es el tipo de web más habitual para empresas y profesionales. Su objetivo es presentar la empresa, explicar los servicios y facilitar que los clientes potenciales puedan contactar o solicitar información.
+
+H3
+Landing page
+
+P
+Las landing pages están pensadas para una acción concreta: promocionar un servicio, captar contactos o apoyar campañas de marketing. Son páginas más directas y enfocadas en la conversión.
+
+H3
+Web a medida
+
+P
+Algunos proyectos requieren funcionalidades específicas o una estructura más compleja. En estos casos se desarrolla una web a medida, adaptada completamente a las necesidades del negocio.
+
+
+========================================
+SECCIÓN 6 — SEO TÉCNICO Y OPTIMIZACIÓN PARA IA
+========================================
+
+H2
+SEO técnico y optimización para inteligencia artificial
+
+P
+Hoy en día una página web no solo debe verse bien. También debe estar preparada para que los buscadores puedan entenderla correctamente y mostrarla cuando alguien busca los servicios que ofrece una empresa.
+
+Por eso el desarrollo web tiene en cuenta aspectos técnicos que influyen directamente en la visibilidad online y en la forma en que los motores de búsqueda interpretan el contenido.
+
+H3
+Arquitectura web clara
+
+P
+La estructura de la web se organiza de forma lógica para que tanto los usuarios como los buscadores puedan entender fácilmente el contenido. Esto facilita la navegación y ayuda a que cada página tenga un propósito claro dentro del sitio.
+
+H3
+Optimización para buscadores
+
+P
+El desarrollo de la web tiene en cuenta elementos técnicos que ayudan al posicionamiento, como la estructura del contenido, la jerarquía de títulos o la optimización del rendimiento. Esto permite que la página tenga más posibilidades de aparecer cuando alguien busca los servicios que ofrece el negocio.
+
+H3
+Preparada para motores de inteligencia artificial
+
+P
+Los motores de búsqueda están evolucionando hacia sistemas basados en inteligencia artificial que generan respuestas directas a las preguntas de los usuarios. Por eso es importante que la información de la web esté organizada de forma clara y comprensible, facilitando que estos sistemas puedan interpretar correctamente el contenido.
+
+
+========================================
+SECCIÓN 7 — MÉTODO ORBITA
+========================================
+
+H2
+El método ORBITA: una web que trabaja como sistema
+
+P
+No desarrollo páginas web aisladas.
+
+Trabajo con un enfoque estructurado que convierte la web en el centro del ecosistema digital de una empresa.
+
+P
+Este enfoque lo aplico a través del método ORBITA, un sistema que integra diseño, posicionamiento y evolución continua.
+
+UL
+O — Optimización técnica
+Base sólida: rendimiento, estructura limpia y arquitectura preparada para escalar.
+
+R — Relevancia semántica
+La web comunica con claridad qué haces, a quién te diriges y cómo ayudas.
+
+B — Base de autoridad
+Contenido, estructura e interlinking que construyen credibilidad real.
+
+I — Interpretación por IA
+Preparación para motores como ChatGPT, Perplexity o Gemini.
+
+T — Tráfico cualificado
+No se trata de atraer visitas, sino de atraer clientes potenciales.
+
+A — Actualización continua
+La web evoluciona para mantenerse visible y útil con el tiempo.
+
+P
+El objetivo es que la web no sea solo una presencia online, sino una herramienta real para generar oportunidades de negocio.
+
+
+========================================
+SECCIÓN 8 — TECNOLOGÍAS Y RENDIMIENTO
+========================================
+
+H2
+Tecnología orientada a rendimiento, SEO y visibilidad
+
+P
+La tecnología utilizada en una web no es un detalle técnico.
+
+Es uno de los factores que más influyen en su rendimiento, posicionamiento y capacidad de crecimiento.
+
+P
+Por eso no trabajo con plantillas genéricas ni sistemas cerrados.
+
+Desarrollo cada proyecto con tecnologías modernas que permiten crear webs rápidas, escalables y preparadas para buscadores y motores de inteligencia artificial.
+
+UL
+Next.js
+Permite generar webs extremadamente rápidas, optimizadas para SEO y con una arquitectura clara para los motores de búsqueda.
+
+React
+Facilita crear interfaces dinámicas y bien estructuradas, mejorando la experiencia de usuario.
+
+Arquitectura sin CMS tradicional
+Evita cargas innecesarias, mejora el rendimiento y reduce problemas de seguridad.
+
+Optimización de Core Web Vitals
+Tiempo de carga, estabilidad visual y respuesta optimizados desde la base.
+
+Estructura semántica + datos estructurados
+La web no solo se ve bien, también se entiende correctamente por Google y por sistemas de IA.
+
+P
+El resultado no es solo una web más rápida.
+
+Es una web que:
+
+- posiciona mejor
+- se interpreta mejor
+- carga más rápido
+- y ofrece una experiencia más sólida al usuario
+
+P
+En un entorno donde cada segundo cuenta y cada detalle afecta al posicionamiento, la tecnología deja de ser invisible y se convierte en una ventaja competitiva.
+
+
+========================================
+SECCIÓN 9 — PROYECTOS REALES
+========================================
+
+H2
+Proyectos de diseño web
+
+P
+Cada proyecto web es diferente. La estructura, los contenidos y la estrategia se adaptan al tipo de negocio, a sus objetivos y a la forma en que quiere posicionarse online.
+
+Estos son algunos ejemplos de proyectos donde el diseño web se ha trabajado como un sistema completo: estructura clara, optimización técnica y contenido pensado para buscadores y motores de inteligencia artificial.
+
+GRID DE PROYECTOS (3 TARJETAS) - [Este ya lo reutilizamos de otras páginas como la Home. Si no sabes cual es, avísame y lo añado yo]
+
+
+
+
+========================================
+SECCIÓN 10 — CÓMO TRABAJO CADA PROYECTO WEB
+========================================
+
+H2
+Cómo trabajo cada proyecto web
+
+P
+Cada página web es diferente, pero el proceso de trabajo sigue una estructura clara que permite desarrollar webs bien organizadas, rápidas y preparadas para posicionarse.
+
+Este enfoque combina análisis, estructura y desarrollo técnico para que la web no solo se vea bien, sino que funcione como una herramienta real para el negocio.
+
+H3
+Análisis del proyecto
+
+P
+El primer paso es entender el negocio, sus servicios y los objetivos de la web. Esto permite definir qué información debe aparecer, cómo se organizará el contenido y qué papel tendrá la web dentro de la estrategia digital.
+
+H3
+Definición de la estructura
+
+P
+Una vez claro el objetivo del proyecto, se diseña la arquitectura de la web. Esto incluye la organización de las páginas, la jerarquía del contenido y la forma en que el visitante navegará por el sitio.
+
+H3
+Desarrollo y optimización
+
+P
+Con la estructura definida comienza el desarrollo de la web. Durante esta fase se trabaja tanto el diseño como la base técnica para asegurar buen rendimiento, velocidad de carga y compatibilidad con distintos dispositivos.
+
+H3
+Publicación y evolución
+
+P
+Una vez publicada, la web se convierte en un activo digital que puede seguir creciendo. A partir de ese momento se pueden mejorar contenidos, ampliar secciones y optimizar el posicionamiento en buscadores.
+
+
+========================================
+SECCIÓN 11 — PREGUNTAS FRECUENTES
+========================================
+
+H2
+Preguntas frecuentes sobre diseño web
+
+H3
+¿Cómo sé si mi empresa necesita una nueva web?
+
+P
+Si la página actual no explica bien los servicios del negocio, tarda en cargar, no se adapta bien a móviles o no genera contactos, probablemente ha llegado el momento de replantear la web. Una página bien estructurada puede mejorar mucho la forma en que los clientes entienden y encuentran la empresa.
+
+H3
+¿Qué diferencia hay entre rediseñar una web y crear una desde cero?
+
+P
+Un rediseño consiste en mejorar una web existente manteniendo parte de su estructura o contenidos. Crear una web desde cero implica definir completamente la arquitectura del sitio, el diseño y la base técnica. La decisión depende del estado actual de la web y de los objetivos del proyecto.
+
+H3
+¿Puedo ampliar la web en el futuro?
+
+P
+Sí. Una web bien desarrollada debe permitir añadir nuevas páginas, servicios o contenidos con el tiempo. Esto permite que el sitio evolucione junto con el negocio sin necesidad de rehacer todo el proyecto.
+
+H3
+¿Una web profesional ayuda realmente a captar clientes?
+
+P
+Cuando la estructura del contenido es clara y la web está optimizada para buscadores, aumenta la probabilidad de que los usuarios encuentren el negocio y entiendan rápidamente qué servicios ofrece. Esto facilita que el visitante termine contactando o solicitando información.
+
+H3
+¿Qué papel tiene la estructura de la web en el posicionamiento?
+
+P
+La forma en que se organiza la información dentro de una web influye directamente en cómo los buscadores interpretan el contenido. Una arquitectura clara ayuda tanto a los usuarios como a los motores de búsqueda a entender mejor cada página del sitio.
+
+
+========================================
+SECCIÓN 12 — CONTACTO
+========================================
+
+H2
+Cuéntame tu proyecto
+
+P
+Si estás pensando en crear una nueva web o mejorar la que ya tienes, puedes contarme qué necesitas y cuál es la idea que tienes en mente.
+
+A partir de ahí podremos ver qué tipo de web encaja mejor con tu negocio y cómo estructurar el proyecto para que realmente cumpla su objetivo.
+
+CTA
+Cuéntame tu proyecto
+
+MICROTEXTO OPCIONAL
+Respuesta en menos de 24 horas

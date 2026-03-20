@@ -13,7 +13,7 @@
     /* Colores - Tema Claro */
     --color-bg-primary: #fafafa;
     --color-bg-secondary: #ccc9c9;
-    --color-bg-card: rgba(255, 255, 255, 0.25);
+    --color-bg-card: rgba(255, 255, 255, 0.5);
     --color-border: rgba(0, 0, 0, 0.1);
     --color-border-hover: rgba(102, 126, 234, 0.4);
 
@@ -380,6 +380,7 @@ a {
     .grid-cols-3 {
         grid-template-columns: repeat(3, 1fr);
     }
+
     .grid-cols-4 {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -600,11 +601,16 @@ a {
     color: #ffffff !important;
 }
 
-.bg-dark h2, .bg-dark h3, .bg-dark p, .bg-dark li, .bg-dark .stat__value--solid {
+.bg-dark h2,
+.bg-dark h3,
+.bg-dark p,
+.bg-dark li,
+.bg-dark .stat__value--solid {
     color: #ffffff !important;
 }
 
-.bg-dark .text-secondary, .bg-dark .section-header__subtitle {
+.bg-dark .text-secondary,
+.bg-dark .section-header__subtitle {
     color: rgba(255, 255, 255, 0.7) !important;
 }
 
@@ -613,11 +619,16 @@ a {
     color: #ffffff !important;
 }
 
-.bg-gradient h2, .bg-gradient h3, .bg-gradient p, .bg-gradient li, .bg-gradient .stat__value--solid {
+.bg-gradient h2,
+.bg-gradient h3,
+.bg-gradient p,
+.bg-gradient li,
+.bg-gradient .stat__value--solid {
     color: #ffffff !important;
 }
 
-.bg-gradient .text-secondary, .bg-gradient .section-header__subtitle {
+.bg-gradient .text-secondary,
+.bg-gradient .section-header__subtitle {
     color: rgba(255, 255, 255, 0.8) !important;
 }
 

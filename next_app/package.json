@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "pages:build": "npx @cloudflare/next-on-pages"
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "keystatic:diagnose:projects": "node scripts/diagnose-keystatic-projects.mjs",
+    "keystatic:migrate:projects:strict": "node scripts/migrate-projects-to-strict.mjs",
+    "keystatic:strict:check": "node scripts/migrate-projects-to-strict.mjs --check && node scripts/diagnose-keystatic-projects.mjs"
   },
   "dependencies": {
     "@keystatic/core": "^0.5.48",

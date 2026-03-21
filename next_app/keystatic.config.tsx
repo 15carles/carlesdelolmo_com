@@ -626,8 +626,8 @@ export default config({
               ),
               label: 'Contenedor: Sección con Fondo',
               schema: {
-                title: fields.text({ label: 'Título de la Sección (H2)' }),
-                subtitle: fields.text({ label: 'Subtítulo/Descripción mini' }),
+                title: fields.text({ label: 'Título de la Sección (H2)', defaultValue: '' }),
+                subtitle: fields.text({ label: 'Subtítulo/Descripción mini', defaultValue: '' }),
                 variant: fields.select({
                   label: 'Fondo / Variante',
                   options: [
@@ -736,21 +736,17 @@ export default config({
               preview: (props) => (
                 <div style={{ border: '1px solid #ffcc00', padding: '15px', borderRadius: '8px', backgroundColor: '#fff9e6' }}>
                   <div style={{ fontSize: '10px', color: '#666', marginBottom: '5px' }}>[ TESTIMONIO CORPORATIVO ]</div>
-                  <div style={{ fontStyle: 'italic', marginBottom: '10px' }}>"{props.fields.quote.value}"</div>
+                  <div style={{ fontStyle: 'italic', marginBottom: '10px' }}>&quot;{props.fields.quote.value}&quot;</div>
                   <div style={{ fontWeight: 'bold' }}>{props.fields.author.value}</div>
                 </div>
               ),
               label: 'Testimonio: Mención de Honor',
               schema: {
-                quote: fields.text({ label: 'Cita / Testimonio', multiline: true }),
-                author: fields.text({ label: 'Nombre del Autor' }),
-                role: fields.text({ label: 'Cargo / Empresa' }),
-                logo: fields.image({
-                  label: 'Logo de la Empresa',
-                  directory: 'public/assets/projects',
-                  publicPath: '/assets/projects',
-                }),
-                link: fields.text({ label: 'Enlace (opcional)' }),
+                quote: fields.text({ label: 'Cita / Testimonio', multiline: true, defaultValue: '' }),
+                author: fields.text({ label: 'Nombre del Autor', defaultValue: '' }),
+                role: fields.text({ label: 'Cargo / Empresa', defaultValue: '' }),
+                logo: fields.text({ label: 'Logo de la Empresa (ruta opcional)', defaultValue: '' }),
+                link: fields.text({ label: 'Enlace (opcional)', defaultValue: '' }),
               },
             }),
             simulatorCard: component({

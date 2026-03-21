@@ -1,5 +1,5 @@
 /* ============================================
-   DEVGEO - COMPONENTES
+   carlesdelolmo.com - COMPONENTES
    Estilos de componentes reutilizables
    ============================================ */
 
@@ -71,10 +71,16 @@
     flex-direction: column;
     gap: var(--spacing-sm);
     padding: 0 var(--spacing-md) var(--spacing-md);
+    /* Fondo algo más opaco solo para el acordeón móvil */
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 .navbar__mobile-menu.active {
     display: flex;
+}
+
+:root[data-theme="dark"] .navbar__mobile-menu {
+    background-color: rgba(15, 23, 42, 0.85);
 }
 
 .navbar__mobile-menu .navbar__link {
@@ -2566,12 +2572,29 @@
 
 /* Posicionamiento circular (6 nodos @ 60deg) */
 /* Radio de 300px (mitad de orbita-path: 600px) */
-.orbita-node:nth-child(2) { transform: rotate(-90deg) translate(300px) rotate(90deg) !important; }
-.orbita-node:nth-child(3) { transform: rotate(-30deg) translate(300px) rotate(30deg) !important; }
-.orbita-node:nth-child(4) { transform: rotate(30deg) translate(300px) rotate(-30deg) !important; }
-.orbita-node:nth-child(5) { transform: rotate(90deg) translate(300px) rotate(-90deg) !important; }
-.orbita-node:nth-child(6) { transform: rotate(150deg) translate(300px) rotate(-150deg) !important; }
-.orbita-node:nth-child(7) { transform: rotate(210deg) translate(300px) rotate(-210deg) !important; }
+.orbita-node:nth-child(2) {
+    transform: rotate(-90deg) translate(300px) rotate(90deg) !important;
+}
+
+.orbita-node:nth-child(3) {
+    transform: rotate(-30deg) translate(300px) rotate(30deg) !important;
+}
+
+.orbita-node:nth-child(4) {
+    transform: rotate(30deg) translate(300px) rotate(-30deg) !important;
+}
+
+.orbita-node:nth-child(5) {
+    transform: rotate(90deg) translate(300px) rotate(-90deg) !important;
+}
+
+.orbita-node:nth-child(6) {
+    transform: rotate(150deg) translate(300px) rotate(-150deg) !important;
+}
+
+.orbita-node:nth-child(7) {
+    transform: rotate(210deg) translate(300px) rotate(-210deg) !important;
+}
 
 /* Contenido Central */
 .orbita-center {
@@ -2603,11 +2626,11 @@
         height: auto;
         flex-direction: column;
     }
-    
+
     .orbita-path {
         display: none;
     }
-    
+
     .orbita-node {
         position: static;
         transform: none !important;
@@ -2618,7 +2641,7 @@
         margin-bottom: var(--spacing-xs);
         font-size: 1.125rem;
     }
-    
+
     .orbita-center {
         width: 100%;
         margin-top: var(--spacing-xl);

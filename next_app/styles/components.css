@@ -71,10 +71,16 @@
     flex-direction: column;
     gap: var(--spacing-sm);
     padding: 0 var(--spacing-md) var(--spacing-md);
+    /* Fondo algo más opaco solo para el acordeón móvil */
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 .navbar__mobile-menu.active {
     display: flex;
+}
+
+:root[data-theme="dark"] .navbar__mobile-menu {
+    background-color: rgba(15, 23, 42, 0.85);
 }
 
 .navbar__mobile-menu .navbar__link {
@@ -143,21 +149,32 @@
 
     .dropdown__menu {
         position: absolute;
-        top: calc(100% + 1rem);
+        top: calc(100% + 0.75rem);
         left: 0;
-        min-width: 260px;
-        background: var(--color-bg-primary);
+        min-width: 280px;
+        background: var(--color-bg-card);
         backdrop-filter: blur(var(--blur-lg));
         -webkit-backdrop-filter: blur(var(--blur-lg));
         border: 1px solid var(--color-border);
         border-radius: var(--radius-md);
         box-shadow: var(--shadow-lg);
-        padding: var(--spacing-xs) 0;
+        padding: 0.5rem 0;
         opacity: 0;
         visibility: hidden;
         transform: translateY(10px);
         transition: all var(--transition-normal);
         z-index: 100;
+    }
+
+    /* Solo el desplegable del navbar (Servicios): mas opaco, sin tocar la navbar */
+    .navbar .dropdown__menu,
+    .navbar .dropdown__submenu {
+        background-color: rgba(255, 255, 255, 0.85);
+    }
+
+    :root[data-theme="dark"] .navbar .dropdown__menu,
+    :root[data-theme="dark"] .navbar .dropdown__submenu {
+        background-color: rgba(15, 23, 42, 0.85);
     }
 
     .dropdown.is-active>.dropdown__menu {
@@ -173,7 +190,7 @@
     .dropdown__link,
     .dropdown__sublink {
         display: block;
-        padding: 0.75rem 1.25rem;
+        padding: 0.75rem 1.5rem;
         color: var(--color-text-secondary);
         font-size: 0.9375rem;
         transition: all var(--transition-fast);
@@ -183,13 +200,21 @@
         text-align: left;
         cursor: pointer;
         font-family: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
     }
 
     .dropdown__link:hover,
     .dropdown__sublink:hover {
-        background: rgba(102, 126, 234, 0.1);
+        background: rgba(102, 126, 234, 0.08);
         color: var(--color-text-primary);
-        padding-left: 1.5rem;
+        padding-left: 1.75rem;
+    }
+
+    .dropdown__sublink {
+        padding: 0.625rem 1.25rem;
     }
 
     /* Submenús Desktop (Flyouts) */
@@ -197,26 +222,36 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 1rem;
+        width: 100%;
+    }
+
+    .dropdown__arrow-sub {
+        opacity: 0.5;
+        transition: transform var(--transition-fast), opacity var(--transition-fast);
+    }
+
+    .dropdown__item:hover>.dropdown__link .dropdown__arrow-sub,
+    .dropdown__item.is-active>.dropdown__link .dropdown__arrow-sub {
+        opacity: 1;
+        transform: translateX(3px);
     }
 
     .dropdown__submenu {
         position: absolute;
-        top: 0;
-        left: 100%;
-        min-width: 240px;
-        background: var(--color-bg-primary);
+        top: -0.5rem;
+        left: calc(100% + 0.5rem);
+        min-width: 260px;
+        background: var(--color-bg-card);
         backdrop-filter: blur(var(--blur-lg));
         -webkit-backdrop-filter: blur(var(--blur-lg));
         border: 1px solid var(--color-border);
         border-radius: var(--radius-md);
         box-shadow: var(--shadow-lg);
-        padding: var(--spacing-xs) 0;
+        padding: 0.5rem 0;
         opacity: 0;
         visibility: hidden;
         transform: translateX(10px);
         transition: all var(--transition-normal);
-        margin-left: 0.5rem;
     }
 
     .dropdown__item.is-active>.dropdown__submenu {

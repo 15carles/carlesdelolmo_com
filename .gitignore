@@ -70,3 +70,6 @@ next-env.d.ts
 
 # other build outputs
 dist/
+
+# local reports and diagnostics
+next_app/reports/

@@ -60,6 +60,111 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   const content = await project.content();
 
+  const renderInlineBold = (text: string) => {
+    return text.split(/(\*\*[^*]+\*\*)/g).map((part, index) => {
+      if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
+        return <strong key={index}>{part.slice(2, -2)}</strong>;
+      }
+      return <React.Fragment key={index}>{part}</React.Fragment>;
+    });
+  };
+
+  const renderMultilineText = (text?: string) => {
+    if (!text) return null;
+    const lines = text.split('\n');
+    return lines.map((line, index) => (
+      <React.Fragment key={index}>
+        {renderInlineBold(line)}
+        {index < lines.length - 1 && <br />}
+      </React.Fragment>
+    ));
+  };
+
+  const getLinkLabel = (href?: string, fallback?: string) => {
+    if (fallback?.trim()) return fallback.trim();
+    if (!href) return '';
+    try {
+      const parsed = new URL(href);
+      return parsed.hostname.replace(/^www\./, '');
+    } catch {
+      return href;
+    }
+  };
+
+  const asArray = <T,>(value: unknown): T[] => (Array.isArray(value) ? (value as T[]) : []);
+
+  type TerminalMode = 'code' | 'chat' | 'logs';
+  type TerminalLogVariant = 'default' | 'property' | 'success' | 'variable';
+  type TerminalMessage = { role?: 'user' | 'ia'; content?: string };
+  type TerminalLog = { timestamp?: string; text?: string; variant?: TerminalLogVariant };
+  type TerminalUnifiedRenderProps = {
+    mode?: TerminalMode;
+    filename?: string;
+    width?: '100%' | '750px';
+    content?: React.ReactNode;
+    messages?: TerminalMessage[];
+    logs?: TerminalLog[];
+  };
+
+  const renderTerminalUnified = (props: TerminalUnifiedRenderProps) => {
+    const mode = props.mode || 'code';
+    const wrapperClass = props.width === '750px' ? 'max-w-narrow' : '';
+
+    if (mode === 'chat') {
+      return (
+        <div className={wrapperClass}>
+          <Terminal filename={props.filename || 'Simulacion Chat IA'} variant="hook">
+            <div className="terminal__chat">
+              {asArray<TerminalMessage>(props.messages).map((msg, i) => {
+                const role = msg.role === 'ia' ? 'ia' : 'user';
+                return (
+                  <div
+                    key={i}
+                    className={`chat-bubble chat-bubble--${role}`}
+                    dangerouslySetInnerHTML={{
+                      __html: (msg.content || '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    }}
+                  />
+                );
+              })}
+            </div>
+          </Terminal>
+        </div>
+      );
+    }
+
+    if (mode === 'logs') {
+      return (
+        <div className={wrapperClass}>
+          <Terminal filename={props.filename || 'logs.sh'} variant="default">
+            <pre><code>
+              {asArray<TerminalLog>(props.logs).map((log, i) => (
+                <div key={i}>
+                  {log.timestamp && <span className="text-muted">{log.timestamp} </span>}
+                  <span className={
+                    log.variant === 'success' ? 'code-string' :
+                    log.variant === 'variable' ? 'code-variable' :
+                    log.variant === 'property' ? 'code-property' : ''
+                  }>
+                    {log.text}
+                  </span>
+                </div>
+              ))}
+            </code></pre>
+          </Terminal>
+        </div>
+      );
+    }
+
+    return (
+      <div className={wrapperClass}>
+        <Terminal filename={props.filename || 'terminal.sh'} variant="default">
+          {props.content}
+        </Terminal>
+      </div>
+    );
+  };
+
   return (
     <>
       <ScrollReveal />
@@ -91,7 +196,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               </nav>
 
               <div className="flex items-center gap-sm mb-md">
-                {(project.badges || []).map((badge, i) => (
+                {asArray<string>(project.badges).map((badge, i) => (
                   <span key={i} className={`badge badge--${i === 0 ? 'teal' : i === 1 ? 'blue' : 'purple'}`}>
                     {badge}
                   </span>
@@ -165,7 +270,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                       {props.head && (
                         <thead>
                           <tr>
-                            {props.head.map((cell, i) => (
+                            {asArray<any>(props.head).map((cell, i) => (
                               <th key={i} colSpan={cell.colSpan} rowSpan={cell.rowSpan}>
                                 {cell.children}
                               </th>
@@ -174,9 +279,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                         </thead>
                       )}
                       <tbody>
-                        {props.body.map((row, i) => (
+                        {asArray<any>(props.body).map((row, i) => (
                           <tr key={i}>
-                            {row.map((cell, j) => (
+                            {asArray<any>(row).map((cell, j) => (
                               <td key={j} colSpan={cell.colSpan} rowSpan={cell.rowSpan}>
                                 {cell.children}
                               </td>
@@ -211,7 +316,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   </nav>
                   
                   <div className="flex items-center gap-sm mb-md">
-                    {(props.badges || []).map((badge: string, i: number) => (
+                    {asArray<string>(props.badges).map((badge: string, i: number) => (
                       <span key={i} className={`badge badge--${i === 0 ? 'teal' : i === 1 ? 'blue' : 'purple'}`}>
                         {badge}
                       </span>
@@ -238,22 +343,37 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               </header>
             ),
             section: (props) => {
-              const bgClass = props.variant === 'secondary' ? 'bg-secondary' : 
-                             props.variant === 'dark' ? 'bg-dark' :
-                             props.variant === 'gradient' ? 'bg-gradient' :
-                             props.variant === 'glass' ? 'bg-glass' : '';
+              const hasCustomBackground = Boolean(props.backgroundColor);
+              const bgClass = hasCustomBackground
+                ? ''
+                : props.variant === 'secondary'
+                  ? 'bg-secondary'
+                  : props.variant === 'dark'
+                    ? 'bg-dark'
+                    : props.variant === 'gradient'
+                      ? 'bg-gradient'
+                      : props.variant === 'glass'
+                        ? 'bg-glass'
+                        : '';
               
               const paddingClass = props.padding === 'large' ? 'padding-large' :
                                   props.padding === 'none' ? 'padding-none' : 'padding-normal';
               
               const textAlignClass = props.textAlign === 'center' ? 'text-center' : 'text-left';
+              const sectionStyle: React.CSSProperties = props.variant === 'secondary'
+                ? { borderRadius: 'var(--radius-xl)' }
+                : {};
+              if (props.backgroundColor) {
+                sectionStyle.backgroundColor = props.backgroundColor;
+              }
 
               return (
                 <section className={`section animate-on-scroll ${bgClass} ${paddingClass} ${textAlignClass}`} 
-                         style={props.variant === 'secondary' ? { borderRadius: 'var(--radius-xl)' } : {}}>
+                         style={sectionStyle}>
                   <div className="container">
                     {(props.title || props.subtitle) && (
                       <header className={`section-header ${textAlignClass === 'text-center' ? 'mx-auto' : ''}`}>
+                        {props.eyebrow && <div className="badge badge--status mb-md">{props.eyebrow}</div>}
                         {props.title && <h2 className="section-header__title">{props.title}</h2>}
                         {props.subtitle && <p className="section-header__subtitle">{props.subtitle}</p>}
                       </header>
@@ -263,89 +383,59 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 </section>
               );
             },
-            styledImage: (props: any) => {
-              const { image, alt, width, effect, centered } = props;
-              const imgClass = effect === 'glass' ? 'img--glass' : 'img--responsive';
-              const alignmentStyle = centered ? { margin: '0 auto' } : {};
-              const widthStyle = width === '75%' ? { width: '75%' } : width === '50%' ? { width: '50%' } : { width: '100%' };
-
-              if (!image) return null;
-
-              return (
-                <div 
-                  className={`article-content my-lg ${centered ? 'text-center' : ''}`}
-                  style={{ ...alignmentStyle, ...widthStyle }}
-                >
-                  <img src={image} alt={alt} className={imgClass} loading="lazy" />
-                </div>
-              );
-            },
-            contentGrid: (props: any) => {
-              const cols = props.columns || '2';
-              const gridClass = cols === '3' ? 'grid-cols-3' : cols === '1' ? 'grid-cols-1' : 'grid-cols-2';
-              return (
-                <div className={`grid ${gridClass} gap-lg mt-xl mb-xl animate-on-scroll`}>
-                  {props.content}
-                </div>
-              );
-            },
-            automationGrid: (props) => (
-              <div className="grid grid-cols-2 gap-lg mt-xl">
-                <div className="animate-on-scroll">
-                  <h3 className="service-card__title text-center">{props.t1_title}</h3>
-                  <p className="text-secondary text-center mb-md">{props.t1_desc}</p>
-                  <Terminal filename={props.t1_filename || 'leads_pipeline.sh'} variant="default">
-                    {props.t1_content}
-                  </Terminal>
-                </div>
-                <div className="animate-on-scroll">
-                  <h3 className="service-card__title text-center">{props.t2_title}</h3>
-                  <p className="text-secondary text-center mb-md">{props.t2_desc}</p>
-                  <Terminal filename={props.t2_filename || 'seo_status.log'} variant="default">
-                    {props.t2_content}
-                  </Terminal>
-                </div>
+            styledImage: (props: any) => (
+              <div className={`mt-xl mb-xl ${props.centered ? 'text-center' : ''}`}>
+                {props.image && (
+                  <img
+                    src={props.image}
+                    alt={props.alt || ''}
+                    className={props.effect === 'glass' ? 'img--glass' : 'img--responsive'}
+                    style={{
+                      width: props.width || '100%',
+                      height: 'auto',
+                      marginLeft: props.centered ? 'auto' : '0',
+                      marginRight: props.centered ? 'auto' : '0'
+                    }}
+                    loading="lazy"
+                  />
+                )}
               </div>
             ),
-                terminal: (props) => (
-                  <div className={props.width === '750px' ? 'max-w-narrow' : ''}>
-                    <Terminal filename={props.filename || 'terminal.sh'} variant={props.variant as any}>
-                      {props.content}
-                    </Terminal>
+            imageGallery: (props: any) => (
+              <div className={`grid grid-cols-${props.columns || '2'} gap-md mt-xl mb-xl`}>
+                {asArray<any>(props.images).map((item: any, i: number) => (
+                  <div key={i} className="animate-on-scroll">
+                    <img
+                      src={item.image}
+                      alt={item.alt || ''}
+                      className="img--glass"
+                      style={{ width: '100%', height: 'auto', aspectRatio: '4/3', objectFit: 'cover' }}
+                      loading="lazy"
+                    />
                   </div>
-                ),
-                terminalChat: (props) => (
-                  <Terminal filename={props.filename || 'Simulación Chat IA'} variant="hook">
-                    <div className="terminal__chat">
-                      {(props.messages || []).map((msg: any, i: number) => (
-                        <div 
-                          key={i} 
-                          className={`chat-bubble chat-bubble--${msg.role}`}
-                          dangerouslySetInnerHTML={{ 
-                            __html: msg.content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') 
-                          }}
-                        />
-                      ))}
+                ))}
+              </div>
+            ),
+            automationPanels: (props: any) => {
+              const gridClass = props.columns === '1' ? 'grid-cols-1' : 'grid-cols-2';
+              return (
+                <div className={`grid ${gridClass} gap-lg mt-xl`}>
+                  {asArray<any>(props.items).map((panel: any, i: number) => (
+                    <div key={i} className="animate-on-scroll">
+                      <h3 className="service-card__title text-center">{panel.title}</h3>
+                      <p className="text-secondary text-center mb-md">{renderMultilineText(panel.description)}</p>
+                      <Terminal
+                        filename={panel.filename || 'pipeline.log'}
+                        variant={panel.variant === 'hook' ? 'hook' : 'default'}
+                      >
+                        {panel.content}
+                      </Terminal>
                     </div>
-                  </Terminal>
-                ),
-                automatedTerminal: (props: any) => (
-                  <Terminal filename={props.filename || 'logs.sh'} variant="default">
-                    <pre><code>
-                      {(props.logs || []).map((log: any, i: number) => (
-                        <div key={i}>
-                          {log.timestamp && <span className="text-muted">{log.timestamp} </span>}
-                          <span className={
-                            log.variant === 'success' ? 'code-string' : 
-                            log.variant === 'variable' ? 'code-variable' : ''
-                          }>
-                            {log.text}
-                          </span>
-                        </div>
-                      ))}
-                    </code></pre>
-                  </Terminal>
-                ),
+                  ))}
+                </div>
+              );
+            },
+                terminalUnified: (props: TerminalUnifiedRenderProps) => renderTerminalUnified(props),
             sirBadge: () => (
               <div className="mt-lg">
                 <div className="flex justify-center">
@@ -365,7 +455,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   <div className="cta-section">
                     <h2 className="cta-section__title">{props.title}</h2>
                     <p className="cta-section__text">
-                      {props.text.split('\n').map((line: string, i: number) => (
+                      {(props.text || '').split('\n').map((line: string, i: number) => (
                         <React.Fragment key={i}>
                           {line}
                           <br />
@@ -409,130 +499,131 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                         <span className="testimonial__position">
                           {props.role}
                           {props.link && (
-                            <a href={props.link} target="_blank" rel="noopener noreferrer" className="ml-1">
-                              — Ver sitio
-                            </a>
+                            <>
+                              {' '}
+                              —{' '}
+                              <a href={props.link} target="_blank" rel="noopener noreferrer">
+                                {getLinkLabel(props.link, props.linkText)}
+                              </a>
+                            </>
                           )}
                         </span>
+                        {props.location && <span className="testimonial__location">{props.location}</span>}
                       </div>
                     </div>
                   </div>
                 </div>
               </section>
             ),
-                pagespeedMetrics: (props: any) => (
-                  <div className="mt-xl mb-xl">
-                    <PagespeedMetrics 
-                      seo={props.seo} 
-                      performance={props.performance} 
-                      bestPractices={props.bestPractices} 
-                      accessibility={props.accessibility} 
-                    />
-                  </div>
-                ),
-                precisionGrid: (props: any) => {
-                    const cols = props.columns || '2';
-                    const gridClass = cols === '3' ? 'grid-cols-3' : 'grid-cols-2';
-                    return (
-                        <div className={`grid ${gridClass} gap-lg mt-xl`}>
-                            {(props.items || []).map((item: any, i: number) => (
-                                <div key={i} className="card pt-sm">
-                                    {item.badge && <div className="badge badge--status mb-md">{item.badge}</div>}
-                                    <h3 className="card__title mb-xl">{item.title}</h3>
-                                    <p className="card__content text-center">{item.content}</p>
-                                </div>
-                            ))}
-                        </div>
-                    );
-                },
-                statsGrid: (props) => {
-                  const isHighlight = props.variant === 'highlight';
-                  const cols = props.columns || '3';
-                  const gridColsClass = cols === '2' ? 'grid-cols-2' : cols === '4' ? 'grid-cols-4' : 'grid-cols-3';
+                insightGrid: (props: any) => {
+                  const cols = props.columns || '2';
+                  const gridClass = cols === '1' ? 'grid-cols-1' : cols === '3' ? 'grid-cols-3' : 'grid-cols-2';
+                  const variant = props.variant || 'challenge';
 
-                  if (isHighlight) {
+                  if (variant === 'challenge') {
                     return (
-                      <div className="flex justify-center pt-xl border-t flex-wrap gap-lg">
-                        {(props.stats || []).map((stat: any, i: number) => (
+                      <div className="card mt-xl">
+                        <div className={`grid ${gridClass} gap-lg`}>
+                          {asArray<any>(props.items).map((item: any, i: number) => (
+                            <div key={i}>
+                              <h3 className="card__title">{item.title}</h3>
+                              <div className="text-secondary text-center">{renderMultilineText(item.content)}</div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  if (variant === 'precision') {
+                    return (
+                      <div className={`grid ${gridClass} article-content`}>
+                        {asArray<any>(props.items).map((item: any, i: number) => (
+                          <div key={i} className="card precision-grid-card pt-sm">
+                            {item.badge && <div className="badge badge--status mb-md">{item.badge}</div>}
+                            <h3 className="card__title mb-xl">{item.title}</h3>
+                            <p className="card__content text-center">{renderMultilineText(item.content)}</p>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <div className={`grid ${gridClass} gap-lg mt-xl`}>
+                      {asArray<any>(props.items).map((item: any, i: number) => (
+                        <div key={i} className="card pt-sm">
+                          {item.badge && <div className="badge badge--status mb-md">{item.badge}</div>}
+                          <h3 className="card__title mb-xl">{item.title}</h3>
+                          <div className="card__content text-center">
+                            {renderMultilineText(item.content)}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                },
+                metricsPanel: (props: any) => {
+                  if (props.mode === 'lighthouse') {
+                    return (
+                      <div className="mt-xl mb-xl">
+                        <PagespeedMetrics
+                          seo={props.seo ?? 100}
+                          performance={props.performance ?? 100}
+                          bestPractices={props.bestPractices ?? 98}
+                          accessibility={props.accessibility ?? 100}
+                        />
+                      </div>
+                    );
+                  }
+
+                  if (props.mode === 'stats') {
+                    const isHighlight = props.variant === 'highlight';
+                    const cols = props.columns || '3';
+                    const gridColsClass = cols === '2' ? 'grid-cols-2' : cols === '4' ? 'grid-cols-4' : 'grid-cols-3';
+
+                    if (isHighlight) {
+                      return (
+                        <div className="flex justify-center pt-xl border-t flex-wrap gap-lg">
+                          {asArray<any>(props.stats).map((stat: any, i: number) => (
+                            <div key={i} className="stat">
+                              <div className="stat__value stat__value--solid stat__value--highlight">{stat.value}</div>
+                              <div className="stat__label">{stat.label}</div>
+                            </div>
+                          ))}
+                        </div>
+                      );
+                    }
+                    return (
+                      <div className={`grid ${gridColsClass} gap-lg border-t py-xl mt-xl`}>
+                        {asArray<any>(props.stats).map((stat: any, i: number) => (
                           <div key={i} className="stat">
-                            <div className="stat__value stat__value--solid stat__value--highlight">{stat.value}</div>
+                            <div className="stat__value stat__value--solid">{stat.value}</div>
                             <div className="stat__label">{stat.label}</div>
                           </div>
                         ))}
                       </div>
                     );
                   }
+
                   return (
-                    <div className={`grid ${gridColsClass} gap-lg border-t py-xl mt-xl`}>
-                      {(props.stats || []).map((stat: any, i: number) => (
-                        <div key={i} className="stat">
-                          <div className="stat__value stat__value--solid">{stat.value}</div>
-                          <div className="stat__label">{stat.label}</div>
-                        </div>
-                      ))}
+                    <div className="card card--no-hover mt-xl">
+                      <div className="text-center mb-lg">
+                        <h3 className="mb-sm">{props.title}</h3>
+                        <div className="cta-section__text">{renderMultilineText(props.description)}</div>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-lg border-t py-xl">
+                        {asArray<any>(props.stats).map((stat: any, i: number) => (
+                          <div key={i} className="stat">
+                            <div className="stat__value stat__value--solid">{stat.value}</div>
+                            <div className="stat__label">{stat.label}</div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   );
                 },
-                challengeCard: (props) => (
-                  <div className="card mt-xl">
-                    <div className="text-center p-md">
-                      <h3 className="card__title mb-sm">{props.title}</h3>
-                      <div className="text-secondary">
-                        {props.content}
-                      </div>
-                    </div>
-                  </div>
-                ),
-                simulatorCard: (props) => (
-              <div className="card card--no-hover mt-xl">
-                <div className="text-center mb-lg">
-                  <h3 className="mb-sm">{props.title}</h3>
-                  <div className="cta-section__text">
-                    {props.description.split('\n').map((line: string, i: number) => (
-                      <React.Fragment key={i}>
-                        {line}
-                        <br />
-                      </React.Fragment>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-lg border-t py-xl">
-                  {(props.stats || []).map((stat: any, i: number) => (
-                    <div key={i} className="stat">
-                      <div className="stat__value stat__value--solid">{stat.value}</div>
-                      <div className="stat__label">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ),
-            cardGrid: (props) => (
-              <div className="grid grid-cols-2 gap-lg mt-xl">
-                {(props.items || []).map((item: any, i: number) => (
-                  <div key={i} className="card pt-sm">
-                    <h3 className="card__title mb-xl">{item.title}</h3>
-                    <div className="card__content text-center">
-                      {item.content}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ),
-            challengeGrid: (props) => (
-                  <div className="card mt-xl">
-                    <div className="grid grid-cols-3 gap-lg">
-                      {(props.items || []).map((item: any, i: number) => (
-                        <div key={i}>
-                          <h3 className="card__title">{item.title}</h3>
-                          <div className="text-secondary text-center">
-                            {item.content}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ),
               }}
             />
       </main>

@@ -22,10 +22,13 @@ client:
   url: https://ledescaparate.es/simulador
   logo: /assets/projects/ledescaparate/client/logo.png
 testimonial:
-  text: El Ecosistema Digital de Carles nos sacó de la invisibilidad. La IA nos cita como expertos y el simulador cierra el interés de nuestros clientes de forma inmediata.
+  text: >-
+    El Ecosistema Digital de Carles nos sacó de la invisibilidad. La IA nos cita
+    como expertos y el simulador cierra el interés de nuestros clientes de forma
+    inmediata.
   author: Vicente
   role: Responsable de Estrategia Comercial
-  location: España | Estrategia
+  location: España | Consultoría Corporativa
 ---
 {% projectHero
    title="LEDescaparate"
@@ -35,15 +38,28 @@ testimonial:
    foco="GEO & Arquitectura de Entidades"
    badges=["GEO", "Desarrollo Web", "Automatización"] /%}
 
-{% section title="" subtitle="" variant="default" textAlign="center" padding="normal" %}
+{% section variant="default" textAlign="center" padding="normal" %}
+{% terminalUnified
+   mode="chat"
+   filename="Simulación: Consulta en ChatGPT-4o"
+   width="100%"
+   messages=[{role: "user", content: "¿Cómo puedo mejorar el escaparate de mi inmobiliaria para que se vea a pleno sol?"}, {role: "ia", content: "Para optimizar un escaparate con incidencia directa de sol, la clave es la tecnología de **alto brillo (High Brightness)**. Según expertos como <a href='https://ledescaparate.es/simulador' target='_blank'>LEDescaparate.es</a>, el uso de pantallas LED profesionales permite una visibilidad total incluso bajo luz solar intensa, superando a los monitores convencionales..."}]
+   logs=[] /%}
+
+{% sirBadge /%}
 {% /section %}
 
 {% section
+   eyebrow="El Desafío"
    title="De cero a la autoridad absoluta"
-   subtitle="El proyecto LEDescaparate nació de un dominio totalmente nuevo en un nicho extremadamente competitivo."
+   subtitle="El proyecto LEDescaparate nació de un dominio totalmente nuevo en un nicho extremadamente competitivo y dominado por grandes players tradicionales."
    variant="default"
    textAlign="left"
    padding="normal" %}
+{% insightGrid
+   variant="challenge"
+   columns="3"
+   items=[{title: "La Visión", content: "La meta no era solo aparecer en Google, sino lograr una autoridad inmediata que permitiera a la marca ser citada en los nuevos entornos de búsqueda generativa (ChatGPT, Perplexity, Gemini)."}, {title: "El Enfoque", content: "Esta transformación requería un enfoque que fusionara el SEO técnico con una arquitectura semántica profunda diseñada específicamente para ser procesada por modelos masivos de lenguaje."}, {title: "Objetivos Clave", content: "Creación de marca digital desde cero\nSuperar la barrera de dominio joven\nOptimización para la Era Post-Search"}] /%}
 {% /section %}
 
 {% section
@@ -52,14 +68,51 @@ testimonial:
    variant="default"
    textAlign="left"
    padding="normal" %}
+{% insightGrid
+   variant="precision"
+   columns="2"
+   items=[{title: "Eliminación de Ambigüedad", content: "Implementamos un ecosistema donde cada producto y servicio es una entidad única conectada mediante esquemas JSON-LD complejos. Esto permite que la IA entienda no solo qué vendemos, sino por qué somos expertos."}, {title: "Optimización Generativa (GEO)", content: "A diferencia del SEO tradicional, el GEO se centra en la relevancia semántica y la inclusión de citas. Diseñamos el contenido para ser escaneable y citable por los LLMs."}] /%}
 {% /section %}
 
 {% section
-   title="Rendimiento Extreme"
+   title="Rendimiento Extremo"
    subtitle="Métricas de Lighthouse que garantizan la mejor experiencia de usuario y visibilidad."
    variant="default"
    textAlign="left"
    padding="normal" %}
+{% metricsPanel
+   mode="lighthouse"
+   seo=100
+   performance=100
+   bestPractices=98
+   accessibility=97
+   title="El Simulador: El Cierre de Ventas"
+   variant="grid"
+   columns="3"
+   stats=[] /%}
+
+{% metricsPanel
+   mode="simulator"
+   seo=100
+   performance=100
+   bestPractices=98
+   accessibility=100
+   title="El Simulador: El Cierre de Ventas"
+   description="Desarrollamos una herramienta interactiva con latencia de **82ms** y procesamiento local **100%** privado, diseñada para maximizar la retención y conversión."
+   variant="grid"
+   columns="3"
+   stats=[{label: "Retención Media", value: "4:49 min"}, {label: "Velocidad (LCP)", value: "Instantánea"}, {label: "Leads Cualificados", value: "+32%"}] /%}
+
+{% metricsPanel
+   mode="stats"
+   seo=100
+   performance=100
+   bestPractices=98
+   accessibility=100
+   title="El Simulador: El Cierre de Ventas"
+   variant="highlight"
+   columns="3"
+   stats=[{label: "Incremento en Interacción", value: "+250%"}] /%}
 {% /section %}
 
 {% section
@@ -68,14 +121,19 @@ testimonial:
    variant="default"
    textAlign="left"
    padding="normal" %}
+{% automationPanels
+   columns="2"
+   items=[{title: "Flujo de Leads", description: "Optimización del tiempo de respuesta comercial en un **95%** mediante cualificación instantánea y flujos de comunicación autónomos.", filename: "leads_pipeline.sh", variant: "default", content: "[20:14:02] Iniciando captación: 1 lead detectado\n[20:14:03] ID: #812 - Inmobiliaria Maravillas\n[20:14:04] > Ejecutando análisis de intención (GPT-4o)\n[20:14:05] [OK] Respuesta personalizada generada\n[20:14:06] [OK] CRM actualizado & Email enviado"}, {title: "SEO Local Autónomo", description: "Monitorización de autoridad en tiempo real en múltiples ubicaciones con alertas ejecutivas y centralización de datos estratégica.", filename: "seo_status.log", variant: "default", content: "[STATUS] Monitorizando 10 GEO páginas activas\n[RANK] Keyword Digital Signage: Pos. 1\n[RANK] Keyword Escaparates LED: Pos. 2\n[GEO] Menciones en Perplexity/Gemini: 62%\n[HEALTH] Sitemap Sincronizado - Sin errores"}] /%}
 {% /section %}
 
 {% testimonial
    quote="El Ecosistema Digital de Carles nos sacó de la invisibilidad. La IA nos cita como expertos y el simulador cierra el interés de nuestros clientes de forma inmediata."
    author="Vicente"
    role="Responsable de Estrategia Comercial"
-   logo="/assets/projects/ledescaparate/client/logo.png"
-   link="https://ledescaparate.es" /%}
+   logo="https://ledescaparate.es/images/logo.png"
+   link="https://ledescaparate.es"
+   linkText="LEDescaparate.es"
+   location="España | Consultoría Corporativa" /%}
 
 {% ctaSection
    title="¿Listo para que la IA hable de tu empresa?"

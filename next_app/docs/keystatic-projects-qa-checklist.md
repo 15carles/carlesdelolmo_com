@@ -52,3 +52,16 @@ Expected:
 
 - keep working branch: `feature/keystatic-cms`
 - do not merge into `main` during this phase
+
+## 6) Phase 2 gate (strict + build)
+
+Run from `next_app/`:
+
+```bash
+npm run keystatic:phase2:gate
+```
+
+Expected:
+- strict migration check passes
+- diagnostics report 0 issues
+- `next build` completes successfully in this branch

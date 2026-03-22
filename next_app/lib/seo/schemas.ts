@@ -1,5 +1,14 @@
 export const SITE_URL = 'https://carlesdelolmo.com';
 
+function toAbsoluteUrl(url?: string): string | undefined {
+  if (!url) return undefined;
+  try {
+    return new URL(url, SITE_URL).toString();
+  } catch {
+    return undefined;
+  }
+}
+
 export const PERSON_SCHEMA = {
   "@type": "Person",
   "@id": `${SITE_URL}/#person`,
@@ -191,10 +200,13 @@ export const BUSINESS_SCHEMA = {
   }
 };
 
-export function generateBreadcrumbSchema(items: { label: string; href?: string }[]) {
+export function generateBreadcrumbSchema(
+  items: { label: string; href?: string }[],
+  breadcrumbId: string = `${SITE_URL}/#breadcrumbs`
+) {
   return {
     "@type": "BreadcrumbList",
-    "@id": `${SITE_URL}/#breadcrumbs`,
+    "@id": breadcrumbId,
     "itemListElement": items.map((item, index) => ({
       "@type": "ListItem",
       "position": index + 1,
@@ -305,6 +317,10 @@ export function generateProjectSchema(project: {
   };
 }) {
   const projectUrl = `${SITE_URL}/proyectos/${project.slug}`;
+  const breadcrumbId = `${projectUrl}#breadcrumb`;
+  const clientLogoUrl = toAbsoluteUrl(project.client?.logo);
+  const projectImage = clientLogoUrl;
+  const publishedDate = project.isoDate || undefined;
   
   const graph: any[] = [
     PERSON_SCHEMA,
@@ -320,13 +336,13 @@ export function generateProjectSchema(project: {
       "about": { "@id": `${SITE_URL}/#person` },
       "publisher": { "@id": `${SITE_URL}/#business` },
       "mainEntity": { "@id": `${projectUrl}#case-study` },
-      "breadcrumb": { "@id": `${projectUrl}#breadcrumb` }
+      "breadcrumb": { "@id": breadcrumbId }
     },
     generateBreadcrumbSchema([
       { label: 'Inicio', href: '/' },
       { label: 'Proyectos', href: '/#proyectos' },
       { label: project.title, href: `/proyectos/${project.slug}` }
-    ]),
+    ], breadcrumbId),
     {
       "@type": "CreativeWork",
       "@id": `${projectUrl}#case-study`,
@@ -336,6 +352,8 @@ export function generateProjectSchema(project: {
       "inLanguage": "es-ES",
       "author": { "@id": `${SITE_URL}/#person` },
       "publisher": { "@id": `${SITE_URL}/#business` },
+      ...(projectImage ? { "image": projectImage } : {}),
+      ...(publishedDate ? { "datePublished": publishedDate, "dateModified": publishedDate } : {}),
       "about": [
         "Arquitectura de entidades",
         "SEO técnico",
@@ -353,7 +371,7 @@ export function generateProjectSchema(project: {
       "@id": clientOrgId,
       "name": project.client.name,
       "url": project.client.url,
-      ...(project.client.logo ? { "logo": project.client.logo } : {})
+      ...(clientLogoUrl ? { "logo": clientLogoUrl } : {})
     });
 
     if (project.client.url) {

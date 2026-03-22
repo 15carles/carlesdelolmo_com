@@ -106,7 +106,9 @@ async function diagnoseFile(filePath) {
     }
 
     if (call.name === 'testimonial') {
-      for (const required of ['quote', 'author', 'role', 'logo', 'link']) {
+      // Keep diagnosis aligned with the current strict projects schema:
+      // quote/author/role are required content fields, while logo/link remain optional.
+      for (const required of ['quote', 'author', 'role']) {
         if (!(required in call.attrs)) {
           issues.push({
             type: 'component',
@@ -126,6 +128,38 @@ async function diagnoseFile(filePath) {
           });
         }
       }
+    }
+
+    if (['terminal', 'terminalChat', 'automatedTerminal'].includes(call.name)) {
+      issues.push({
+        type: 'legacy',
+        field: `content.${call.name}`,
+        message: `Legacy terminal block "${call.name}" found. Use "terminalUnified" instead.`,
+      });
+    }
+
+    if (['precisionGrid', 'challengeGrid', 'cardGrid', 'challengeCard', 'contentGrid'].includes(call.name)) {
+      issues.push({
+        type: 'legacy',
+        field: `content.${call.name}`,
+        message: `Legacy layout block "${call.name}" found. Use current Project blocks instead (insightGrid/section).`,
+      });
+    }
+
+    if (['simulatorCard', 'statsGrid', 'pagespeedMetrics'].includes(call.name)) {
+      issues.push({
+        type: 'legacy',
+        field: `content.${call.name}`,
+        message: `Legacy metrics block "${call.name}" found. Use "metricsPanel" instead.`,
+      });
+    }
+
+    if (call.name === 'automationGrid') {
+      issues.push({
+        type: 'legacy',
+        field: 'content.automationGrid',
+        message: 'Legacy automation block "automationGrid" found. Use "automationPanels" instead.',
+      });
     }
   }
 

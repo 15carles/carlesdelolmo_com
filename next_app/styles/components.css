@@ -417,6 +417,14 @@
     border-color: var(--color-border-hover);
 }
 
+.precision-grid-card {
+    transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+:root[data-theme="light"] .precision-grid-card {
+    background: rgba(255, 255, 255, 0.25);
+}
+
 .card--no-hover:hover {
     transform: none;
 }
@@ -1218,6 +1226,14 @@
     text-align: center;
 }
 
+.footer__meta {
+    color: var(--color-text-muted);
+    font-size: 0.78rem;
+    text-align: center;
+    margin-top: calc(var(--spacing-xs) * -0.5);
+    margin-bottom: 0;
+}
+
 .footer__links {
     display: flex;
     gap: var(--spacing-md);
@@ -1351,6 +1367,7 @@
     position: relative;
     width: 80px;
     height: 80px;
+    border-radius: 50%;
 }
 
 .pagespeed-circle svg {
@@ -1371,7 +1388,7 @@
 
 .pagespeed-circle .progress {
     stroke: var(--color-accent-green);
-    transition: stroke-dashoffset 1s ease-out;
+    transition: stroke-dashoffset 0.2s linear;
 }
 
 .pagespeed-value {

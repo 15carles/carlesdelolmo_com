@@ -1,7 +1,14 @@
 import { config, fields, collection, component } from '@keystatic/core';
 
+const hasGitHubStorageEnv =
+  Boolean(process.env.KEYSTATIC_GITHUB_CLIENT_ID)
+  && Boolean(process.env.KEYSTATIC_GITHUB_CLIENT_SECRET)
+  && Boolean(process.env.KEYSTATIC_SECRET);
+
+const shouldUseLocalStorage = process.env.NODE_ENV === 'development' || !hasGitHubStorageEnv;
+
 export default config({
-  storage: process.env.NODE_ENV === 'development'
+  storage: shouldUseLocalStorage
     ? { kind: 'local' }
     : {
       kind: 'github',
@@ -215,6 +222,7 @@ export default config({
                 columns: fields.select({
                   label: 'Columnas',
                   options: [
+                    { label: '1 Columna', value: '1' },
                     { label: '2 Columnas', value: '2' },
                     { label: '3 Columnas', value: '3' },
                   ],
@@ -257,33 +265,38 @@ export default config({
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Título del Proyecto' } }),
-        subtitle: fields.text({ label: 'Subtítulo / Hook Hero', multiline: true }),
-        summary: fields.text({ label: 'Resumen Hero', multiline: true }),
-        date: fields.text({ label: 'Fecha Visual', description: 'Ej: Marzo 2024' }),
-        isoDate: fields.date({ label: 'Fecha ISO', description: 'Para metadatos SEO' }),
-        metaTitle: fields.text({ label: 'Meta Title' }),
-        metaDescription: fields.text({ label: 'Meta Description', multiline: true }),
-        sector: fields.text({ label: 'Sector' }),
-        foco: fields.text({ label: 'Foco del Proyecto' }),
-        sirScore: fields.integer({ label: 'Puntuación SIR (%)', defaultValue: 0 }),
+        subtitle: fields.text({ label: 'Subtítulo / Hook Hero', multiline: true, validation: { isRequired: true } }),
+        summary: fields.text({ label: 'Resumen Hero', multiline: true, validation: { isRequired: true } }),
+        date: fields.text({ label: 'Fecha Visual', description: 'Ej: Marzo 2024', validation: { isRequired: true } }),
+        isoDate: fields.date({ label: 'Fecha ISO', description: 'Para metadatos SEO', validation: { isRequired: true } }),
+        metaTitle: fields.text({ label: 'Meta Title', validation: { isRequired: true } }),
+        metaDescription: fields.text({ label: 'Meta Description', multiline: true, validation: { isRequired: true } }),
+        sector: fields.text({ label: 'Sector', validation: { isRequired: true } }),
+        foco: fields.text({ label: 'Foco del Proyecto', validation: { isRequired: true } }),
+        sirScore: fields.integer({ label: 'Puntuación SIR (%)', defaultValue: 0, validation: { isRequired: true, min: 0, max: 100 } }),
         badges: fields.array(
-          fields.text({ label: 'Badge' }),
-          { label: 'Etiquetas (Badges)', itemLabel: props => props.value || 'Nueva etiqueta' }
+          fields.text({ label: 'Badge', validation: { isRequired: true } }),
+          {
+            label: 'Etiquetas (Badges)',
+            itemLabel: props => props.value || 'Nueva etiqueta',
+            validation: { length: { min: 1 } },
+          }
         ),
         client: fields.object({
-          name: fields.text({ label: 'Nombre del Cliente' }),
-          url: fields.text({ label: 'URL del Sitio Web' }),
+          name: fields.text({ label: 'Nombre del Cliente', validation: { isRequired: true } }),
+          url: fields.text({ label: 'URL del Sitio Web', validation: { isRequired: true } }),
           logo: fields.image({
             label: 'Logo del Cliente',
             directory: 'public/assets/projects',
             publicPath: '/assets/projects',
+            validation: { isRequired: true },
           }),
         }, { label: 'Información del Cliente' }),
         testimonial: fields.object({
-          text: fields.text({ label: 'Testimonio', multiline: true }),
-          author: fields.text({ label: 'Nombre del Autor' }),
-          role: fields.text({ label: 'Cargo/Rol' }),
-          location: fields.text({ label: 'Ubicación (ej: España | Consultoría)' }),
+          text: fields.text({ label: 'Testimonio', multiline: true, validation: { isRequired: true } }),
+          author: fields.text({ label: 'Nombre del Autor', validation: { isRequired: true } }),
+          role: fields.text({ label: 'Cargo/Rol', validation: { isRequired: true } }),
+          location: fields.text({ label: 'Ubicación (ej: España | Consultoría)', validation: { isRequired: true } }),
         }, { label: 'Información del Testimonio' }),
         content: fields.document({
           label: 'Cuerpo del Caso de Estudio',
@@ -309,34 +322,50 @@ export default config({
               ),
               label: 'Hero: Encabezado del Proyecto',
               schema: {
-                title: fields.text({ label: 'Título Principal (H1)' }),
-                subtitle: fields.text({ label: 'Subtítulo / Hook', multiline: true }),
-                summary: fields.text({ label: 'Resumen descriptivo', multiline: true }),
-                sector: fields.text({ label: 'Sector (ej: Digital Signage)' }),
-                foco: fields.text({ label: 'Foco (ej: GEO & Estructura)' }),
+                title: fields.text({ label: 'Título Principal (H1)', validation: { isRequired: true } }),
+                subtitle: fields.text({ label: 'Subtítulo / Hook', multiline: true, validation: { isRequired: true } }),
+                summary: fields.text({ label: 'Resumen descriptivo', multiline: true, validation: { isRequired: true } }),
+                sector: fields.text({ label: 'Sector (ej: Digital Signage)', validation: { isRequired: true } }),
+                foco: fields.text({ label: 'Foco (ej: GEO & Estructura)', validation: { isRequired: true } }),
                 badges: fields.array(
-                  fields.text({ label: 'Etiqueta' }),
-                  { label: 'Badges (Tecnologías)', itemLabel: props => props.value || 'Nueva etiqueta' }
+                  fields.text({ label: 'Etiqueta', validation: { isRequired: true } }),
+                  {
+                    label: 'Badges (Tecnologías)',
+                    itemLabel: props => props.value || 'Nueva etiqueta',
+                    validation: { length: { min: 1 } },
+                  }
                 ),
               },
             }),
             styledImage: component({
               preview: (props) => (
-                <div style={{ border: '1px dashed #ccc', padding: '10px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '12px', color: '#999' }}>Imagen con estilo: {props.fields.width.value}</div>
-                  <div style={{ width: props.fields.width.value, height: '100px', backgroundColor: '#f0f0f0', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ border: '1px dashed #cbd5e1', padding: '10px', textAlign: 'center', borderRadius: '10px' }}>
+                  <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '8px' }}>
+                    Imagen con estilo: {props.fields.width.value}
+                  </div>
+                  <div style={{
+                    width: props.fields.width.value,
+                    height: '100px',
+                    backgroundColor: '#f1f5f9',
+                    borderRadius: '10px',
+                    margin: '0 auto',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: props.fields.effect.value === 'glass' ? '1px solid #cbd5e1' : '1px solid #e2e8f0',
+                  }}>
                     IMG
                   </div>
                 </div>
               ),
-              label: 'Imagen con Estilo (Estética Blog)',
+              label: 'Imagen con Estilo',
               schema: {
                 image: fields.image({
                   label: 'Imagen',
                   directory: 'public/assets/projects',
                   publicPath: '/assets/projects',
                 }),
-                alt: fields.text({ label: 'Texto alternativo (Alt)' }),
+                alt: fields.text({ label: 'Texto alternativo (alt)' }),
                 width: fields.select({
                   label: 'Ancho',
                   options: [
@@ -347,33 +376,48 @@ export default config({
                   defaultValue: '100%',
                 }),
                 effect: fields.select({
-                  label: 'Efecto Visual',
+                  label: 'Efecto visual',
                   options: [
                     { label: 'Normal', value: 'normal' },
                     { label: 'Glassmorphism', value: 'glass' },
                   ],
                   defaultValue: 'normal',
                 }),
-                centered: fields.checkbox({ label: 'Centrar imagen', defaultValue: true }),
+                centered: fields.checkbox({ label: 'Centrada', defaultValue: true }),
               },
             }),
-            contentGrid: component({
+            imageGallery: component({
               preview: (props) => (
-                <div style={{ border: '1px dashed #5a67d8', padding: '15px', borderRadius: '8px', backgroundColor: 'rgba(90, 103, 216, 0.05)' }}>
-                  <div style={{ fontSize: '12px', color: '#5a67d8', fontWeight: 'bold', marginBottom: '10px' }}>
-                    Grid Flexible ({props.fields.columns.value} Columnas)
+                <div style={{ border: '1px dashed #cbd5e1', padding: '10px', borderRadius: '10px' }}>
+                  <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '8px' }}>
+                    Galería ({props.fields.columns.value} columnas)
                   </div>
-                  <div style={{ display: 'grid', gridTemplateColumns: `repeat(${props.fields.columns.value}, 1fr)`, gap: '10px' }}>
-                    {props.fields.columns.value === '1' && <div>Columna 1</div>}
-                    {props.fields.columns.value === '2' && <><div style={{ border: '1px solid #ddd', padding: '4px' }}>Col 1</div><div style={{ border: '1px solid #ddd', padding: '4px' }}>Col 2</div></>}
-                    {props.fields.columns.value === '3' && <><div style={{ border: '1px solid #ddd', padding: '4px' }}>Col 1</div><div style={{ border: '1px solid #ddd', padding: '4px' }}>Col 2</div><div style={{ border: '1px solid #ddd', padding: '4px' }}>Col 3</div></>}
-                  </div>
-                  <div style={{ marginTop: '10px', fontSize: '10px', color: '#666' }}>
-                    (Los bloques hijos se añadirán desde el editor)
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: `repeat(${props.fields.columns.value}, minmax(0, 1fr))`,
+                    gap: '8px'
+                  }}>
+                    {[1, 2, 3].slice(0, Number(props.fields.columns.value)).map((i) => (
+                      <div
+                        key={i}
+                        style={{
+                          aspectRatio: '4/3',
+                          borderRadius: '8px',
+                          backgroundColor: '#e2e8f0',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: '10px',
+                          color: '#475569',
+                        }}
+                      >
+                        Imagen {i}
+                      </div>
+                    ))}
                   </div>
                 </div>
               ),
-              label: 'Grid: Diseño Flexible (Multi-columna)',
+              label: 'Galería de Imágenes',
               schema: {
                 columns: fields.select({
                   label: 'Columnas',
@@ -384,48 +428,133 @@ export default config({
                   ],
                   defaultValue: '2',
                 }),
-                content: fields.child({
-                  kind: 'block',
-                  placeholder: 'Añade bloques aquí...',
-                  formatting: 'inherit',
-                  links: 'inherit',
-                  componentBlocks: 'inherit',
-                }),
+                images: fields.array(
+                  fields.object({
+                    image: fields.image({
+                      label: 'Imagen',
+                      directory: 'public/assets/projects',
+                      publicPath: '/assets/projects',
+                    }),
+                    alt: fields.text({ label: 'Texto alternativo' }),
+                  }),
+                  {
+                    label: 'Imágenes',
+                    itemLabel: (props) => props.fields.alt.value || 'Imagen sin descripción',
+                  }
+                ),
               },
             }),
-            terminal: component({
-              preview: (props) => (
-                <div style={{
-                  backgroundColor: '#1e1e1e',
-                  color: '#fff',
-                  padding: '10px',
-                  borderRadius: '4px',
-                  fontFamily: 'monospace',
-                  maxWidth: props.fields.width.value === '750px' ? '400px' : '100%',
-                  margin: props.fields.width.value === '750px' ? '0 auto' : '0'
-                }}>
-                  <div style={{ borderBottom: '1px solid #333', marginBottom: '5px', fontSize: '12px', textAlign: 'center' }}>
-                    {props.fields.filename.value || 'terminal.sh'}
+            terminalUnified: component({
+              preview: (props) => {
+                const isNarrow = props.fields.width.value === '750px';
+                const mode = props.fields.mode.value;
+                return (
+                  <div style={{
+                    backgroundColor: '#10151e',
+                    color: '#e6edf3',
+                    borderRadius: '12px',
+                    border: '1px solid #2d333b',
+                    boxShadow: '0 8px 24px rgba(0,0,0,0.24)',
+                    fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+                    maxWidth: isNarrow ? '750px' : '100%',
+                    margin: isNarrow ? '0 auto' : '0',
+                    overflow: 'hidden'
+                  }}>
+                    <div style={{
+                      borderBottom: '1px solid #2d333b',
+                      padding: '8px 12px',
+                      fontSize: '12px',
+                      color: '#9da7b3',
+                      display: 'flex',
+                      justifyContent: 'space-between'
+                    }}>
+                      <span>{props.fields.filename.value || 'terminal.sh'}</span>
+                      <span>{mode}</span>
+                    </div>
+                    {mode === 'chat' && (
+                      <div style={{ padding: '10px', display: 'grid', gap: '8px' }}>
+                        {props.fields.messages.elements.length === 0 && (
+                          <div style={{ fontSize: '12px', color: '#9da7b3' }}>Añade mensajes para previsualizar el chat.</div>
+                        )}
+                        {props.fields.messages.elements.slice(0, 4).map((message, i) => {
+                          const isUser = message.fields.role.value === 'user';
+                          return (
+                            <div
+                              key={i}
+                              style={{
+                                justifySelf: isUser ? 'end' : 'start',
+                                maxWidth: '92%',
+                                padding: '8px 10px',
+                                borderRadius: '10px',
+                                fontSize: '12px',
+                                lineHeight: 1.5,
+                                background: isUser ? '#1f6feb' : '#30363d',
+                                color: '#f0f6fc',
+                              }}
+                            >
+                              <strong style={{ marginRight: '6px' }}>{isUser ? 'USER:' : 'IA:'}</strong>
+                              {message.fields.content.value || '(mensaje vacio)'}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                    {mode === 'logs' && (
+                      <div style={{
+                        padding: '10px 12px',
+                        fontSize: '12px',
+                        lineHeight: 1.6,
+                        color: '#c9d1d9'
+                      }}>
+                        {props.fields.logs.elements.length === 0 && (
+                          <div style={{ color: '#9da7b3' }}>[Sin logs todavia]</div>
+                        )}
+                        {props.fields.logs.elements.slice(0, 8).map((log, i) => {
+                          const color = log.fields.variant.value === 'success'
+                            ? '#3fb950'
+                            : log.fields.variant.value === 'variable'
+                              ? '#79c0ff'
+                              : log.fields.variant.value === 'property'
+                                ? '#39c5cf'
+                                : '#c9d1d9';
+                          return (
+                            <div key={i}>
+                              {log.fields.timestamp.value && (
+                                <span style={{ color: '#8b949e', marginRight: '6px' }}>
+                                  {log.fields.timestamp.value}
+                                </span>
+                              )}
+                              <span style={{ color }}>{log.fields.text.value || '(linea vacia)'}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                    {mode === 'code' && (
+                      <div style={{ padding: '12px', fontSize: '12px', lineHeight: 1.6 }}>
+                        {props.fields.content.element}
+                      </div>
+                    )}
                   </div>
-                  {props.fields.variant.value === 'hook' ? 'Terminal tipo Chat/IA' : 'Terminal Estándar'}
-                </div>
-              ),
-              label: 'Terminal Interactiva',
+                );
+              },
+              label: 'Terminal: Unificado',
               schema: {
-                filename: fields.text({ label: 'Nombre del archivo/título' }),
-                variant: fields.select({
-                  label: 'Variante',
+                mode: fields.select({
+                  label: 'Modo',
                   options: [
-                    { label: 'Estándar (Bash/Logs)', value: 'default' },
-                    { label: 'Hook (Chat IA)', value: 'hook' },
+                    { label: 'Codigo / Bloque libre', value: 'code' },
+                    { label: 'Chat IA', value: 'chat' },
+                    { label: 'Logs', value: 'logs' },
                   ],
-                  defaultValue: 'default',
+                  defaultValue: 'code',
                 }),
+                filename: fields.text({ label: 'Nombre del archivo/titulo', validation: { isRequired: true } }),
                 width: fields.select({
-                  label: 'Ancho Máximo',
+                  label: 'Ancho maximo',
                   options: [
                     { label: 'Completo', value: '100%' },
-                    { label: 'Estrecho (Centrado)', value: '750px' },
+                    { label: 'Estrecho (centrado)', value: '750px' },
                   ],
                   defaultValue: '100%',
                 }),
@@ -434,20 +563,6 @@ export default config({
                   placeholder: 'Contenido de la terminal...',
                   formatting: 'inherit',
                 }),
-              },
-            }),
-            terminalChat: component({
-              preview: (props) => (
-                <div style={{ backgroundColor: '#1e1e1e', padding: '10px', borderRadius: '4px' }}>
-                  <div style={{ color: '#fff', fontSize: '12px', borderBottom: '1px solid #333', marginBottom: '10px' }}>
-                    {props.fields.filename.value}
-                  </div>
-                  <div style={{ color: '#aaa', fontSize: '10px' }}>[ Conversación de IA ]</div>
-                </div>
-              ),
-              label: 'Terminal: Conversación IA',
-              schema: {
-                filename: fields.text({ label: 'Título de la Terminal', defaultValue: 'Simulación: Consulta en ChatGPT-4o' }),
                 messages: fields.array(
                   fields.object({
                     role: fields.select({
@@ -458,74 +573,70 @@ export default config({
                       ],
                       defaultValue: 'user',
                     }),
-                    content: fields.text({ label: 'Mensaje', multiline: true }),
+                    content: fields.text({ label: 'Mensaje', multiline: true, validation: { isRequired: true } }),
                   }),
                   {
-                    label: 'Mensajes',
-                    itemLabel: (props) => `${props.fields.role.value === 'user' ? '👤' : '🤖'}: ${props.fields.content.value?.substring(0, 30)}...`
+                    label: 'Mensajes (modo chat)',
+                    itemLabel: (props) => `${props.fields.role.value}: ${props.fields.content.value?.substring(0, 30) || 'vacio'}`,
                   }
                 ),
-              },
-            }),
-            automatedTerminal: component({
-              preview: (props) => (
-                <div style={{ backgroundColor: '#1e1e1e', padding: '10px', borderRadius: '4px' }}>
-                  <div style={{ color: '#fff', fontSize: '11px', borderBottom: '1px solid #333', marginBottom: '8px' }}>
-                    {props.fields.filename.value}
-                  </div>
-                  <div style={{ color: '#98c379', fontSize: '10px', fontFamily: 'monospace' }}>[Logs de Automatización]</div>
-                </div>
-              ),
-              label: 'Terminal: Logs Automáticos',
-              schema: {
-                filename: fields.text({ label: 'Nombre del archivo', defaultValue: 'leads_pipeline.sh' }),
                 logs: fields.array(
                   fields.object({
                     timestamp: fields.text({ label: 'Time (opcional)' }),
-                    text: fields.text({ label: 'Mensaje del log' }),
+                    text: fields.text({ label: 'Mensaje del log', validation: { isRequired: true } }),
                     variant: fields.select({
                       label: 'Estilo',
                       options: [
                         { label: 'Normal', value: 'default' },
-                        { label: 'Propiedad (Cyan)', value: 'property' },
-                        { label: 'Éxito (Verde)', value: 'success' },
-                        { label: 'Variable (Azul)', value: 'variable' },
+                        { label: 'Propiedad (cyan)', value: 'property' },
+                        { label: 'Exito (verde)', value: 'success' },
+                        { label: 'Variable (azul)', value: 'variable' },
                       ],
                       defaultValue: 'default',
                     }),
                   }),
                   {
-                    label: 'Líneas de Log',
-                    itemLabel: props => `${props.fields.timestamp.value} ${props.fields.text.value}` || 'Nueva línea'
+                    label: 'Lineas de log (modo logs)',
+                    itemLabel: props => `${props.fields.timestamp.value} ${props.fields.text.value}` || 'Nueva linea'
                   }
                 ),
               },
             }),
-            pagespeedMetrics: component({
+            insightGrid: component({
               preview: (props) => (
-                <div style={{ textAlign: 'center', padding: '10px', border: '1px dashed #ccc' }}>
-                  Lighthouse: SEO({props.fields.seo.value}) | Perf({props.fields.performance.value})
+                <div style={{ border: '1px dashed #5a67d8', padding: '14px', borderRadius: '12px' }}>
+                  <div style={{ fontSize: '11px', color: '#64748b', marginBottom: '8px' }}>
+                    Grid unificado · {props.fields.variant.value} · {props.fields.columns.value} cols
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: `repeat(${props.fields.columns.value}, minmax(0, 1fr))`, gap: '8px' }}>
+                    {props.fields.items.elements.slice(0, 3).map((item, i) => (
+                      <div key={i} style={{ border: '1px solid #e2e8f0', borderRadius: '10px', padding: '8px', fontSize: '11px' }}>
+                        <strong>{item.fields.title.value || `Elemento ${i + 1}`}</strong>
+                        {item.fields.badge.value && (
+                          <div style={{ marginTop: '4px', fontSize: '10px', color: '#475569' }}>
+                            {item.fields.badge.value}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ),
-              label: 'Lighthouse: Métricas de Velocidad',
+              label: 'Grid: Unificado (Cards/Desafíos)',
               schema: {
-                seo: fields.integer({ label: 'SEO', defaultValue: 100 }),
-                performance: fields.integer({ label: 'Rendimiento', defaultValue: 100 }),
-                bestPractices: fields.integer({ label: 'Mejores Prácticas', defaultValue: 98 }),
-                accessibility: fields.integer({ label: 'Accesibilidad', defaultValue: 100 }),
-              },
-            }),
-            precisionGrid: component({
-              preview: (props) => (
-                <div style={{ border: '1px dashed #5a67d8', padding: '15px' }}>
-                  Grid de Precisión ({props.fields.columns.value} cols)
-                </div>
-              ),
-              label: 'Grid: Diseño Especial ( Cards / Proyectos )',
-              schema: {
+                variant: fields.select({
+                  label: 'Estilo visual',
+                  options: [
+                    { label: 'Desafíos (contenedor único)', value: 'challenge' },
+                    { label: 'Precisión (cards con badge)', value: 'precision' },
+                    { label: 'Tarjetas (simple)', value: 'cards' },
+                  ],
+                  defaultValue: 'challenge',
+                }),
                 columns: fields.select({
                   label: 'Columnas',
                   options: [
+                    { label: '1 Columna', value: '1' },
                     { label: '2 Columnas', value: '2' },
                     { label: '3 Columnas', value: '3' },
                   ],
@@ -533,43 +644,82 @@ export default config({
                 }),
                 items: fields.array(
                   fields.object({
-                    title: fields.text({ label: 'Título' }),
-                    content: fields.text({ label: 'Contenido', multiline: true }),
+                    title: fields.text({ label: 'Título', validation: { isRequired: true } }),
+                    content: fields.text({ label: 'Contenido', multiline: true, validation: { isRequired: true } }),
                     badge: fields.text({ label: 'Badge (opcional)' }),
                   }),
                   {
                     label: 'Elementos',
-                    itemLabel: props => props.fields.title.value || 'Nuevo elemento'
+                    itemLabel: props => props.fields.title.value || 'Nuevo elemento',
+                    validation: { length: { min: 1 } },
                   }
-                )
+                ),
               },
             }),
-            statsGrid: component({
+            metricsPanel: component({
               preview: (props) => (
-                <div style={{ border: '1px solid #ccc', padding: '10px' }}>
-                  <strong>Stats Grid ({props.fields.variant.value}, {props.fields.columns.value} cols)</strong>
-                  <div style={{ display: 'grid', gridTemplateColumns: `repeat(${props.fields.columns.value}, 1fr)`, gap: '5px', marginTop: '5px' }}>
-                    {props.fields.stats.elements.map((stat, i) => (
-                      <div key={i} style={{ fontSize: '10px', textAlign: 'center' }}>
-                        <div>{stat.fields.value.value}</div>
-                        <div style={{ color: '#666' }}>{stat.fields.label.value}</div>
+                <div style={{ border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px' }}>
+                  <div style={{ fontSize: '11px', color: '#64748b', marginBottom: '6px' }}>
+                    Métricas · {props.fields.mode.value}
+                  </div>
+                  {props.fields.mode.value === 'lighthouse' && (
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, minmax(0,1fr))', gap: '6px', fontSize: '10px' }}>
+                      <div style={{ textAlign: 'center' }}><strong>{props.fields.seo.value}</strong><div>SEO</div></div>
+                      <div style={{ textAlign: 'center' }}><strong>{props.fields.performance.value}</strong><div>Perf</div></div>
+                      <div style={{ textAlign: 'center' }}><strong>{props.fields.bestPractices.value}</strong><div>Best</div></div>
+                      <div style={{ textAlign: 'center' }}><strong>{props.fields.accessibility.value}</strong><div>A11y</div></div>
+                    </div>
+                  )}
+                  {props.fields.mode.value === 'simulator' && (
+                    <div style={{ fontSize: '12px' }}>
+                      <strong>{props.fields.title.value || 'Simulador'}</strong>
+                      {props.fields.description.value && (
+                        <div style={{ marginTop: '6px', color: '#475569' }}>{props.fields.description.value}</div>
+                      )}
+                    </div>
+                  )}
+                  {props.fields.mode.value === 'stats' && (
+                    <div style={{ fontSize: '12px' }}>
+                      <strong>{props.fields.variant.value} · {props.fields.columns.value} cols</strong>
+                    </div>
+                  )}
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0,1fr))', gap: '6px', marginTop: '8px' }}>
+                    {props.fields.stats.elements.slice(0, 3).map((stat, i) => (
+                      <div key={i} style={{ fontSize: '10px', textAlign: 'center', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '6px' }}>
+                        <div>{stat.fields.value.value || '0'}</div>
+                        <div style={{ color: '#64748b' }}>{stat.fields.label.value || 'Etiqueta'}</div>
                       </div>
                     ))}
                   </div>
                 </div>
               ),
-              label: 'Estadísticas (Impacto)',
+              label: 'Métricas: Unificado (Lighthouse/Simulador/Stats)',
               schema: {
-                variant: fields.select({
-                  label: 'Variante de Layout',
+                mode: fields.select({
+                  label: 'Modo',
                   options: [
-                    { label: 'Grid 3 Columnas (con borde)', value: 'grid' },
-                    { label: 'Resaltado Centrado', value: 'highlight' },
+                    { label: 'Lighthouse', value: 'lighthouse' },
+                    { label: 'Simulador (card + stats)', value: 'simulator' },
+                    { label: 'Stats (grid/highlight)', value: 'stats' },
+                  ],
+                  defaultValue: 'lighthouse',
+                }),
+                seo: fields.integer({ label: 'SEO (modo lighthouse)', defaultValue: 100, validation: { isRequired: true, min: 0, max: 100 } }),
+                performance: fields.integer({ label: 'Rendimiento (modo lighthouse)', defaultValue: 100, validation: { isRequired: true, min: 0, max: 100 } }),
+                bestPractices: fields.integer({ label: 'Mejores Prácticas (modo lighthouse)', defaultValue: 98, validation: { isRequired: true, min: 0, max: 100 } }),
+                accessibility: fields.integer({ label: 'Accesibilidad (modo lighthouse)', defaultValue: 100, validation: { isRequired: true, min: 0, max: 100 } }),
+                title: fields.text({ label: 'Título (modo simulador)', defaultValue: 'El Simulador: El Cierre de Ventas' }),
+                description: fields.text({ label: 'Descripción (modo simulador)', multiline: true, defaultValue: '' }),
+                variant: fields.select({
+                  label: 'Variante (modo stats)',
+                  options: [
+                    { label: 'Grid con borde', value: 'grid' },
+                    { label: 'Resaltado centrado', value: 'highlight' },
                   ],
                   defaultValue: 'grid',
                 }),
                 columns: fields.select({
-                  label: 'Columnas (Desktop)',
+                  label: 'Columnas (modo stats)',
                   options: [
                     { label: '2 Columnas', value: '2' },
                     { label: '3 Columnas', value: '3' },
@@ -579,8 +729,8 @@ export default config({
                 }),
                 stats: fields.array(
                   fields.object({
-                    label: fields.text({ label: 'Etiqueta (ej: Ventas)' }),
-                    value: fields.text({ label: 'Valor (ej: +25%)' }),
+                    label: fields.text({ label: 'Etiqueta (ej: Ventas)', validation: { isRequired: true } }),
+                    value: fields.text({ label: 'Valor (ej: +25%)', validation: { isRequired: true } }),
                   }),
                   {
                     label: 'Estadísticas',
@@ -589,45 +739,81 @@ export default config({
                 ),
               },
             }),
-            challengeCard: component({
-              preview: (props) => (
-                <div style={{ textAlign: 'center', padding: '10px', border: '1px solid #ccc' }}>
-                  <strong>{props.fields.title.value}</strong>
-                </div>
-              ),
-              label: 'Tarjeta: Desafío/Visión (Individual)',
-              schema: {
-                title: fields.text({ label: 'Título' }),
-                content: fields.child({
-                  kind: 'block',
-                  placeholder: 'Descripción...',
-                  formatting: { inlineMarks: { code: 'inherit' } },
-                  componentBlocks: 'inherit',
-                }),
-              },
-            }),
             section: component({
-              preview: (props) => (
-                <div style={{
-                  border: '2px solid #eee',
-                  padding: '10px',
-                  borderRadius: '8px',
-                  textAlign: props.fields.textAlign.value,
-                  backgroundColor: props.fields.variant.value === 'dark' ? '#0a0e1a' : (props.fields.variant.value === 'secondary' ? '#f8f9fa' : '#fff'),
-                  color: props.fields.variant.value === 'dark' ? '#fff' : 'inherit'
-                }}>
-                  <div style={{ borderBottom: '1px solid #eee', marginBottom: '10px', paddingBottom: '5px' }}>
-                    <div style={{ fontSize: '12px', color: '#666' }}>Sección: {props.fields.variant.value} | {props.fields.padding.value} padding</div>
-                    <strong>{props.fields.title.value || 'Sin título'}</strong>
-                    <div style={{ fontSize: '10px' }}>{props.fields.subtitle.value}</div>
+              preview: (props) => {
+                const variant = props.fields.variant.value;
+                const align = props.fields.textAlign.value;
+                const padding = props.fields.padding.value;
+                const customBackgroundColor = props.fields.backgroundColor.value?.trim();
+                const isDark = variant === 'dark' || variant === 'gradient';
+                const variantStyles = variant === 'dark'
+                  ? { background: '#0f172a', border: '1px solid #1e293b', color: '#f8fafc' }
+                  : variant === 'gradient'
+                    ? { background: 'linear-gradient(135deg, #0b2545 0%, #1d4ed8 55%, #4338ca 100%)', border: '1px solid #1d4ed8', color: '#f8fafc' }
+                    : variant === 'glass'
+                      ? { background: 'linear-gradient(135deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.52) 100%)', border: '1px solid rgba(148,163,184,0.45)', color: '#0f172a', backdropFilter: 'blur(6px)' }
+                      : variant === 'secondary'
+                        ? { background: '#f8fafc', border: '1px solid #e2e8f0', color: '#0f172a' }
+                        : { background: '#ffffff', border: '1px solid #e5e7eb', color: '#0f172a' };
+                const sectionPadding = padding === 'large' ? '28px' : padding === 'none' ? '8px' : '18px';
+                return (
+                  <div style={{
+                    borderRadius: '16px',
+                    padding: sectionPadding,
+                    textAlign: align,
+                    ...variantStyles,
+                    ...(customBackgroundColor ? { background: customBackgroundColor } : {})
+                  }}>
+                    <div style={{
+                      borderBottom: isDark ? '1px solid rgba(148,163,184,0.35)' : '1px solid #e2e8f0',
+                      marginBottom: '12px',
+                      paddingBottom: '8px'
+                    }}>
+                      <div style={{
+                        fontSize: '11px',
+                        color: isDark ? '#93c5fd' : '#64748b',
+                        marginBottom: '4px',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.04em'
+                      }}>
+                        Sección {variant} · padding {padding}
+                      </div>
+                      {props.fields.eyebrow.value && (
+                        <div style={{ marginBottom: '8px' }}>
+                          <span style={{
+                            fontSize: '10px',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.06em',
+                            border: isDark ? '1px solid rgba(148,163,184,0.45)' : '1px solid #cbd5e1',
+                            borderRadius: '999px',
+                            padding: '4px 8px',
+                            color: isDark ? '#bfdbfe' : '#334155'
+                          }}>
+                            {props.fields.eyebrow.value}
+                          </span>
+                        </div>
+                      )}
+                      <strong style={{ fontSize: '18px' }}>{props.fields.title.value || 'Sin título'}</strong>
+                      {props.fields.subtitle.value && (
+                        <div style={{
+                          fontSize: '13px',
+                          marginTop: '4px',
+                          color: isDark ? '#cbd5e1' : '#475569'
+                        }}>
+                          {props.fields.subtitle.value}
+                        </div>
+                      )}
+                    </div>
+                    <div>{props.fields.content.element}</div>
                   </div>
-                  <div>{props.fields.content.element}</div>
-                </div>
-              ),
+                );
+              },
               label: 'Contenedor: Sección con Fondo',
               schema: {
-                title: fields.text({ label: 'Título de la Sección (H2)' }),
-                subtitle: fields.text({ label: 'Subtítulo/Descripción mini' }),
+                eyebrow: fields.text({ label: 'Eyebrow / Badge superior', defaultValue: '' }),
+                title: fields.text({ label: 'Título de la Sección (H2)', defaultValue: '' }),
+                subtitle: fields.text({ label: 'Subtítulo/Descripción mini', defaultValue: '' }),
+                backgroundColor: fields.text({ label: 'Color de Fondo Custom (hex opcional)', defaultValue: '' }),
                 variant: fields.select({
                   label: 'Fondo / Variante',
                   options: [
@@ -665,50 +851,51 @@ export default config({
                 }),
               },
             }),
-            automationGrid: component({
-              preview: (props) => (
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', padding: '10px' }}>
-                  <div style={{ border: '1px solid #ccc', padding: '5px', textAlign: 'center' }}>
-                    Terminal 1: {props.fields.t1_title.value}
+            automationPanels: component({
+              preview: (props) => {
+                const cols = props.fields.columns.value === '1' ? 1 : 2;
+                return (
+                  <div style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`, gap: '10px', padding: '10px' }}>
+                    {props.fields.items.elements.slice(0, 4).map((item, i) => (
+                      <div key={i} style={{ border: '1px solid #cbd5e1', borderRadius: '10px', padding: '8px' }}>
+                        <div style={{ fontSize: '11px', color: '#64748b', marginBottom: '4px' }}>
+                          {item.fields.filename.value || 'terminal.log'}
+                        </div>
+                        <strong style={{ fontSize: '12px' }}>{item.fields.title.value || `Panel ${i + 1}`}</strong>
+                      </div>
+                    ))}
                   </div>
-                  <div style={{ border: '1px solid #ccc', padding: '5px', textAlign: 'center' }}>
-                    Terminal 2: {props.fields.t2_title.value}
-                  </div>
-                </div>
-              ),
-              label: 'Grid: Automatizaciones (2 Cols)',
-              schema: {
-                t1_title: fields.text({ label: 'Título 1 (ej: Flujo de Leads)' }),
-                t1_desc: fields.text({ label: 'Descripción 1' }),
-                t1_filename: fields.text({ label: 'Archivo 1', defaultValue: 'leads_pipeline.sh' }),
-                t1_content: fields.text({ label: 'Logs Terminal 1', multiline: true }),
-
-                t2_title: fields.text({ label: 'Título 2 (ej: SEO Local)' }),
-                t2_desc: fields.text({ label: 'Descripción 2' }),
-                t2_filename: fields.text({ label: 'Archivo 2', defaultValue: 'seo_status.log' }),
-                t2_content: fields.text({ label: 'Logs Terminal 2', multiline: true }),
+                );
               },
-            }),
-            cardGrid: component({
-              preview: (props) => (
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-                  {props.fields.items.elements.map((item, i) => (
-                    <div key={i} style={{ border: '1px solid #ccc', padding: '10px' }}>
-                      <strong>{item.fields.title.value}</strong>
-                    </div>
-                  ))}
-                </div>
-              ),
-              label: 'Grid: Tarjetas (2 Cols)',
+              label: 'Automatización: Paneles de Terminal',
               schema: {
+                columns: fields.select({
+                  label: 'Columnas',
+                  options: [
+                    { label: '1 Columna', value: '1' },
+                    { label: '2 Columnas', value: '2' },
+                  ],
+                  defaultValue: '2',
+                }),
                 items: fields.array(
                   fields.object({
-                    title: fields.text({ label: 'Título de la Tarjeta' }),
-                    content: fields.text({ label: 'Contenido', multiline: true }),
+                    title: fields.text({ label: 'Título del Panel', validation: { isRequired: true } }),
+                    description: fields.text({ label: 'Descripción', multiline: true, validation: { isRequired: true } }),
+                    filename: fields.text({ label: 'Archivo', defaultValue: 'pipeline.log', validation: { isRequired: true } }),
+                    variant: fields.select({
+                      label: 'Variante de terminal',
+                      options: [
+                        { label: 'Estándar', value: 'default' },
+                        { label: 'Hook', value: 'hook' },
+                      ],
+                      defaultValue: 'default',
+                    }),
+                    content: fields.text({ label: 'Contenido terminal (multilínea)', multiline: true, validation: { isRequired: true } }),
                   }),
                   {
-                    label: 'Tarjetas',
-                    itemLabel: (props) => props.fields.title.value || 'Tarjeta',
+                    label: 'Paneles',
+                    itemLabel: (props) => props.fields.title.value || 'Nuevo panel',
+                    validation: { length: { min: 1 } },
                   }
                 ),
               },
@@ -720,94 +907,104 @@ export default config({
             }),
             ctaSection: component({
               preview: (props) => (
-                <div style={{ textAlign: 'center', padding: '20px', border: '2px solid #000' }}>
-                  <strong>CTA: {props.fields.title.value}</strong>
+                <div style={{
+                  textAlign: 'center',
+                  padding: '24px',
+                  borderRadius: '16px',
+                  background: 'linear-gradient(135deg, #0b1220 0%, #0f172a 55%, #1e293b 100%)',
+                  border: '1px solid #334155',
+                  color: '#f8fafc'
+                }}>
+                  <div style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.06em', color: '#93c5fd', marginBottom: '8px' }}>
+                    Call to action
+                  </div>
+                  <strong style={{ display: 'block', fontSize: '20px', lineHeight: 1.3 }}>{props.fields.title.value}</strong>
+                  <p style={{ margin: '12px auto 16px', maxWidth: '620px', fontSize: '14px', lineHeight: 1.55, color: '#cbd5e1', whiteSpace: 'pre-line' }}>
+                    {props.fields.text.value}
+                  </p>
+                  <span style={{
+                    display: 'inline-block',
+                    backgroundColor: '#1d4ed8',
+                    borderRadius: '999px',
+                    padding: '10px 18px',
+                    fontSize: '13px',
+                    fontWeight: 700
+                  }}>
+                    {props.fields.buttonText.value}
+                  </span>
                 </div>
               ),
               label: 'Sección: CTA (Call to Action)',
               schema: {
-                title: fields.text({ label: 'Título', defaultValue: '¿Listo para que la IA hable de tu empresa?' }),
-                text: fields.text({ label: 'Texto', multiline: true, defaultValue: 'No esperes a que tu competencia ocupe el lugar de autoridad.\nImplementa hoy la arquitectura que dominará mañana.' }),
-                buttonText: fields.text({ label: 'Texto del Botón', defaultValue: 'Hablemos de tu Estrategia GEO' }),
-                buttonLink: fields.text({ label: 'Link del Botón', defaultValue: '/#contacto' }),
+                title: fields.text({ label: 'Título', defaultValue: '¿Listo para que la IA hable de tu empresa?', validation: { isRequired: true } }),
+                text: fields.text({ label: 'Texto', multiline: true, defaultValue: 'No esperes a que tu competencia ocupe el lugar de autoridad.\nImplementa hoy la arquitectura que dominará mañana.', validation: { isRequired: true } }),
+                buttonText: fields.text({ label: 'Texto del Botón', defaultValue: 'Hablemos de tu Estrategia GEO', validation: { isRequired: true } }),
+                buttonLink: fields.text({ label: 'Link del Botón', defaultValue: '/#contacto', validation: { isRequired: true } }),
               },
             }),
             testimonial: component({
               preview: (props) => (
-                <div style={{ border: '1px solid #ffcc00', padding: '15px', borderRadius: '8px', backgroundColor: '#fff9e6' }}>
-                  <div style={{ fontSize: '10px', color: '#666', marginBottom: '5px' }}>[ TESTIMONIO CORPORATIVO ]</div>
-                  <div style={{ fontStyle: 'italic', marginBottom: '10px' }}>"{props.fields.quote.value}"</div>
-                  <div style={{ fontWeight: 'bold' }}>{props.fields.author.value}</div>
+                <div style={{
+                  border: '1px solid #e2e8f0',
+                  padding: '18px',
+                  borderRadius: '14px',
+                  backgroundColor: '#ffffff',
+                  boxShadow: '0 8px 24px rgba(15,23,42,0.08)'
+                }}>
+                  <div style={{ fontSize: '11px', color: '#64748b', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    Mención de Honor
+                  </div>
+                  <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
+                    {props.fields.logo.value && (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={props.fields.logo.value}
+                        alt="Logo testimonio"
+                        style={{
+                          width: '64px',
+                          height: '64px',
+                          objectFit: 'contain',
+                          borderRadius: '10px',
+                          border: '1px solid #e2e8f0',
+                          backgroundColor: '#f8fafc',
+                          padding: '8px',
+                          flexShrink: 0
+                        }}
+                      />
+                    )}
+                    <div>
+                      <div style={{ fontStyle: 'italic', marginBottom: '10px', fontSize: '14px', lineHeight: 1.55, color: '#0f172a' }}>
+                        &quot;{props.fields.quote.value || 'Añade una cita de cliente'}&quot;
+                      </div>
+                      <div style={{ fontWeight: 700, color: '#0f172a' }}>
+                        {props.fields.author.value || 'Autor del testimonio'}
+                      </div>
+                      <div style={{ fontSize: '13px', color: '#475569', marginTop: '3px' }}>
+                        {props.fields.role.value || 'Cargo / Empresa'}
+                        {props.fields.link.value && (
+                          <span style={{ marginLeft: '8px', color: '#1d4ed8' }}>
+                            · {props.fields.linkText.value || props.fields.link.value}
+                          </span>
+                        )}
+                      </div>
+                      {props.fields.location.value && (
+                        <div style={{ fontSize: '11px', color: '#64748b', marginTop: '6px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                          {props.fields.location.value}
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               ),
               label: 'Testimonio: Mención de Honor',
               schema: {
-                quote: fields.text({ label: 'Cita / Testimonio', multiline: true }),
-                author: fields.text({ label: 'Nombre del Autor' }),
-                role: fields.text({ label: 'Cargo / Empresa' }),
-                logo: fields.image({
-                  label: 'Logo de la Empresa',
-                  directory: 'public/assets/projects',
-                  publicPath: '/assets/projects',
-                }),
-                link: fields.text({ label: 'Enlace (opcional)' }),
-              },
-            }),
-            simulatorCard: component({
-              preview: (props) => (
-                <div style={{ border: '2px solid #333', padding: '15px', borderRadius: '12px', textAlign: 'center' }}>
-                  <div style={{ fontWeight: 'bold' }}>Simulador: {props.fields.title.value}</div>
-                  <div style={{ fontSize: '10px' }}>{props.fields.description.value}</div>
-                  <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '10px' }}>
-                    {props.fields.stats.elements.map((s, i) => (
-                      <div key={i} style={{ fontSize: '12px' }}>
-                        <strong>{s.fields.value.value}</strong><br />{s.fields.label.value}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ),
-              label: 'Card: Simulador (con Stats)',
-              schema: {
-                title: fields.text({ label: 'Título del Simulador', defaultValue: 'El Simulador: El Cierre de Ventas' }),
-                description: fields.text({ label: 'Descripción', multiline: true }),
-                stats: fields.array(
-                  fields.object({
-                    value: fields.text({ label: 'Valor (ej: +32%)' }),
-                    label: fields.text({ label: 'Etiqueta (ej: Leads)' }),
-                  }),
-                  {
-                    label: 'Estadísticas del simulador',
-                    itemLabel: (props) => `${props.fields.value.value} ${props.fields.label.value}`,
-                  }
-                ),
-              },
-            }),
-            challengeGrid: component({
-              preview: (props) => (
-                <div style={{ border: '1px dashed #ccc', padding: '10px' }}>
-                  <div style={{ fontWeight: 'bold', fontSize: '12px', marginBottom: '8px' }}>Grid de Desafíos (3 Columnas)</div>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px' }}>
-                    {props.fields.items.elements.map((item, i) => (
-                      <div key={i} style={{ border: '1px solid #eee', padding: '4px', fontSize: '10px' }}>
-                        {item.fields.title.value || `Col ${i + 1}`}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ),
-              label: 'Grid: Desafíos (3 col)',
-              schema: {
-                items: fields.array(
-                  fields.object({
-                    title: fields.text({ label: 'Título' }),
-                    content: fields.text({ label: 'Contenido', multiline: true }),
-                  }),
-                  {
-                    label: 'Elementos',
-                    itemLabel: (props) => props.fields.title.value || 'Sin título',
-                  }
-                ),
+                quote: fields.text({ label: 'Cita / Testimonio', multiline: true, defaultValue: '', validation: { isRequired: true } }),
+                author: fields.text({ label: 'Nombre del Autor', defaultValue: '', validation: { isRequired: true } }),
+                role: fields.text({ label: 'Cargo / Empresa', defaultValue: '', validation: { isRequired: true } }),
+                logo: fields.text({ label: 'Logo de la Empresa (ruta opcional)', defaultValue: '' }),
+                link: fields.text({ label: 'Enlace (opcional)', defaultValue: '' }),
+                linkText: fields.text({ label: 'Texto del Enlace (opcional)', defaultValue: '' }),
+                location: fields.text({ label: 'Ubicación (opcional)', defaultValue: '' }),
               },
             }),
           },

@@ -2,6 +2,18 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [v3.2.2] - 2026-03-22
+### Añadido
+- **404 Personalizada:** Nueva página `not-found.tsx` con mensaje de "Página no encontrada", CTA visible para volver al inicio y mini-juego runner integrado.
+- **Game Logic:** Separación de lógica del mini-juego en `lib/notFoundRunnerGame.ts` y componente cliente dedicado `components/NotFoundRunnerGame.tsx`.
+
+### Corregido
+- **Layout/UX:** Ajuste del espaciado superior en la 404 para compensar correctamente la `navbar` fija (4rem móvil / 5rem desktop).
+- **SEO Técnico:** Captura de rutas inexistentes mediante `app/(site)/[...missing]/page.tsx` con `notFound()` para garantizar respuesta HTTP 404 real.
+
+### Cambiado
+- **Control de Versionado:** Sincronización de `VERSION`, `README.md`, `llms.txt`, `humans.txt`, `sitemap.xml` y el texto "Last Updated" del footer con fecha 2026-03-22.
+
 ## [Cambios Recientes] - 2026-03-20
 ### Añadido
 - **Diseño Web:** Nuevos componentes interactivos `OrbitaMethod` (visualización del ecosistema digital) y `WorkflowTimeline` (línea de tiempo del proceso de trabajo).
@@ -358,8 +370,8 @@ Solucionado el problema de ancho insuficiente del navbar en dispositivos móvile
 - **Reingeniería de Chat**: Interfaz de mensajería moderna con alineación diferenciada y lógica de IA generativa visualmente optimizada.
 - **Testimonio Premium**: Refinamiento estético de la tarjeta "Mención de Honor" con glassmorphism profundo y jerarquía tipográfica corregida.
 
-**Versión**: v2.5.0
-**Última actualización**: 09 Febrero 2026 (Consolidación de Estándares y Transparencia)
+**Versión**: v3.2.2
+**Última actualización**: 22 Marzo 2026 (Página 404 con mini-juego runner + fix de espaciado bajo navbar)
 
 ## [1.3.0] - 18-01-2026
 

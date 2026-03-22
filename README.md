@@ -88,5 +88,5 @@ Especialista en Generative Engine Optimization
 
 ---
 
-**Versión**: v3.2.0  
-**Última actualización**: 20 Marzo 2026 (Feat: Implementación de componentes interactivos y landing de diseño web local)
+**Versión**: v3.2.2  
+**Última actualización**: 22 Marzo 2026 (Feat: Página 404 con mini-juego runner + fix de espaciado bajo navbar)

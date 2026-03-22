@@ -798,6 +798,114 @@ textarea:focus-visible {
 }
 
 /* ============================================
+   PÁGINA 404
+   ============================================ */
+.not-found-page {
+    min-height: calc(100vh - 12rem);
+    display: flex;
+    align-items: center;
+    padding-top: calc(var(--spacing-xl) + 4rem);
+}
+
+.not-found-shell {
+    max-width: 52rem;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    background: var(--color-bg-card);
+    backdrop-filter: blur(var(--blur-md));
+    box-shadow: var(--shadow-md);
+    text-align: center;
+}
+
+.not-found-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-sm);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border);
+    color: var(--color-accent-blue);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.not-found-title {
+    margin-bottom: var(--spacing-md);
+}
+
+.not-found-description {
+    max-width: 40rem;
+    margin: 0 auto var(--spacing-lg);
+    color: var(--color-text-secondary);
+}
+
+.not-found-actions {
+    margin-bottom: var(--spacing-xl);
+}
+
+.not-found-game {
+    text-align: left;
+}
+
+.not-found-game__hud {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.not-found-game__score {
+    margin-bottom: 0;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
+.not-found-game__score strong {
+    color: var(--color-text-primary);
+}
+
+.not-found-game__canvas {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(8, 145, 178, 0.08) 100%);
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.not-found-game__hint {
+    margin-top: var(--spacing-sm);
+    margin-bottom: 0;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .not-found-shell {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .not-found-game__hud {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (min-width: 1024px) {
+    .not-found-page {
+        padding-top: calc(var(--spacing-xl) + 5rem);
+    }
+}
+
+/* ============================================
    AJUSTES SECCIÓN HERO
    ============================================ */
 /* Desktop: 769px+ */

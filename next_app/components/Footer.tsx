@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const lastUpdated = '2026-03-22';
 
   const handleOpenCookieSettings = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -35,6 +36,7 @@ export default function Footer() {
         <p className="footer__text">
           © {currentYear} <Link href="/">Carles del Olmo</Link>. Diseñador web en Valencia especializado en SEO y GEO.
         </p>
+        <p className="footer__meta">Last Updated: {lastUpdated}</p>
       </div>
     </footer>
   );

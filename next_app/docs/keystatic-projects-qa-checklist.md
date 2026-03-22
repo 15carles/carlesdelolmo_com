@@ -17,31 +17,30 @@ Expected:
 
 ## 2) Keystatic editor smoke test
 
-Use forced storage recovery once if needed:
+Open current project entries directly (based on files in `content/projects/*.mdoc`), for example:
 
-- `http://127.0.0.1:3000/keystatic/collection/projects/item/ledescaparate?ksRecover=1`
-- `http://127.0.0.1:3000/keystatic/collection/projects/item/ambar-muebles?ksRecover=1`
+- `http://127.0.0.1:3000/keystatic/collection/projects/item/ledescaparate`
 
 Expected:
 - no `Field validation failed: content: Must be a string`
-- editor loads both items
+- editor loads the item without runtime banner
 
 ## 3) Save flow
 
-For both project entries:
+For each active project entry:
 - edit a simple field (`subtitle`)
 - edit inside at least one content block (`section` or `testimonial`)
 - save
 
 Expected:
 - save succeeds
+- dirty state appears/disappears correctly in Keystatic UI
 - no runtime error banner
+- changes persist after full browser refresh
 
 ## 4) Frontend render check
 
-Open:
-- `/proyectos/ledescaparate`
-- `/proyectos/ambar-muebles`
+Open each active project route (for example `/proyectos/ledescaparate`).
 
 Expected:
 - page renders without runtime errors
@@ -65,3 +64,9 @@ Expected:
 - strict migration check passes
 - diagnostics report 0 issues
 - `next build` completes successfully in this branch
+
+## Current closure snapshot (2026-03-22)
+
+- `npm run keystatic:strict:check`: OK (`ledescaparate: 0 issue(s)`).
+- Keystatic save + refresh persistence: validated manually on `ledescaparate`.
+- `npm run keystatic:phase2:gate`: OK after strict migration normalization.

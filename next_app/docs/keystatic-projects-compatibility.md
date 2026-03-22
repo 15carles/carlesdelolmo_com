@@ -20,7 +20,6 @@ The temporary compatibility phase is now stabilized on `feature/keystatic-cms`, 
 - Normalized broken logo reference in `ledescaparate.mdoc`:
   - `/assets/projects/ledescaparate/client/logo.webp` -> `/assets/projects/ledescaparate/client/logo.png`
 - Expanded testimonial blocks in project entries to explicit required props.
-- Added one-time Keystatic browser storage recovery in `app/keystatic/keystatic.tsx` to clear stale IndexedDB drafts/cache (`?ksRecover=1` forces recovery).
 - Hardened project schema validation (required root fields, bounded percentages, non-empty arrays, required block fields).
 - Added automated legacy -> strict migration for project content blocks.
 
@@ -68,12 +67,19 @@ The migration script applies safe rewrites for legacy patterns:
   - `styledImage` -> markdown image
 
 ## Current status
+- Active project content currently includes `ledescaparate` (`content/projects/ledescaparate.mdoc`).
 - `npm run keystatic:strict:check` passes with 0 issues on current project entries.
 - Keystatic editor loads and saves `projects` entries without `content: Must be a string`.
 - Work remains intentionally on `feature/keystatic-cms` (no merge to `main` required).
+- `npm run keystatic:phase2:gate` passes in this branch after applying strict normalization.
 
 ## Exit criteria to remove remaining compatibility helpers
 - `diagnose-keystatic-projects.mjs` returns 0 issues for all slugs.
 - CMS can open and save every item in `projects`.
 - No runtime validation error appears in `/keystatic/collection/projects/item/*`.
 - All entries pass `node scripts/migrate-projects-to-strict.mjs --check`.
+
+## Operational note
+- After manual edits in Keystatic, run strict normalization before final gate if required:
+  - `node scripts/migrate-projects-to-strict.mjs`
+  - `npm run keystatic:phase2:gate`

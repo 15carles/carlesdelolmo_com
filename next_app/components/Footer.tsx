@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const lastUpdated = '2026-03-22';
+  const lastUpdated = '2026-03-23';
 
   const handleOpenCookieSettings = (e: React.MouseEvent) => {
     e.preventDefault();

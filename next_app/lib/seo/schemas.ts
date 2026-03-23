@@ -200,6 +200,142 @@ export const BUSINESS_SCHEMA = {
   }
 };
 
+type HomeSectionDefinition = {
+  id: string;
+  name: string;
+  description: string;
+};
+
+const HOME_SECTION_DEFINITIONS: HomeSectionDefinition[] = [
+  {
+    id: 'hero',
+    name: 'Hero principal',
+    description: 'Presentación del servicio de diseño web optimizado para buscadores e inteligencia artificial.',
+  },
+  {
+    id: 'credibilidad',
+    name: 'Diseño web con enfoque estratégico',
+    description: 'Bloque de credibilidad sobre enfoque de trabajo, desarrollo a medida y base SEO/GEO.',
+  },
+  {
+    id: 'que-resuelvo',
+    name: 'Problemas que resuelve una web bien planteada',
+    description: 'Errores habituales en webs corporativas y cómo corregir claridad, estructura y utilidad comercial.',
+  },
+  {
+    id: 'servicios',
+    name: 'Servicios',
+    description: 'Oferta de diseño y desarrollo web, SEO estructural, preparación IA/GEO y automatización.',
+  },
+  {
+    id: 'caso-destacado',
+    name: 'Caso de estudio destacado',
+    description: 'Prueba real de trabajo aplicado con enfoque estratégico y resultados de claridad y estructura.',
+  },
+  {
+    id: 'metodo-orbita',
+    name: 'Método ORBITA',
+    description: 'Marco de trabajo para optimización técnica, relevancia semántica, autoridad e iteración continua.',
+  },
+  {
+    id: 'diferenciadores',
+    name: 'Diferenciadores',
+    description: 'Factores que hacen que una web esté mejor construida y más preparada para crecer.',
+  },
+  {
+    id: 'insights',
+    name: 'Insights',
+    description: 'Selección de contenidos expertos sobre desarrollo web, SEO, GEO y preparación para IA.',
+  },
+  {
+    id: 'para-quien',
+    name: 'Encaje de proyecto',
+    description: 'Tipo de proyectos y empresas con los que este enfoque aporta más valor.',
+  },
+  {
+    id: 'cta-final',
+    name: 'Llamada a la acción final',
+    description: 'Bloque final para iniciar contacto o revisar servicios y precios.',
+  },
+  {
+    id: 'contacto',
+    name: 'Formulario de contacto',
+    description: 'Sección para solicitar propuesta y abrir conversación sobre el proyecto web.',
+  },
+];
+
+const HOME_RELATED_LINKS = [
+  `${SITE_URL}/contacto`,
+  `${SITE_URL}/pricing`,
+  `${SITE_URL}/proyectos/ledescaparate`,
+  `${SITE_URL}/blog`,
+  `${SITE_URL}/diseno-web/valencia`,
+];
+
+export function generateHomeSchema() {
+  const webpageId = `${SITE_URL}/#webpage`;
+  const websiteId = `${SITE_URL}/#website`;
+  const breadcrumbsId = `${SITE_URL}/#breadcrumbs`;
+  const sectionsListId = `${SITE_URL}/#home-sections`;
+
+  const sectionEntities = HOME_SECTION_DEFINITIONS.map((section) => ({
+    "@type": "WebPageElement",
+    "@id": `${SITE_URL}/#${section.id}`,
+    "url": `${SITE_URL}/#${section.id}`,
+    "name": section.name,
+    "description": section.description,
+    "isPartOf": { "@id": webpageId },
+  }));
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      PERSON_SCHEMA,
+      BUSINESS_SCHEMA,
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        "url": SITE_URL,
+        "name": "Carles del Olmo",
+        "inLanguage": "es-ES",
+        "publisher": { "@id": `${SITE_URL}/#business` },
+      },
+      {
+        "@type": "WebPage",
+        "@id": webpageId,
+        "url": SITE_URL,
+        "name": "Diseño web en Valencia | Carles del Olmo - SEO y GEO",
+        "description": "Web profesional orientada a claridad, posicionamiento SEO/GEO y crecimiento digital sostenible.",
+        "inLanguage": "es-ES",
+        "isPartOf": { "@id": websiteId },
+        "about": [
+          { "@id": `${SITE_URL}/#person` },
+          { "@id": `${SITE_URL}/#business` },
+        ],
+        "breadcrumb": { "@id": breadcrumbsId },
+        "mainEntity": { "@id": sectionsListId },
+        "hasPart": sectionEntities.map((section) => ({ "@id": section["@id"] })),
+        "relatedLink": HOME_RELATED_LINKS,
+      },
+      generateBreadcrumbSchema([{ label: 'Inicio', href: '/' }], breadcrumbsId),
+      {
+        "@type": "ItemList",
+        "@id": sectionsListId,
+        "name": "Secciones principales de la Home",
+        "itemListOrder": "https://schema.org/ItemListOrderAscending",
+        "numberOfItems": HOME_SECTION_DEFINITIONS.length,
+        "itemListElement": HOME_SECTION_DEFINITIONS.map((section, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": section.name,
+          "item": { "@id": `${SITE_URL}/#${section.id}` },
+        })),
+      },
+      ...sectionEntities,
+    ],
+  };
+}
+
 export function generateBreadcrumbSchema(
   items: { label: string; href?: string }[],
   breadcrumbId: string = `${SITE_URL}/#breadcrumbs`
@@ -232,12 +368,12 @@ export function generateBlogSchema(post: {
     socialLinks?: readonly { platform: string; url: string }[] | null;
   } | null;
 }) {
-  const graph: any[] = [
+  const graph: Record<string, unknown>[] = [
     PERSON_SCHEMA,
     BUSINESS_SCHEMA,
   ];
 
-  let authorObject: any;
+  let authorObject: Record<string, unknown>;
 
   if (post.author) {
     if (post.author.schemaId) {
@@ -267,7 +403,7 @@ export function generateBlogSchema(post: {
       "@type": "WebPage",
       "@id": `${SITE_URL}/blog/${post.slug}`
     },
-    "headline": typeof post.title === 'string' ? post.title : (post.title as any)?.name || '',
+    "headline": post.title,
     "description": post.description,
     "datePublished": post.isoDate,
     "dateModified": post.isoDate,
@@ -322,7 +458,7 @@ export function generateProjectSchema(project: {
   const projectImage = clientLogoUrl;
   const publishedDate = project.isoDate || undefined;
   
-  const graph: any[] = [
+  const graph: Record<string, unknown>[] = [
     PERSON_SCHEMA,
     BUSINESS_SCHEMA,
     {

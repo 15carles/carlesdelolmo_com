@@ -1,89 +1,78 @@
 import React from 'react';
-import { Zap, Code, Search, Cpu } from 'lucide-react';
+import Link from 'next/link';
 
-interface ServiceCardProps {
+interface ServicioItem {
   title: string;
   description: string;
-  tags: string[];
-  icon: React.ElementType;
-  colorClass: string;
+  label: string;
+  badgeClass: string;
   featured?: boolean;
 }
 
-export function ServiceCard({ title, description, tags, icon: Icon, colorClass, featured }: ServiceCardProps) {
-  return (
-    <article className={`service-card ${featured ? 'service-card--featured' : ''} animate-on-scroll`}>
-      <div className={`service-card__icon-wrapper ${colorClass}`}>
-        <Icon size={24} strokeWidth={2} />
-      </div>
-      <h3 className="service-card__title">{title}</h3>
-      <p className="service-card__description">{description}</p>
-      <div className="service-card__tags">
-        {tags.map((tag, index) => (
-          <span key={index} className="service-card__tag">{tag}</span>
-        ))}
-      </div>
-    </article>
-  );
-}
+const servicios: ServicioItem[] = [
+  {
+    title: 'Diseño y desarrollo web',
+    description:
+      'Creo páginas web profesionales, claras y bien estructuradas para que tu negocio transmita mejor, gane solidez y tenga una base técnica preparada para crecer.',
+    label: 'Servicio principal',
+    badgeClass: 'badge--purple',
+    featured: true,
+  },
+  {
+    title: 'SEO y estructura para posicionar',
+    description:
+      'Trabajo la arquitectura, los contenidos y la organización de la web para facilitar una mejor comprensión por parte de buscadores y reforzar la visibilidad orgánica.',
+    label: 'Visibilidad orgánica',
+    badgeClass: 'badge--blue',
+  },
+  {
+    title: 'Preparación para IA y GEO',
+    description:
+      'Optimizo la base semántica y la claridad del sitio para que tu presencia digital esté mejor preparada para entornos de inteligencia artificial y sistemas de respuesta.',
+    label: 'Entornos IA',
+    badgeClass: 'badge--cyan',
+  },
+  {
+    title: 'Automatización como apoyo',
+    description:
+      'Cuando el proyecto lo necesita, también puedo integrar automatizaciones para mejorar captación, seguimiento de leads o eficiencia operativa.',
+    label: 'Eficiencia operativa',
+    badgeClass: 'badge--teal',
+  },
+];
 
 export default function ServicesSection() {
   return (
-    <section id="servicios" className="section">
+    <section id="servicios" className="section" aria-labelledby="servicios-title">
       <div className="container">
-        {/* Section Header */}
         <header className="section-header animate-on-scroll">
-          <h2 className="section-header__title">Soluciones de Autoridad Digital</h2>
+          <h2 id="servicios-title" className="section-header__title">
+            Servicios pensados para construir una presencia digital sólida
+          </h2>
           <p className="section-header__subtitle">
-            Ingeniería y estrategia para liderar las respuestas de la Inteligencia Artificial
+            No trabajo la web como una pieza aislada. La planteo como una base digital
+            que debe comunicar bien, posicionar con criterio y ayudarte a generar oportunidades.
           </p>
         </header>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-3">
-          {/* Servicio Destacado */}
-          <ServiceCard
-            title="Ecosistema Digital Pro"
-            description="La integración total de ingeniería, autoridad y procesos inteligentes. Fusionamos rendimiento extremo, arquitectura semántica y flujos autónomos en una infraestructura única. No es una web; es el activo más potente de tu negocio."
-            featured
-            icon={Zap}
-            colorClass="service-card__icon-wrapper--purple"
-            tags={["SIR 62%", "Arquitectura de Entidades", "Escalabilidad Total"]}
-          />
-
-          {/* Pilar 1 */}
-          <ServiceCard
-            title="Arquitectura Performance-First"
-            description="Código limpio, velocidad extrema y cero deuda técnica. Sitios ultra-rápidos optimizados para Core Web Vitals, diseñados para que usuarios y algoritmos naveguen sin fricción."
-            icon={Code}
-            colorClass="service-card__icon-wrapper--blue"
-            tags={["Lighthouse 95+", "JS Vanilla", "LCP < 2s"]}
-          />
-
-          {/* Pilar 2 */}
-          <ServiceCard
-            title="Visibilidad Local y Generativa"
-            description="Hago que tu marca sea la respuesta. Optimizo tu presencia para liderar el SEO Local y garantizo que los modelos de lenguaje (ChatGPT, Perplexity...) te citen como fuente de autoridad."
-            icon={Search}
-            colorClass="service-card__icon-wrapper--cyan"
-            tags={["GEO Optimization", "Entidades Semánticas", "Google Maps"]}
-          />
-
-          {/* Pilar 3 */}
-          <ServiceCard
-            title="Ingeniería de Flujos y Agentes IA"
-            description="Diseño cerebros operativos con n8n. Desde agentes autónomos para gestión de clientes hasta flujos complejos que conectan tus herramientas y automatizan tu toma de decisiones."
-            icon={Cpu}
-            colorClass="service-card__icon-wrapper--purple"
-            tags={["Agentes IA", "Flujos n8n", "Eficiencia Operativa"]}
-          />
+        <div className="grid grid-cols-2 servicios-grid">
+          {servicios.map((servicio) => (
+            <article
+              key={servicio.title}
+              className={`service-card servicio-item animate-on-scroll ${servicio.featured ? 'service-card--featured servicio-item--featured' : ''}`}
+            >
+              <div className="servicio-item__top">
+                <span className={`badge badge--tag ${servicio.badgeClass} servicio-item__badge`}>{servicio.label}</span>
+              </div>
+              <h3 className="service-card__title servicio-item__title">{servicio.title}</h3>
+              <p className="service-card__description servicio-item__description">{servicio.description}</p>
+            </article>
+          ))}
         </div>
 
-        {/* Footer de Sección */}
-        <div className="services-footer animate-on-scroll">
-          <p className="services-footer__text">
-            No solo construyo código; construyo la autoridad que las IAs necesitan para confiar en tu marca. <strong>SIR del 62% probado en proyectos reales.</strong>
-          </p>
+        <div className="section-actions animate-on-scroll" role="group" aria-label="Acciones de servicios">
+          <Link href="/pricing" className="btn btn--primary">Ver servicios y precios</Link>
+          <Link href="/contacto" className="btn btn--secondary">Cuéntame tu proyecto</Link>
         </div>
       </div>
     </section>

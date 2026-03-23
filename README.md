@@ -88,5 +88,5 @@ Especialista en Generative Engine Optimization
 
 ---
 
-**Versión**: v3.2.2  
-**Última actualización**: 22 Marzo 2026 (Feat: Página 404 con mini-juego runner + fix de espaciado bajo navbar)
+**Versión**: v3.3.0  
+**Última actualización**: 23 Marzo 2026 (Feat: Rediseño integral de Home + JSON-LD específico de la Home + sincronización de versionado y sitemap)

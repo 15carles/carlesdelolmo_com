@@ -2,6 +2,20 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [v3.3.0] - 2026-03-23
+### Añadido
+- **Home (Arquitectura):** Incorporación de nuevas secciones modulares en `app/(site)/page.tsx` para reforzar narrativa y conversión: `CredibilidadSection`, `QueResuelvoSection`, `CasoDestacadoSection`, `MetodoOrbitaSection`, `DiferenciadoresSection`, `InsightsSection`, `ParaQuienSection` y `CtaFinalSection`.
+- **SEO Técnico (Home):** Nuevo generador `generateHomeSchema()` en `lib/seo/schemas.ts` e inyección JSON-LD específica de portada (`WebSite`, `WebPage`, `ItemList` y `WebPageElement` por sección).
+
+### Cambiado
+- **Hero Home:** Actualización de copy y CTAs, eliminación del bloque de estadísticas legacy y ajuste de estructura para mantener coherencia visual con el nuevo flujo de la portada.
+- **Home (Contenido):** Eliminación del bloque reutilizable de "Proyectos destacados" únicamente en la Home para evitar duplicidad con el nuevo caso destacado.
+- **UI Home:** Diferenciación visual entre secciones para reducir linealidad (jerarquía de tarjetas, bloques de oferta y cierre de CTA final).
+- **Control de Versionado:** Sincronización de `VERSION`, `README.md`, `CHANGELOG.md`, `next_app/public/llms.txt`, `next_app/public/humans.txt`, `next_app/public/sitemap.xml`, `next_app/components/Footer.tsx`, `next_app/package.json` y `next_app/package-lock.json`.
+
+### Corregido
+- **Sitemap:** Actualización de `lastmod` a `2026-03-23`, corrección del slug de `por-que-webs-no-aparecen-respuestas-ia` y alta de `/blog/metodo-orbita`.
+
 ## [v3.2.2] - 2026-03-22
 ### Añadido
 - **404 Personalizada:** Nueva página `not-found.tsx` con mensaje de "Página no encontrada", CTA visible para volver al inicio y mini-juego runner integrado.
@@ -370,8 +384,8 @@ Solucionado el problema de ancho insuficiente del navbar en dispositivos móvile
 - **Reingeniería de Chat**: Interfaz de mensajería moderna con alineación diferenciada y lógica de IA generativa visualmente optimizada.
 - **Testimonio Premium**: Refinamiento estético de la tarjeta "Mención de Honor" con glassmorphism profundo y jerarquía tipográfica corregida.
 
-**Versión**: v3.2.2
-**Última actualización**: 22 Marzo 2026 (Página 404 con mini-juego runner + fix de espaciado bajo navbar)
+**Versión**: v3.3.0
+**Última actualización**: 23 Marzo 2026 (Rediseño integral de Home + JSON-LD específico de la Home + sincronización de versionado y sitemap)
 
 ## [1.3.0] - 18-01-2026
 

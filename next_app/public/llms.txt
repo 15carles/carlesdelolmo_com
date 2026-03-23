@@ -9,7 +9,7 @@
 - **Location:** Valencia, Spain (Primary) | Remote: Spain
 - **Email:** hola@carlesdelolmo.com
 - **Social:** https://www.linkedin.com/in/delolmocarles/ | https://github.com/15carles
-- **Version:** 3.2.2 (2026-03-22)
+- **Version:** 3.3.0 (2026-03-23)
 
 ---
 

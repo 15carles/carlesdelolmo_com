@@ -14,6 +14,7 @@
     --color-bg-primary: #fafafa;
     --color-bg-secondary: #ccc9c9;
     --color-bg-card: rgba(255, 255, 255, 0.5);
+    --color-bg-card-strong: rgba(255, 255, 255, 0.82);
     --color-border: rgba(0, 0, 0, 0.1);
     --color-border-hover: rgba(102, 126, 234, 0.4);
 
@@ -82,6 +83,7 @@
     --color-bg-primary: #0a0e1a;
     --color-bg-secondary: #0f172a;
     --color-bg-card: rgba(255, 255, 255, 0.05);
+    --color-bg-card-strong: rgba(15, 23, 42, 0.82);
     --color-border: rgba(255, 255, 255, 0.1);
     --color-border-hover: rgba(102, 126, 234, 0.5);
 

@@ -2,14 +2,13 @@
 
 import React from 'react';
 import LegalLayout from '@/components/LegalLayout';
-import Link from 'next/link';
 
 // Nota: metadata debe ir en un archivo separado o usar un Client Component que lo maneje si necesitamos interactividad.
 // En Next.js 13+, si el componente es "use client", no puede exportar metadata.
 // Solución: Crear un layout.tsx en la carpeta o simplemente no usar "use client" en el componente principal y pasar la lógica a un subcomponente.
 
 export default function PoliticaCookies() {
-  const openSettings = (e: React.MouseEvent) => {
+  const openSettings = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     window.dispatchEvent(new CustomEvent('openCookieSettings'));
   };
@@ -164,9 +163,15 @@ export default function PoliticaCookies() {
         <h2>9. Gestión de preferencias</h2>
         <p>El usuario puede revisar o modificar su elección sobre cookies en cualquier momento desde el sistema de configuración habilitado en el sitio web.</p>
         <p>
-          <a href="#" onClick={openSettings} className="cookie-banner__settings-btn" aria-label="Abrir panel de configuración de cookies">
+          <button
+            type="button"
+            onClick={openSettings}
+            className="cookie-banner__settings-btn cookie-banner__settings-btn--inline"
+            aria-label="Abrir panel de configuración de cookies"
+            aria-controls="cookie-modal"
+          >
             Configurar cookies
-          </a>
+          </button>
         </p>
       </section>
     </LegalLayout>

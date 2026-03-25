@@ -73,3 +73,11 @@ dist/
 
 # generated diagnostics
 next_app/reports/
+
+# accidental duplicate files (Finder-style " ... 2")
+next_app/docs/* [0-9].md
+next_app/components/* [0-9].tsx
+next_app/lib/* [0-9].ts
+
+# accidental nested workspace artifacts
+next_app/Documents/

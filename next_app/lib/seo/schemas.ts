@@ -159,12 +159,12 @@ export const BUSINESS_SCHEMA = {
       },
       {
         "@type": "Offer",
-        "@id": `${SITE_URL}/#offer-mantenimiento-web-proactivo`,
+        "@id": `${SITE_URL}/#offer-mantenimiento-web-valencia`,
         "itemOffered": {
           "@type": "Service",
-          "@id": `${SITE_URL}/#service-mantenimiento-web-proactivo`,
-          "name": "Mantenimiento Web Proactivo",
-          "description": "Mantenimiento técnico orientado a estabilidad, seguridad, rendimiento y continuidad operativa de la web.",
+          "@id": `${SITE_URL}/#service-mantenimiento-web-valencia`,
+          "name": "Mantenimiento Web Valencia",
+          "description": "Mantenimiento web en Valencia y remoto orientado a estabilidad, soporte, pequeñas mejoras y continuidad operativa de la web.",
           "provider": { "@id": `${SITE_URL}/#business` },
           "areaServed": [{ "@type": "City", "name": "Valencia" }, { "@type": "Country", "name": "España" }],
           "serviceType": "Mantenimiento web"

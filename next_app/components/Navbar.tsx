@@ -27,23 +27,31 @@ const SERVICES_DATA = [
     ]
   },
   { title: 'Desarrollo de software a medida', href: '/desarrollo-web-a-medida' },
-  { title: 'Mantenimiento web Valencia', href: '/mantenimiento-web-valencia' },
+  { title: 'Mantenimiento Web Valencia', href: '/mantenimiento-web-valencia' },
   { title: 'Migraciones web', href: '/migraciones-web' },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname() ?? '';
+
+  return <NavbarContent key={pathname} pathname={pathname} />;
+}
+
+interface NavbarContentProps {
+  pathname: string;
+}
+
+function NavbarContent({ pathname }: NavbarContentProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeSubDropdown, setActiveSubDropdown] = useState<string | null>(null);
-  const pathname = usePathname();
 
-  // Cerrar todo cuando cambia la ruta (navegación)
-  useEffect(() => {
-    closeMobileMenu();
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
     setActiveDropdown(null);
     setActiveSubDropdown(null);
-  }, [pathname]);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,12 +64,6 @@ export default function Navbar() {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-    setActiveDropdown(null);
-    setActiveSubDropdown(null);
   };
 
   const toggleDropdown = (name: string, e: React.MouseEvent) => {
@@ -253,7 +255,7 @@ export default function Navbar() {
         <Link href="/contacto" className="navbar__link" onClick={closeMobileMenu}>Contacto</Link>
         <Link href="/pricing" className="navbar__link" onClick={closeMobileMenu}>Pricing</Link>
 
-        <ThemeToggle className="theme-toggle" style={{ margin: 'var(--spacing-sm) 0' }} />
+        <ThemeToggle className="theme-toggle theme-toggle--mobile" />
         <Link href="/contacto" className="btn btn--primary btn--block" onClick={closeMobileMenu}>Hablemos</Link>
       </div>
     </nav>

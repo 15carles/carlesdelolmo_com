@@ -9,7 +9,17 @@ const supabaseUrl = 'https://gzrgxkjvxaflteilmjuq.supabase.co';
 const supabaseKey = 'sb_publishable_-rNRG-bfifNaR--8DkvKvA_xXLh4eil';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-export default function ContactForm() {
+type ContactFormProps = {
+  className?: string;
+  defaultServiciosInteres?: string[];
+  defaultServiciosAdicionales?: string[];
+};
+
+export default function ContactForm({
+  className,
+  defaultServiciosInteres = [],
+  defaultServiciosAdicionales = [],
+}: ContactFormProps) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -17,9 +27,9 @@ export default function ContactForm() {
     nombre: '',
     email: '',
     telefono: '',
-    servicios_interes: [] as string[],
+    servicios_interes: [...defaultServiciosInteres] as string[],
     identidad_visual: '',
-    servicios_adicionales: [] as string[],
+    servicios_adicionales: [...defaultServiciosAdicionales] as string[],
     fecha_limite: '',
     donde_conocido: '',
     acepta_privacidad: false
@@ -118,7 +128,12 @@ export default function ContactForm() {
   };
 
   return (
-    <form id="budget-form" className="form card card--no-hover" onSubmit={handleSubmit} noValidate>
+    <form
+      id="budget-form"
+      className={`form card card--no-hover${className ? ` ${className}` : ''}`}
+      onSubmit={handleSubmit}
+      noValidate
+    >
       <div className="grid grid-cols-2 gap-md mb-md" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
         {/* Identificación */}
         <div className="form__group">
@@ -194,6 +209,16 @@ export default function ContactForm() {
               onChange={handleChange}
             />
             <span className="text-secondary">Diseño Web Estratégico</span>
+          </label>
+          <label className="flex items-center gap-sm cursor-pointer" style={{ justifyContent: 'flex-start' }}>
+            <input
+              type="checkbox"
+              name="servicios_interes"
+              value="Mantenimiento"
+              checked={formData.servicios_interes.includes('Mantenimiento')}
+              onChange={handleChange}
+            />
+            <span className="text-secondary">Mantenimiento Web Proactivo</span>
           </label>
           <label className="flex items-center gap-sm cursor-pointer" style={{ justifyContent: 'flex-start' }}>
             <input

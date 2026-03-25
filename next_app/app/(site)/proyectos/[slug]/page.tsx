@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any -- Keystatic payloads are dynamic and currently not strictly typed. */
+/* eslint-disable @next/next/no-img-element -- Rich text/component blocks render runtime image sources. */
+/* eslint-disable react/no-unescaped-entities -- Existing editorial copy intentionally includes raw quotes/apostrophes. */
 import React from 'react';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import Terminal from '@/components/Terminal';
 import PagespeedMetrics from '@/components/PagespeedMetrics';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { generateProjectSchema, SITE_URL } from '@/lib/seo/schemas';

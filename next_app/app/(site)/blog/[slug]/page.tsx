@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any -- Keystatic payloads are dynamic and currently not strictly typed. */
+/* eslint-disable @next/next/no-img-element -- Rich text/component blocks render runtime image sources. */
 import React from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';

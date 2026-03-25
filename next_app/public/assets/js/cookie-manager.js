@@ -59,7 +59,7 @@ const CookieManager = {
                 const consent = JSON.parse(savedConsent);
                 this.updateGCM(consent);
                 this.hideBanner();
-            } catch (e) {
+            } catch {
                 // Si el valor está corrupto, limpiar y mostrar el banner
                 localStorage.removeItem(this.STORAGE_KEY);
                 this.showBanner();
@@ -89,7 +89,7 @@ const CookieManager = {
                         if (analyticsInput) {
                             analyticsInput.checked = (consent.analytics_storage === 'granted');
                         }
-                    } catch (e) {
+                    } catch {
                         // Si está corrupto, resetear checkbox
                         const analyticsInput = document.getElementById('cookie-analytics');
                         if (analyticsInput) analyticsInput.checked = false;

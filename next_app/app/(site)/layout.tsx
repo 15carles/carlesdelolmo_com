@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollReveal from "@/components/ScrollReveal";
+import ContextualLeadBanner from "@/components/ContextualLeadBanner";
 import { constructMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = constructMetadata({
@@ -55,6 +56,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <CookieBanner />
+          <ContextualLeadBanner />
           <ScrollReveal />
         </Providers>
 

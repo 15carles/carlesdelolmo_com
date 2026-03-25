@@ -1,6 +1,6 @@
 import React from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { Target, TrendingUp, Globe, MapPin, Users, Sparkles, CheckCircle2 } from 'lucide-react';
+import { TrendingUp, Globe, MapPin, Sparkles, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = {
@@ -70,7 +70,7 @@ export default function PosicionamientoSeoGeo() {
                   <span className="text-2xl font-bold gradient-text">600€/mes</span>
                   <span className="text-muted text-sm">(Compromiso sugerido de 6 meses)</span>
                 </div>
-                <Link href="/contacto" className="btn btn--primary btn--block">Empezar ahora</Link>
+                <Link href="/contacto" className="btn btn--primary btn--block" data-primary-cta="true">Empezar ahora</Link>
               </div>
             </div>
 
@@ -145,7 +145,7 @@ export default function PosicionamientoSeoGeo() {
             están tomando decisiones de compra.
           </p>
           <div className="flex justify-center gap-md">
-            <Link href="/contacto" className="btn btn--primary btn--large">Solicitar propuesta</Link>
+            <Link href="/contacto" className="btn btn--primary btn--large" data-primary-cta="true">Solicitar propuesta</Link>
             <Link href="/pricing" className="btn btn--secondary btn--large">Ver tarifas detalladas</Link>
           </div>
         </div>

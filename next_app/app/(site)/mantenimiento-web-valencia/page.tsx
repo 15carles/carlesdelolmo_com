@@ -219,7 +219,7 @@ export default function MantenimientoWebValenciaPage() {
                 </p>
 
                 <div className="hero-actions mb-xl helper-flex-center-mobile">
-                  <Link className="btn btn--primary btn--large" href="/contacto">
+                  <Link className="btn btn--primary btn--large" href="/contacto" data-primary-cta="true">
                     Solicitar mantenimiento
                   </Link>
                 </div>
@@ -384,7 +384,7 @@ export default function MantenimientoWebValenciaPage() {
               plantear una propuesta.
             </p>
             <div className="plan-note__actions mt-lg">
-              <Link className="btn btn--secondary" href="/contacto">
+              <Link className="btn btn--secondary" href="/contacto" data-primary-cta="true">
                 Revisar mi web
               </Link>
             </div>
@@ -485,7 +485,7 @@ export default function MantenimientoWebValenciaPage() {
           <div className="section-note scope-note card card--no-hover animate-on-scroll mt-xl">
             <p className="text-secondary mb-0">
               Si no tienes claro si lo que necesitas es mantenimiento o una intervención mayor, puedes{' '}
-              <Link href="/contacto">contarme tu caso</Link> y orientamos el siguiente paso con criterio.
+              <Link href="/contacto" data-primary-cta="true">contarme tu caso</Link> y orientamos el siguiente paso con criterio.
             </p>
           </div>
         </div>

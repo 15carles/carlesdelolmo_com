@@ -2,7 +2,7 @@ import React from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { ProjectCard } from '@/components/ProjectsSection';
 import FaqAccordion from '@/components/FaqAccordion';
-import { Code, MapPin, Zap, Search, Layout, MousePointer2, Check, ArrowRight, Shield, Gauge, Settings } from 'lucide-react';
+import { Code, MapPin, Zap, Search, Layout, MousePointer2, Check, Shield, Gauge, Settings } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SITE_URL } from '@/lib/seo/schemas';
@@ -240,8 +240,8 @@ export default function DisenoWebAlicante() {
               para dominar los resultados locales y generativos.
             </p>
             <div className="cta-section__buttons">
-              <Link href="/contacto" className="btn btn--primary">Pide presupuesto</Link>
-              <Link href="/contacto" className="btn btn--secondary">Contacto</Link>
+              <Link href="/contacto" data-primary-cta="true" className="btn btn--primary">Pide presupuesto</Link>
+              <Link href="/contacto" data-primary-cta="true" className="btn btn--secondary">Contacto</Link>
             </div>
           </div>
         </div>
@@ -288,7 +288,7 @@ export default function DisenoWebAlicante() {
                 para que tu empresa sea la respuesta que buscan tus futuros clientes.
               </p>
               <div className="flex mt-lg">
-                <Link href="/contacto" className="btn btn--primary">Hablemos de tu web</Link>
+                <Link href="/contacto" data-primary-cta="true" className="btn btn--primary">Hablemos de tu web</Link>
               </div>
             </div>
           </article>

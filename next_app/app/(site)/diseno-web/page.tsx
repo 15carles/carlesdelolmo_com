@@ -63,7 +63,7 @@ export default function DisenoWebPage() {
               </p>
 
               <div className="flex flex-wrap gap-md mb-xl helper-flex-center-mobile">
-                <Link href="/contacto" className="btn btn--primary btn--large">
+                <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large">
                   Cuéntame tu proyecto
                 </Link>
                 <Link href="#proyectos" className="btn btn--secondary btn--large">
@@ -99,10 +99,10 @@ export default function DisenoWebPage() {
                 <div className="terminal__code">
                   <pre><code>
                     <span className="code-keyword">interface</span> <span className="code-variable">WebProject</span> {'{'}{"\n"}
-                    <span className="code-property">performance</span>: <span className="code-string">"100%"</span>,{"\n"}
+                    <span className="code-property">performance</span>: <span className="code-string">&quot;100%&quot;</span>,{"\n"}
                     <span className="code-property">seo_ready</span>: <span className="code-boolean">true</span>,{"\n"}
                     <span className="code-property">ai_optimized</span>: <span className="code-boolean">true</span>,{"\n"}
-                    <span className="code-property">user_experience</span>: <span className="code-string">"premium"</span>{"\n"}
+                    <span className="code-property">user_experience</span>: <span className="code-string">&quot;premium&quot;</span>{"\n"}
                     {'}'}
                   </code></pre>
                 </div>
@@ -130,19 +130,20 @@ export default function DisenoWebPage() {
                 </p>
               </div>
 
-              <Link href="/contacto" className="btn btn--primary">
+              <Link href="/contacto" data-primary-cta="true" className="btn btn--primary">
                 Consulta tu proyecto
               </Link>
             </div>
 
             {/* Columna Derecha: 1/3 (Ocupa la columna restante) */}
             <div className="col-span-1 flex justify-center items-center w-full">
-              <div style={{ transform: 'scale(1.3)' }}>
-                <img
+              <div className="diseno-web__mockup-scale">
+                <Image
                   src="/assets/images/mockups/mockup_ecohoagr.webp"
                   alt="Mockup de diseño web profesional para EcoHogar"
+                  width={704}
+                  height={384}
                   className="img--glass"
-                  loading="lazy"
                 />
               </div>
             </div>
@@ -510,7 +511,7 @@ export default function DisenoWebPage() {
               A partir de ahí podremos ver qué tipo de web encaja mejor con tu negocio y cómo estructurar el proyecto para que realmente cumpla su objetivo.
             </p>
             <div className="flex flex-col items-center gap-sm">
-              <Link href="/contacto" className="btn btn--primary btn--large">
+              <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large">
                 Cuéntame tu proyecto
               </Link>
               <span className="text-sm text-secondary mt-xs">Respuesta en menos de 24 horas</span>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { Search, Eye, BarChart3, ListChecks, Zap, Shield, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Search, Eye, ListChecks, Zap, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = {
@@ -72,7 +72,7 @@ export default function AuditoriaSeoGeo() {
                   <span className="text-2xl font-bold gradient-text">750€</span>
                   <span className="text-muted text-sm">(Pago único, precios sin IVA)</span>
                 </div>
-                <Link href="/contacto" className="btn btn--primary btn--block">Reservar Auditoría</Link>
+                <Link href="/contacto" className="btn btn--primary btn--block" data-primary-cta="true">Reservar Auditoría</Link>
               </div>
             </div>
 
@@ -127,7 +127,7 @@ export default function AuditoriaSeoGeo() {
             La mayoría de las webs fallan por errores técnicos invisibles a simple vista. 
             Detectarlos es el primer paso para dominar tu mercado.
           </p>
-          <Link href="/contacto" className="btn btn--primary btn--large">Solicitar presupuesto personalizado</Link>
+          <Link href="/contacto" className="btn btn--primary btn--large" data-primary-cta="true">Solicitar presupuesto personalizado</Link>
         </div>
       </section>
     </main>

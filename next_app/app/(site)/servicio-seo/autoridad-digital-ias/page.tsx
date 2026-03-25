@@ -59,7 +59,7 @@ export default function AutoridadDigitalIas() {
             <div className="animate-on-scroll">
               <h2 className="mb-lg">Habla el lenguaje de las máquinas</h2>
               <p className="text-secondary mb-lg">
-                Las IAs no "leen" como los humanos, ni "rastrean" exactamente como Google. Buscan patrones semánticos, relaciones entre entidades y señales de veracidad en los datos.
+                Las IAs no &quot;leen&quot; como los humanos, ni &quot;rastrean&quot; exactamente como Google. Buscan patrones semánticos, relaciones entre entidades y señales de veracidad en los datos.
               </p>
               <p className="text-secondary mb-xl">
                 Nuestro servicio de Autoridad Digital prepara tu infraestructura para que cuando un usuario pregunte a su IA de confianza, tu marca sea la respuesta recomendada.
@@ -70,7 +70,7 @@ export default function AutoridadDigitalIas() {
                   <span className="text-2xl font-bold gradient-text">500€/mes</span>
                   <span className="text-muted text-sm">(Optimización de infraestructura semántica)</span>
                 </div>
-                <Link href="/contacto" className="btn btn--primary btn--block">Consultar disponibilidad</Link>
+                <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--block">Consultar disponibilidad</Link>
               </div>
             </div>
 
@@ -156,7 +156,7 @@ export default function AutoridadDigitalIas() {
             El futuro de la búsqueda es generativo. Prepara tu infraestructura técnica 
             para liderar esta nueva era digital.
           </p>
-          <Link href="/contacto" className="btn btn--primary btn--large">Agendar consultoría técnica</Link>
+          <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large">Agendar consultoría técnica</Link>
         </div>
       </section>
     </main>

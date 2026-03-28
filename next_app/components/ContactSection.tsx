@@ -17,7 +17,7 @@ export default function ContactSection() {
           {/* Columna Izquierda: Información y Contexto */}
           <div className="flex flex-col gap-md pr-lg animate-fade-in-up">
             <div className="badge badge--status self-start">
-              <span className="text-accent-purple font-semibold" style={{ letterSpacing: '0.05em', fontSize: '0.75rem' }}>
+              <span className="text-accent-purple font-semibold tracking-wide text-xs">
                 RÁPIDO Y SENCILLO
               </span>
             </div>
@@ -42,12 +42,12 @@ export default function ContactSection() {
               Rellena el formulario y me pondré en contacto contigo
             </h3>
 
-            <p className="text-secondary leading-relaxed" style={{ textAlign: 'left' }}>
+            <p className="text-secondary leading-relaxed text-left">
               Este breve formulario me permite entender tu punto de partida y tus objetivos. Con esa información
               diseñaré una propuesta adaptada a tu caso: estrategia digital, desarrollo web, optimización avanzada para
               buscadores e IA...
             </p>
-            <p className="text-secondary leading-relaxed" style={{ textAlign: 'left' }}>
+            <p className="text-secondary leading-relaxed text-left">
               hola@carlesdelolmo.com
             </p>
           </div>

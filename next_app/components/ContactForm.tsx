@@ -134,10 +134,10 @@ export default function ContactForm({
       onSubmit={handleSubmit}
       noValidate
     >
-      <div className="grid grid-cols-2 gap-md mb-md" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+      <div className="grid grid-cols-2 gap-md mb-md">
         {/* Identificación */}
         <div className="form__group">
-          <label htmlFor="nombre" className="form__label" style={{ textAlign: 'left' }}>Nombre *</label>
+          <label htmlFor="nombre" className="form__label text-left">Nombre *</label>
           <input
             type="text"
             id="nombre"
@@ -153,7 +153,7 @@ export default function ContactForm({
         </div>
 
         <div className="form__group">
-          <label htmlFor="email" className="form__label" style={{ textAlign: 'left' }}>Email *</label>
+          <label htmlFor="email" className="form__label text-left">Email *</label>
           <input
             type="email"
             id="email"
@@ -170,7 +170,7 @@ export default function ContactForm({
       </div>
 
       <div className="form__group">
-        <label htmlFor="telefono" className="form__label" style={{ textAlign: 'left' }}>Teléfono</label>
+        <label htmlFor="telefono" className="form__label text-left">Teléfono</label>
         <input
           type="tel"
           id="telefono"
@@ -188,9 +188,9 @@ export default function ContactForm({
 
       {/* Selección de Servicios */}
       <div className="form__group">
-        <label className="form__label" style={{ textAlign: 'left' }}>¿En qué servicios estás interesado? *</label>
+        <label className="form__label text-left">¿En qué servicios estás interesado? *</label>
         <div className="flex flex-col gap-sm">
-          <label className="flex items-center gap-sm cursor-pointer" style={{ justifyContent: 'flex-start' }}>
+          <label className="flex items-center gap-sm cursor-pointer justify-start">
             <input
               type="checkbox"
               name="servicios_interes"
@@ -200,7 +200,7 @@ export default function ContactForm({
             />
             <span className="text-secondary">Auditoría SEO/GEO</span>
           </label>
-          <label className="flex items-center gap-sm cursor-pointer" style={{ justifyContent: 'flex-start' }}>
+          <label className="flex items-center gap-sm cursor-pointer justify-start">
             <input
               type="checkbox"
               name="servicios_interes"
@@ -210,7 +210,7 @@ export default function ContactForm({
             />
             <span className="text-secondary">Diseño Web Estratégico</span>
           </label>
-          <label className="flex items-center gap-sm cursor-pointer" style={{ justifyContent: 'flex-start' }}>
+          <label className="flex items-center gap-sm cursor-pointer justify-start">
             <input
               type="checkbox"
               name="servicios_interes"
@@ -220,7 +220,7 @@ export default function ContactForm({
             />
             <span className="text-secondary">Mantenimiento Web Proactivo</span>
           </label>
-          <label className="flex items-center gap-sm cursor-pointer" style={{ justifyContent: 'flex-start' }}>
+          <label className="flex items-center gap-sm cursor-pointer justify-start">
             <input
               type="checkbox"
               name="servicios_interes"
@@ -230,7 +230,7 @@ export default function ContactForm({
             />
             <span className="text-secondary">Posicionamiento SEO + GEO</span>
           </label>
-          <label className="flex items-center gap-sm cursor-pointer" style={{ justifyContent: 'flex-start' }}>
+          <label className="flex items-center gap-sm cursor-pointer justify-start">
             <input
               type="checkbox"
               name="servicios_interes"
@@ -246,12 +246,11 @@ export default function ContactForm({
 
       {/* Identidad Visual */}
       <div className="form__group mt-md">
-        <label htmlFor="identidad_visual" className="form__label" style={{ textAlign: 'left' }}>¿Tienes ya una identidad visual?</label>
+        <label htmlFor="identidad_visual" className="form__label text-left">¿Tienes ya una identidad visual?</label>
         <select
           id="identidad_visual"
           name="identidad_visual"
-          className="form__input cursor-pointer"
-          style={{ width: '100%' }}
+          className="form__input cursor-pointer w-full"
           value={formData.identidad_visual}
           onChange={handleChange}
         >
@@ -267,9 +266,9 @@ export default function ContactForm({
 
       {/* Servicios Adicionales */}
       <div className="form__group">
-        <label className="form__label" style={{ textAlign: 'left' }}>¿Necesitas añadir algo más?</label>
+        <label className="form__label text-left">¿Necesitas añadir algo más?</label>
         <div className="grid grid-cols-2 gap-sm mt-sm">
-          <label className="flex items-center gap-sm cursor-pointer" style={{ justifyContent: 'flex-start' }}>
+          <label className="flex items-center gap-sm cursor-pointer justify-start">
             <input
               type="checkbox"
               name="servicios_adicionales"
@@ -279,7 +278,7 @@ export default function ContactForm({
             />
             <span className="text-secondary">Mantenimiento Proactivo</span>
           </label>
-          <label className="flex items-center gap-sm cursor-pointer" style={{ justifyContent: 'flex-start' }}>
+          <label className="flex items-center gap-sm cursor-pointer justify-start">
             <input
               type="checkbox"
               name="servicios_adicionales"
@@ -289,7 +288,7 @@ export default function ContactForm({
             />
             <span className="text-secondary">Formación en Herramientas</span>
           </label>
-          <label className="flex items-center gap-sm cursor-pointer" style={{ justifyContent: 'flex-start' }}>
+          <label className="flex items-center gap-sm cursor-pointer justify-start">
             <input
               type="checkbox"
               name="servicios_adicionales"
@@ -306,7 +305,7 @@ export default function ContactForm({
       <div className="grid grid-cols-2 gap-md mt-md">
         {/* Planificación */}
         <div className="form__group">
-          <label htmlFor="fecha_limite" className="form__label" style={{ textAlign: 'left' }}>Fecha límite deseada</label>
+          <label htmlFor="fecha_limite" className="form__label text-left">Fecha límite deseada</label>
           <input
             type="date"
             id="fecha_limite"
@@ -318,12 +317,11 @@ export default function ContactForm({
         </div>
 
         <div className="form__group">
-          <label htmlFor="donde_conocido" className="form__label" style={{ textAlign: 'left' }}>¿Cómo has llegado hasta aquí?</label>
+          <label htmlFor="donde_conocido" className="form__label text-left">¿Cómo has llegado hasta aquí?</label>
           <select
             id="donde_conocido"
             name="donde_conocido"
-            className="form__input cursor-pointer"
-            style={{ width: '100%' }}
+            className="form__input cursor-pointer w-full"
             value={formData.donde_conocido}
             onChange={handleChange}
           >
@@ -338,7 +336,7 @@ export default function ContactForm({
 
       {/* Consentimiento */}
       <div className="form__group mt-lg">
-        <label className="flex items-start gap-sm cursor-pointer" style={{ justifyContent: 'flex-start' }}>
+        <label className="flex items-start gap-sm cursor-pointer justify-start">
           <input
             type="checkbox"
             id="acepta_privacidad"
@@ -347,8 +345,8 @@ export default function ContactForm({
             onChange={handleChange}
             required
           />
-          <span className="text-muted" style={{ fontSize: '0.875rem' }}>
-            He leído y acepto la <Link href="/politica-privacidad" className="text-accent" style={{ textDecoration: 'underline' }}>política de privacidad</Link> *
+          <span className="text-muted text-sm">
+            He leído y acepto la <Link href="/politica-privacidad" className="text-accent underline">política de privacidad</Link> *
           </span>
         </label>
         {errors.acepta_privacidad && <div className="form__error">{errors.acepta_privacidad}</div>}
@@ -358,8 +356,7 @@ export default function ContactForm({
       <button
         type="submit"
         id="submit-btn"
-        className="btn btn--primary btn--large btn--block mt-md"
-        style={{ width: '100%' }}
+        className="btn btn--primary btn--large btn--block mt-md w-full"
         disabled={loading}
       >
         {loading ? 'Procesando...' : 'Enviar Presupuesto'}

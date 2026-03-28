@@ -482,3 +482,12 @@
 .article-content ul.list-unstyled li {
     padding-left: 0;
 }
+
+/* Utilidades comunes (reemplazo de inline styles) */
+.w-full { width: 100%; }
+.text-left { text-align: left; }
+.justify-start { justify-content: flex-start; }
+.text-sm { font-size: 0.875rem; }
+.text-xs { font-size: 0.75rem; }
+.tracking-wide { letter-spacing: 0.05em; }
+.underline { text-decoration: underline; }

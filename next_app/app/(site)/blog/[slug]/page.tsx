@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { generateBlogSchema, SITE_URL } from '@/lib/seo/schemas';
 import { constructMetadata } from '@/lib/seo/metadata';
+import { resolvePostOpenGraphImage } from '@/lib/seo/openGraph';
 import { reader } from '@/lib/keystatic';
 import { DocumentRenderer } from '@keystatic/core/renderer';
 import FaqAccordion from '@/components/FaqAccordion';
@@ -21,10 +22,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = await reader.collections.posts.read(slug);
   if (!post) return {};
+  const openGraphImage = await resolvePostOpenGraphImage(slug);
   return constructMetadata({
     title: post.metaTitle || '',
     description: post.metaDescription || '',
     exactUrl: `${SITE_URL}/blog/${slug}`,
+    openGraphImage,
     type: 'article',
     publishedTime: post.isoDate || undefined,
   });
@@ -45,12 +48,14 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     { label: 'Blog', href: '/blog' },
     { label: (post.title as any)?.name || post.title || 'Post' }
   ];
+  const openGraphImage = await resolvePostOpenGraphImage(slug);
 
   const jsonLd = generateBlogSchema({
     slug: slug,
     title: (post.title as any)?.name || post.title || '',
     description: post.metaDescription || '',
     isoDate: post.isoDate || '',
+    image: openGraphImage,
     keywords: [...(post.keywords || [])],
     categories: [...(post.categories || [])],
     faqs: [...(post.faqs || [])],

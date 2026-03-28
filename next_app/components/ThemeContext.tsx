@@ -27,7 +27,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const nextTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(nextTheme);
     localStorage.setItem('theme', nextTheme);
-    document.documentElement.setAttribute('data-theme', nextTheme);
   };
 
   return (

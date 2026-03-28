@@ -357,6 +357,7 @@ export function generateBlogSchema(post: {
   title: string;
   description: string;
   isoDate: string;
+  image?: string | string[];
   keywords?: string[];
   categories?: string[];
   faqs?: { question: string; answer: string }[];
@@ -396,6 +397,12 @@ export function generateBlogSchema(post: {
     authorObject = { "@id": `${SITE_URL}/#person` };
   }
 
+  const imageList = Array.isArray(post.image)
+    ? post.image.filter((image): image is string => Boolean(image))
+    : post.image
+      ? [post.image]
+      : [];
+
   graph.push({
     "@type": "BlogPosting",
     "@id": `${SITE_URL}/blog/${post.slug}#blogposting`,
@@ -409,6 +416,7 @@ export function generateBlogSchema(post: {
     "dateModified": post.isoDate,
     "author": authorObject,
     "publisher": { "@id": `${SITE_URL}/#business` },
+    ...(imageList.length > 0 ? { "image": imageList } : {}),
     "keywords": post.keywords || [],
     "articleSection": post.categories || []
   });

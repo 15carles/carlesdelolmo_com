@@ -1,22 +1,15 @@
 import { config, fields, collection, component } from '@keystatic/core';
 
-const hasGitHubStorageEnv =
-  Boolean(process.env.KEYSTATIC_GITHUB_CLIENT_ID)
-  && Boolean(process.env.KEYSTATIC_GITHUB_CLIENT_SECRET)
-  && Boolean(process.env.KEYSTATIC_SECRET);
-
-const shouldUseLocalStorage = process.env.NODE_ENV === 'development' || !hasGitHubStorageEnv;
+// Modo de desarrollo escribe local. Producción (Cloudflare) exige GitHub puro.
+const isLocalDev = process.env.NODE_ENV === 'development';
 
 export default config({
-  storage: shouldUseLocalStorage
+  storage: isLocalDev
     ? { kind: 'local' }
     : {
-      kind: 'github',
-      repo: {
-        owner: '15carles',
-        name: 'carlesdelolmo_com',
+        kind: 'github',
+        repo: '15carles/carlesdelolmo_com',
       },
-    },
   ui: {
     brand: {
       name: 'Carles del Olmo',

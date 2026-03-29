@@ -15,3 +15,5 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+// Forzando redespliegue para activar nodejs_compat.

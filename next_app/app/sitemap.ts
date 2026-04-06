@@ -33,17 +33,29 @@ function toDateOrNow(value: string | null | undefined, fallback: Date): Date {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const buildDate = new Date();
 
-  const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((route) => ({
-    url: `${SITE_URL}${route.path}`,
-    lastModified: buildDate,
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
-  }));
-
   const [posts, projects] = await Promise.all([
     reader.collections.posts.all(),
     reader.collections.projects.all(),
   ]);
+
+  const latestPostDate =
+    posts.length > 0
+      ? posts.reduce<Date>(
+          (latest, post) => {
+            const current = toDateOrNow(post.entry.isoDate, buildDate);
+            return current > latest ? current : latest;
+          },
+          toDateOrNow(posts[0]?.entry.isoDate, buildDate)
+        )
+      : buildDate;
+
+  const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((route) => ({
+    url: `${SITE_URL}${route.path}`,
+    // Keep /blog aligned with the newest post update for fresher crawl hints.
+    lastModified: route.path === '/blog' ? latestPostDate : buildDate,
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
+  }));
 
   const blogEntries: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${SITE_URL}/blog/${post.slug}`,
@@ -76,5 +88,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   });
 
-  return Array.from(dedupedByUrl.values());
+  return Array.from(dedupedByUrl.values()).sort((a, b) => a.url.localeCompare(b.url));
 }

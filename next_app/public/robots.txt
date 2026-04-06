@@ -3,42 +3,81 @@
 # --- IA / Answer Engines (permitido) ---
 User-agent: GPTBot
 Allow: /
+Disallow: /keystatic
+Disallow: /keystatic/
+Disallow: /api/keystatic/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /keystatic
+Disallow: /keystatic/
+Disallow: /api/keystatic/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /keystatic
+Disallow: /keystatic/
+Disallow: /api/keystatic/
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /keystatic
+Disallow: /keystatic/
+Disallow: /api/keystatic/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /keystatic
+Disallow: /keystatic/
+Disallow: /api/keystatic/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /keystatic
+Disallow: /keystatic/
+Disallow: /api/keystatic/
 
 User-agent: Googlebot
 Allow: /
+Disallow: /keystatic
+Disallow: /keystatic/
+Disallow: /api/keystatic/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /keystatic
+Disallow: /keystatic/
+Disallow: /api/keystatic/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /keystatic
+Disallow: /keystatic/
+Disallow: /api/keystatic/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /keystatic
+Disallow: /keystatic/
+Disallow: /api/keystatic/
 
 User-agent: MetaExternalAgent
 Allow: /
+Disallow: /keystatic
+Disallow: /keystatic/
+Disallow: /api/keystatic/
 
 User-agent: Xbot
 Allow: /
+Disallow: /keystatic
+Disallow: /keystatic/
+Disallow: /api/keystatic/
 
 User-agent: CCBot
 Allow: /
+Disallow: /keystatic
+Disallow: /keystatic/
+Disallow: /api/keystatic/
 
 
 # --- Bloqueo herramientas “competencia” (opcional) ---
@@ -72,5 +111,8 @@ Disallow: /tmp/
 Disallow: /drafts/
 Disallow: /staging/
 Disallow: /test/
+Disallow: /keystatic
+Disallow: /keystatic/
+Disallow: /api/keystatic/
 
 Sitemap: https://carlesdelolmo.com/sitemap.xml

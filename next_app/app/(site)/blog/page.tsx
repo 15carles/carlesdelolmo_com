@@ -3,6 +3,26 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import BlogCard from '@/components/BlogCard';
 import { reader } from '@/lib/keystatic';
 
+type BlogListItem = {
+  title: string;
+  excerpt: string;
+  slug: string;
+  date: string;
+  isoDate?: string;
+  category: string;
+  categoryColor: 'blue' | 'cyan' | 'purple' | 'teal';
+};
+
+function toTimestamp(isoDate: string | undefined, displayDate: string): number {
+  if (isoDate) {
+    const parsedIsoDate = Date.parse(isoDate);
+    if (!Number.isNaN(parsedIsoDate)) return parsedIsoDate;
+  }
+
+  const parsedDisplayDate = Date.parse(displayDate);
+  return Number.isNaN(parsedDisplayDate) ? 0 : parsedDisplayDate;
+}
+
 export const metadata = {
   title: 'Blog - Análisis sobre GEO, SEO e IA | Carles del Olmo',
   description: 'Análisis, aprendizajes y casos reales sobre webs, buscadores e inteligencia artificial. Criterio técnico para la era generativa.',
@@ -17,7 +37,7 @@ export default async function BlogIndex() {
 
   const postsData = await reader.collections.posts.all();
 
-  const posts = postsData.map(post => ({
+  const posts: BlogListItem[] = postsData.map(post => ({
     title:
       typeof post.entry.title === 'string'
         ? post.entry.title
@@ -30,12 +50,12 @@ export default async function BlogIndex() {
     excerpt: post.entry.subtitle || post.entry.metaDescription,
     slug: post.slug,
     date: post.entry.date,
-    isoDate: post.entry.isoDate,
+    isoDate: post.entry.isoDate ?? undefined,
     category: post.entry.categories[0] || 'Blog',
     // Mantenemos colores por categoría si es necesario, pero asignamos un default:
     categoryColor: (post.entry.categories[0] === 'GEO' ? 'blue' :
       post.entry.categories[0] === 'Análisis' ? 'cyan' : 'purple') as 'blue' | 'cyan' | 'purple' | 'teal'
-  })).sort((a, b) => new Date(b.isoDate || b.date).getTime() - new Date(a.isoDate || a.date).getTime());
+  })).sort((a, b) => toTimestamp(b.isoDate, b.date) - toTimestamp(a.isoDate, a.date));
 
   return (
     <main className="page__content">
@@ -53,8 +73,8 @@ export default async function BlogIndex() {
         <div className="container">
           <div className="article-content">
             <div className="post-list">
-              {posts.map((post, index) => (
-                <BlogCard key={index} {...post} />
+              {posts.map((post) => (
+                <BlogCard key={post.slug} {...post} />
               ))}
             </div>
 

@@ -3,6 +3,30 @@ import { NextRequest, NextResponse } from 'next/server';
 const NOINDEX_HEADER_VALUE = 'noindex, nofollow, noarchive, nosnippet, noimageindex';
 const PROTECTED_PATH_PREFIXES = ['/keystatic', '/api/keystatic'] as const;
 
+function parseCanonicalHost(rawValue: string | undefined): string | null {
+  if (!rawValue) return null;
+
+  const normalizedValue = rawValue.trim();
+  if (!normalizedValue) return null;
+
+  try {
+    const valueWithProtocol = /^https?:\/\//.test(normalizedValue)
+      ? normalizedValue
+      : `https://${normalizedValue}`;
+    return new URL(valueWithProtocol).hostname.toLowerCase();
+  } catch {
+    return null;
+  }
+}
+
+function getRequestHost(request: NextRequest): string {
+  const forwardedHost = request.headers.get('x-forwarded-host');
+  const hostHeader = request.headers.get('host');
+  const rawHost = forwardedHost ?? hostHeader ?? request.nextUrl.host;
+
+  return rawHost.split(':')[0].toLowerCase();
+}
+
 function isProtectedPath(pathname: string): boolean {
   return PROTECTED_PATH_PREFIXES.some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`)
@@ -59,9 +83,20 @@ export function middleware(request: NextRequest): NextResponse {
     return NextResponse.next();
   }
 
+  const isProduction = process.env.NODE_ENV === 'production';
+  const canonicalHost = parseCanonicalHost(process.env.KEYSTATIC_CANONICAL_HOST);
+
+  if (isProduction && canonicalHost && getRequestHost(request) !== canonicalHost) {
+    const canonicalUrl = request.nextUrl.clone();
+    canonicalUrl.protocol = 'https:';
+    canonicalUrl.hostname = canonicalHost;
+    canonicalUrl.port = '';
+
+    return withNoIndex(NextResponse.redirect(canonicalUrl, 308));
+  }
+
   const expectedUsername = process.env.KEYSTATIC_BASIC_AUTH_USER;
   const expectedPassword = process.env.KEYSTATIC_BASIC_AUTH_PASS;
-  const isProduction = process.env.NODE_ENV === 'production';
 
   if (!expectedUsername || !expectedPassword) {
     if (isProduction) {
@@ -93,4 +128,3 @@ export function middleware(request: NextRequest): NextResponse {
 export const config = {
   matcher: ['/keystatic/:path*', '/api/keystatic/:path*'],
 };
-

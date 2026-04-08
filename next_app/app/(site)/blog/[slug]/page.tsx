@@ -8,20 +8,24 @@ import { generateBlogSchema, SITE_URL } from '@/lib/seo/schemas';
 import { constructMetadata } from '@/lib/seo/metadata';
 import { resolvePostOpenGraphImage } from '@/lib/seo/openGraph';
 import { reader } from '@/lib/keystatic';
+import { isPostVisible } from '@/lib/contentVisibility';
 import { DocumentRenderer } from '@keystatic/core/renderer';
 import FaqAccordion from '@/components/FaqAccordion';
 
+export const revalidate = 3600;
+
 export async function generateStaticParams() {
-  const slugs = await reader.collections.posts.list();
-  return slugs.map((slug) => ({
-    slug,
-  }));
+  const posts = await reader.collections.posts.all();
+
+  return posts
+    .filter((post) => isPostVisible({ status: post.entry.status, isoDate: post.entry.isoDate }))
+    .map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await reader.collections.posts.read(slug);
-  if (!post) return {};
+  if (!post || !isPostVisible({ status: post.status, isoDate: post.isoDate })) return {};
   const openGraphImage = await resolvePostOpenGraphImage(slug);
   return constructMetadata({
     title: post.metaTitle || '',
@@ -37,7 +41,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = await reader.collections.posts.read(slug);
 
-  if (!post) {
+  if (!post || !isPostVisible({ status: post.status, isoDate: post.isoDate })) {
     notFound();
   }
 

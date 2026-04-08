@@ -1,6 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { reader } from '@/lib/keystatic';
 import { SITE_URL } from '@/lib/seo/schemas';
+import { isPostVisible } from '@/lib/contentVisibility';
+
+export const revalidate = 3600;
 
 const STATIC_ROUTES: Array<{
   path: string;
@@ -38,14 +41,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     reader.collections.projects.all(),
   ]);
 
+  const publishedPosts = posts.filter((post) =>
+    isPostVisible({ status: post.entry.status, isoDate: post.entry.isoDate })
+  );
+
   const latestPostDate =
-    posts.length > 0
-      ? posts.reduce<Date>(
+    publishedPosts.length > 0
+      ? publishedPosts.reduce<Date>(
           (latest, post) => {
             const current = toDateOrNow(post.entry.isoDate, buildDate);
             return current > latest ? current : latest;
           },
-          toDateOrNow(posts[0]?.entry.isoDate, buildDate)
+          toDateOrNow(publishedPosts[0]?.entry.isoDate, buildDate)
         )
       : buildDate;
 
@@ -57,7 +64,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route.priority,
   }));
 
-  const blogEntries: MetadataRoute.Sitemap = posts.map((post) => ({
+  const blogEntries: MetadataRoute.Sitemap = publishedPosts.map((post) => ({
     url: `${SITE_URL}/blog/${post.slug}`,
     lastModified: toDateOrNow(post.entry.isoDate, buildDate),
     changeFrequency: 'monthly',

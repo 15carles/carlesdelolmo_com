@@ -4,6 +4,7 @@ import BlogCard from '@/components/BlogCard';
 import { reader } from '@/lib/keystatic';
 import { constructMetadata } from '@/lib/seo/metadata';
 import { SITE_URL } from '@/lib/seo/schemas';
+import { isPostVisible } from '@/lib/contentVisibility';
 
 type BlogListItem = {
   title: string;
@@ -31,6 +32,8 @@ export const metadata = constructMetadata({
   exactUrl: `${SITE_URL}/blog`,
 });
 
+export const revalidate = 3600;
+
 
 export default async function BlogIndex() {
   const breadcrumbs = [
@@ -40,25 +43,28 @@ export default async function BlogIndex() {
 
   const postsData = await reader.collections.posts.all();
 
-  const posts: BlogListItem[] = postsData.map(post => ({
-    title:
-      typeof post.entry.title === 'string'
-        ? post.entry.title
-        : (() => {
-            const titleRecord = post.entry.title as Record<string, unknown>;
-            return typeof titleRecord.name === 'string'
-              ? titleRecord.name
-              : String(post.entry.title ?? '');
-          })(),
-    excerpt: post.entry.subtitle || post.entry.metaDescription,
-    slug: post.slug,
-    date: post.entry.date,
-    isoDate: post.entry.isoDate ?? undefined,
-    category: post.entry.categories[0] || 'Blog',
-    // Mantenemos colores por categoría si es necesario, pero asignamos un default:
-    categoryColor: (post.entry.categories[0] === 'GEO' ? 'blue' :
-      post.entry.categories[0] === 'Análisis' ? 'cyan' : 'purple') as 'blue' | 'cyan' | 'purple' | 'teal'
-  })).sort((a, b) => toTimestamp(b.isoDate, b.date) - toTimestamp(a.isoDate, a.date));
+  const posts: BlogListItem[] = postsData
+    .filter((post) => isPostVisible({ status: post.entry.status, isoDate: post.entry.isoDate }))
+    .map(post => ({
+      title:
+        typeof post.entry.title === 'string'
+          ? post.entry.title
+          : (() => {
+              const titleRecord = post.entry.title as Record<string, unknown>;
+              return typeof titleRecord.name === 'string'
+                ? titleRecord.name
+                : String(post.entry.title ?? '');
+            })(),
+      excerpt: post.entry.subtitle || post.entry.metaDescription,
+      slug: post.slug,
+      date: post.entry.date,
+      isoDate: post.entry.isoDate ?? undefined,
+      category: post.entry.categories[0] || 'Blog',
+      // Mantenemos colores por categoría si es necesario, pero asignamos un default:
+      categoryColor: (post.entry.categories[0] === 'GEO' ? 'blue' :
+        post.entry.categories[0] === 'Análisis' ? 'cyan' : 'purple') as 'blue' | 'cyan' | 'purple' | 'teal'
+    }))
+    .sort((a, b) => toTimestamp(b.isoDate, b.date) - toTimestamp(a.isoDate, a.date));
 
   return (
     <main className="page__content">

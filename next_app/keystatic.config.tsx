@@ -31,6 +31,16 @@ export default config({
         subtitle: fields.text({ label: 'Subtítulo', multiline: true }),
         date: fields.text({ label: 'Fecha (ej: 24 febrero 2026)', description: 'Formato visual de la fecha' }),
         isoDate: fields.date({ label: 'Fecha ISO', description: 'Para ordenación y Schema SEO' }),
+        status: fields.select({
+          label: 'Estado de publicación',
+          description: 'Draft oculta el post, Scheduled espera a la Fecha ISO, Published lo publica inmediatamente.',
+          options: [
+            { label: 'Draft', value: 'draft' },
+            { label: 'Scheduled', value: 'scheduled' },
+            { label: 'Published', value: 'published' },
+          ],
+          defaultValue: 'scheduled',
+        }),
         categories: fields.array(
           fields.text({ label: 'Categoría' }),
           { label: 'Categorías', itemLabel: props => props.value || 'Nueva categoría' }

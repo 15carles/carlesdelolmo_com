@@ -1,47 +1,49 @@
-export const runtime = 'edge';
 import { NextResponse } from 'next/server';
+import { reader } from '@/lib/keystatic';
+import { SITE_URL } from '@/lib/seo/schemas';
+import { isPostVisible, parseIsoDate } from '@/lib/contentVisibility';
 
-const posts = [
-  {
-    title: 'Cómo la semántica avanzada está cambiando el tráfico desde Perplexity y motores de IA',
-    slug: 'semantica-avanzada-motores-ia',
-    description: 'La semántica avanzada, las entidades y la arquitectura web están cambiando cómo los motores generativos como Perplexity interpretan y citan contenido.',
-    date: '2026-03-08T10:00:00Z',
-  },
-  {
-    title: 'El fin del SEO tal como lo conocemos: La era del GEO',
-    slug: 'el-fin-del-seo-la-era-del-geo',
-    description: 'El SEO ha evolucionado. Descubre qué es el GEO (Generative Engine Optimization) y cómo adaptar tu web para aparecer en las respuestas de IA.',
-    date: '2026-02-24T10:00:00Z',
-  },
-  {
-    title: 'Por qué muchas webs no aparecen en respuestas de IA',
-    slug: 'por-que-muchas-webs-no-aparecen-en-respuestas-de-ia',
-    description: 'Descubre por qué muchas webs no aparecen en respuestas generadas por IA y cómo el modelo DELTA ayuda a mejorar la visibilidad.',
-    date: '2026-01-08T10:00:00Z',
-  },
-];
+export const runtime = 'nodejs';
+export const revalidate = 3600;
+
+function getPostTitle(title: unknown, slug: string): string {
+  if (typeof title === 'string') return title;
+  if (title && typeof title === 'object' && 'name' in title) {
+    const maybeName = (title as { name?: unknown }).name;
+    if (typeof maybeName === 'string') return maybeName;
+  }
+  return slug;
+}
 
 export async function GET() {
-  const siteUrl = 'https://carlesdelolmo.com';
+  const posts = await reader.collections.posts.all();
+
+  const publishedPosts = posts
+    .filter((post) => isPostVisible({ status: post.entry.status, isoDate: post.entry.isoDate }))
+    .sort((a, b) => {
+      const aTime = parseIsoDate(a.entry.isoDate)?.getTime() ?? 0;
+      const bTime = parseIsoDate(b.entry.isoDate)?.getTime() ?? 0;
+      return bTime - aTime;
+    })
+    .slice(0, 50);
 
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>Carles del Olmo - Blog</title>
-  <link>${siteUrl}/blog</link>
+  <link>${SITE_URL}/blog</link>
   <description>Artículos sobre Diseño Web, SEO Técnico y GEO (Generative Engine Optimization)</description>
   <language>es-es</language>
   <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-  <atom:link href="${siteUrl}/rss.xml" rel="self" type="application/rss+xml" />
-  ${posts
+  <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml" />
+  ${publishedPosts
     .map((post) => `
     <item>
-      <title><![CDATA[${post.title}]]></title>
-      <link>${siteUrl}/blog/${post.slug}</link>
-      <guid>${siteUrl}/blog/${post.slug}</guid>
-      <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-      <description><![CDATA[${post.description}]]></description>
+      <title><![CDATA[${getPostTitle(post.entry.title, post.slug)}]]></title>
+      <link>${SITE_URL}/blog/${post.slug}</link>
+      <guid>${SITE_URL}/blog/${post.slug}</guid>
+      <pubDate>${(parseIsoDate(post.entry.isoDate) ?? new Date()).toUTCString()}</pubDate>
+      <description><![CDATA[${post.entry.metaDescription || post.entry.subtitle || ''}]]></description>
     </item>`)
     .join('')}
 </channel>

@@ -10,6 +10,8 @@
     "pages:build": "npx @cloudflare/next-on-pages",
     "keystatic:diagnose:projects": "node scripts/diagnose-keystatic-projects.mjs",
     "keystatic:migrate:projects:strict": "node scripts/migrate-projects-to-strict.mjs",
+    "keystatic:migrate:posts:status": "node scripts/migrate-posts-status.mjs",
+    "keystatic:migrate:posts:status:check": "node scripts/migrate-posts-status.mjs --check",
     "keystatic:strict:check": "node scripts/migrate-projects-to-strict.mjs --check && node scripts/diagnose-keystatic-projects.mjs",
     "keystatic:phase2:gate": "npm run keystatic:strict:check && npm run build"
   },

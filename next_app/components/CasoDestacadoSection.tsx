@@ -78,7 +78,7 @@ export default function CasoDestacadoSection() {
 
             <div className="case-study-actions" role="group" aria-label="Acciones del caso de estudio">
               <Link href="/proyectos/ledescaparate" className="btn btn--primary">Ver caso completo</Link>
-              <Link href="/proyectos" className="btn btn--secondary">Ver más proyectos</Link>
+              <Link href="/#proyectos" className="btn btn--secondary">Ver más proyectos</Link>
             </div>
           </div>
         </article>

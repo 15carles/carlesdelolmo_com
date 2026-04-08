@@ -10,8 +10,8 @@ import ContextualLeadBanner from "@/components/ContextualLeadBanner";
 import { constructMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Diseño web en Valencia | Carles del Olmo - SEO y GEO",
-  description: "Especialista en Generative Engine Optimization. Ayudo a empresas a destacar en la era de las IAs y buscadores inteligentes.",
+  title: "Diseño web estratégico | Carles del Olmo - SEO y GEO",
+  description: "Diseño web estratégico para empresas que quieren una web clara, rápida y preparada para posicionar en buscadores y en IA.",
 });
 
 export default function RootLayout({

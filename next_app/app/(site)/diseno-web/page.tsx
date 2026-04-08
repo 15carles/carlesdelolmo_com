@@ -7,6 +7,8 @@ import ProjectsSection from '@/components/ProjectsSection';
 import FaqAccordion from '@/components/FaqAccordion';
 import OrbitaMethod from './OrbitaMethod';
 import WorkflowTimeline from './WorkflowTimeline';
+import { constructMetadata } from '@/lib/seo/metadata';
+import { SITE_URL } from '@/lib/seo/schemas';
 
 const disenoWebFaqs = [
   {
@@ -31,10 +33,11 @@ const disenoWebFaqs = [
   }
 ];
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: 'Diseño Web Profesional pensado para posicionar | Carles del Olmo',
   description: 'Diseño y desarrollo de páginas web rápidas, claras y optimizadas para buscadores y motores de inteligencia artificial.',
-};
+  exactUrl: `${SITE_URL}/diseno-web`,
+});
 
 export default function DisenoWebPage() {
   const breadcrumbs = [
@@ -53,21 +56,28 @@ export default function DisenoWebPage() {
             {/* Left Column: Content */}
             <div className="animate-on-scroll hero-content-wrapper">
               <h1 className="mb-md helper-center-mobile">
-                Diseño web profesional <br />
-                <span className="gradient-text">pensado para posicionar</span>
+                Diseño web para empresas <br />
+                <span className="gradient-text">con enfoque estratégico</span>
               </h1>
 
               <p className="text-secondary mb-xl helper-center-mobile text-lg">
-                Diseño y desarrollo <strong>páginas web rápidas, claras y optimizadas</strong> para buscadores y motores de inteligencia artificial.
-                <br />Una página web no es solo diseño. Es una herramienta para atraer clientes, explicar bien lo que haces y generar confianza.
+                Diseño y desarrollo web para empresas que quieren una web clara, rápida y bien estructurada.
+                Si tu objetivo principal es la captación local, te conviene revisar también
+                {' '}<Link href="/diseno-web/valencia" className="underline font-medium hover:text-primary transition-colors">diseño web en Valencia</Link>.
               </p>
 
-              <div className="flex flex-wrap gap-md mb-xl helper-flex-center-mobile">
-                <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large">
+              <div className="flex flex-wrap gap-md mb-md helper-flex-center-mobile">
+                <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large w-full sm:w-auto">
                   Cuéntame tu proyecto
                 </Link>
-                <Link href="#proyectos" className="btn btn--secondary btn--large">
-                  Ver proyectos
+                <Link href="/diseno-web/valencia" className="btn btn--secondary btn--large w-full sm:w-auto">
+                  Ver servicio en Valencia
+                </Link>
+              </div>
+
+              <div className="mb-xl helper-center-mobile">
+                <Link href="/pricing" className="text-secondary underline hover:text-primary transition-colors">
+                  Ver servicios y precios
                 </Link>
               </div>
 
@@ -133,6 +143,16 @@ export default function DisenoWebPage() {
               <Link href="/contacto" data-primary-cta="true" className="btn btn--primary">
                 Consulta tu proyecto
               </Link>
+              <p className="text-sm text-secondary mt-md leading-relaxed">
+                Si buscas una captacion local mas enfocada, revisa {' '}
+                <Link href="/diseno-web/valencia" className="underline hover:text-primary transition-colors">
+                  diseno web en Valencia
+                </Link>{' '}
+                o consulta {' '}
+                <Link href="/pricing" className="underline hover:text-primary transition-colors">
+                  servicios y precios
+                </Link>.
+              </p>
             </div>
 
             {/* Columna Derecha: 1/3 (Ocupa la columna restante) */}
@@ -294,9 +314,12 @@ export default function DisenoWebPage() {
             </article>
           </div>
 
-          <div className="flex justify-center mt-xl animate-on-scroll">
-            <Link href="/pricing" className="btn btn--secondary">
+          <div className="flex justify-center mt-xl animate-on-scroll gap-md flex-wrap">
+            <Link href="/pricing" className="btn btn--secondary w-full sm:w-auto">
               Ver tarifas y servicios
+            </Link>
+            <Link href="/proyectos/ledescaparate" className="btn btn--secondary w-full sm:w-auto">
+              Ver caso real
             </Link>
           </div>
         </div>
@@ -339,6 +362,17 @@ export default function DisenoWebPage() {
             </div>
           </div>
 
+          <p className="text-secondary text-center mt-lg max-w-3xl mx-auto leading-relaxed">
+            Si quieres entender esta base con mas detalle, te recomiendo leer {' '}
+            <Link href="/blog/metodo-orbita" className="underline hover:text-primary transition-colors">
+              el metodo ORBITA
+            </Link>{' '}
+            y esta guia sobre {' '}
+            <Link href="/blog/estructura-ideal-pagina-web-empresas" className="underline hover:text-primary transition-colors">
+              estructura web para empresas
+            </Link>.
+          </p>
+
         </div>
       </section>
 
@@ -365,6 +399,16 @@ export default function DisenoWebPage() {
               Saber más sobre el método ORBITA
               <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" />
             </Link>
+            <p className="text-sm text-secondary mt-md max-w-2xl mx-auto leading-relaxed">
+              Si quieres aterrizar este enfoque en un proyecto real, puedes ver el {' '}
+              <Link href="/diseno-web/valencia" className="underline hover:text-primary transition-colors">
+                servicio en Valencia
+              </Link>{' '}
+              o {' '}
+              <Link href="/contacto" className="underline hover:text-primary transition-colors">
+                contarme tu caso
+              </Link>.
+            </p>
           </div>
         </div>
       </section>
@@ -514,6 +558,16 @@ export default function DisenoWebPage() {
               <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large">
                 Cuéntame tu proyecto
               </Link>
+              <div className="text-sm text-secondary mt-xs leading-relaxed">
+                Tambien puedes revisar {' '}
+                <Link href="/pricing" className="underline hover:text-primary transition-colors">
+                  servicios y precios
+                </Link>{' '}
+                o ver un {' '}
+                <Link href="/proyectos/ledescaparate" className="underline hover:text-primary transition-colors">
+                  caso de estudio real
+                </Link>.
+              </div>
               <span className="text-sm text-secondary mt-xs">Respuesta en menos de 24 horas</span>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 interface CredibilidadItem {
   title: string;
@@ -47,6 +48,12 @@ export default function CredibilidadSection() {
               <p className="credibilidad-item__description">{item.description}</p>
             </article>
           ))}
+        </div>
+
+        <div className="section-actions animate-on-scroll mt-xl" role="group" aria-label="Enlaces de credibilidad">
+          <Link href="/blog/metodo-orbita" className="btn btn--secondary">Entender mi método</Link>
+          <Link href="/proyectos/ledescaparate" className="btn btn--primary">Ver un caso real</Link>
+          <Link href="/diseno-web/valencia" className="btn btn--secondary">Ver diseño web en Valencia</Link>
         </div>
       </div>
     </section>

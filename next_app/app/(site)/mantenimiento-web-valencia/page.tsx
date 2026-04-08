@@ -101,7 +101,7 @@ const SCOPE_ITEMS = [
     description:
       'Si la web actual ha quedado desfasada, transmite una imagen poco profesional o ya no responde bien a lo que tu negocio necesita, quizá tenga más sentido replantearla desde el diseño y la estructura.',
     leadIn: 'En ese caso, puede encajar mejor un servicio de',
-    href: '/diseno-web/diseno-web-valencia',
+    href: '/diseno-web/valencia',
     linkText: 'diseño web en Valencia',
   },
   {

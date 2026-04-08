@@ -5,11 +5,14 @@ import PricingCard from '@/components/PricingCard';
 import FaqAccordion from '@/components/FaqAccordion';
 import ContactForm from '@/components/ContactForm';
 import { ArrowRight } from 'lucide-react';
+import { constructMetadata } from '@/lib/seo/metadata';
+import { SITE_URL } from '@/lib/seo/schemas';
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: 'Servicios y Precios | Carles del Olmo - Diseño Web en Valencia, SEO y GEO',
-  description: 'Servicios y tarifas de Carles del Olmo: diseño web a medida en Valencia, posicionamiento SEO/GEO y mantenimiento. Precios transparentes y sin letra pequeña.'
-};
+  description: 'Servicios y tarifas de Carles del Olmo: diseño web a medida en Valencia, posicionamiento SEO/GEO y mantenimiento. Precios transparentes y sin letra pequeña.',
+  exactUrl: `${SITE_URL}/pricing`,
+});
 
 export default function PricingPage() {
   return (

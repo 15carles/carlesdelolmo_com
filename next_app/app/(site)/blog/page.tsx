@@ -2,6 +2,8 @@ import React from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import BlogCard from '@/components/BlogCard';
 import { reader } from '@/lib/keystatic';
+import { constructMetadata } from '@/lib/seo/metadata';
+import { SITE_URL } from '@/lib/seo/schemas';
 
 type BlogListItem = {
   title: string;
@@ -23,10 +25,11 @@ function toTimestamp(isoDate: string | undefined, displayDate: string): number {
   return Number.isNaN(parsedDisplayDate) ? 0 : parsedDisplayDate;
 }
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: 'Blog - Análisis sobre GEO, SEO e IA | Carles del Olmo',
   description: 'Análisis, aprendizajes y casos reales sobre webs, buscadores e inteligencia artificial. Criterio técnico para la era generativa.',
-};
+  exactUrl: `${SITE_URL}/blog`,
+});
 
 
 export default async function BlogIndex() {

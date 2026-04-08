@@ -16,19 +16,19 @@ export default function Hero() {
             </p>
 
             <h1 id="hero-title" className="mb-md helper-center-mobile">
-              Webs optimizadas<br />
-              <span className="gradient-text">para buscadores e IA</span>
+              Diseño web estratégico<br />
+              <span className="gradient-text">para empresas</span>
             </h1>
 
             <p className="text-secondary mb-xl helper-center-mobile hero-subtitle">
-              Diseño y optimizo páginas web en Valencia para personas, buscadores e inteligencias artificiales.
+              Diseño páginas web claras, rápidas y preparadas para posicionar en buscadores y en IA.
             </p>
 
             <div className="hero-actions mb-xl helper-flex-center-mobile" role="group" aria-label="Acciones principales">
               <Link href="/contacto" className="btn btn--primary btn--large" aria-label="Pedir presupuesto">
                 Pide presupuesto
               </Link>
-              <Link href="/proyectos" className="btn btn--secondary btn--large" aria-label="Ver proyectos">
+              <Link href="/#proyectos" className="btn btn--secondary btn--large" aria-label="Ver proyectos">
                 Ver proyectos
               </Link>
             </div>

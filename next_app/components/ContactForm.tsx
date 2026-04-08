@@ -110,7 +110,8 @@ export default function ContactForm({
     setLoading(true);
     try {
       // Excluir acepta_privacidad porque no es una columna en la tabla
-      const { acepta_privacidad, ...dataToSend } = formData;
+      const dataToSend = { ...formData };
+      delete dataToSend.acepta_privacidad;
       
       const { error } = await supabase
         .from('leads_contacto')

@@ -22,10 +22,18 @@ export async function generateStaticParams() {
     .map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ preview?: string }>;
+}) {
   const { slug } = await params;
+  const { preview } = await searchParams;
+  const isPreview = preview === '1';
   const post = await reader.collections.posts.read(slug);
-  if (!post || !isPostVisible({ status: post.status, isoDate: post.isoDate })) return {};
+  if (!post || (!isPreview && !isPostVisible({ status: post.status, isoDate: post.isoDate }))) return {};
   const openGraphImage = await resolvePostOpenGraphImage(slug);
   return constructMetadata({
     title: post.metaTitle || '',
@@ -37,11 +45,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   });
 }
 
-export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+export default async function BlogPost({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ preview?: string }>;
+}) {
   const { slug } = await params;
+  const { preview } = await searchParams;
+  const isPreview = preview === '1';
   const post = await reader.collections.posts.read(slug);
 
-  if (!post || !isPostVisible({ status: post.status, isoDate: post.isoDate })) {
+  if (!post || (!isPreview && !isPostVisible({ status: post.status, isoDate: post.isoDate }))) {
     notFound();
   }
 

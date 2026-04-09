@@ -244,10 +244,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   <p>{props.children}</p>
                 </div>
               ),
-              list: (props) => (
+              list: (props: any) => (
                 <div className="article-content mx-auto">
                   {props.type === 'ordered' ? (
-                    <ol>{props.children}</ol>
+                    <ol
+                      start={typeof props.start === 'number' ? props.start : undefined}
+                      reversed={props.reversed === true}
+                    >
+                      {props.children}
+                    </ol>
                   ) : (
                     <ul>{props.children}</ul>
                   )}

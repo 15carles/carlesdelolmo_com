@@ -21,7 +21,7 @@ export default config({
       label: 'Posts',
       slugField: 'title',
       path: 'content/posts/*',
-      previewUrl: '/blog/{slug}?preview=1',
+      previewUrl: '/blog/{slug}',
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Título' } }),
@@ -267,7 +267,7 @@ export default config({
       label: 'Proyectos (Portfolio)',
       slugField: 'title',
       path: 'content/projects/*',
-      previewUrl: '/proyectos/{slug}?preview=1',
+      previewUrl: '/proyectos/{slug}',
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Título del Proyecto' } }),

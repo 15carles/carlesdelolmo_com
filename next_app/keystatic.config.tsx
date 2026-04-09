@@ -9,6 +9,7 @@ export default config({
     : {
         kind: 'github',
         repo: '15carles/carlesdelolmo_com',
+        pathPrefix: 'next_app',
       },
   ui: {
     brand: {

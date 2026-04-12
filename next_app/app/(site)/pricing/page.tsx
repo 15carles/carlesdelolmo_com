@@ -179,7 +179,7 @@ export default function PricingPage() {
                   title="Posicionamiento Local SEO + GEO"
                   description="Optimización de tu Google Business Profile y tu SEO local para captar clientes en tu zona. Además, creo páginas pensadas para que buscadores e IAs entiendan tu negocio y lo recomienden (GEO)."
                   price="Desde 600€/mes"
-                  priceNote="Tiempo mínimo de trabajo: 6 meses<br>* Precios sin IVA"
+                  priceNote={"Tiempo mínimo de trabajo: 6 meses\n* Precio sin IVA"}
                   features={[
                     "Optimización completa de Google Business Profile.",
                     "SEO local: categorías, servicios, reseñas y señales locales.",
@@ -203,7 +203,7 @@ export default function PricingPage() {
                   title="Autoridad Digital para IAs"
                   description="Preparo tu web y su arquitectura técnica para que sea entendida, citada y recomendada por motores de IA y modelos de lenguaje (LLMs). Convierto tu sitio web en una fuente clara, estructurada y confiable para buscadores generativos."
                   price="Desde 500€/mes"
-                  priceNote="Tiempo mínimo de trabajo: 5 meses<br>* Precios sin IVA"
+                  priceNote={"Tiempo mínimo de trabajo: 5 meses\n* Precio sin IVA"}
                   features={[
                     "Optimización semántica avanzada (entidades y contexto).",
                     "Mejora de estructura y datos estructurados (schema).",

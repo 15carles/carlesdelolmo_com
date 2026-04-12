@@ -3420,6 +3420,7 @@
 .pricing-card__price-note {
     font-size: 0.75rem;
     color: var(--color-text-muted);
+    white-space: pre-line;
 }
 
 /* Lista de características con checkmarks SVG */

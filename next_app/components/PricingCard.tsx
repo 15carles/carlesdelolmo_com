@@ -17,12 +17,14 @@ export default function PricingCard({
   title,
   description,
   price,
-  priceNote = "* Precios sin IVA",
+  priceNote = "* Precio sin IVA",
   features,
   illustration,
   ctaText,
   ctaHref
 }: ProductCardProps) {
+  const normalizedPriceNote = priceNote.replace(/<br\s*\/?>/gi, '\n');
+
   return (
     <article className="pricing-card">
       <div className="pricing-card__header">
@@ -31,7 +33,7 @@ export default function PricingCard({
       </div>
       <div className="pricing-card__price-block">
         <p className="pricing-card__price">{price}</p>
-        <span className="pricing-card__price-note">{priceNote}</span>
+        <span className="pricing-card__price-note">{normalizedPriceNote}</span>
       </div>
       <ul className="pricing-card__features">
         {features.map((feature, index) => (

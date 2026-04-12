@@ -15,6 +15,7 @@ Tone: Didáctico-Ejecutivo
 Focus: Diseño web orientado a conversión, arquitectura semántica, rendimiento extremo y autoridad digital para IAs.
 Standards: HTML5, Semantic HTML, CSS3, JavaScript, JSON-LD (Schema.org)
 Version Control: Yes (strictly maintained)
+Version: v3.3.0
 Last Updated: 2026-03-29
 
 /* CONTENT */

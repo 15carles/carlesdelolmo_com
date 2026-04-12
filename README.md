@@ -1,92 +1,119 @@
-# Carles del Olmo - Landing Page Profesional
+# carlesdelolmo.com
 
-Landing page profesional para desarrollador especialista en **Generative Engine Optimization (GEO)**, con diseño dark-tech moderno y efectos glassmorphism.
+Plataforma digital profesional de Carles del Olmo, enfocada en diseño web estratégico, SEO técnico y GEO (Generative Engine Optimization), desarrollada con Next.js App Router.
 
-## 🎯 Características
+## Estado del proyecto
 
-- ✅ **HTML Semántico**: Estructura limpia y accesible.
-- ✅ **CSS Modular**: Arquitectura organizada en `main.css`, `components.css` y `shared.css`.
-- ✅ **Arquitectura Mobile-First**: Todos los estilos CSS siguen el patrón mobile-first con media queries `min-width` para una progresión lógica desde móvil hacia desktop.
-- ✅ **JavaScript Vanilla**: Sin dependencias externas, código modular y eficiente.
-- ✅ **100% Responsive**: Optimizado para móviles, tablets y escritorio.
-- ✅ **Dark Theme Premium**: Estética moderna con gradientes personalizados.
-- ✅ **Efecto de Fondo "Living"**: Fondos animados con ondas SVG sutiles y optimización de overscale.
-- ✅ **Glassmorphism**: Componentes con desenfoque de fondo y bordes translúcidos.
-- ✅ **Accesibilidad**: Etiquetas ARIA y navegación completa por teclado.
-- ✅ **Plantilla de Casos de Éxito**: Estructura reutilizable para documentar proyectos de GEO/SEO.
-- ✅ **Componentes Modulares**: Arquitectura JS para carga dinámica de elementos repetitivos (Footer, Navbar).
-- ✅ **Modo Claro / Oscuro**: Sistema de temas dual con persistencia automática y diseño adaptativo.
-- ✅ **Glassmorphism Theme-Aware**: Efectos de cristal que se adaptan al modo de color seleccionado.
-- ✅ **Caso de Estudio LEDescaparate**: Ejemplo real de visibilidad del 74% en IA con métricas Lighthouse 100/100.
-- ✅ **Componentes Interactivos (Nuevo)**: Implementación de `OrbitaMethod` y `WorkflowTimeline` para visualización dinámica de servicios y procesos.
-- ✅ **GEO-Optimization**: Contenido estructurado específicamente para Gemini, ChatGPT y Perplexity.
+- Entorno de producción: `https://carlesdelolmo.com`
+- Versión vigente: `v3.3.0`
+- Fecha de versión: `2026-03-29`
+- Stack principal: Next.js 16, React 19, TypeScript
+- Gestión editorial: Keystatic (local en desarrollo, GitHub en producción)
+- Captación de leads: Supabase (`leads_contacto`)
 
-## 📁 Estructura del Proyecto
+## Alcance funcional
 
+El sitio cubre actualmente:
+
+- Home corporativa modular con narrativa orientada a conversión.
+- Landings de servicios y posicionamiento local por ubicación.
+- Blog dinámico con pipeline editorial por estado (`draft`, `scheduled`, `published`).
+- Portafolio/casos de estudio con render enriquecido desde CMS.
+- SEO técnico integrado: metadatos, JSON-LD, Open Graph, sitemap y RSS.
+- Capa de cumplimiento y medición: Consent Mode v2, banner de cookies y GA4.
+- Endurecimiento de acceso para panel Keystatic en producción mediante Basic Auth.
+
+## Arquitectura técnica
+
+- Framework: `next@16.1.6`
+- UI Runtime: `react@19.2.3`
+- Lenguaje: `TypeScript`
+- CMS Git-based: `@keystatic/core`, `@keystatic/next`
+- Datos de contacto: `@supabase/supabase-js`
+- Estilos: arquitectura CSS modular en `styles/main.css`, `styles/components.css`, `styles/shared.css`
+- Capa SEO: utilidades centralizadas en `lib/seo/*`
+
+## Estructura del repositorio
+
+```text
+carlesdelolmo_com/
+├── next_app/
+│   ├── app/                    # Rutas del sitio público, panel keystatic y API
+│   ├── components/             # Componentes de interfaz y secciones
+│   ├── content/                # Contenido editorial (posts, proyectos, autores)
+│   ├── lib/                    # SEO, visibilidad de contenido y utilidades
+│   ├── scripts/                # Scripts de migración y diagnóstico editorial
+│   ├── styles/                 # Sistema de estilos global y componentes
+│   └── public/                 # Assets y archivos públicos (robots, humans, llms)
+├── CHANGELOG.md
+├── VERSION
+└── README.md
 ```
-carlesdelolmo_web/
-├── next_app/               # Aplicación principal Next.js (App Router)
-│   ├── app/                # Enrutador base
-│   │   ├── blog/           # Artículos y lógica de CMS local
-│   │   ├── diseno-web/     # Landings SEO por ubicación (Valencia, Alicante, Castellón)
-│   │   ├── proyectos/      # Casos de estudio interactivos
-│   │   ├── servicio-seo/   # Landings de servicios específicos
-│   │   ├── *               # Páginas legales, precios, contacto, sitemap
-│   ├── components/         # Componentes React reutilizables (Navbar, Footer, CookieBanner)
-│   ├── lib/                # Utilidades core
-│   │   └── seo/            # Generadores dinámicos de JSON-LD y Metadatos
-│   ├── public/             # Assets estáticos (imágenes, icons, robots.txt, globals puros)
-│   ├── styles/             # Arquitectura CSS modular
-│   │   ├── main.css
-│   │   ├── components.css
-│   │   └── shared.css
-├── CHANGELOG.md            # Historial de cambios
-├── VERSION                 # Versión actual del proyecto
-├── llms.txt                # Perfil optimizado para modelos de lenguaje
-└── README.md               # Documentación principal
+
+## Operación local
+
+Desde la raíz del proyecto:
+
+```bash
+cd next_app
+npm install
+npm run dev
 ```
 
-## 🎨 Arquitectura CSS
+Aplicación disponible en `http://localhost:3000`.
 
-### Design Tokens (`main.css`)
-- Variables CSS para la paleta de colores (Purple, Blue, Cyan).
-- Sistema de espaciado y radios de borde consistentes.
-- Animaciones optimizadas (`pulse-dot`, `floating-waves`, `fade-in-up`).
+## Scripts operativos
 
-### Componentes (`components.css`)
-- **Navbar**: Sticky con efecto de desenfoque y cambio de estado al hacer scroll.
-- **Terminal de Código**: Simulación de editor con resaltado de sintaxis y efectos hover.
-- **Cards**: Efectos glassmorphism con elevación y sombras suaves.
-- **Formularios**: Validación en tiempo real con feedback visual claro.
+Scripts principales (`next_app/package.json`):
 
-## 🚀 Uso y Personalización
+- `npm run dev`: entorno de desarrollo.
+- `npm run build`: build de producción.
+- `npm run start`: ejecución de build local.
+- `npm run lint`: validación estática.
+- `npm run pages:build`: build para Cloudflare Pages.
+- `npm run keystatic:strict:check`: validación integral de contenido de proyectos.
+- `npm run keystatic:phase2:gate`: gate editorial + build.
 
-### Desarrollo Local
-No requiere compilación. Simplemente clona el repositorio y abre `index.html`.
+Scripts de mantenimiento editorial:
 
-### Crear un Nuevo Caso de Estudio
-1. Duplica `plantilla-proyecto.html`.
-2. Sigue los comentarios en el archivo para rellenar las secciones (Antes, Diagnóstico, Intervención, Resultados, Apariciones IA).
-3. Enlaza tu nuevo archivo desde la sección de proyectos en `index.html`.
+- `npm run keystatic:migrate:posts:status`
+- `npm run keystatic:migrate:posts:status:check`
+- `npm run keystatic:migrate:projects:strict`
+- `npm run keystatic:diagnose:projects`
 
-## 🔧 Próximas Mejoras
+## Configuración de entorno
 
-- [ ] Integración con backend real para envío de emails.
-- [x] Implementación de modo claro (Done v2.0.0).
-- [ ] Soporte para multi-idioma (i18n).
-- [ ] Optimización de assets (WebP) y PWA.
+Variables requeridas para proteger Keystatic en producción:
 
-## 📄 Licencia
+```env
+KEYSTATIC_BASIC_AUTH_USER=...
+KEYSTATIC_BASIC_AUTH_PASS=...
+KEYSTATIC_CANONICAL_HOST=carlesdelolmo.com
+```
 
-Proyecto personal - Todos los derechos reservados.
+Si no existen credenciales en producción, el middleware bloquea acceso con `503`.
 
-## 👤 Autor
+## Flujo editorial recomendado
 
-**Carles del Olmo**  
-Especialista en Generative Engine Optimization
-[LinkedIn](https://www.linkedin.com/in/delolmocarles/) | [Web](https://www.carlesdelolmo.com)
+- Panel de edición: `/keystatic`
+- Fuentes de contenido: `content/posts/*.mdoc` y `content/projects/*.mdoc`
+- Verificación previa a publicación de proyectos:
 
----
+```bash
+npm run keystatic:strict:check
+```
 
-**Versión**: v3.3.0  
-**Última actualización**: 23 Marzo 2026 (Feat: Rediseño integral de Home + JSON-LD específico de la Home + sincronización de versionado y sitemap)
+## Gobernanza de versión
+
+- `VERSION` define la versión y fecha oficiales.
+- `CHANGELOG.md` documenta cambios funcionales y técnicos.
+- `README.md`, `next_app/public/llms.txt` y `next_app/public/humans.txt` deben mantenerse alineados con `VERSION`.
+
+## Autor
+
+Carles del Olmo  
+[LinkedIn](https://www.linkedin.com/in/delolmocarles/) · [Web](https://carlesdelolmo.com)
+
+## Licencia
+
+Proyecto personal. Todos los derechos reservados.

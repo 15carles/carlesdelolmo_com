@@ -1,0 +1,38 @@
+name: Publish Scheduled Posts
+
+on:
+  schedule:
+    - cron: '15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Sync scheduled/published statuses
+        run: node scripts/migrate-posts-status.mjs
+        working-directory: next_app
+
+      - name: Commit and push changes
+        run: |
+          if [ -z "$(git status --porcelain -- next_app/content/posts)" ]; then
+            echo "No status changes to commit"
+            exit 0
+          fi
+
+          git add next_app/content/posts
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m "chore(content): publish scheduled posts"
+          git push

@@ -34,8 +34,20 @@ function inferStatus(frontmatter, now = new Date()) {
   return isoDate.getTime() > now.getTime() ? 'scheduled' : 'published';
 }
 
+function readStatus(frontmatter) {
+  const match = frontmatter.match(/(?:^|\n)status:\s*(draft|scheduled|published)\s*(?:\n|$)/);
+  return match ? match[1] : null;
+}
+
 function hasStatus(frontmatter) {
   return /(?:^|\n)status:\s*(draft|scheduled|published)\s*(?:\n|$)/.test(frontmatter);
+}
+
+function replaceStatus(frontmatter, status) {
+  return frontmatter.replace(
+    /((?:^|\n)status:\s*)(draft|scheduled|published)(\s*(?:\n|$))/,
+    `$1${status}$3`
+  );
 }
 
 function injectStatus(frontmatter, status) {
@@ -70,13 +82,29 @@ async function main() {
       continue;
     }
 
-    if (hasStatus(frontmatter)) {
+    const currentStatus = readStatus(frontmatter);
+    const inferredStatus = inferStatus(frontmatter);
+
+    if (currentStatus === 'draft') {
       alreadyOk += 1;
       continue;
     }
 
-    const status = inferStatus(frontmatter);
-    const nextFrontmatter = injectStatus(frontmatter, status);
+    let nextFrontmatter = frontmatter;
+    let nextStatus = currentStatus;
+
+    if (hasStatus(frontmatter)) {
+      if (currentStatus === inferredStatus) {
+        alreadyOk += 1;
+        continue;
+      }
+      nextFrontmatter = replaceStatus(frontmatter, inferredStatus);
+      nextStatus = inferredStatus;
+    } else {
+      nextFrontmatter = injectStatus(frontmatter, inferredStatus);
+      nextStatus = inferredStatus;
+    }
+
     const nextContent = `---\n${nextFrontmatter}\n---\n${body}`;
 
     if (!checkOnly) {
@@ -84,7 +112,7 @@ async function main() {
     }
 
     changed += 1;
-    console.log(`${checkOnly ? 'would-update' : 'updated'}: ${path.basename(filePath)} -> ${status}`);
+    console.log(`${checkOnly ? 'would-update' : 'updated'}: ${path.basename(filePath)} -> ${nextStatus}`);
   }
 
   console.log(`done: changed=${changed}, already-ok=${alreadyOk}, mode=${checkOnly ? 'check' : 'write'}`);

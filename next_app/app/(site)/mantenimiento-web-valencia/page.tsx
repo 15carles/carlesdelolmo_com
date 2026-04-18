@@ -2,6 +2,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import ContactForm from '@/components/ContactForm';
 import { constructMetadata } from '@/lib/seo/metadata';
 import { BUSINESS_SCHEMA, PERSON_SCHEMA, SITE_URL, generateBreadcrumbSchema } from '@/lib/seo/schemas';
+import { safeJsonLd } from '@/lib/seo/jsonLd';
 import { Check } from 'lucide-react';
 import Link from 'next/link';
 
@@ -196,7 +197,7 @@ export default function MantenimientoWebValenciaPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
 
       <main className="page__content">
         <Breadcrumbs items={breadcrumbs} />

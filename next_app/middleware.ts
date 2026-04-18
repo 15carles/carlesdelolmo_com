@@ -63,6 +63,29 @@ function parseBasicAuthHeader(
   };
 }
 
+/**
+ * Constant-time string comparison. Avoids leaking the position of the first
+ * mismatched byte via response-time differences (Web Crypto API does not
+ * expose timingSafeEqual in the Edge runtime, so we implement it manually).
+ *
+ * Note: the length difference itself is still observable; we mix it into the
+ * accumulator so callers cannot short-circuit on length alone.
+ */
+function timingSafeEqual(a: string, b: string): boolean {
+  const encoder = new TextEncoder();
+  const aBytes = encoder.encode(a);
+  const bBytes = encoder.encode(b);
+
+  const maxLen = Math.max(aBytes.length, bBytes.length);
+  let mismatch = aBytes.length === bBytes.length ? 0 : 1;
+
+  for (let i = 0; i < maxLen; i++) {
+    mismatch |= (aBytes[i] ?? 0) ^ (bBytes[i] ?? 0);
+  }
+
+  return mismatch === 0;
+}
+
 function isAuthorized(
   request: NextRequest,
   expectedUsername: string,
@@ -71,10 +94,11 @@ function isAuthorized(
   const credentials = parseBasicAuthHeader(request.headers.get('authorization'));
   if (!credentials) return false;
 
-  return (
-    credentials.username === expectedUsername &&
-    credentials.password === expectedPassword
-  );
+  // Always evaluate both comparisons (no short-circuit) to avoid leaking
+  // which field (user vs pass) failed via timing.
+  const userMatch = timingSafeEqual(credentials.username, expectedUsername);
+  const passMatch = timingSafeEqual(credentials.password, expectedPassword);
+  return userMatch && passMatch;
 }
 
 export function middleware(request: NextRequest): NextResponse {
@@ -98,17 +122,17 @@ export function middleware(request: NextRequest): NextResponse {
   const expectedUsername = process.env.KEYSTATIC_BASIC_AUTH_USER;
   const expectedPassword = process.env.KEYSTATIC_BASIC_AUTH_PASS;
 
+  // Fail closed in EVERY environment (production, preview, development).
+  // Previously this only returned 503 in production, which left preview
+  // deployments and any non-production runtime wide open to /keystatic and
+  // /api/keystatic if the env vars happened to be missing.
   if (!expectedUsername || !expectedPassword) {
-    if (isProduction) {
-      return withNoIndex(
-        new NextResponse(
-          'Keystatic locked. Configure KEYSTATIC_BASIC_AUTH_USER and KEYSTATIC_BASIC_AUTH_PASS.',
-          { status: 503 }
-        )
-      );
-    }
-
-    return withNoIndex(NextResponse.next());
+    return withNoIndex(
+      new NextResponse(
+        'Keystatic locked. Configure KEYSTATIC_BASIC_AUTH_USER and KEYSTATIC_BASIC_AUTH_PASS.',
+        { status: 503 }
+      )
+    );
   }
 
   if (!isAuthorized(request, expectedUsername, expectedPassword)) {

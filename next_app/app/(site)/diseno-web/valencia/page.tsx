@@ -6,6 +6,7 @@ import { Code, MapPin, Zap, Search, Layout, MousePointer2, Check, Shield, Gauge,
 import Image from 'next/image';
 import Link from 'next/link';
 import { PERSON_SCHEMA, BUSINESS_SCHEMA, generateBreadcrumbSchema, SITE_URL } from '@/lib/seo/schemas';
+import { safeJsonLd } from '@/lib/seo/jsonLd';
 import { constructMetadata } from '@/lib/seo/metadata';
 
 export const metadata = constructMetadata({
@@ -197,7 +198,7 @@ export default function DisenoWebValencia() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
       <main className="page__content">
         <Breadcrumbs items={breadcrumbs} />

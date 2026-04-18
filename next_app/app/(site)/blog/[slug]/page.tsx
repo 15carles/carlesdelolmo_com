@@ -5,6 +5,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { generateBlogSchema, SITE_URL } from '@/lib/seo/schemas';
+import { safeJsonLd } from '@/lib/seo/jsonLd';
 import { constructMetadata } from '@/lib/seo/metadata';
 import { resolvePostOpenGraphImage } from '@/lib/seo/openGraph';
 import { reader } from '@/lib/keystatic';
@@ -78,7 +79,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
       <main className="page__content">
         <header className="page-header animate-on-scroll">

@@ -15,6 +15,15 @@ function getPostTitle(title: unknown, slug: string): string {
   return slug;
 }
 
+/**
+ * Escapa contenido para ser insertado dentro de una sección CDATA de XML.
+ * La única secuencia que cierra un CDATA es `]]>`. La rompemos dividiendo
+ * la CDATA: `]]` + `]]><![CDATA[` + `>` → resulta en `]]` y `>` como texto.
+ */
+function escapeCdata(input: string): string {
+  return input.replace(/]]>/g, ']]]]><![CDATA[>');
+}
+
 export async function GET() {
   const posts = await reader.collections.posts.all();
 
@@ -39,11 +48,11 @@ export async function GET() {
   ${publishedPosts
     .map((post) => `
     <item>
-      <title><![CDATA[${getPostTitle(post.entry.title, post.slug)}]]></title>
+      <title><![CDATA[${escapeCdata(getPostTitle(post.entry.title, post.slug))}]]></title>
       <link>${SITE_URL}/blog/${post.slug}</link>
       <guid>${SITE_URL}/blog/${post.slug}</guid>
       <pubDate>${(parseIsoDate(post.entry.isoDate) ?? new Date()).toUTCString()}</pubDate>
-      <description><![CDATA[${post.entry.metaDescription || post.entry.subtitle || ''}]]></description>
+      <description><![CDATA[${escapeCdata(post.entry.metaDescription || post.entry.subtitle || '')}]]></description>
     </item>`)
     .join('')}
 </channel>

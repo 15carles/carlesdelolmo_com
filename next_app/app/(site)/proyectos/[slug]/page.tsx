@@ -7,6 +7,7 @@ import PagespeedMetrics from '@/components/PagespeedMetrics';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { generateProjectSchema, SITE_URL } from '@/lib/seo/schemas';
+import { safeJsonLd } from '@/lib/seo/jsonLd';
 import { constructMetadata } from '@/lib/seo/metadata';
 import { reader } from '@/lib/keystatic';
 import { DocumentRenderer } from '@keystatic/core/renderer';
@@ -122,10 +123,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   <div
                     key={i}
                     className={`chat-bubble chat-bubble--${role}`}
-                    dangerouslySetInnerHTML={{
-                      __html: (msg.content || '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                    }}
-                  />
+                  >
+                    {/* Use the existing safe `**bold**` renderer instead of
+                        dangerouslySetInnerHTML — content comes from Keystatic
+                        and could otherwise be used to inject scripts. */}
+                    {renderInlineBold(msg.content || '')}
+                  </div>
                 );
               })}
             </div>
@@ -171,7 +174,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <ScrollReveal />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
       <main className="page__content">
         {/* El Hero ahora se puede añadir como un bloque 'projectHero' en la parte superior 

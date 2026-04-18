@@ -13,6 +13,32 @@ interface ProductCardProps {
   ctaHref: string;
 }
 
+/**
+ * Safely render the limited HTML subset used by `description` (only `<strong>`
+ * and `<br>`). React escapes all other content, so this avoids the XSS risk of
+ * `dangerouslySetInnerHTML` while keeping the existing call-site format.
+ */
+function renderDescription(html: string): React.ReactNode {
+  const lines = html.split(/<br\s*\/?\s*>/gi);
+  return lines.map((line, lineIdx) => {
+    // Splitting on the capture group keeps the inner text at odd indices and
+    // the surrounding plain text at even indices.
+    const parts = line.split(/<strong>([\s\S]*?)<\/strong>/gi);
+    return (
+      <React.Fragment key={lineIdx}>
+        {parts.map((part, partIdx) =>
+          partIdx % 2 === 1 ? (
+            <strong key={partIdx}>{part}</strong>
+          ) : (
+            <React.Fragment key={partIdx}>{part}</React.Fragment>
+          )
+        )}
+        {lineIdx < lines.length - 1 && <br />}
+      </React.Fragment>
+    );
+  });
+}
+
 export default function PricingCard({
   title,
   description,
@@ -29,7 +55,7 @@ export default function PricingCard({
     <article className="pricing-card">
       <div className="pricing-card__header">
         <h3 className="pricing-card__title">{title}</h3>
-        <div className="pricing-card__desc" dangerouslySetInnerHTML={{ __html: description }} />
+        <div className="pricing-card__desc">{renderDescription(description)}</div>
       </div>
       <div className="pricing-card__price-block">
         <p className="pricing-card__price">{price}</p>

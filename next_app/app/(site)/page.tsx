@@ -10,6 +10,7 @@ import ParaQuienSection from '@/components/ParaQuienSection';
 import CtaFinalSection from '@/components/CtaFinalSection';
 import ContactSection from '@/components/ContactSection';
 import { generateHomeSchema } from '@/lib/seo/schemas';
+import { safeJsonLd } from '@/lib/seo/jsonLd';
 
 export default function Home() {
   const jsonLd = generateHomeSchema();
@@ -18,7 +19,7 @@ export default function Home() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
       <Hero />
       <CredibilidadSection />

@@ -1,13 +1,12 @@
 "use client";
 
 import React, { useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-const supabaseUrl = 'https://gzrgxkjvxaflteilmjuq.supabase.co';
-const supabaseKey = 'sb_publishable_-rNRG-bfifNaR--8DkvKvA_xXLh4eil';
-const supabase = createClient(supabaseUrl, supabaseKey);
+// All Supabase access now goes through /api/contact (server-side). This keeps
+// the Supabase URL + publishable key out of the public JS bundle and gives us
+// a single point to layer rate limiting, validation, and (later) captcha.
 
 type ContactFormProps = {
   className?: string;
@@ -109,8 +108,12 @@ export default function ContactForm({
 
     setLoading(true);
     try {
-      // Excluir acepta_privacidad porque no es una columna en la tabla
-      const dataToSend = {
+      // acepta_privacidad is intentionally excluded from the payload: the
+      // server endpoint validates the rest of the fields and inserts directly
+      // into Supabase, so the consent checkbox is enforced client-side only
+      // (the user already agreed by submitting). The API never trusts client
+      // values like estado / url_origen blindly — see app/api/contact/route.ts.
+      const payload = {
         nombre: formData.nombre,
         email: formData.email,
         telefono: formData.telefono,
@@ -119,17 +122,21 @@ export default function ContactForm({
         servicios_adicionales: formData.servicios_adicionales,
         fecha_limite: formData.fecha_limite,
         donde_conocido: formData.donde_conocido,
+        url_origen:
+          typeof window !== 'undefined' ? window.location.href : '',
       };
-      
-      const { error } = await supabase
-        .from('leads_contacto')
-        .insert([{
-          ...dataToSend,
-          url_origen: typeof window !== 'undefined' ? window.location.href : '',
-          estado: 'nuevo'
-        }]);
 
-      if (error) throw error;
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        // Surface a generic error; the server already logs the detail.
+        throw new Error(`HTTP ${response.status}`);
+      }
+
       router.push('/gracias');
     } catch (error) {
       console.error('Error submitting form:', error);

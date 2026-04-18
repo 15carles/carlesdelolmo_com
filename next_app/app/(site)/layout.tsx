@@ -60,13 +60,20 @@ export default function RootLayout({
           <ScrollReveal />
         </Providers>
 
-        {/* Script inline para evitar parpadeo blanco (FOUC) en el modo oscuro */}
+        {/* Script inline para evitar parpadeo blanco (FOUC) en el modo oscuro.
+            Validamos el valor leído de localStorage para no inyectar un string
+            arbitrario como atributo data-theme (defensa en profundidad). */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                const savedTheme = localStorage.getItem('theme') || 'dark';
-                document.documentElement.setAttribute('data-theme', savedTheme);
+                try {
+                  var saved = localStorage.getItem('theme');
+                  var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+                  document.documentElement.setAttribute('data-theme', theme);
+                } catch (e) {
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                }
               })();
             `,
           }}

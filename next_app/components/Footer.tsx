@@ -79,6 +79,7 @@ const NAV_LINKS: FooterLink[] = [
   { href: '/#proyectos', label: 'Proyectos' },
   { href: '/#servicios', label: 'Servicios' },
   { href: '/blog', label: 'Blog' },
+  { href: '/demos-interactivas', label: 'Demos' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/contacto', label: 'Contacto' },
 ];

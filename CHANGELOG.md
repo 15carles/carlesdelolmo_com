@@ -2,6 +2,12 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [v3.4.0] - 2026-04-26
+### Añadido
+- **feat(pages):** Creación de la página "Sobre Mí" (`/sobre-carles-del-olmo`) integrando componentes de diseño premium (terminal, cards, grid) alineados con la identidad visual.
+- **feat(pages):** Implementación de la página "Demos Interactivas" (`/demos-interactivas`) para centralizar el portfolio de aplicaciones de prueba.
+- **feat(components):** Modificación en `DemoCard` para incluir enlaces directos a las demostraciones en vivo al interactuar con las imágenes de los proyectos.
+
 ## [v3.3.0] - 2026-03-23
 ### Añadido
 - **Home (Arquitectura):** Incorporación de nuevas secciones modulares en `app/(site)/page.tsx` para reforzar narrativa y conversión: `CredibilidadSection`, `QueResuelvoSection`, `CasoDestacadoSection`, `MetodoOrbitaSection`, `DiferenciadoresSection`, `InsightsSection`, `ParaQuienSection` y `CtaFinalSection`.

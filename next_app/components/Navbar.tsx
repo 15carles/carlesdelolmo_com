@@ -173,8 +173,9 @@ function NavbarContent({ pathname }: NavbarContentProps) {
             </div>
           </div>
 
+          <Link href="/sobre-carles-del-olmo" className={`navbar__link ${isActive('/sobre-carles-del-olmo') ? 'active' : ''}`}>Sobre mí</Link>
           <Link href="/blog" className={`navbar__link ${isActive('/blog') ? 'active' : ''}`}>Blog</Link>
-          <Link href="/contacto" className={`navbar__link ${isActive('/contacto') ? 'active' : ''}`}>Contacto</Link>
+          <Link href="/demos-interactivas" className={`navbar__link ${isActive('/demos-interactivas') ? 'active' : ''}`}>Demos</Link>
           <Link href="/pricing" className={`navbar__link ${isActive('/pricing') ? 'active' : ''}`}>Pricing</Link>
 
           <ThemeToggle />
@@ -251,7 +252,9 @@ function NavbarContent({ pathname }: NavbarContentProps) {
           </div>
         </div>
 
+        <Link href="/sobre-carles-del-olmo" className="navbar__link" onClick={closeMobileMenu}>Sobre mí</Link>
         <Link href="/blog" className="navbar__link" onClick={closeMobileMenu}>Blog</Link>
+        <Link href="/demos-interactivas" className="navbar__link" onClick={closeMobileMenu}>Demos</Link>
         <Link href="/contacto" className="navbar__link" onClick={closeMobileMenu}>Contacto</Link>
         <Link href="/pricing" className="navbar__link" onClick={closeMobileMenu}>Pricing</Link>
 

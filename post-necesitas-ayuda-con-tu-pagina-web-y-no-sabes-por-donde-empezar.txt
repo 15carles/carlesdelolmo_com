@@ -1,0 +1,287 @@
+<!--
+POST BLOG COMPLETO
+Proyecto: carlesdelolmo.com
+Estado: borrador listo para revisar
+Título provisional validado: Necesitas ayuda con tu página web y no sabes por dónde empezar
+Slug sugerido: /blog/necesitas-ayuda-con-tu-pagina-web-y-no-sabes-por-donde-empezar
+Keyword principal sugerida: mejorar página web empresa
+Keywords secundarias sugeridas:
+- qué revisar en una página web
+- cómo mejorar una web de empresa
+- errores página web negocio
+- página web no genera clientes
+- cuándo rehacer una web
+- diseño web Valencia
+Fecha prevista de publicación: 29 de abril de 2026
+
+INTERLINKS PREVISTOS
+1. /diseno-web/valencia
+   Ubicación recomendada: sección "Qué debería revisarse primero en una página web"
+   Anchor recomendado: servicio de diseño web en Valencia
+
+2. /proyectos/ledescaparate
+   Ubicación recomendada: sección "Un ejemplo real de enfoque estructurado"
+   Anchor recomendado: proyecto LEDescaparate
+
+Nota editorial:
+Este archivo está planteado como HTML limpio dentro de un TXT para que puedas copiarlo y adaptarlo en tu editor.
+Incluye indicaciones de interlink en comentarios HTML.
+-->
+
+<title>Necesitas ayuda con tu página web y no sabes por dónde empezar | Carles del Olmo</title>
+<meta name="description" content="Descubre por dónde empezar si tu página web no está ayudando a tu negocio. Guía clara para revisar estructura, mensaje, rendimiento, SEO y conversión antes de tomar decisiones.">
+
+<article>
+  <header>
+    <p>Blog</p>
+    <h1>Necesitas ayuda con tu página web y no sabes por dónde empezar</h1>
+    <p>Cómo revisar una web con criterio antes de cambiar diseño, textos o plataforma</p>
+  </header>
+
+  <p>Hay una situación muy común en pequeñas empresas, negocios locales y proyectos que ya llevan un tiempo en marcha. La web existe, pero algo no encaja. No genera suficientes contactos, no transmite bien lo que haces, tarda en cargar, se ha quedado antigua o simplemente te deja una sensación rara cada vez que la miras.</p>
+
+  <p>El problema es que, cuando aparece esa sensación, muchas veces no sabes por dónde empezar. Y eso lleva a una cadena de decisiones improvisadas: cambiar el diseño sin tocar la estructura, reescribir textos sin revisar el enfoque, añadir secciones porque sí o rehacer toda la web sin haber entendido antes qué estaba fallando.</p>
+
+  <p>Una página web no suele fallar por una sola razón. A veces el problema es de claridad. Otras veces es de rendimiento. En otros casos, la web está bien hecha por fuera, pero no ayuda al negocio porque no está alineada con un objetivo concreto. También ocurre que la empresa cree que necesita una web nueva, cuando en realidad lo que necesita es ordenar el mensaje, simplificar la arquitectura y corregir algunos puntos técnicos clave.</p>
+
+  <p>Por eso conviene frenar un momento antes de tocar nada. Si no hay diagnóstico, cualquier cambio puede ser una mejora aparente y un retroceso real.</p>
+
+  <p>En este artículo voy a explicarte cómo plantear esa revisión con orden. No desde el típico listado superficial de consejos, sino desde una lógica más útil: entender qué debería hacer una web, qué señales indican que necesita ayuda y en qué orden merece la pena revisar cada parte.</p>
+
+  <p>La idea es sencilla. Antes de decidir si hay que rediseñar, optimizar, reestructurar o rehacer, primero hay que entender el problema. Cuando ese paso se hace bien, la web deja de ser una suma de parches y empieza a funcionar como un activo digital con sentido.</p>
+
+  <h2>El problema no es solo tener una web, sino no saber qué está fallando</h2>
+
+  <p>Muchas empresas no parten de cero. Ya tienen una web publicada. El verdadero bloqueo aparece después, cuando notan que esa web no está cumpliendo el papel que debería cumplir y no saben identificar la causa.</p>
+
+  <p>Eso genera una confusión muy habitual. Se mezcla todo. Diseño, velocidad, SEO, textos, branding, contenidos, formularios, imágenes, móvil, estructura, llamadas a la acción. Como todo parece conectado, la sensación es que el problema es enorme y que hay que tocarlo todo a la vez.</p>
+
+  <p>En realidad, una revisión útil consiste precisamente en separar capas. Una web puede verse moderna y comunicar mal. Puede cargar rápido y no posicionar. Puede posicionar y no convertir. Puede tener buenos textos y una arquitectura pobre. Puede tener un buen servicio detrás y estar presentándolo de una forma demasiado difusa.</p>
+
+  <p><strong>Definición</strong></p>
+  <p>Una revisión web útil es un proceso de diagnóstico que separa problemas de mensaje, estructura, rendimiento, visibilidad y conversión para decidir con criterio qué conviene mejorar primero.</p>
+
+  <p>Esa idea parece obvia, pero en la práctica se ignora mucho. Cuando se pasa por alto, la empresa entra en modo parche. Cambia una cabecera. Sustituye imágenes. Añade testimonios. Instala una plantilla nueva. Mete un formulario distinto. Publica dos artículos y espera resultados. Todo eso puede sumar, sí, pero también puede tapar el problema real sin resolverlo.</p>
+
+  <p>La consecuencia es conocida: se invierte tiempo, dinero o energía, pero la sensación de fondo sigue ahí. La web continúa sin ayudar como debería.</p>
+
+  <p>Si te ves en ese punto, la buena noticia es que no necesitas empezar a ciegas. Necesitas un orden de revisión.</p>
+
+  <h2>Señales de que tu página web necesita ayuda de verdad</h2>
+
+  <p>No toda incomodidad con una web significa que haya que rehacerla. A veces es una cuestión estética. Otras veces hay un problema más profundo. La diferencia está en las señales.</p>
+
+  <p>Estas son algunas de las más habituales.</p>
+
+  <h3>1. No se entiende bien qué haces</h3>
+  <p>Si alguien entra en tu home o en una página de servicio y tarda demasiado en entender qué ofreces, para quién es y por qué debería importarle, tienes un problema de claridad. No hace falta que el contenido sea corto. Hace falta que sea comprensible.</p>
+
+  <h3>2. La web recibe visitas, pero no genera contactos</h3>
+  <p>Esto suele indicar un desajuste entre intención y propuesta. Puede que estés atrayendo tráfico poco cualificado. Puede que la página no acompañe bien al usuario. Puede que falten pruebas de confianza. O puede que la llamada a la acción sea débil o aparezca demasiado tarde.</p>
+
+  <h3>3. La experiencia en móvil es pobre</h3>
+  <p>Hay webs que en escritorio parecen aceptables y en móvil se vuelven incómodas. Textos apretados, bloques interminables, botones pequeños, jerarquía confusa, tiempos de carga peores. Ese tipo de fricción no suele perdonar.</p>
+
+  <h3>4. La web tarda en cargar o se siente pesada</h3>
+  <p>El rendimiento no es un detalle técnico aislado. Afecta a la experiencia, a la percepción de profesionalidad y al posicionamiento. Si cada visita empieza con espera, ya has empezado perdiendo atención.</p>
+
+  <h3>5. No aparece cuando debería aparecer</h3>
+  <p>A veces la empresa tiene servicios interesantes, pero su web no deja claro qué páginas deberían posicionar, qué términos responden o cómo está organizada la arquitectura. No basta con publicar contenido. Hace falta que la estructura acompañe.</p>
+
+  <h3>6. La web se ha convertido en un cajón de sastre</h3>
+  <p>Esto pasa mucho con el tiempo. Se añaden secciones, pestañas, páginas y bloques sin una lógica clara. El resultado no es una web más completa, sino una web más confusa.</p>
+
+  <h3>7. Da vergüenza compartirla</h3>
+  <p>Puede sonar duro, pero es una señal real. Cuando alguien evita enseñar su propia web, normalmente no está hablando solo de estética. Está notando una falta de coherencia entre lo que quiere proyectar y lo que la web realmente transmite.</p>
+
+  <p>Una sola señal no siempre justifica una intervención grande. Varias señales juntas sí suelen indicar que toca revisar con calma.</p>
+
+  <h2>El error más común: empezar por lo más visible</h2>
+
+  <p>Cuando una web no convence, lo más tentador es actuar sobre lo que más se ve. Cambiar colores. Sustituir la tipografía. Rediseñar la cabecera. Meter animaciones. Reescribir el primer bloque. Eso da una sensación inmediata de avance, pero no siempre mejora lo importante.</p>
+
+  <p>Este es uno de los errores más caros en tiempo y dinero. Se confunde la parte visible con la parte prioritaria.</p>
+
+  <p>Una web no empieza en el diseño. Empieza en el objetivo. Si no está claro qué debe conseguir la página, cualquier mejora visual puede quedarse en maquillaje. Lo mismo ocurre con los textos. Puedes tener frases muy pulidas y seguir sin explicar bien el servicio. Puedes tener una home más atractiva y continuar llevando al usuario por un recorrido torpe. Puedes cambiar toda la estética y mantener intacto el mismo problema de fondo.</p>
+
+  <p><strong>Definición</strong></p>
+  <p>Empezar por lo más visible es priorizar cambios superficiales antes de haber validado si la web falla por objetivo, estructura, mensaje, rendimiento o conversión.</p>
+
+  <p>Este error suele aparecer por tres razones.</p>
+
+  <ul>
+    <li>Lo visible genera sensación rápida de progreso</li>
+    <li>Lo estratégico exige más reflexión y diagnóstico</li>
+    <li>Es más fácil opinar sobre diseño que analizar una arquitectura web</li>
+  </ul>
+
+  <p>Por eso, muchas veces la conversación sobre una web se llena de gustos y se vacía de criterios. Se habla de si algo “queda mejor”, pero no de si ayuda a entender mejor el servicio, a guiar mejor al usuario o a sostener mejor el posicionamiento.</p>
+
+  <p>La web de una empresa no debería evaluarse solo por cómo se ve. También por cómo organiza la información, cómo se entiende, cómo responde a intenciones de búsqueda y cómo acompaña una decisión.</p>
+
+  <h2>Qué debería revisarse primero en una página web</h2>
+
+  <p>Si quieres ordenar una revisión sin perderte, conviene seguir una secuencia lógica. No es la única posible, pero sí una de las más útiles para no empezar por donde no toca.</p>
+
+  <h3>1. El objetivo real de la web</h3>
+  <p>La primera pregunta no es si la web está bonita. Es para qué existe. ¿Debe captar solicitudes de presupuesto? ¿Explicar bien un servicio complejo? ¿Filtrar clientes? ¿Mostrar casos reales? ¿Generar autoridad? ¿Apoyar ventas locales?</p>
+
+  <p>Sin esa respuesta, la web se convierte en una mezcla de intenciones. Y cuando una página intenta hacerlo todo al mismo tiempo, suele hacerlo todo peor.</p>
+
+  <h3>2. La propuesta de valor</h3>
+  <p>Después del objetivo, toca revisar si el mensaje principal está claro. El usuario debería entender con rapidez qué haces, qué problema ayudas a resolver y por qué tu enfoque tiene sentido. No hace falta dramatizar. Hace falta concretar.</p>
+
+  <h3>3. La estructura y la jerarquía</h3>
+  <p>Una web no es una colección de bloques. Es una estructura de información. Hay que revisar si las páginas están bien organizadas, si cada una tiene una función clara y si la jerarquía ayuda a recorrer el contenido con lógica.</p>
+
+  <p><!-- Interlink recomendado a servicio -->Si quieres profundizar en este enfoque, aquí encaja un enlace natural hacia <a href="/diseno-web/valencia">mi servicio de diseño web en Valencia</a>, donde explico cómo trabajo la estructura, la semántica y el rendimiento como parte del proyecto, no como extras sueltos.</p>
+
+  <h3>4. El rendimiento técnico</h3>
+  <p>Una base lenta o mal resuelta técnicamente puede lastrar todo lo demás. Aquí no se trata de obsesionarse con métricas vacías, sino de revisar si la web responde bien, carga con agilidad, evita peso innecesario y ofrece una experiencia estable.</p>
+
+  <h3>5. La visibilidad</h3>
+  <p>Después toca mirar si la web está preparada para ser encontrada y entendida. Esto afecta al SEO clásico, pero también a la claridad estructural que ayuda a buscadores y sistemas de IA a interpretar el contenido. Una arquitectura pobre complica ambas cosas.</p>
+
+  <h3>6. La conversión</h3>
+  <p>Solo cuando lo anterior está más o menos ordenado tiene sentido revisar con seriedad la parte de conversión. Formularios, llamadas a la acción, pruebas de confianza, recorrido entre páginas, señales de credibilidad y fricciones de contacto.</p>
+
+  <p>Este orden se parece bastante a la lógica del método ORBITA, donde una web se entiende como un sistema que une base técnica, relevancia semántica, autoridad, interpretación, tráfico útil y evolución continua. No hace falta memorizar el nombre. Lo importante es la idea de fondo: una web funciona mejor cuando sus capas trabajan juntas y en orden.</p>
+
+  <h2>Cómo hacer un diagnóstico rápido sin meterte en un lío técnico</h2>
+
+  <p>No todas las empresas necesitan una auditoría exhaustiva en el primer paso. Muchas veces basta con una revisión honesta que permita detectar dónde está el cuello de botella principal.</p>
+
+  <p>Una forma práctica de hacerlo es responder estas preguntas.</p>
+
+  <ol>
+    <li>¿Se entiende en pocos segundos qué ofrezco y para quién?</li>
+    <li>¿Cada página importante tiene una función clara?</li>
+    <li>¿La estructura ayuda a recorrer el contenido sin perderse?</li>
+    <li>¿La versión móvil resulta cómoda de verdad?</li>
+    <li>¿La web transmite confianza con hechos y no solo con diseño?</li>
+    <li>¿Existe un siguiente paso claro para quien está interesado?</li>
+    <li>¿Las páginas que deberían atraer búsquedas están realmente preparadas para ello?</li>
+    <li>¿La web parece viva y alineada con el negocio actual?</li>
+  </ol>
+
+  <p>Este pequeño filtro ya da mucha información. Si fallas en las dos primeras preguntas, el problema suele estar en mensaje y posicionamiento. Si fallas en las de estructura, el problema suele ser arquitectónico. Si fallas en móvil y rendimiento, la base técnica necesita revisión. Si fallas en confianza y siguiente paso, la conversión está dejando huecos.</p>
+
+  <p>El objetivo de este diagnóstico rápido no es sacar una nota, sino detectar prioridades. La diferencia es importante. Una web puede tener varios fallos, pero no todos pesan igual. El arte está en distinguir qué problema bloquea a los demás.</p>
+
+  <h2>Cuándo basta con mejorar y cuándo conviene rehacer la web</h2>
+
+  <p>Una de las decisiones más delicadas es saber si merece la pena intervenir sobre lo que ya existe o si tiene más sentido replantearlo casi desde cero. Aquí también conviene evitar los extremos.</p>
+
+  <p>No toda web antigua necesita demolición. Y no toda web reciente está bien planteada por ser nueva.</p>
+
+  <h3>Normalmente basta con mejorar cuando</h3>
+  <ul>
+    <li>La estructura general es salvable</li>
+    <li>El contenido principal puede reordenarse sin rehacer todo</li>
+    <li>La base técnica no está completamente limitada</li>
+    <li>El negocio ha evolucionado, pero no ha cambiado de raíz</li>
+    <li>Hay problemas claros, pero localizados</li>
+  </ul>
+
+  <h3>Suele convenir rehacer cuando</h3>
+  <ul>
+    <li>La web nació sin una estrategia clara</li>
+    <li>La arquitectura es confusa desde la base</li>
+    <li>La tecnología impide crecer con comodidad</li>
+    <li>La experiencia móvil o el rendimiento son pobres de forma estructural</li>
+    <li>El negocio actual ya no se parece al que la web representa</li>
+  </ul>
+
+  <p><strong>Definición</strong></p>
+  <p>Rehacer una web tiene sentido cuando el problema no está en piezas aisladas, sino en la lógica completa con la que fue planteada.</p>
+
+  <p>Esta decisión no debería tomarse por cansancio ni por moda. Tampoco por una obsesión con “tener algo más moderno”. Debería tomarse cuando el coste de seguir parcheando es mayor que el de reconstruir con criterio.</p>
+
+  <p>Hay casos en los que una intervención parcial bien hecha consigue mucho. Y hay otros en los que seguir arreglando una base deficiente solo alarga el problema. Lo importante es no mezclar deseo de cambio con necesidad real de rediseño completo.</p>
+
+  <h2>Un ejemplo real de enfoque estructurado</h2>
+
+  <p>Cuando se habla de revisar una web con orden, conviene bajar la idea a tierra. No porque cada proyecto sea igual, sino porque así se ve mejor la diferencia entre actuar por intuición y actuar con una lógica de sistema.</p>
+
+  <p>Un buen ejemplo dentro de mi trabajo es <a href="/proyectos/ledescaparate">el proyecto LEDescaparate</a>. <!-- Interlink recomendado a caso de estudio -->No lo menciono como una medalla, sino como una forma clara de mostrar qué ocurre cuando una web se plantea como un activo estructurado y no como una presencia online improvisada.</p>
+
+  <p>En ese proyecto no bastaba con “hacer una web”. Había que construir una base que explicara bien el producto, organizara la información con sentido, trabajara el posicionamiento desde la estructura y conectara la parte comercial con una experiencia de usuario razonable.</p>
+
+  <p>Ese tipo de enfoque demuestra algo importante: muchas veces la mejora no nace de un gran gesto aislado, sino de alinear varias capas pequeñas pero decisivas. Mensaje, arquitectura, rendimiento, semántica, confianza, recorrido y capacidad de evolucionar después.</p>
+
+  <p>Por eso tiene poco sentido preguntar si una web necesita “más diseño” o “más SEO” como si fueran compartimentos estancos. La pregunta útil suele ser otra: ¿qué capa está impidiendo que el conjunto funcione mejor?</p>
+
+  <h2>Qué papel juegan el SEO, el GEO y la claridad estructural en todo esto</h2>
+
+  <p>Cuando una empresa siente que su web no ayuda, muchas veces piensa enseguida en SEO. Es lógico. Si la web no aparece, habrá que posicionarla. Pero conviene entender algo importante: el posicionamiento no empieza en las keywords. Empieza bastante antes.</p>
+
+  <p>Empieza en cómo está organizada la información. En si cada página responde a una intención clara. En si la jerarquía tiene sentido. En si el contenido puede entenderse sin fricción. En si la base técnica facilita el rastreo, la interpretación y la carga rápida.</p>
+
+  <p>Esto vale para el SEO tradicional y también para el GEO, que es la capa de optimización orientada a que el contenido sea más fácil de interpretar y reutilizar dentro de motores generativos. No se trata de escribir para robots. Se trata de escribir y estructurar con una claridad que también favorezca la comprensión automática.</p>
+
+  <p><strong>Definición</strong></p>
+  <p>La claridad estructural es la capacidad de una web para organizar su contenido de forma que una persona y un sistema de búsqueda puedan entender qué ofrece, cómo se relacionan sus páginas y qué información responde a cada necesidad.</p>
+
+  <p>Cuando esa claridad falta, la web se vuelve ambigua. Y la ambigüedad penaliza mucho. Penaliza al usuario, que no termina de entender. Penaliza al buscador, que interpreta peor la jerarquía. Y penaliza a los motores generativos, que tienden a priorizar contenidos más claros, más delimitados y más fáciles de sintetizar.</p>
+
+  <p>Por eso una revisión web seria no debería separar radicalmente diseño, contenido y posicionamiento. Son capas distintas, sí, pero trabajan sobre la misma base: hacer que el activo digital se entienda y funcione mejor.</p>
+
+  <h2>Si tu empresa está en Valencia, el contexto local también importa</h2>
+
+  <p>Cuando el negocio opera en un contexto local, la revisión de la web tiene una capa adicional. No basta con explicar bien el servicio en abstracto. También hay que situarlo dentro de una realidad geográfica y competitiva concreta.</p>
+
+  <p>Esto no significa llenar la web de menciones forzadas a la ciudad. Significa entender cómo busca el cliente local, qué señales de proximidad importan, qué páginas conviene trabajar y cómo conectar la propuesta de valor con una intención de búsqueda real.</p>
+
+  <p>En un entorno como Valencia, por ejemplo, la competencia puede ser muy desigual. Hay páginas muy trabajadas y otras con mucha visibilidad acumulada por antigüedad. Intentar competir solo con retoques visuales suele ser una mala estrategia. Lo útil es construir una base más clara, más rápida, mejor estructurada y con un enfoque más aterrizado al negocio que quieres atraer.</p>
+
+  <p>También conviene recordar algo. Una pyme local no necesita parecer una gran marca nacional para tener una web eficaz. Necesita que su web represente bien lo que hace, se entienda con rapidez, pueda encontrarse y acompañe una decisión de contacto con menos fricción.</p>
+
+  <p>Ese enfoque suele dar mejores resultados que intentar imitar webs espectaculares que, en realidad, están jugando a otra cosa.</p>
+
+  <h2>Qué hacer a partir de aquí si sientes que tu web no está bien</h2>
+
+  <p>Si has llegado hasta aquí y reconoces varios de estos síntomas, no hace falta precipitarse. Tampoco hace falta asumir que necesitas una web nueva mañana mismo. Lo razonable es tomar una decisión proporcionada.</p>
+
+  <p>Un buen siguiente paso suele ser este.</p>
+
+  <ol>
+    <li>Definir qué debería conseguir realmente tu web</li>
+    <li>Revisar si el mensaje principal está claro</li>
+    <li>Detectar si el problema dominante es de estructura, rendimiento, visibilidad o conversión</li>
+    <li>Decidir si conviene optimizar, reordenar o replantear la base</li>
+    <li>Ejecutar cambios con un orden claro y no por impulsos</li>
+  </ol>
+
+  <p>Suena menos emocionante que cambiar toda la estética en una tarde, sí. Pero funciona mejor. Y suele ahorrar bastante tiempo, bastante desgaste y más de una decisión absurda. La web lo agradece. Tu negocio también.</p>
+
+  <p>Si una página web va a ser un activo real para la empresa, merece revisarse con el mismo criterio con el que revisarías un proceso comercial, una propuesta de servicio o un sistema interno que está generando fricción. No como un escaparate decorativo, sino como una herramienta que debe cumplir una función.</p>
+
+  <h2>Conclusión</h2>
+
+  <p>Cuando una empresa siente que necesita ayuda con su página web, el error más frecuente es empezar por lo primero que salta a la vista. Y eso casi nunca coincide con lo primero que debería resolverse.</p>
+
+  <p>Antes de rediseñar, conviene diagnosticar. Antes de cambiar textos, conviene entender el objetivo. Antes de rehacer toda la web, conviene separar si el problema está en el mensaje, en la estructura, en el rendimiento, en la visibilidad o en la conversión.</p>
+
+  <p>Una web útil no nace de acumular mejoras sueltas. Nace de ordenar bien sus capas. Cuando el objetivo está claro, el mensaje se entiende, la estructura acompaña, la base técnica responde y el recorrido hacia el contacto tiene sentido, la web deja de ser un bloque confuso y empieza a trabajar a favor del negocio.</p>
+
+  <p>Eso es lo importante. No tener una web más nueva. Tener una web mejor planteada.</p>
+
+  <section aria-labelledby="faq-title">
+    <h2 id="faq-title">Preguntas frecuentes</h2>
+
+    <h3>¿Cómo sé si mi web necesita mejoras o una web nueva?</h3>
+    <p>Depende de dónde esté el problema. Si la base es salvable y los fallos están localizados, suele bastar con mejorar. Si la estructura, la tecnología y el enfoque nacieron mal desde el principio, rehacer puede tener más sentido que seguir parcheando.</p>
+
+    <h3>¿Qué es más importante al principio, el diseño, el SEO o la velocidad?</h3>
+    <p>Al principio lo más importante es el objetivo y la claridad del mensaje. A partir de ahí, estructura, rendimiento y visibilidad trabajan juntos. Separarlos demasiado suele llevar a decisiones poco útiles.</p>
+
+    <h3>¿Una web lenta puede hacer que pierda clientes?</h3>
+    <p>Sí. Una carga lenta genera fricción, empeora la experiencia y afecta a la percepción de profesionalidad. Además, puede perjudicar la visibilidad orgánica si el problema es constante o estructural.</p>
+
+    <h3>¿Tiene sentido mejorar una web antigua?</h3>
+    <p>Sí, si la base todavía permite crecer. Hay webs antiguas que, con una buena reorganización, mejores textos, ajustes técnicos y una arquitectura más clara, pueden funcionar bastante mejor sin necesidad de rehacerse enteras.</p>
+
+    <h3>¿Qué debería revisar primero una pyme local en su página web?</h3>
+    <p>Lo primero suele ser si la web explica bien qué ofrece, para quién y cómo contactar. Después conviene revisar estructura, móvil, rendimiento y páginas con potencial de posicionamiento local.</p>
+  </section>
+</article>

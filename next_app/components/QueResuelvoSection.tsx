@@ -74,7 +74,7 @@ export default function QueResuelvoSection() {
           ))}
         </div>
 
-        <div className="section-actions animate-on-scroll" role="group" aria-label="Enlaces de solución">
+        <div className="section-actions animate-on-scroll mt-xl" role="group" aria-label="Enlaces de solución">
           <Link href="/diseno-web/valencia" className="btn btn--primary">Ver servicio principal</Link>
           <Link href="/pricing" className="btn btn--secondary">Ver servicios y precios</Link>
           <Link href="/blog/estructura-ideal-pagina-web-empresas" className="btn btn--secondary">Ver guía de estructura</Link>

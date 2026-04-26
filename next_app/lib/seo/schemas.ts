@@ -1,5 +1,6 @@
 export const SITE_URL = 'https://carlesdelolmo.com';
 
+import { googleReviewsData } from '../../data/google-reviews';
 function toAbsoluteUrl(url?: string): string | undefined {
   if (!url) return undefined;
   try {
@@ -197,6 +198,12 @@ export const BUSINESS_SCHEMA = {
         }
       }
     ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": googleReviewsData.averageRating.toFixed(1),
+    "reviewCount": googleReviewsData.totalReviews.toString(),
+    "bestRating": "5"
   }
 };
 
@@ -465,7 +472,7 @@ export function generateProjectSchema(project: {
   const clientLogoUrl = toAbsoluteUrl(project.client?.logo);
   const projectImage = clientLogoUrl;
   const publishedDate = project.isoDate || undefined;
-  
+
   const graph: Record<string, unknown>[] = [
     PERSON_SCHEMA,
     BUSINESS_SCHEMA,

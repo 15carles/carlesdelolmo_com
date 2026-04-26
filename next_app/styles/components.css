@@ -3548,8 +3548,106 @@
 }
 
 .pricing-section-cta__icon svg {
-    width: 1rem;
-    height: 1rem;
+    left: -1rem;
+    padding-left: 1rem;
+}
+
+/* ============================================
+   GOOGLE REVIEWS
+   ============================================ */
+.reviews-carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    /* Sombras en los bordes para indicar scroll */
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.reviews-carousel {
+    display: flex;
+    gap: var(--spacing-md);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: var(--spacing-sm) 0 var(--spacing-xl); /* Espacio para sombra de tarjeta */
+    scrollbar-width: none; /* Firefox */
+}
+
+.reviews-carousel::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.google-review-card {
+    scroll-snap-align: center;
+    flex: 0 0 85%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-card);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.google-review-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-border-hover);
+}
+
+@media (min-width: 768px) {
+    .google-review-card {
+        flex: 0 0 calc(50% - (var(--spacing-md) / 2));
+    }
+}
+
+@media (min-width: 1024px) {
+    .google-review-card {
+        flex: 0 0 calc(33.333% - (var(--spacing-md) * 2 / 3));
+    }
+}
+
+.google-review-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.google-review-average {
+    font-size: 4.5rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--color-text-primary);
+    letter-spacing: -0.05em;
+}
+
+.google-review-author {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-text-primary);
+    line-height: 1.2;
+}
+
+.google-review-time {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+}
+
+.google-review-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+    margin: 0;
+    white-space: pre-wrap;
 }
 
 /* ============================================

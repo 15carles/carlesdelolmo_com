@@ -4,6 +4,7 @@ import { Check, ArrowRight, Layout, Zap, MessageSquare, Shield, MousePointer, Se
 import Link from 'next/link';
 import Image from 'next/image';
 import ProjectsSection from '@/components/ProjectsSection';
+import GoogleReviewsSection from '@/components/GoogleReviewsSection';
 import FaqAccordion from '@/components/FaqAccordion';
 import OrbitaMethod from './OrbitaMethod';
 import WorkflowTimeline from './WorkflowTimeline';
@@ -544,6 +545,9 @@ export default function DisenoWebPage() {
           </div>
         </div>
       </section>
+
+      {/* SECCIÓN 11.5 — RESEÑAS */}
+      <GoogleReviewsSection />
 
       {/* SECCIÓN 12 — CONTACTO */}
       <section className="section bg-dark-soft">

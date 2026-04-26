@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import GoogleReviewsSection from '@/components/GoogleReviewsSection';
 import { constructMetadata } from '@/lib/seo/metadata';
 import { SITE_URL, PERSON_SCHEMA, BUSINESS_SCHEMA } from '@/lib/seo/schemas';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
@@ -224,6 +225,9 @@ export default function SobreCarlesDelOlmoPage() {
             </div>
           </div>
         </section>
+
+        {/* ── SECCIÓN 7.5: Reseñas ── */}
+        <GoogleReviewsSection className="bg-dark-soft" />
 
         {/* ── SECCIÓN 8: CTA Final ── */}
         <section className="section animate-on-scroll py-2xl">

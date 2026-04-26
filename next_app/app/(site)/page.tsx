@@ -7,6 +7,7 @@ import MetodoOrbitaSection from '@/components/MetodoOrbitaSection';
 import DiferenciadoresSection from '@/components/DiferenciadoresSection';
 import InsightsSection from '@/components/InsightsSection';
 import ParaQuienSection from '@/components/ParaQuienSection';
+import GoogleReviewsSection from '@/components/GoogleReviewsSection';
 import CtaFinalSection from '@/components/CtaFinalSection';
 import ContactSection from '@/components/ContactSection';
 import { generateHomeSchema } from '@/lib/seo/schemas';
@@ -30,6 +31,7 @@ export default function Home() {
       <DiferenciadoresSection />
       <InsightsSection />
       <ParaQuienSection />
+      <GoogleReviewsSection />
       <CtaFinalSection />
       <ContactSection />
     </>

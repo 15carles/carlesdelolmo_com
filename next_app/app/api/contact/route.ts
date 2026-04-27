@@ -94,6 +94,7 @@ type LeadInsert = {
   fecha_limite: string | null;
   donde_conocido: string | null;
   url_origen: string | null;
+  mensaje: string | null;
   estado: 'nuevo';
 };
 
@@ -157,6 +158,7 @@ function validate(body: RawBody): { ok: true; lead: LeadInsert } | { ok: false; 
   const fechaLimite = asString(body.fecha_limite).trim();
   const dondeConocido = asString(body.donde_conocido).trim();
   const urlOrigen = asString(body.url_origen).trim();
+  const mensaje = asString(body.mensaje).trim();
 
   if (nombre.length < LIMITS.nombre.min || nombre.length > LIMITS.nombre.max) {
     return { ok: false, error: 'nombre inválido' };
@@ -183,12 +185,13 @@ function validate(body: RawBody): { ok: true; lead: LeadInsert } | { ok: false; 
   if (fechaLimite.length > LIMITS.fecha_limite.max) {
     return { ok: false, error: 'fecha_limite inválida' };
   }
-  // Accept both raw URLs and the empty string. We do not require URL parsing
-  // here, but we cap length and reject non-http schemes.
   if (urlOrigen) {
     if (urlOrigen.length > LIMITS.url_origen.max || !URL_REGEX.test(urlOrigen)) {
       return { ok: false, error: 'url_origen inválida' };
     }
+  }
+  if (mensaje.length > LIMITS.mensaje.max) {
+    return { ok: false, error: 'mensaje inválido' };
   }
 
   const serviciosInteres = asStringArray(
@@ -215,6 +218,7 @@ function validate(body: RawBody): { ok: true; lead: LeadInsert } | { ok: false; 
       fecha_limite: fechaLimite || null,
       donde_conocido: dondeConocido || null,
       url_origen: urlOrigen || null,
+      mensaje: mensaje || null,
       estado: 'nuevo',
     },
   };

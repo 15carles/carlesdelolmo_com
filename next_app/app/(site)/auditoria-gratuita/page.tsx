@@ -139,7 +139,7 @@ export default function AuditoriaGratuitaPage() {
   return (
     <main className="page__content">
       {/* ── HERO ── */}
-      <section className="section" style={{ paddingTop: 'var(--space-3xl)' }}>
+      <section className="section" style={{ paddingTop: 'var(--spacing-3xl)' }}>
         <div className="container">
           <div className="section-header animate-on-scroll">
             <div className="badge badge--purple mb-lg">

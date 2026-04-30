@@ -52,6 +52,25 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
+        {/* Script inline para añadir body.has-promo-banner antes del primer
+            paint y evitar el salto de layout cuando el banner aparece tras la
+            hidratación. Mantener sincronizado con PROMO_ACTIVE y HIDDEN_PATHS
+            de components/PromoBanner.tsx. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var PROMO_ACTIVE = true;
+                  var HIDDEN = ['/auditoria-gratuita', '/gracias'];
+                  if (PROMO_ACTIVE && HIDDEN.indexOf(window.location.pathname) === -1) {
+                    document.body.classList.add('has-promo-banner');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
         <Providers>
           <PromoBanner />
           <Navbar />

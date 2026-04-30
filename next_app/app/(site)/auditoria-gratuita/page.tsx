@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { CheckCircle2, ArrowDown } from 'lucide-react';
 import AuditoriaGratuitaForm from '@/components/AuditoriaGratuitaForm';
+import FaqAccordion from '@/components/FaqAccordion';
 import { constructMetadata } from '@/lib/seo/metadata';
 import { SITE_URL } from '@/lib/seo/schemas';
 
@@ -79,6 +80,59 @@ const FOR_WHOM = [
   'Quieres saber si las IAs conocen y recomiendan tu negocio',
   'Buscas una hoja de ruta clara antes de invertir en SEO',
   'Sospechas que hay errores técnicos que nadie te ha dicho',
+];
+
+const FAQ_ITEMS = [
+  {
+    question: '¿Realmente es gratis o hay letra pequeña?',
+    answer:
+      'Sí, es 100% gratis. No hay coste oculto, ni tarjeta requerida, ni periodo de prueba. Recibes la auditoría completa que normalmente facturo a 750€ y, si después decides que no te encaja trabajar conmigo, no pasa nada. El informe es tuyo.',
+  },
+  {
+    question: '¿En cuántos días recibiré el informe?',
+    answer:
+      'Te entrego el documento completo en un máximo de 7 días desde que confirmamos los datos de tu web. Es un análisis manual y estratégico, no un informe automático: necesito ese tiempo para revisar bien tu caso y darte conclusiones útiles.',
+  },
+  {
+    question: '¿Qué pasa después de enviar el formulario?',
+    answer:
+      'En las próximas 24 horas te escribo por email para confirmar tu plaza y, si hace falta, pedirte acceso a Google Search Console (solo lectura). A partir de ahí, en 7 días tienes el informe completo en tu correo.',
+  },
+  {
+    question: '¿Es un anzuelo para venderme servicios luego?',
+    answer:
+      'Te seré honesto: el objetivo es que conozcas mi forma de trabajar. Si cuando recibas el informe te interesa que ejecute las mejoras conmigo, hablamos. Si no, te quedas con el análisis y se acabó. Sin emails de seguimiento agresivos ni llamadas insistentes.',
+  },
+  {
+    question: '¿Cuántas plazas hay disponibles en mayo?',
+    answer:
+      'Las que pueda atender con el nivel de profundidad que requiere una auditoría real. Cuando se llenen, cierro la promoción. Por eso recomiendo no dejarlo para final de mes: el orden de llegada determina las plazas.',
+  },
+  {
+    question: '¿Qué incluye exactamente la auditoría SEO + GEO?',
+    answer:
+      'Tres bloques: (1) auditoría técnica SEO con errores priorizados por impacto, (2) análisis GEO sobre cómo te ven y citan ChatGPT, Gemini y Perplexity, y (3) un plan de acción concreto ordenado por prioridad. Es exactamente el mismo servicio que vendo a 750€ a clientes habituales.',
+  },
+  {
+    question: '¿Necesitas acceso a algo de mi web?',
+    answer:
+      'Lo ideal es acceso de solo lectura a Google Search Console y Google Analytics (te explico cómo darme acceso en menos de 1 minuto). Si no los tienes configurados, igualmente hago la auditoría con análisis externo, aunque pierdo parte de la profundidad de los datos reales de tráfico.',
+  },
+  {
+    question: '¿Para qué tipo de webs es esta auditoría?',
+    answer:
+      'Para webs de empresas, autónomos y proyectos digitales que ya estén publicados y tengan algo de tráfico. No es ideal para webs recién creadas sin historial, ni para e-commerce muy grandes (necesitan auditorías más específicas que no entran en el alcance de esta promoción).',
+  },
+  {
+    question: '¿Vas a tocar o modificar algo de mi web?',
+    answer:
+      'No. Es una auditoría 100% de análisis: solo recibes un documento con conclusiones y recomendaciones. Las modificaciones las haces tú o tu equipo —o me las contratas aparte si lo prefieres, pero eso ya es otra conversación.',
+  },
+  {
+    question: '¿En qué se diferencia esto de un informe automático tipo SEMrush o Ahrefs?',
+    answer:
+      'Las herramientas como SEMrush o Ahrefs dan datos crudos y scores genéricos. Mi auditoría da contexto y prioridades aplicadas a tu negocio: te digo qué problema resolver primero y por qué. Además, ninguna herramienta automática hace análisis GEO real (cómo te ven las IAs); eso requiere consultas manuales y criterio humano.',
+  },
 ];
 
 export default function AuditoriaGratuitaPage() {
@@ -238,8 +292,30 @@ export default function AuditoriaGratuitaPage() {
         </div>
       </section>
 
+      {/* ── FAQ ── */}
+      <section className="section bg-dark-soft">
+        <div className="container">
+          <div className="section-header animate-on-scroll mb-xl">
+            <div className="badge badge--purple mb-lg">
+              <span>Preguntas frecuentes</span>
+            </div>
+            <h2>Resolvemos tus dudas antes de pedirla</h2>
+            <p className="section-header__subtitle">
+              Si te queda alguna pregunta sin responder, escríbeme directamente y te contesto.
+            </p>
+          </div>
+
+          <div className="animate-on-scroll">
+            <FaqAccordion
+              title="Sobre la Auditoría SEO + GEO Gratuita"
+              items={FAQ_ITEMS}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* ── FORMULARIO ── */}
-      <section id="formulario" className="section bg-dark-soft">
+      <section id="formulario" className="section">
         <div className="container">
           <div className="section-header animate-on-scroll mb-xl">
             <div className="badge badge--purple mb-lg">

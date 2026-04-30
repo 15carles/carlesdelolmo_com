@@ -335,6 +335,34 @@ export default function AuditoriaGratuitaPage() {
         </div>
       </section>
 
+      {/* ── FORMULARIO (posición principal de conversión) ── */}
+      <section id="formulario" className="section bg-dark-soft">
+        <div className="container">
+          <div className="section-header animate-on-scroll mb-xl">
+            <div className="badge badge--purple mb-lg">
+              <span>Plazas limitadas · Mayo</span>
+            </div>
+            <h2>Solicita tu auditoría gratuita</h2>
+            <p className="section-header__subtitle">
+              Rellena el formulario y me pongo en contacto contigo en menos de 24h
+              para confirmar tu plaza.
+            </p>
+          </div>
+
+          <div style={{ maxWidth: '640px', margin: '0 auto' }} className="animate-on-scroll">
+            <AuditoriaGratuitaForm />
+          </div>
+
+          <p className="text-muted text-sm text-center mt-lg">
+            Sin spam. Tus datos solo se usan para gestionar esta auditoría.{' '}
+            <Link href="/politica-privacidad" className="underline">
+              Política de privacidad
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
       {/* ── PARA QUIÉN ── */}
       <section className="section">
         <div className="container">
@@ -400,31 +428,24 @@ export default function AuditoriaGratuitaPage() {
         </div>
       </section>
 
-      {/* ── FORMULARIO ── */}
-      <section id="formulario" className="section">
+      {/* ── CTA FINAL ── */}
+      <section className="section">
         <div className="container">
-          <div className="section-header animate-on-scroll mb-xl">
-            <div className="badge badge--purple mb-lg">
-              <span>Plazas limitadas · Mayo 2025</span>
+          <div
+            className="card card--no-hover p-2xl text-center animate-on-scroll"
+            style={{ maxWidth: '720px', margin: '0 auto' }}
+          >
+            <div className="badge badge--purple mb-lg" style={{ display: 'inline-block' }}>
+              <span>Plazas limitadas</span>
             </div>
-            <h2>Solicita tu auditoría gratuita</h2>
-            <p className="section-header__subtitle">
-              Rellena el formulario y me pongo en contacto contigo en menos de 24h
-              para confirmar tu plaza.
+            <h2 className="mb-md">¿Resuelto? Reserva tu plaza ahora</h2>
+            <p className="text-secondary mb-xl" style={{ maxWidth: '520px', margin: '0 auto var(--spacing-xl)' }}>
+              El orden de llegada determina las plazas. Cuando se llenen, cierro la promoción y vuelvo a la tarifa de 750€.
             </p>
+            <a href="#formulario" className="btn btn--primary btn--large">
+              Solicitar mi auditoría gratuita →
+            </a>
           </div>
-
-          <div style={{ maxWidth: '640px', margin: '0 auto' }} className="animate-on-scroll">
-            <AuditoriaGratuitaForm />
-          </div>
-
-          <p className="text-muted text-sm text-center mt-lg">
-            Sin spam. Tus datos solo se usan para gestionar esta auditoría.{' '}
-            <Link href="/politica-privacidad" className="underline">
-              Política de privacidad
-            </Link>
-            .
-          </p>
         </div>
       </section>
     </main>

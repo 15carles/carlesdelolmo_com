@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { CheckCircle2, ArrowDown } from 'lucide-react';
+import { CheckCircle2, ArrowDown, Clock } from 'lucide-react';
 import AuditoriaGratuitaForm from '@/components/AuditoriaGratuitaForm';
 import FaqAccordion from '@/components/FaqAccordion';
 import { constructMetadata } from '@/lib/seo/metadata';
@@ -70,6 +70,58 @@ const AUDIT_ITEMS = [
         <path d="M22 42l4 4-4 4" />
         <line x1="32" y1="43" x2="48" y2="43" />
         <line x1="32" y1="49" x2="42" y2="49" />
+      </svg>
+    ),
+  },
+];
+
+const HOW_IT_WORKS = [
+  {
+    number: '01',
+    color: 'text-purple-400',
+    title: 'Rellenas el formulario',
+    description: 'Tardas 2 minutos. Solo necesito tu nombre, email, teléfono y la URL de la web a auditar.',
+    time: '2 minutos',
+    illustration: (
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="48" height="48" aria-hidden="true">
+        <rect x="14" y="10" width="36" height="48" rx="3" />
+        <rect x="22" y="6" width="20" height="8" rx="2" />
+        <line x1="20" y1="24" x2="44" y2="24" />
+        <line x1="20" y1="32" x2="44" y2="32" />
+        <line x1="20" y1="40" x2="36" y2="40" />
+        <path d="M20 48l4 4 8-8" />
+      </svg>
+    ),
+  },
+  {
+    number: '02',
+    color: 'text-teal-400',
+    title: 'Te contacto en 24h',
+    description: 'Confirmo tu plaza por email y, si hace falta, te explico cómo darme acceso de solo lectura a Search Console.',
+    time: 'En 24h',
+    illustration: (
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="48" height="48" aria-hidden="true">
+        <rect x="8" y="14" width="48" height="36" rx="3" />
+        <path d="M8 18l24 18 24-18" />
+        <line x1="8" y1="46" x2="22" y2="34" />
+        <line x1="56" y1="46" x2="42" y2="34" />
+      </svg>
+    ),
+  },
+  {
+    number: '03',
+    color: 'text-cyan-400',
+    title: 'Recibes el informe completo',
+    description: 'Documento accionable con plan SEO + análisis GEO + benchmarking competitivo, ordenado por prioridad.',
+    time: 'En 7 días',
+    illustration: (
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="48" height="48" aria-hidden="true">
+        <rect x="10" y="8" width="36" height="48" rx="3" />
+        <line x1="18" y1="20" x2="38" y2="20" />
+        <line x1="18" y1="28" x2="40" y2="28" />
+        <line x1="18" y1="36" x2="34" y2="36" />
+        <circle cx="46" cy="46" r="10" />
+        <path d="M42 46l3 3 5-5" />
       </svg>
     ),
   },
@@ -245,6 +297,40 @@ export default function AuditoriaGratuitaPage() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CÓMO FUNCIONA ── */}
+      <section className="section">
+        <div className="container">
+          <header className="section-header animate-on-scroll mb-2xl">
+            <div className="badge badge--purple mb-lg">
+              <span>Cómo funciona</span>
+            </div>
+            <h2>Tres pasos y el informe es tuyo</h2>
+            <p className="section-header__subtitle">
+              Sin trámites raros, sin reuniones obligatorias. Tú envías el formulario y yo me encargo del resto.
+            </p>
+          </header>
+
+          <div className="grid grid-cols-3 gap-lg animate-on-scroll">
+            {HOW_IT_WORKS.map((step) => (
+              <article key={step.number} className="card p-xl flex flex-col gap-4">
+                <div className="flex items-center gap-md">
+                  <span className="text-3xl font-bold gradient-text" style={{ lineHeight: '1' }}>{step.number}</span>
+                  <div className={step.color} style={{ marginLeft: 'auto' }}>{step.illustration}</div>
+                </div>
+                <h3 className="text-lg">{step.title}</h3>
+                <p className="text-secondary text-sm" style={{ lineHeight: '1.7' }}>
+                  {step.description}
+                </p>
+                <div className="flex items-center gap-sm text-muted text-sm" style={{ marginTop: 'auto' }}>
+                  <Clock size={14} />
+                  <span>{step.time}</span>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

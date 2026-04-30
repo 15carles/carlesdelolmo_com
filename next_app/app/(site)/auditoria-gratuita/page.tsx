@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Search, Eye, ListChecks, CheckCircle2, ArrowDown } from 'lucide-react';
+import { CheckCircle2, ArrowDown } from 'lucide-react';
 import AuditoriaGratuitaForm from '@/components/AuditoriaGratuitaForm';
 import { constructMetadata } from '@/lib/seo/metadata';
 import { SITE_URL } from '@/lib/seo/schemas';
@@ -14,25 +14,63 @@ export const metadata = constructMetadata({
 
 const AUDIT_ITEMS = [
   {
-    icon: Search,
     color: 'text-purple-400',
     title: 'Auditoría Técnica SEO',
     description:
       'Errores de indexación, velocidad de carga, Core Web Vitals, arquitectura de URLs y estructura interna que frenan tu posicionamiento en Google.',
+    illustration: (
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="48" height="48" aria-hidden="true">
+        <rect x="6" y="10" width="52" height="44" rx="4" />
+        <line x1="6" y1="20" x2="58" y2="20" />
+        <line x1="14" y1="30" x2="32" y2="30" />
+        <line x1="14" y1="38" x2="28" y2="38" />
+        <line x1="14" y1="46" x2="36" y2="46" />
+        <circle cx="44" cy="38" r="9" />
+        <line x1="51" y1="45" x2="56" y2="50" />
+        <path d="M41 38l2 2 4-4" />
+      </svg>
+    ),
   },
   {
-    icon: Eye,
     color: 'text-teal-400',
     title: 'Análisis GEO (Presencia en IAs)',
     description:
       'Reviso si ChatGPT, Gemini o Perplexity conocen tu negocio, cómo te presentan y qué optimizaciones semánticas necesitas para aparecer en sus respuestas.',
+    illustration: (
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="48" height="48" aria-hidden="true">
+        <path d="M8 32c0 0 10-16 24-16s24 16 24 16s-10 16-24 16S8 32 8 32z" />
+        <circle cx="32" cy="32" r="7" />
+        <circle cx="32" cy="32" r="2" fill="currentColor" stroke="none" />
+        <circle cx="10" cy="14" r="3" />
+        <line x1="13" y1="16" x2="20" y2="22" />
+        <circle cx="54" cy="14" r="3" />
+        <line x1="51" y1="16" x2="44" y2="22" />
+        <circle cx="54" cy="50" r="3" />
+        <line x1="51" y1="48" x2="44" y2="42" />
+        <circle cx="10" cy="50" r="3" />
+        <line x1="13" y1="48" x2="20" y2="42" />
+      </svg>
+    ),
   },
   {
-    icon: ListChecks,
     color: 'text-cyan-400',
     title: 'Plan de Acción Prioritizado',
     description:
       'Un documento accionable —no un informe automático— con qué corregir primero para obtener resultados reales, ordenado por impacto.',
+    illustration: (
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="48" height="48" aria-hidden="true">
+        <rect x="8" y="8" width="48" height="48" rx="4" />
+        <line x1="8" y1="20" x2="56" y2="20" />
+        <path d="M16 32h10" />
+        <path d="M22 28l4 4-4 4" />
+        <line x1="32" y1="29" x2="50" y2="29" />
+        <line x1="32" y1="35" x2="44" y2="35" />
+        <path d="M16 46h10" />
+        <path d="M22 42l4 4-4 4" />
+        <line x1="32" y1="43" x2="48" y2="43" />
+        <line x1="32" y1="49" x2="42" y2="49" />
+      </svg>
+    ),
   },
 ];
 
@@ -118,7 +156,7 @@ export default function AuditoriaGratuitaPage() {
             {AUDIT_ITEMS.map((item) => (
               <article key={item.title} className="card p-xl flex flex-col gap-4">
                 <div className={item.color}>
-                  <item.icon size={32} />
+                  {item.illustration}
                 </div>
                 <h3 className="text-lg">{item.title}</h3>
                 <p className="text-secondary text-sm" style={{ lineHeight: '1.7' }}>

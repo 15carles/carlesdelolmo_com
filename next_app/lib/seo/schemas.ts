@@ -449,6 +449,50 @@ export function generateBlogSchema(post: {
   };
 }
 
+export function generateAuditOfferSchema() {
+  const url = `${SITE_URL}/auditoria-gratuita`;
+  const breadcrumbId = `${url}#breadcrumb`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      PERSON_SCHEMA,
+      BUSINESS_SCHEMA,
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        "url": url,
+        "name": "Auditoría SEO + GEO Gratuita - Solo en Mayo | Carles del Olmo",
+        "description": "Análisis profesional de tu web, visibilidad en Google y presencia en motores de IA (GEO). Servicio valorado en +750€, disponible gratis solo durante mayo.",
+        "inLanguage": "es-ES",
+        "isPartOf": { "@id": `${SITE_URL}/#website` },
+        "breadcrumb": { "@id": breadcrumbId },
+        "mainEntity": { "@id": `${url}#service` }
+      },
+      generateBreadcrumbSchema([
+        { label: 'Inicio', href: '/' },
+        { label: 'Auditoría SEO + GEO Gratuita', href: '/auditoria-gratuita' }
+      ], breadcrumbId),
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        "name": "Auditoría SEO + GEO Gratuita",
+        "description": "Análisis completo de SEO técnico y visibilidad en motores generativos (ChatGPT, Gemini, Perplexity). Servicio especial limitado a mayo.",
+        "provider": { "@id": `${SITE_URL}/#business` },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR",
+          "priceValidUntil": "2026-05-31",
+          "availability": "https://schema.org/LimitedAvailability",
+          "url": url,
+          "seller": { "@id": `${SITE_URL}/#business` }
+        }
+      }
+    ]
+  };
+}
+
 export function generateProjectSchema(project: {
   slug: string;
   title: string;

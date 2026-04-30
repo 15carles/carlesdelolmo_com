@@ -4,7 +4,8 @@ import { CheckCircle2, ArrowDown, Clock } from 'lucide-react';
 import AuditoriaGratuitaForm from '@/components/AuditoriaGratuitaForm';
 import FaqAccordion from '@/components/FaqAccordion';
 import { constructMetadata } from '@/lib/seo/metadata';
-import { SITE_URL } from '@/lib/seo/schemas';
+import { SITE_URL, generateAuditOfferSchema } from '@/lib/seo/schemas';
+import { safeJsonLd } from '@/lib/seo/jsonLd';
 
 export const metadata = constructMetadata({
   title: 'Auditoría SEO + GEO Gratuita - Solo en Mayo | Carles del Olmo',
@@ -182,8 +183,14 @@ const FAQ_ITEMS = [
 ];
 
 export default function AuditoriaGratuitaPage() {
+  const jsonLd = generateAuditOfferSchema();
+
   return (
     <main className="page__content">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+      />
       {/* ── HERO ── */}
       <section className="section" style={{ paddingTop: 'var(--spacing-3xl)' }}>
         <div className="container">

@@ -15,7 +15,6 @@ export const metadata = constructMetadata({
 
 const AUDIT_ITEMS = [
   {
-    color: 'text-purple-400',
     title: 'Auditoría Técnica SEO',
     description:
       'Errores de indexación, velocidad de carga, Core Web Vitals, arquitectura de URLs y estructura interna que frenan tu posicionamiento en Google.',
@@ -33,7 +32,6 @@ const AUDIT_ITEMS = [
     ),
   },
   {
-    color: 'text-teal-400',
     title: 'Análisis GEO (Presencia en IAs)',
     description:
       'Reviso si ChatGPT, Gemini o Perplexity conocen tu negocio, cómo te presentan y qué optimizaciones semánticas necesitas para aparecer en sus respuestas.',
@@ -54,7 +52,6 @@ const AUDIT_ITEMS = [
     ),
   },
   {
-    color: 'text-cyan-400',
     title: 'Plan de Acción Prioritizado',
     description:
       'Un documento accionable —no un informe automático— con qué corregir primero para obtener resultados reales, ordenado por impacto.',
@@ -78,7 +75,6 @@ const AUDIT_ITEMS = [
 const HOW_IT_WORKS = [
   {
     number: '01',
-    color: 'text-purple-400',
     title: 'Rellenas el formulario',
     description: 'Tardas 2 minutos. Solo necesito tu nombre, email, teléfono y la URL de la web a auditar.',
     time: '2 minutos',
@@ -95,7 +91,6 @@ const HOW_IT_WORKS = [
   },
   {
     number: '02',
-    color: 'text-teal-400',
     title: 'Te contacto en 24h',
     description: 'Confirmo tu plaza por email y, si hace falta, te explico cómo darme acceso de solo lectura a Search Console.',
     time: 'En 24h',
@@ -110,7 +105,6 @@ const HOW_IT_WORKS = [
   },
   {
     number: '03',
-    color: 'text-cyan-400',
     title: 'Recibes el informe completo',
     description: 'Documento accionable con plan SEO + análisis GEO + benchmarking competitivo, ordenado por prioridad.',
     time: 'En 7 días',
@@ -261,7 +255,7 @@ export default function AuditoriaGratuitaPage() {
           <div className="grid grid-cols-3 gap-lg animate-on-scroll">
             {AUDIT_ITEMS.map((item) => (
               <article key={item.title} className="card p-xl flex flex-col gap-4">
-                <div className={item.color}>
+                <div className="audit-icon">
                   {item.illustration}
                 </div>
                 <h3 className="text-lg">{item.title}</h3>
@@ -276,21 +270,21 @@ export default function AuditoriaGratuitaPage() {
             <h3 className="text-center mb-lg">El informe final incluye</h3>
             <div className="grid grid-cols-3 gap-lg">
               <div className="flex flex-col gap-3">
-                <CheckCircle2 className="text-purple-400" size={20} />
+                <CheckCircle2 size={20} style={{ color: 'var(--color-accent-purple)' }} />
                 <h4 className="font-bold">Errores priorizados</h4>
                 <p className="text-sm text-secondary">
                   Lista ordenada por impacto de los problemas técnicos que debes corregir.
                 </p>
               </div>
               <div className="flex flex-col gap-3">
-                <CheckCircle2 className="text-teal-400" size={20} />
+                <CheckCircle2 size={20} style={{ color: 'var(--color-accent-purple)' }} />
                 <h4 className="font-bold">Estrategia GEO</h4>
                 <p className="text-sm text-secondary">
                   Qué necesita tu web para aparecer en las respuestas de ChatGPT, Gemini y Perplexity.
                 </p>
               </div>
               <div className="flex flex-col gap-3">
-                <CheckCircle2 className="text-cyan-400" size={20} />
+                <CheckCircle2 size={20} style={{ color: 'var(--color-accent-purple)' }} />
                 <h4 className="font-bold">Benchmarking competitivo</h4>
                 <p className="text-sm text-secondary">
                   Qué está haciendo bien tu competencia y cómo puedes superarla.
@@ -319,7 +313,7 @@ export default function AuditoriaGratuitaPage() {
               <article key={step.number} className="card p-xl flex flex-col gap-4">
                 <div className="flex items-center gap-md">
                   <span className="text-3xl font-bold gradient-text" style={{ lineHeight: '1' }}>{step.number}</span>
-                  <div className={step.color} style={{ marginLeft: 'auto' }}>{step.illustration}</div>
+                  <div className="audit-icon" style={{ marginLeft: 'auto' }}>{step.illustration}</div>
                 </div>
                 <h3 className="text-lg">{step.title}</h3>
                 <p className="text-secondary text-sm" style={{ lineHeight: '1.7' }}>

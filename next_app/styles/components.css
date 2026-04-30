@@ -4909,3 +4909,20 @@ body.has-promo-banner {
 body.has-promo-banner .navbar {
     top: var(--promo-banner-height);
 }
+
+/* ── Audit-page icon illustrations ── */
+.audit-icon {
+    opacity: 0.7;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.card:hover .audit-icon {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.audit-icon svg {
+    width: 4rem;
+    height: 4rem;
+    color: var(--color-accent-purple);
+}

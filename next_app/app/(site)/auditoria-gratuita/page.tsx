@@ -7,7 +7,7 @@ import { constructMetadata } from '@/lib/seo/metadata';
 import { SITE_URL } from '@/lib/seo/schemas';
 
 export const metadata = constructMetadata({
-  title: 'Auditoría SEO + GEO Gratuita — Solo en Mayo | Carles del Olmo',
+  title: 'Auditoría SEO + GEO Gratuita - Solo en Mayo | Carles del Olmo',
   description:
     'Durante mayo regalo una Auditoría SEO + GEO valorada en +750€. Analizo tu web, tu visibilidad en Google y tu presencia en IAs (ChatGPT, Gemini). Plazas limitadas.',
   exactUrl: `${SITE_URL}/auditoria-gratuita`,
@@ -54,7 +54,7 @@ const AUDIT_ITEMS = [
   {
     title: 'Plan de Acción Prioritizado',
     description:
-      'Un documento accionable —no un informe automático— con qué corregir primero para obtener resultados reales, ordenado por impacto.',
+      'No es un informe automático. Es un documento accionable con qué corregir primero para obtener resultados reales, ordenado por impacto.',
     illustration: (
       <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="48" height="48" aria-hidden="true">
         <rect x="8" y="8" width="48" height="48" rx="4" />
@@ -76,8 +76,8 @@ const HOW_IT_WORKS = [
   {
     number: '01',
     title: 'Rellenas el formulario',
-    description: 'Tardas 2 minutos. Solo necesito tu nombre, email, teléfono y la URL de la web a auditar.',
-    time: '2 minutos',
+    description: 'Tardas 1 minuto. Solo necesito tu nombre, email, teléfono y la URL de la web a auditar.',
+    time: '1 minuto',
     illustration: (
       <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="48" height="48" aria-hidden="true">
         <rect x="14" y="10" width="36" height="48" rx="3" />
@@ -172,7 +172,7 @@ const FAQ_ITEMS = [
   {
     question: '¿Vas a tocar o modificar algo de mi web?',
     answer:
-      'No. Es una auditoría 100% de análisis: solo recibes un documento con conclusiones y recomendaciones. Las modificaciones las haces tú o tu equipo —o me las contratas aparte si lo prefieres, pero eso ya es otra conversación.',
+      'No. Es una auditoría 100% de análisis: solo recibes un documento con conclusiones y recomendaciones. Las modificaciones las haces tú o tu equipo. O si quieres, me las contratas aparte si lo prefieres, pero eso ya es otra conversación.',
   },
   {
     question: '¿En qué se diferencia esto de un informe automático tipo SEMrush o Ahrefs?',
@@ -187,7 +187,7 @@ export default function AuditoriaGratuitaPage() {
       {/* ── HERO ── */}
       <section className="section" style={{ paddingTop: 'var(--spacing-3xl)' }}>
         <div className="container">
-          <div className="section-header animate-on-scroll">
+          <div className="section-header animate-fade-in-up">
             <div className="badge badge--purple mb-lg">
               <span>Solo durante mayo · Plazas limitadas</span>
             </div>
@@ -199,29 +199,28 @@ export default function AuditoriaGratuitaPage() {
 
             <p className="section-header__subtitle">
               Durante mayo analizo tu web, tu visibilidad en Google y tu presencia en
-              IAs como ChatGPT o Gemini —sin coste para ti. Servicio valorado en{' '}
+              IAs como ChatGPT o Gemini <strong>sin coste</strong> para ti. Servicio valorado en{' '}
               <strong>+750€</strong>.
             </p>
 
-            <div
-              className="flex gap-lg mt-xl"
-              style={{ justifyContent: 'center', flexWrap: 'wrap' }}
-            >
-              <div className="card card--no-hover p-lg text-center" style={{ minWidth: '160px' }}>
-                <div className="text-3xl font-bold gradient-text">+750€</div>
-                <div className="text-muted text-sm mt-sm">Valor del servicio</div>
+            <div className="audit-highlight-bar animate-fade-in-up">
+              <div className="audit-highlight-item">
+                <div className="audit-highlight-value" style={{ color: 'var(--color-accent-teal)' }}>
+                  +750€
+                </div>
+                <div className="audit-highlight-label">Valor real</div>
               </div>
-              <div className="card card--no-hover p-lg text-center" style={{ minWidth: '160px' }}>
-                <div className="text-3xl font-bold" style={{ color: 'var(--color-accent-teal)' }}>
+              <div className="audit-highlight-item">
+                <div className="audit-highlight-value gradient-text">
                   0€
                 </div>
-                <div className="text-muted text-sm mt-sm">Lo que pagas tú</div>
+                <div className="audit-highlight-label">Lo que pagas</div>
               </div>
-              <div className="card card--no-hover p-lg text-center" style={{ minWidth: '160px' }}>
-                <div className="text-3xl font-bold" style={{ color: 'var(--color-accent-cyan)' }}>
+              <div className="audit-highlight-item">
+                <div className="audit-highlight-value" style={{ color: 'var(--color-accent-cyan)' }}>
                   Mayo
                 </div>
-                <div className="text-muted text-sm mt-sm">Único mes disponible</div>
+                <div className="audit-highlight-label">Solo este mes</div>
               </div>
             </div>
 
@@ -229,13 +228,13 @@ export default function AuditoriaGratuitaPage() {
               <a href="#formulario" className="btn btn--primary btn--large">
                 Quiero mi auditoría gratuita
               </a>
-              <Link href="/servicio-seo/auditoria-seo-geo" className="btn btn--secondary btn--large">
+              <Link href="/servicio-seo/auditoria-seo-geo" className="btn btn--glass btn--large">
                 Ver qué incluye el servicio
               </Link>
             </div>
 
             <div className="mt-xl flex items-center gap-sm" style={{ justifyContent: 'center', color: 'var(--color-text-muted)' }}>
-              <ArrowDown size={16} />
+              <ArrowDown size={16} className="animate-bounce" />
               <span className="text-sm">Descubre qué recibirás</span>
             </div>
           </div>
@@ -246,7 +245,7 @@ export default function AuditoriaGratuitaPage() {
       <section className="section bg-dark-soft">
         <div className="container">
           <header className="section-header animate-on-scroll mb-2xl">
-            <h2>¿Qué obtienes exactamente?</h2>
+            <h2 className="gradient-text">¿Qué obtienes exactamente?</h2>
             <p className="section-header__subtitle">
               No es un informe automático. Es un análisis manual y estratégico de tu web.
             </p>
@@ -254,11 +253,11 @@ export default function AuditoriaGratuitaPage() {
 
           <div className="grid grid-cols-3 gap-lg animate-on-scroll">
             {AUDIT_ITEMS.map((item) => (
-              <article key={item.title} className="card p-xl flex flex-col gap-4">
-                <div className="audit-icon">
+              <article key={item.title} className="card card--glass p-xl flex flex-col gap-2">
+                <div className="audit-card-icon-container">
                   {item.illustration}
                 </div>
-                <h3 className="text-lg">{item.title}</h3>
+                <h3 className="text-lg mb-2">{item.title}</h3>
                 <p className="text-secondary text-sm" style={{ lineHeight: '1.7' }}>
                   {item.description}
                 </p>
@@ -266,29 +265,35 @@ export default function AuditoriaGratuitaPage() {
             ))}
           </div>
 
-          <div className="card card--no-hover p-xl mt-xl animate-on-scroll">
-            <h3 className="text-center mb-lg">El informe final incluye</h3>
+          <div className="card card--glass card--no-hover p-xl mt-xl animate-on-scroll">
+            <h3 className="text-center mb-xl">El informe final incluye</h3>
             <div className="grid grid-cols-3 gap-lg">
-              <div className="flex flex-col gap-3">
-                <CheckCircle2 size={20} style={{ color: 'var(--color-accent-purple)' }} />
-                <h4 className="font-bold">Errores priorizados</h4>
-                <p className="text-sm text-secondary">
-                  Lista ordenada por impacto de los problemas técnicos que debes corregir.
-                </p>
+              <div className="audit-checklist-item">
+                <CheckCircle2 size={24} style={{ color: 'var(--color-accent-purple)' }} className="shrink-0" />
+                <div>
+                  <h4 className="font-bold mb-1">Errores priorizados</h4>
+                  <p className="text-sm text-secondary">
+                    Lista ordenada por impacto de los problemas técnicos que debes corregir.
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-col gap-3">
-                <CheckCircle2 size={20} style={{ color: 'var(--color-accent-purple)' }} />
-                <h4 className="font-bold">Estrategia GEO</h4>
-                <p className="text-sm text-secondary">
-                  Qué necesita tu web para aparecer en las respuestas de ChatGPT, Gemini y Perplexity.
-                </p>
+              <div className="audit-checklist-item">
+                <CheckCircle2 size={24} style={{ color: 'var(--color-accent-purple)' }} className="shrink-0" />
+                <div>
+                  <h4 className="font-bold mb-1">Estrategia GEO</h4>
+                  <p className="text-sm text-secondary">
+                    Qué necesita tu web para aparecer en las respuestas de ChatGPT, Gemini y Perplexity.
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-col gap-3">
-                <CheckCircle2 size={20} style={{ color: 'var(--color-accent-purple)' }} />
-                <h4 className="font-bold">Benchmarking competitivo</h4>
-                <p className="text-sm text-secondary">
-                  Qué está haciendo bien tu competencia y cómo puedes superarla.
-                </p>
+              <div className="audit-checklist-item">
+                <CheckCircle2 size={24} style={{ color: 'var(--color-accent-purple)' }} className="shrink-0" />
+                <div>
+                  <h4 className="font-bold mb-1">Benchmarking competitivo</h4>
+                  <p className="text-sm text-secondary">
+                    Qué está haciendo bien tu competencia y cómo puedes superarla.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -300,7 +305,7 @@ export default function AuditoriaGratuitaPage() {
         <div className="container">
           <header className="section-header animate-on-scroll mb-2xl">
             <div className="badge badge--purple mb-lg">
-              <span>Cómo funciona</span>
+              <span>Transparencia total</span>
             </div>
             <h2>Tres pasos y el informe es tuyo</h2>
             <p className="section-header__subtitle">
@@ -310,16 +315,18 @@ export default function AuditoriaGratuitaPage() {
 
           <div className="grid grid-cols-3 gap-lg animate-on-scroll">
             {HOW_IT_WORKS.map((step) => (
-              <article key={step.number} className="card p-xl flex flex-col gap-4">
-                <div className="flex items-center gap-md">
-                  <span className="text-3xl font-bold gradient-text" style={{ lineHeight: '1' }}>{step.number}</span>
-                  <div className="audit-icon" style={{ marginLeft: 'auto' }}>{step.illustration}</div>
+              <article key={step.number} className="card card--step p-xl flex flex-col gap-4">
+                <span className="step-number-stylized">{step.number}</span>
+                <div className="flex items-center justify-between">
+                  <div className="audit-card-icon-container" style={{ marginBottom: 0 }}>
+                    {step.illustration}
+                  </div>
                 </div>
                 <h3 className="text-lg">{step.title}</h3>
                 <p className="text-secondary text-sm" style={{ lineHeight: '1.7' }}>
                   {step.description}
                 </p>
-                <div className="flex items-center gap-sm text-muted text-sm" style={{ marginTop: 'auto' }}>
+                <div className="flex items-center gap-sm text-muted text-sm" style={{ marginTop: 'auto', justifyContent: 'flex-start' }}>
                   <Clock size={14} />
                   <span>{step.time}</span>
                 </div>
@@ -343,7 +350,7 @@ export default function AuditoriaGratuitaPage() {
             </p>
           </div>
 
-          <div style={{ maxWidth: '640px', margin: '0 auto' }} className="animate-on-scroll">
+          <div style={{ maxWidth: '640px', margin: '0 auto' }} className="animate-on-scroll card card--glass p-xl">
             <AuditoriaGratuitaForm />
           </div>
 
@@ -371,7 +378,7 @@ export default function AuditoriaGratuitaPage() {
               </h2>
               <div className="flex flex-col gap-md">
                 {FOR_WHOM.map((item) => (
-                  <div key={item} className="flex items-start gap-sm">
+                  <div key={item} className="audit-checklist-item" style={{ padding: 'var(--spacing-sm) var(--spacing-md)' }}>
                     <CheckCircle2
                       size={20}
                       className="shrink-0 mt-1"
@@ -383,7 +390,7 @@ export default function AuditoriaGratuitaPage() {
               </div>
             </div>
 
-            <div className="card p-xl">
+            <div className="card card--glass p-xl">
               <h3 className="mb-md">¿Por qué lo regalo?</h3>
               <p className="text-secondary mb-md" style={{ lineHeight: '1.8' }}>
                 Quiero que compruebes la calidad de mi trabajo antes de tomar ninguna
@@ -426,8 +433,8 @@ export default function AuditoriaGratuitaPage() {
       <section className="section">
         <div className="container">
           <div
-            className="card card--no-hover p-2xl text-center animate-on-scroll"
-            style={{ maxWidth: '720px', margin: '0 auto' }}
+            className="card card--glass card--no-hover p-2xl text-center animate-on-scroll"
+            style={{ maxWidth: '820px', margin: '0 auto' }}
           >
             <div className="badge badge--purple mb-lg" style={{ display: 'inline-block' }}>
               <span>Plazas limitadas</span>

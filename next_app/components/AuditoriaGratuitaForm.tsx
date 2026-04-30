@@ -18,12 +18,23 @@ export default function AuditoriaGratuitaForm() {
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
+    const { name, type } = e.target;
+    let value = e.target.value;
+
     if (type === 'checkbox') {
       setFormData(prev => ({ ...prev, [name]: (e.target as HTMLInputElement).checked }));
     } else {
+      if (name === 'url_web') {
+        // Aseguramos que siempre empiece por https:// si hay contenido
+        if (value === 'https:/' || value === 'https:' || value === 'https' || value === 'http' || value === 'ht' || value === 'h') {
+          value = 'https://';
+        } else if (value && !value.startsWith('https://')) {
+          value = 'https://' + value.replace(/^https?:\/\//, '');
+        }
+      }
       setFormData(prev => ({ ...prev, [name]: value }));
     }
+    
     if (errors[name]) {
       setErrors(prev => { const n = { ...prev }; delete n[name]; return n; });
     }
@@ -42,7 +53,7 @@ export default function AuditoriaGratuitaForm() {
     }
     if (!formData.url_web.trim()) {
       newErrors.url_web = 'Necesitamos la URL de tu web para poder auditar';
-    } else if (!/^https?:\/\/.+/.test(formData.url_web.trim())) {
+    } else if (!/^https:\/\/.+/.test(formData.url_web.trim())) {
       newErrors.url_web = 'Introduce una URL válida (debe empezar por https://)';
     }
     if (!formData.acepta_privacidad) {
@@ -150,6 +161,11 @@ export default function AuditoriaGratuitaForm() {
           placeholder="https://tunegocio.com"
           value={formData.url_web}
           onChange={handleChange}
+          onFocus={() => {
+            if (!formData.url_web) {
+              setFormData(prev => ({ ...prev, url_web: 'https://' }));
+            }
+          }}
         />
         {errors.url_web && <div className="form__error">{errors.url_web}</div>}
       </div>

@@ -64,6 +64,7 @@
     --radius-md: 1rem;
     --radius-lg: 1.5rem;
     --radius-xl: 2rem;
+    --radius-2xl: 3rem;
     --radius-full: 9999px;
 
     /* Transiciones */
@@ -137,7 +138,7 @@ html {
     width: 100%;
     overflow-x: clip;
     /* Fase 1: Compensación de navbar fixed para anclas */
-    scroll-padding-top: 5rem;
+    scroll-padding-top: calc(5rem + var(--promo-banner-height, 0px));
 }
 
 body {
@@ -222,12 +223,12 @@ a {
 
 /* Compensación para la primera sección tras el navbar fixed */
 #inicio.section {
-    padding-top: calc(var(--spacing-xl) + 4rem);
+    padding-top: calc(var(--spacing-xl) + 4rem + var(--promo-banner-height, 0px));
 }
 
 @media (min-width: 1024px) {
     #inicio.section {
-        padding-top: calc(var(--spacing-xl) + 5rem);
+        padding-top: calc(var(--spacing-xl) + 5rem + var(--promo-banner-height, 0px));
     }
 }
 

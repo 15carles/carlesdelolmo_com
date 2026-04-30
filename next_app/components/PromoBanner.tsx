@@ -3,11 +3,10 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { Sparkles } from 'lucide-react';
 
-// Flip to false on June 1st (or whenever the May campaign ends).
 const PROMO_ACTIVE = true;
 
-// Pages where the banner is suppressed (already on the offer itself).
 const HIDDEN_PATHS = new Set(['/auditoria-gratuita', '/gracias']);
 
 export default function PromoBanner() {
@@ -26,14 +25,13 @@ export default function PromoBanner() {
 
   return (
     <Link href="/auditoria-gratuita" className="promo-banner" aria-label="Promoción de mayo: Auditoría SEO + GEO gratuita">
-      <span className="promo-banner__icon" aria-hidden="true">🎁</span>
+      <Sparkles size={16} className="promo-banner__icon" aria-hidden="true" />
       <span className="promo-banner__text promo-banner__text--desktop">
-        Mayo: <strong>Auditoría SEO + GEO gratis</strong> (valor +750€) — Solicita la tuya
+        AUDITORÍA SEO + GEO <span className="promo-banner__highlight">GRATUITA</span> DURANTE MAYO · DISPONIBILIDAD LIMITADA
       </span>
       <span className="promo-banner__text promo-banner__text--mobile">
-        <strong>Auditoría gratis</strong> · Mayo
+        AUDITORÍA SEO + GEO <span className="promo-banner__highlight">GRATIS</span> EN MAYO
       </span>
-      <span className="promo-banner__arrow" aria-hidden="true">→</span>
     </Link>
   );
 }

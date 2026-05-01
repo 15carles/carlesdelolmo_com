@@ -9,7 +9,8 @@ import FaqAccordion from '@/components/FaqAccordion';
 import OrbitaMethod from './OrbitaMethod';
 import WorkflowTimeline from './WorkflowTimeline';
 import { constructMetadata } from '@/lib/seo/metadata';
-import { SITE_URL } from '@/lib/seo/schemas';
+import { SITE_URL, generateFaqPageSchema } from '@/lib/seo/schemas';
+import { safeJsonLd } from '@/lib/seo/jsonLd';
 
 const disenoWebFaqs = [
   {
@@ -46,8 +47,14 @@ export default function DisenoWebPage() {
     { label: 'Diseño web' }
   ];
 
+  const jsonLd = generateFaqPageSchema(disenoWebFaqs, `${SITE_URL}/diseno-web#faq`);
+
   return (
     <main className="page__content">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+      />
       <Breadcrumbs items={breadcrumbs} />
 
       {/* SECCIÓN 1 — HERO */}

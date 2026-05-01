@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { ENTITY } from '@/lib/seo/entity';
 
 interface FooterLink {
   href: string;
@@ -74,6 +75,25 @@ function WhatsAppIcon({ className }: FooterIconProps) {
   );
 }
 
+function GoogleBusinessIcon({ className }: FooterIconProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M12 22s7-5.5 7-12a7 7 0 1 0-14 0c0 6.5 7 12 7 12Z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </svg>
+  );
+}
+
 const NAV_LINKS: FooterLink[] = [
   { href: '/#inicio', label: 'Inicio' },
   { href: '/#proyectos', label: 'Proyectos' },
@@ -101,22 +121,29 @@ const LEGAL_LINKS: FooterLink[] = [
 
 const CONTACT_LINKS: FooterContactLink[] = [
   {
-    href: 'mailto:hola@carlesdelolmo.com',
-    label: 'hola@carlesdelolmo.com',
-    ariaLabel: 'Enviar un correo a hola@carlesdelolmo.com',
+    href: `mailto:${ENTITY.email}`,
+    label: ENTITY.email,
+    ariaLabel: `Enviar un correo a ${ENTITY.email}`,
     icon: <MailIcon className="footer__contact-icon" />,
   },
   {
-    href: 'tel:+34668676302',
-    label: '+34 668 676 302',
-    ariaLabel: 'Llamar al +34 668 676 302',
+    href: `tel:${ENTITY.phoneE164}`,
+    label: ENTITY.phoneDisplay,
+    ariaLabel: `Llamar al ${ENTITY.phoneDisplay}`,
     icon: <PhoneIcon className="footer__contact-icon" />,
   },
   {
-    href: 'https://wa.me/34668676302',
+    href: ENTITY.whatsappUrl,
     label: 'WhatsApp',
-    ariaLabel: 'Abrir chat de WhatsApp con el +34 668 676 302',
+    ariaLabel: `Abrir chat de WhatsApp con el ${ENTITY.phoneDisplay}`,
     icon: <WhatsAppIcon className="footer__contact-icon" />,
+    isExternal: true,
+  },
+  {
+    href: ENTITY.profiles.googleBusinessProfile,
+    label: 'Ver perfil en Google',
+    ariaLabel: 'Ver el Perfil de Empresa en Google',
+    icon: <GoogleBusinessIcon className="footer__contact-icon" />,
     isExternal: true,
   },
 ];

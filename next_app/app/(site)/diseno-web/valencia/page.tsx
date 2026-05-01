@@ -190,7 +190,7 @@ export default function DisenoWebValencia() {
         { label: 'Inicio', href: '/' },
         { label: 'Diseño web', href: '/diseno-web' },
         { label: 'Valencia', href: '/diseno-web/valencia' }
-      ]),
+      ], `${SITE_URL}/diseno-web/valencia#breadcrumbs`),
       generateFaqPageNode(faqs, `${SITE_URL}/diseno-web/valencia#faq`)
     ]
   };

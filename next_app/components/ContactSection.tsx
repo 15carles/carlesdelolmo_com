@@ -1,5 +1,6 @@
 import React from 'react';
 import ContactForm from './ContactForm';
+import { ENTITY } from '@/lib/seo/entity';
 
 export default function ContactSection() {
   return (
@@ -48,7 +49,7 @@ export default function ContactSection() {
               buscadores e IA...
             </p>
             <p className="text-secondary leading-relaxed text-left">
-              hola@carlesdelolmo.com
+              {ENTITY.email}
             </p>
           </div>
 

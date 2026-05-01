@@ -5,7 +5,8 @@ import FaqAccordion from '@/components/FaqAccordion';
 import { Code, MapPin, Zap, Search, Layout, MousePointer2, Check, Shield, Gauge, Settings } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SITE_URL } from '@/lib/seo/schemas';
+import { SITE_URL, generateFaqPageSchema } from '@/lib/seo/schemas';
+import { safeJsonLd } from '@/lib/seo/jsonLd';
 import { constructMetadata } from '@/lib/seo/metadata';
 
 export const metadata = constructMetadata({
@@ -139,8 +140,14 @@ export default function DisenoWebCastellon() {
     }
   ];
 
+  const jsonLd = generateFaqPageSchema(faqs, `${SITE_URL}/diseno-web/castellon#faq`);
+
   return (
     <main className="page__content">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+      />
       <Breadcrumbs items={breadcrumbs} />
 
       {/* Hero Section */}

@@ -5,7 +5,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import { Code, MapPin, Zap, Search, Layout, MousePointer2, Check, Shield, Gauge, Settings } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PERSON_SCHEMA, BUSINESS_SCHEMA, generateBreadcrumbSchema, SITE_URL } from '@/lib/seo/schemas';
+import { PERSON_SCHEMA, BUSINESS_SCHEMA, generateBreadcrumbSchema, generateFaqPageNode, SITE_URL } from '@/lib/seo/schemas';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
 import { constructMetadata } from '@/lib/seo/metadata';
 
@@ -190,7 +190,8 @@ export default function DisenoWebValencia() {
         { label: 'Inicio', href: '/' },
         { label: 'Diseño web', href: '/diseno-web' },
         { label: 'Valencia', href: '/diseno-web/valencia' }
-      ])
+      ]),
+      generateFaqPageNode(faqs, `${SITE_URL}/diseno-web/valencia#faq`)
     ]
   };
 

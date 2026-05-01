@@ -183,7 +183,7 @@ const FAQ_ITEMS = [
 ];
 
 export default function AuditoriaGratuitaPage() {
-  const jsonLd = generateAuditOfferSchema();
+  const jsonLd = generateAuditOfferSchema(FAQ_ITEMS);
 
   return (
     <main className="page__content">

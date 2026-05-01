@@ -6,7 +6,8 @@ import FaqAccordion from '@/components/FaqAccordion';
 import ContactForm from '@/components/ContactForm';
 import { ArrowRight } from 'lucide-react';
 import { constructMetadata } from '@/lib/seo/metadata';
-import { SITE_URL } from '@/lib/seo/schemas';
+import { SITE_URL, generateFaqPageSchema } from '@/lib/seo/schemas';
+import { safeJsonLd } from '@/lib/seo/jsonLd';
 
 export const metadata = constructMetadata({
   title: 'Servicios y Precios | Carles del Olmo - Diseño Web en Valencia, SEO y GEO',
@@ -14,9 +15,48 @@ export const metadata = constructMetadata({
   exactUrl: `${SITE_URL}/pricing`,
 });
 
+const PRICING_FAQS_DISENO = [
+  { question: "¿Cuánto cuesta realmente una página web profesional?", answer: "El precio depende del tipo de proyecto. Una landing page estratégica parte desde 530€, una web corporativa desde 2.000€ y un desarrollo a medida desde 4.000€. El coste final varía según funcionalidades, número de secciones e integraciones necesarias. Siempre trabajo con presupuesto cerrado y sin sorpresas." },
+  { question: "¿Qué incluye exactamente el precio de la web?", answer: "Todos mis proyectos incluyen diseño personalizado, estructura estratégica orientada a objetivos, optimización SEO técnica inicial, adaptación completa a móviles, configuración básica de seguridad y formularios de contacto. No utilizo plantillas genéricas sin estrategia: cada web está pensada para cumplir una función concreta dentro de tu negocio." },
+  { question: "¿La web estará optimizada para posicionar en Google?", answer: "Sí. Todas mis webs incluyen SEO técnico de base: estructura semántica correcta, metadatos optimizados, velocidad de carga mejorada, diseño responsive e indexación preparada para buscadores. Esto permite que Google pueda rastrear y posicionar tu web correctamente desde el inicio." },
+  { question: "¿Cuánto tiempo se tarda en desarrollar una web?", answer: "Depende del alcance del proyecto. Una landing page puede estar lista en 2-3 semanas, una web corporativa en 4-8 semanas y un desarrollo a medida puede requerir entre 5 y 10 semanas. Desde el inicio trabajo con planificación y calendario claro." },
+  { question: "¿Ofreces mantenimiento web después del lanzamiento?", answer: "Sí, puedo encargarme del mantenimiento técnico, actualizaciones de seguridad y soporte continuo si lo necesitas. También puedes gestionarla internamente si lo prefieres. Me adapto al modelo que mejor encaje con tu negocio." },
+  { question: "¿Podré ampliar la web en el futuro?", answer: "Sí. Todas mis webs están preparadas para crecer: puedes añadir nuevas secciones, funcionalidades, integraciones o escalar hacia un desarrollo más avanzado cuando tu negocio lo necesite." }
+];
+
+const PRICING_FAQS_SEO_GEO = [
+  { question: "¿Qué es GEO (Generative Engine Optimization)?", answer: "GEO (Generative Engine Optimization) es la optimización orientada a motores generativos e inteligencias artificiales como ChatGPT, Gemini o buscadores con respuestas automáticas. Mientras el SEO tradicional posiciona en Google, el GEO busca que tu web pueda ser entendida, citada y utilizada como fuente en respuestas generadas por IA." },
+  { question: "¿Qué diferencia hay entre SEO y Autoridad Digital para IAs?", answer: "El SEO trabaja principalmente para posicionar en resultados de búsqueda tradicionales. La Autoridad Digital para IAs optimiza la estructura, semántica y señales de confianza de tu web para que modelos de lenguaje y buscadores generativos la identifiquen como una fuente fiable y estructurada. Son estrategias complementarias." },
+  { question: "¿Se puede garantizar aparecer en respuestas de IA?", answer: "No se puede garantizar aparecer en una respuesta concreta de una IA, ya que los modelos generan contenido dinámicamente. Lo que sí hago es optimizar tu web para que sea clara, estructurada y relevante, aumentando las probabilidades de que pueda ser utilizada como referencia en entornos generativos." },
+  { question: "¿Este servicio sustituye al SEO tradicional?", answer: "No. La optimización para IAs complementa al SEO tradicional. Una estrategia digital sólida hoy debe trabajar visibilidad tanto en buscadores clásicos como en entornos de búsqueda conversacional y generativa." },
+  { question: "¿Por qué es un servicio mensual?", answer: "La autoridad digital no es estática. Los algoritmos evolucionan, el contenido cambia y la competencia se mueve. El trabajo mensual permite reforzar estructura, contenido, señales semánticas y autoridad temática de forma continua." },
+  { question: "¿Cómo se mide la visibilidad en motores de IA?", answer: "Analizo menciones, presencia en respuestas generativas, evolución de autoridad temática y señales semánticas. También evaluo cómo se presenta tu marca en búsquedas conversacionales y consultas complejas relacionadas con tu sector." }
+];
+
+const PRICING_FAQS_MANTENIMIENTO = [
+  { question: "¿Realmente necesito mantenimiento web si mi página funciona bien?", answer: "Sí. Aunque tu web funcione correctamente, los sistemas, plugins y servidores reciben actualizaciones constantes. No mantenerla al día puede provocar vulnerabilidades, errores inesperados o caídas. El mantenimiento es preventivo: evita problemas antes de que afecten a tu negocio." },
+  { question: "¿Qué pasa si mi web se cae o sufre un problema técnico?", answer: "Cuento con monitorización continua y copias de seguridad verificadas. En caso de incidencia, puedo restaurar la web y resolver el problema minimizando el impacto y el tiempo de inactividad." },
+  { question: "¿Perderé posicionamiento SEO durante una migración?", answer: "No. Realizo redirecciones 301, reviso la indexación y verifico que la estructura se mantenga correctamente. El objetivo es preservar tu posicionamiento actual y evitar pérdidas de tráfico." },
+  { question: "¿Cuánto tiempo tarda una migración web?", answer: "Depende del tamaño y complejidad del sitio, pero la mayoría de migraciones estándar se completan en 24–72 horas. Planifico el proceso para que la interrupción sea mínima." },
+  { question: "¿Incluye la migración soporte después del traslado?", answer: "Sí. Tras la migración realizo verificaciones finales y supervisión para garantizar que todo funcione correctamente en el nuevo entorno." },
+  { question: "¿Cuál es la diferencia entre mantenimiento y migración?", answer: "El mantenimiento es un servicio continuo para mantener tu web segura y actualizada. La migración es un proceso puntual para trasladar tu sitio a un nuevo servidor, dominio o entorno sin afectar su funcionamiento ni su posicionamiento." }
+];
+
+const PRICING_FAQS_ALL = [
+  ...PRICING_FAQS_DISENO,
+  ...PRICING_FAQS_SEO_GEO,
+  ...PRICING_FAQS_MANTENIMIENTO,
+];
+
 export default function PricingPage() {
+  const jsonLd = generateFaqPageSchema(PRICING_FAQS_ALL, `${SITE_URL}/pricing#faq`);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
+      />
       <PricingTabs />
       <main className="page">
         <div className="page__content">
@@ -126,16 +166,9 @@ export default function PricingPage() {
               </div>
 
               {/* FAQ Section */}
-              <FaqAccordion 
+              <FaqAccordion
                 title="Preguntas frecuentes sobre diseño y desarrollo web"
-                items={[
-                  { question: "¿Cuánto cuesta realmente una página web profesional?", answer: "El precio depende del tipo de proyecto. Una landing page estratégica parte desde 530€, una web corporativa desde 2.000€ y un desarrollo a medida desde 4.000€. El coste final varía según funcionalidades, número de secciones e integraciones necesarias. Siempre trabajo con presupuesto cerrado y sin sorpresas." },
-                  { question: "¿Qué incluye exactamente el precio de la web?", answer: "Todos mis proyectos incluyen diseño personalizado, estructura estratégica orientada a objetivos, optimización SEO técnica inicial, adaptación completa a móviles, configuración básica de seguridad y formularios de contacto. No utilizo plantillas genéricas sin estrategia: cada web está pensada para cumplir una función concreta dentro de tu negocio." },
-                  { question: "¿La web estará optimizada para posicionar en Google?", answer: "Sí. Todas mis webs incluyen SEO técnico de base: estructura semántica correcta, metadatos optimizados, velocidad de carga mejorada, diseño responsive e indexación preparada para buscadores. Esto permite que Google pueda rastrear y posicionar tu web correctamente desde el inicio." },
-                  { question: "¿Cuánto tiempo se tarda en desarrollar una web?", answer: "Depende del alcance del proyecto. Una landing page puede estar lista en 2-3 semanas, una web corporativa en 4-8 semanas y un desarrollo a medida puede requerir entre 5 y 10 semanas. Desde el inicio trabajo con planificación y calendario claro." },
-                  { question: "¿Ofreces mantenimiento web después del lanzamiento?", answer: "Sí, puedo encargarme del mantenimiento técnico, actualizaciones de seguridad y soporte continuo si lo necesitas. También puedes gestionarla internamente si lo prefieres. Me adapto al modelo que mejor encaje con tu negocio." },
-                  { question: "¿Podré ampliar la web en el futuro?", answer: "Sí. Todas mis webs están preparadas para crecer: puedes añadir nuevas secciones, funcionalidades, integraciones o escalar hacia un desarrollo más avanzado cuando tu negocio lo necesite." }
-                ]}
+                items={PRICING_FAQS_DISENO}
               />
             </div>
           </section>
@@ -230,16 +263,9 @@ export default function PricingPage() {
               </div>
 
               {/* FAQ SEO/GEO */}
-              <FaqAccordion 
+              <FaqAccordion
                 title="Preguntas frecuentes sobre SEO, GEO y Autoridad para IAs"
-                items={[
-                  { question: "¿Qué es GEO (Generative Engine Optimization)?", answer: "GEO (Generative Engine Optimization) es la optimización orientada a motores generativos e inteligencias artificiales como ChatGPT, Gemini o buscadores con respuestas automáticas. Mientras el SEO tradicional posiciona en Google, el GEO busca que tu web pueda ser entendida, citada y utilizada como fuente en respuestas generadas por IA." },
-                  { question: "¿Qué diferencia hay entre SEO y Autoridad Digital para IAs?", answer: "El SEO trabaja principalmente para posicionar en resultados de búsqueda tradicionales. La Autoridad Digital para IAs optimiza la estructura, semántica y señales de confianza de tu web para que modelos de lenguaje y buscadores generativos la identifiquen como una fuente fiable y estructurada. Son estrategias complementarias." },
-                  { question: "¿Se puede garantizar aparecer en respuestas de IA?", answer: "No se puede garantizar aparecer en una respuesta concreta de una IA, ya que los modelos generan contenido dinámicamente. Lo que sí hago es optimizar tu web para que sea clara, estructurada y relevante, aumentando las probabilidades de que pueda ser utilizada como referencia en entornos generativos." },
-                  { question: "¿Este servicio sustituye al SEO tradicional?", answer: "No. La optimización para IAs complementa al SEO tradicional. Una estrategia digital sólida hoy debe trabajar visibilidad tanto en buscadores clásicos como en entornos de búsqueda conversacional y generativa." },
-                  { question: "¿Por qué es un servicio mensual?", answer: "La autoridad digital no es estática. Los algoritmos evolucionan, el contenido cambia y la competencia se mueve. El trabajo mensual permite reforzar estructura, contenido, señales semánticas y autoridad temática de forma continua." },
-                  { question: "¿Cómo se mide la visibilidad en motores de IA?", answer: "Analizo menciones, presencia en respuestas generativas, evolución de autoridad temática y señales semánticas. También evaluo cómo se presenta tu marca en búsquedas conversacionales y consultas complejas relacionadas con tu sector." }
-                ]}
+                items={PRICING_FAQS_SEO_GEO}
               />
             </div>
           </section>
@@ -312,16 +338,9 @@ export default function PricingPage() {
               </div>
 
               {/* FAQ Mantenimiento */}
-              <FaqAccordion 
+              <FaqAccordion
                 title="Preguntas frecuentes sobre mantenimiento y migraciones web"
-                items={[
-                  { question: "¿Realmente necesito mantenimiento web si mi página funciona bien?", answer: "Sí. Aunque tu web funcione correctamente, los sistemas, plugins y servidores reciben actualizaciones constantes. No mantenerla al día puede provocar vulnerabilidades, errores inesperados o caídas. El mantenimiento es preventivo: evita problemas antes de que afecten a tu negocio." },
-                  { question: "¿Qué pasa si mi web se cae o sufre un problema técnico?", answer: "Cuento con monitorización continua y copias de seguridad verificadas. En caso de incidencia, puedo restaurar la web y resolver el problema minimizando el impacto y el tiempo de inactividad." },
-                  { question: "¿Perderé posicionamiento SEO durante una migración?", answer: "No. Realizo redirecciones 301, reviso la indexación y verifico que la estructura se mantenga correctamente. El objetivo es preservar tu posicionamiento actual y evitar pérdidas de tráfico." },
-                  { question: "¿Cuánto tiempo tarda una migración web?", answer: "Depende del tamaño y complejidad del sitio, pero la mayoría de migraciones estándar se completan en 24–72 horas. Planifico el proceso para que la interrupción sea mínima." },
-                  { question: "¿Incluye la migración soporte después del traslado?", answer: "Sí. Tras la migración realizo verificaciones finales y supervisión para garantizar que todo funcione correctamente en el nuevo entorno." },
-                  { question: "¿Cuál es la diferencia entre mantenimiento y migración?", answer: "El mantenimiento es un servicio continuo para mantener tu web segura y actualizada. La migración es un proceso puntual para trasladar tu sitio a un nuevo servidor, dominio o entorno sin afectar su funcionamiento ni su posicionamiento." }
-                ]}
+                items={PRICING_FAQS_MANTENIMIENTO}
               />
             </div>
           </section>

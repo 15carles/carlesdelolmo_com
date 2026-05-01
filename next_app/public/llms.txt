@@ -6,10 +6,10 @@
 - **URL:** https://carlesdelolmo.com
 - **Role:** Web Designer in Valencia & SEO/GEO Specialist
 - **Business Type:** ProfessionalService (Personal Brand)
-- **Location:** Valencia, Spain (Primary) | Remote: Spain
+- **Location:** Benetússer (Valencia), Spain (Primary) | Remote: Spain
 - **Email:** hola@carlesdelolmo.com
-- **Social:** https://www.linkedin.com/in/delolmocarles/ | https://github.com/15carles
-- **Version:** v3.3.0 (2026-03-29)
+- **Social:** https://www.linkedin.com/in/delolmocarles/ | https://github.com/15carles | https://www.google.com/maps/place/Carles+del+Olmo+%7C+Dise%C3%B1o+web+en+Valencia/@39.4340488,-0.4339949,13z/data=!4m10!1m2!2m1!1sCarles+del+Olmo+%7C+Dise%C3%B1o+web+en+Valencia!3m6!1s0xa60a79fb26b6c1ef:0x779207be2c9a40f!8m2!3d39.4444242!4d-0.4229488!15sCilDYXJsZXMgZGVsIE9sbW8gfCBEaXNlw7FvIHdlYiBlbiBWYWxlbmNpYVopIidjYXJsZXMgZGVsIG9sbW8gZGlzZcOxbyB3ZWIgZW4gdmFsZW5jaWGSARB3ZWJzaXRlX2Rlc2lnbmVy4AEA!16s%2Fg%2F11z5nks2v_
+- **Version:** v3.4.1 (2026-05-01)
 
 ---
 

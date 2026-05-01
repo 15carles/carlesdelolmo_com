@@ -1,6 +1,8 @@
-export const SITE_URL = 'https://carlesdelolmo.com';
-
 import { googleReviewsData } from '../../data/google-reviews';
+import { BUSINESS_SAME_AS, ENTITY, PERSON_SAME_AS, SITE_URL } from './entity';
+
+export { SITE_URL };
+
 function toAbsoluteUrl(url?: string): string | undefined {
   if (!url) return undefined;
   try {
@@ -13,48 +15,47 @@ function toAbsoluteUrl(url?: string): string | undefined {
 export const PERSON_SCHEMA = {
   "@type": "Person",
   "@id": `${SITE_URL}/#person`,
-  "name": "Carles del Olmo",
+  "name": ENTITY.name,
   "jobTitle": "Diseñador Web en Valencia y Especialista en SEO Técnico y Generative Engine Optimization (GEO)",
   "url": SITE_URL,
-  "telephone": "+34 668 676 302",
-  "email": "hola@carlesdelolmo.com",
+  "telephone": ENTITY.phoneE164,
+  "email": ENTITY.email,
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Benetússer",
-    "addressRegion": "Valencia",
-    "postalCode": "46910",
-    "addressCountry": "ES"
+    "addressLocality": ENTITY.location.locality,
+    "addressRegion": ENTITY.location.region,
+    "postalCode": ENTITY.location.postalCode,
+    "addressCountry": ENTITY.location.countryCode
   },
   "image": `${SITE_URL}/assets/images/carles-del-olmo-logo.webp`,
-  "sameAs": [
-    "https://www.linkedin.com/in/delolmocarles/",
-    "https://github.com/15carles"
-  ],
+  "sameAs": [...PERSON_SAME_AS],
   "knowsLanguage": ["es", "en"]
 };
 
 export const BUSINESS_SCHEMA = {
   "@type": "ProfessionalService",
   "@id": `${SITE_URL}/#business`,
-  "name": "Carles del Olmo",
+  "name": ENTITY.name,
   "url": SITE_URL,
-  "telephone": "+34668676302",
-  "email": "hola@carlesdelolmo.com",
+  "telephone": ENTITY.phoneE164,
+  "email": ENTITY.email,
   "image": `${SITE_URL}/assets/images/carles-del-olmo-logo.webp`,
   "priceRange": "€€",
   "description": "Servicios profesionales de diseño web en Valencia especializados en SEO técnico y Generative Engine Optimization (GEO).",
   "slogan": "Webs optimizadas para buscadores y motores de inteligencia artificial",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Benetússer",
-    "addressRegion": "Valencia",
-    "postalCode": "46910",
-    "addressCountry": "ES"
+    "addressLocality": ENTITY.location.locality,
+    "addressRegion": ENTITY.location.region,
+    "postalCode": ENTITY.location.postalCode,
+    "addressCountry": ENTITY.location.countryCode
   },
+  "sameAs": [...BUSINESS_SAME_AS],
+  "hasMap": ENTITY.profiles.googleBusinessProfile,
   "areaServed": [
     {
       "@type": "City",
-      "name": "Valencia",
+      "name": ENTITY.serviceArea.primary,
       "sameAs": "https://es.wikipedia.org/wiki/Valencia"
     },
     {

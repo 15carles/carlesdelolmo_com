@@ -1,3 +1,5 @@
+import { ENTITY } from '@/lib/seo/entity';
+
 export interface GoogleReview {
   author: string;
   rating: number;
@@ -15,10 +17,10 @@ export interface GoogleBusinessData {
 }
 
 export const googleReviewsData: GoogleBusinessData = {
-  businessName: "Carles del Olmo | Diseño web en Valencia",
+  businessName: ENTITY.businessLabel,
   averageRating: 5.0,
   totalReviews: 3,
-  googleMapsUrl: "https://share.google/GcWgyY3CyJAbvJZ8w",
+  googleMapsUrl: ENTITY.profiles.googleBusinessProfile,
   reviews: [
     {
       author: "Juan J. Peris",

@@ -1,11 +1,12 @@
 /* TEAM */
 Author: Carles del Olmo
 Role: Web Designer in Valencia, SEO & GEO Specialist
-Location: Valencia, Spain
+Location: Benetússer (Valencia), Spain
 Service Area: Valencia (primary), Spain (remote)
 Email: hola@carlesdelolmo.com
 LinkedIn: https://www.linkedin.com/in/delolmocarles/
 GitHub: https://github.com/15carles/
+Google Business Profile: https://www.google.com/maps/place/Carles+del+Olmo+%7C+Dise%C3%B1o+web+en+Valencia/@39.4340488,-0.4339949,13z/data=!4m10!1m2!2m1!1sCarles+del+Olmo+%7C+Dise%C3%B1o+web+en+Valencia!3m6!1s0xa60a79fb26b6c1ef:0x779207be2c9a40f!8m2!3d39.4444242!4d-0.4229488!15sCilDYXJsZXMgZGVsIE9sbW8gfCBEaXNlw7FvIHdlYiBlbiBWYWxlbmNpYVopIidjYXJsZXMgZGVsIG9sbW8gZGlzZcOxbyB3ZWIgZW4gdmFsZW5jaWGSARB3ZWJzaXRlX2Rlc2lnbmVy4AEA!16s%2Fg%2F11z5nks2v_
 
 /* SITE */
 Site Name: Carles del Olmo
@@ -15,8 +16,8 @@ Tone: Didáctico-Ejecutivo
 Focus: Diseño web orientado a conversión, arquitectura semántica, rendimiento extremo y autoridad digital para IAs.
 Standards: HTML5, Semantic HTML, CSS3, JavaScript, JSON-LD (Schema.org)
 Version Control: Yes (strictly maintained)
-Version: v3.3.0
-Last Updated: 2026-03-29
+Version: v3.4.1
+Last Updated: 2026-05-01
 
 /* CONTENT */
 Language: Spanish (Spain)

@@ -2,6 +2,21 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [v3.4.1] - 2026-05-01
+### Añadido
+- **Entidad local (GBP):** Enlace visible al Perfil de Empresa en Google en el footer (`Ver perfil en Google`).
+- **Contacto:** Bloque editorial de confianza en `/contacto` con NAP, área de servicio y enlace `Ver reseñas en Google`.
+- **Configuración SEO:** Nueva fuente centralizada de entidad/NAP/perfiles en `next_app/lib/seo/entity.ts`.
+
+### Cambiado
+- **Schema.org:** Refuerzo de `Person` y `ProfessionalService` con datos centralizados, `sameAs` ampliado y `hasMap` hacia la URL oficial de GBP.
+- **Reseñas:** Actualización del enlace de Google Reviews para usar la URL oficial del GBP.
+- **Consistencia de perfiles:** Unificación de LinkedIn (`/in/delolmocarles/`) en author metadata y archivos públicos.
+- **Coherencia técnica:** Alineación del `@id` de breadcrumbs en `diseno-web/valencia`.
+
+### Control de versionado
+- Sincronización de `VERSION`, `CHANGELOG.md`, `README.md`, `next_app/package.json`, `next_app/package-lock.json`, `next_app/public/llms.txt` y `next_app/public/humans.txt`.
+
 ## [v3.4.0] - 2026-04-26
 ### Añadido
 - **feat(pages):** Creación de la página "Sobre Mí" (`/sobre-carles-del-olmo`) integrando componentes de diseño premium (terminal, cards, grid) alineados con la identidad visual.
@@ -390,8 +405,8 @@ Solucionado el problema de ancho insuficiente del navbar en dispositivos móvile
 - **Reingeniería de Chat**: Interfaz de mensajería moderna con alineación diferenciada y lógica de IA generativa visualmente optimizada.
 - **Testimonio Premium**: Refinamiento estético de la tarjeta "Mención de Honor" con glassmorphism profundo y jerarquía tipográfica corregida.
 
-**Versión**: v3.3.0
-**Última actualización**: 23 Marzo 2026 (Rediseño integral de Home + JSON-LD específico de la Home + sincronización de versionado y sitemap)
+**Versión**: v3.4.1
+**Última actualización**: 1 Mayo 2026 (Vinculación GBP, refuerzo de entidad local y sincronización de versionado)
 
 ## [1.3.0] - 18-01-2026
 

@@ -3827,6 +3827,57 @@
 /* ============================================
    HERO FEATURES (Novedad v2.7.7)
    ============================================ */
+.hero-migraciones {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding-bottom: var(--spacing-2xl);
+    background: var(--color-bg);
+}
+
+.hero-migraciones__container {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-migraciones__inner {
+    width: min(100%, 62rem);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-migraciones__badge {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-migraciones__title {
+    max-width: 20ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-migraciones__subtitle,
+.hero-migraciones__microcopy {
+    max-width: 54rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-migraciones__microcopy {
+    font-size: 0.975rem;
+}
+
+.hero-migraciones__actions {
+    justify-content: center;
+}
+
+.hero-migraciones__highlights {
+    justify-content: center !important;
+}
+
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
@@ -3869,6 +3920,10 @@
 }
 
 @media (max-width: 767px) {
+    .hero-migraciones__highlights {
+        gap: var(--spacing-sm) !important;
+    }
+
     .hero-actions {
         justify-content: center;
     }

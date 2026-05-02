@@ -105,12 +105,15 @@ const NAV_LINKS: FooterLink[] = [
 ];
 
 const SERVICE_LINKS: FooterLink[] = [
+  { href: '/desarrollo-web-a-medida', label: 'Desarrollo Web a Medida' },
   { href: '/diseno-web/valencia', label: 'Diseño Web Valencia' },
   { href: '/diseno-web/castellon', label: 'Diseño Web Castellón' },
   { href: '/diseno-web/alicante', label: 'Diseño Web Alicante' },
   { href: '/servicio-seo/auditoria-seo-geo', label: 'Auditoría SEO + GEO' },
   { href: '/servicio-seo/posicionamiento-seo-geo', label: 'Posicionamiento SEO + GEO' },
   { href: '/servicio-seo/autoridad-digital-ias', label: 'Autoridad Digital para IAs' },
+  { href: '/mantenimiento-web-valencia', label: 'Mantenimiento Web Valencia' },
+  { href: '/migraciones-web', label: 'Migraciones Web Seguras' },
 ];
 
 const LEGAL_LINKS: FooterLink[] = [

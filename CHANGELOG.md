@@ -2,6 +2,25 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [v3.5.0] - 2026-05-02
+### Añadido
+- **Servicios:** Nueva landing `/migraciones-web` con enfoque de continuidad técnica, protección SEO/GEO, proceso de trabajo y FAQ.
+- **Servicios:** Nueva landing `/desarrollo-web-a-medida` orientada a soluciones de negocio (herramientas, plataformas, integraciones y captación avanzada) con FAQ.
+- **SEO Estructurado:** Implementación de JSON-LD (`WebPage`, `Service`, `Offer`, `BreadcrumbList`, `FAQPage`) en las nuevas páginas de servicio.
+
+### Cambiado
+- **/servicio-seo/autoridad-digital-ias:** Reescritura y ampliación completa del copy con estructura de secciones más sólida, CTAs distribuidos e interlinks estratégicos.
+- **UI/UX Servicios:** Ajustes visuales para reutilizar patrones existentes (`hero-service`, `section-problem`, `section-services`, `section-fit`, `section-process`, `section-scope`, `section-contact`) y mejorar consistencia entre landings.
+- **Navegación y arquitectura interna:** Actualización de naming y enlaces en Navbar/Footer, además de nuevas rutas en banner contextual y mejoras de coherencia entre servicios.
+- **Sitemap:** Alta de `/migraciones-web` y `/desarrollo-web-a-medida`.
+
+### Corregido
+- **Enlaces internos:** Corrección de enlace roto en `/mantenimiento-web-valencia` hacia auditoría SEO + GEO.
+- **Copy/estilo:** Corrección ortográfica y ajuste de voz editorial en `/desarrollo-web-a-medida` para mantener tono en singular.
+
+### Control de versionado
+- Sincronización de `VERSION`, `CHANGELOG.md`, `README.md`, `next_app/package.json`, `next_app/package-lock.json`, `next_app/public/llms.txt` y `next_app/public/humans.txt`.
+
 ## [v3.4.1] - 2026-05-01
 ### Añadido
 - **Entidad local (GBP):** Enlace visible al Perfil de Empresa en Google en el footer (`Ver perfil en Google`).
@@ -405,8 +424,8 @@ Solucionado el problema de ancho insuficiente del navbar en dispositivos móvile
 - **Reingeniería de Chat**: Interfaz de mensajería moderna con alineación diferenciada y lógica de IA generativa visualmente optimizada.
 - **Testimonio Premium**: Refinamiento estético de la tarjeta "Mención de Honor" con glassmorphism profundo y jerarquía tipográfica corregida.
 
-**Versión**: v3.4.1
-**Última actualización**: 1 Mayo 2026 (Vinculación GBP, refuerzo de entidad local y sincronización de versionado)
+**Versión**: v3.5.0
+**Última actualización**: 2 Mayo 2026 (Nuevas páginas de servicios, refuerzo de copy/estructura y sincronización de versionado)
 
 ## [1.3.0] - 18-01-2026
 

@@ -26,9 +26,9 @@ const SERVICES_DATA = [
       { title: 'Autoridad Digital para IAs', href: '/servicio-seo/autoridad-digital-ias' },
     ]
   },
-  { title: 'Desarrollo de software a medida', href: '/desarrollo-web-a-medida' },
+  { title: 'Desarrollo web a medida', href: '/desarrollo-web-a-medida' },
   { title: 'Mantenimiento Web Valencia', href: '/mantenimiento-web-valencia' },
-  { title: 'Migraciones web', href: '/migraciones-web' },
+  { title: 'Migraciones Web Seguras', href: '/migraciones-web' },
 ];
 
 export default function Navbar() {

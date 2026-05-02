@@ -314,7 +314,7 @@ export default function PricingPage() {
                     "Test de rendimiento post-migración."
                   ]}
                   ctaText="Migrar mi web"
-                  ctaHref="#contacto"
+                  ctaHref="/migraciones-web"
                   illustration={
                     <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M32 6l-20 9v15c0 16 20 28 20 28s20-12 20-28V15l-20-9z" />

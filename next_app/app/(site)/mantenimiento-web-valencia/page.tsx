@@ -110,7 +110,7 @@ const SCOPE_ITEMS = [
     description:
       'Si la web está publicada y funciona, pero el problema principal está en cómo se presenta, cómo se entiende o cómo compite a nivel de búsqueda, entonces el mantenimiento no es el servicio central.',
     leadIn: 'Ahí conviene valorar una',
-    href: '/seo-geo/auditoria-seo-geo',
+    href: '/servicio-seo/auditoria-seo-geo',
     linkText: 'auditoría SEO + GEO',
   },
   {

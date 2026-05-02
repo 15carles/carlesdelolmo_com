@@ -243,6 +243,16 @@ export default function ContactForm({
             <input
               type="checkbox"
               name="servicios_interes"
+              value="Migraciones"
+              checked={formData.servicios_interes.includes('Migraciones')}
+              onChange={handleChange}
+            />
+            <span className="text-secondary">Migraciones Web Seguras</span>
+          </label>
+          <label className="flex items-center gap-sm cursor-pointer justify-start">
+            <input
+              type="checkbox"
+              name="servicios_interes"
               value="SEO/GEO"
               checked={formData.servicios_interes.includes('SEO/GEO')}
               onChange={handleChange}

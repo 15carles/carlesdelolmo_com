@@ -76,6 +76,28 @@ const CONTEXTUAL_LEAD_BANNER_ROUTE_CONFIG: Record<string, ContextualLeadBannerCo
     enabled: true,
     enableExitIntent: false,
   },
+  '/migraciones-web': {
+    contextKey: 'migraciones-web',
+    eyebrow: 'AYUDA CONTEXTUAL',
+    title: '¿Vas a cambiar tu web y no quieres romper lo que ya funciona?',
+    description:
+      'Cuéntame tu caso y te orientaré sobre cómo plantear la migración con menos riesgo para visibilidad, estructura y captación.',
+    ctaLabel: 'Solicitar valoración',
+    ctaHref: '/contacto',
+    enabled: true,
+    enableExitIntent: false,
+  },
+  '/desarrollo-web-a-medida': {
+    contextKey: 'desarrollo-web-a-medida',
+    eyebrow: 'AYUDA CONTEXTUAL',
+    title: '¿No tienes claro si necesitas desarrollo a medida?',
+    description:
+      'Cuéntame tu caso y te orientaré sobre si conviene una solución a medida o una base más sencilla antes de escalar.',
+    ctaLabel: 'Solicitar valoración',
+    ctaHref: '/contacto',
+    enabled: true,
+    enableExitIntent: false,
+  },
   '/servicio-seo/auditoria-seo-geo': {
     contextKey: 'auditoria-seo-geo',
     eyebrow: 'AYUDA CONTEXTUAL',

@@ -1,21 +1,30 @@
 {
+  "id": "/",
   "name": "Carles del Olmo",
   "short_name": "Carles",
+  "description": "Web de Carles del Olmo sobre diseno web estrategico, SEO y GEO para empresas.",
+  "lang": "es-ES",
   "start_url": "/",
   "scope": "/",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "any",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "theme_color": "#000000",
   "background_color": "#000000",
-  "display": "standalone"
+  "display": "standalone",
+  "categories": ["business", "productivity", "marketing"],
+  "prefer_related_applications": false
 }

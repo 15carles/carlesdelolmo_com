@@ -1,6 +1,12 @@
 import { Metadata } from 'next';
 import { SITE_URL } from './schemas';
 
+const APPLE_SPLASH_SCREENS = [
+  {
+    url: '/apple-touch-icon.png',
+  },
+];
+
 interface ConstructMetadataProps {
   title: string;
   description: string;
@@ -28,6 +34,7 @@ export function constructMetadata({
   authors = ['Carles del Olmo'],
 }: ConstructMetadataProps): Metadata {
   return {
+    applicationName: 'Carles del Olmo',
     title,
     description,
     authors: authors.map((author) => ({ name: author })),
@@ -35,6 +42,12 @@ export function constructMetadata({
       canonical: exactUrl || SITE_URL,
     },
     manifest: '/site.webmanifest',
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: 'black-translucent',
+      title: 'Carles del Olmo',
+      startupImage: APPLE_SPLASH_SCREENS,
+    },
     icons: {
       icon: [
         { url: '/favicon.ico' },

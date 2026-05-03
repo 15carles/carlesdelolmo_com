@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
@@ -8,12 +8,18 @@ import CookieBanner from "@/components/CookieBanner";
 import ScrollReveal from "@/components/ScrollReveal";
 import ContextualLeadBanner from "@/components/ContextualLeadBanner";
 import PromoBanner from "@/components/PromoBanner";
+import { PWARegister } from "@/components/PWARegister";
 import { constructMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = constructMetadata({
   title: "Diseño web estratégico | Carles del Olmo - SEO y GEO",
   description: "Diseño web estratégico para empresas que quieren una web clara, rápida y preparada para posicionar en buscadores y en IA.",
 });
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  colorScheme: "dark light",
+};
 
 export default function RootLayout({
   children,
@@ -72,6 +78,7 @@ export default function RootLayout({
           }}
         />
         <Providers>
+          <PWARegister />
           <PromoBanner />
           <Navbar />
           <main>{children}</main>

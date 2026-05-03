@@ -19,9 +19,16 @@ export interface GoogleBusinessData {
 export const googleReviewsData: GoogleBusinessData = {
   businessName: ENTITY.businessLabel,
   averageRating: 5.0,
-  totalReviews: 3,
+  totalReviews: 4,
   googleMapsUrl: ENTITY.profiles.googleBusinessProfile,
   reviews: [
+    {
+      author: "Lora Study",
+      rating: 5,
+      text: "Muy buena experiencia trabajando con Carles. Entendió nuestras necesidades desde el principio y nos ayudó a crear una web clara, rápida y bien estructurada. Destacaría su criterio técnico, la comunicación y la forma de explicar cada decisión sin complicarlo. Recomendable para empresas que quieren mejorar su presencia digital con una base sólida.",
+      date: "2026-05-03",
+      photoUrl: "/assets/images/reviews/lora-study.png"
+    },
     {
       author: "Juan J. Peris",
       rating: 5,

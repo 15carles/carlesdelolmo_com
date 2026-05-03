@@ -3604,7 +3604,7 @@
     display: flex;
     gap: var(--spacing-md);
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: none;
     padding: var(--spacing-sm) 0 var(--spacing-xl); /* Espacio para sombra de tarjeta */
     scrollbar-width: none; /* Firefox */
 }

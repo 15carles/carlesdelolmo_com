@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import { googleReviewsData } from '@/data/google-reviews';
 
@@ -41,8 +43,93 @@ export default function GoogleReviewsSection({
   variant = 'default',
   className = ''
 }: GoogleReviewsSectionProps) {
+  const carouselRef = useRef<HTMLDivElement | null>(null);
+  const rafRef = useRef<number | null>(null);
+  const userInteractionTimeoutRef = useRef<number | null>(null);
+  const positionRef = useRef(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isUserInteracting, setIsUserInteracting] = useState(false);
+
   const { averageRating, totalReviews, googleMapsUrl, reviews } = googleReviewsData;
   const displayReviews = maxReviews ? reviews.slice(0, maxReviews) : reviews;
+  const carouselReviews = useMemo(
+    () => (displayReviews.length > 1 ? [...displayReviews, ...displayReviews] : displayReviews),
+    [displayReviews]
+  );
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    if (displayReviews.length <= 1 || isHovered || isUserInteracting) {
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+      return;
+    }
+
+    const speedPxPerSecond = 24;
+    const resetPoint = carousel.scrollWidth / 2;
+    if (resetPoint <= 0) return;
+
+    if (positionRef.current >= resetPoint) {
+      positionRef.current = positionRef.current % resetPoint;
+    }
+    carousel.scrollLeft = positionRef.current;
+
+    let previousTimestamp: number | null = null;
+
+    const step = (timestamp: number) => {
+      if (previousTimestamp === null) {
+        previousTimestamp = timestamp;
+      }
+
+      const delta = timestamp - previousTimestamp;
+      previousTimestamp = timestamp;
+
+      positionRef.current += (speedPxPerSecond * delta) / 1000;
+      if (positionRef.current >= resetPoint) {
+        positionRef.current = positionRef.current % resetPoint;
+      }
+
+      carousel.scrollLeft = positionRef.current;
+
+      rafRef.current = requestAnimationFrame(step);
+    };
+
+    rafRef.current = requestAnimationFrame(step);
+
+    return () => {
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+    };
+  }, [displayReviews.length, isHovered, isUserInteracting]);
+
+  const markUserInteraction = () => {
+    const carousel = carouselRef.current;
+    if (carousel) {
+      positionRef.current = carousel.scrollLeft;
+    }
+
+    setIsUserInteracting(true);
+    if (userInteractionTimeoutRef.current !== null) {
+      window.clearTimeout(userInteractionTimeoutRef.current);
+    }
+    userInteractionTimeoutRef.current = window.setTimeout(() => {
+      setIsUserInteracting(false);
+    }, 1200);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (userInteractionTimeoutRef.current !== null) {
+        window.clearTimeout(userInteractionTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const renderStars = (rating: number, size: number = 14) => {
     return (
@@ -128,9 +215,19 @@ export default function GoogleReviewsSection({
         )}
 
         <div className="reviews-carousel-wrapper animate-on-scroll">
-          <div className="reviews-carousel">
-            {displayReviews.map((review, index) => (
-              <article key={index} className="google-review-card">
+          <div
+            ref={carouselRef}
+            className="reviews-carousel"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onPointerDown={markUserInteraction}
+            onPointerUp={markUserInteraction}
+            onTouchStart={markUserInteraction}
+            onTouchEnd={markUserInteraction}
+            onWheel={markUserInteraction}
+          >
+            {carouselReviews.map((review, index) => (
+              <article key={`${review.author}-${index}`} className="google-review-card">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center" style={{ gap: '1rem' }}>
                     {review.photoUrl ? (

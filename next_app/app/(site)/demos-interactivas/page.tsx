@@ -203,7 +203,7 @@ export default function DemosInteractivasPage() {
                   </p>
                   <p>
                     Estas demos reflejan ese enfoque. No se trata solo de posicionar. Se trata de construir algo que tenga sentido para humanos y para sistemas.{' '}
-                    <Link href="/blog/por-que-muchas-webs-no-aparecen-en-respuestas-de-ia">
+                    <Link href="/blog/por-que-webs-no-aparecen-respuestas-ia">
                       Leer más sobre esto
                     </Link>.
                   </p>
@@ -292,4 +292,3 @@ export default function DemosInteractivasPage() {
     </>
   );
 }
-

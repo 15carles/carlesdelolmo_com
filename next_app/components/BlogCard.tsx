@@ -12,7 +12,7 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ title, excerpt, slug, date, isoDate, category, categoryColor }: BlogCardProps) {
-  const badgeClass = `badge badge--tag badge--${categoryColor}`;
+  const badgeClass = `badge badge--tag badge--status`;
   
   return (
     <article className="post-item">

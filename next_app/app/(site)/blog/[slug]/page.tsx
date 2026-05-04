@@ -92,7 +92,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             <div className="page-header__meta">
               <time dateTime={post.isoDate || undefined}>{post.date}</time>
               {(post.categories || []).map((cat, i) => (
-                <span key={i} className={`badge badge--${i === 0 ? 'teal' : i === 1 ? 'blue' : 'purple'}`}>
+                <span key={i} className="badge badge--status">
                   {cat}
                 </span>
               ))}

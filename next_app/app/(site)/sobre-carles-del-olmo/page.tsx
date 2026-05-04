@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import GoogleReviewsSection from '@/components/GoogleReviewsSection';
 import { constructMetadata } from '@/lib/seo/metadata';
@@ -143,14 +142,14 @@ export default function SobreCarlesDelOlmoPage() {
                   <div className="terminal__code">
                     <pre>
 <span className="code-keyword">{'{'}</span>
-  <span className="code-property">"enfoque"</span>: <span className="code-keyword">{'['}</span>
-    <span className="code-string">"Rendimiento real"</span>,
-    <span className="code-string">"Estructura semántica"</span>,
-    <span className="code-string">"Claridad del mensaje"</span>,
-    <span className="code-string">"Arquitectura de contenidos"</span>,
-    <span className="code-string">"SEO técnico"</span>,
-    <span className="code-string">"Preparación motores generativos"</span>,
-    <span className="code-string">"Coherencia negocio-tecnología"</span>
+  <span className="code-property">{'"enfoque"'}</span>: <span className="code-keyword">{'['}</span>
+    <span className="code-string">{'"Rendimiento real"'}</span>,
+    <span className="code-string">{'"Estructura semántica"'}</span>,
+    <span className="code-string">{'"Claridad del mensaje"'}</span>,
+    <span className="code-string">{'"Arquitectura de contenidos"'}</span>,
+    <span className="code-string">{'"SEO técnico"'}</span>,
+    <span className="code-string">{'"Preparación motores generativos"'}</span>,
+    <span className="code-string">{'"Coherencia negocio-tecnología"'}</span>
   <span className="code-keyword">{']'}</span>
 <span className="code-keyword">{'}'}</span>
                     </pre>

@@ -11,7 +11,7 @@ interface BlogCardProps {
   categoryColor: 'purple' | 'blue' | 'cyan' | 'teal';
 }
 
-export default function BlogCard({ title, excerpt, slug, date, isoDate, category, categoryColor }: BlogCardProps) {
+export default function BlogCard({ title, excerpt, slug, date, isoDate, category }: BlogCardProps) {
   const badgeClass = `badge badge--tag badge--status`;
   
   return (

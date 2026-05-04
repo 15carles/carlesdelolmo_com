@@ -40,7 +40,6 @@ const avatarColors = ["#db4437", "#0f9d58", "#4285f4", "#f4b400", "#ab47bc", "#0
 export default function GoogleReviewsSection({
   maxReviews,
   showHeader = true,
-  variant = 'default',
   className = ''
 }: GoogleReviewsSectionProps) {
   const carouselRef = useRef<HTMLDivElement | null>(null);

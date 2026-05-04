@@ -65,7 +65,7 @@ export default function DisenoWebPage() {
             <div className="animate-on-scroll hero-content-wrapper">
               <h1 className="mb-md helper-center-mobile">
                 Diseño web para empresas <br />
-                <span className="gradient-text">con enfoque estratégico</span>
+                <span className="text-primary">con enfoque estratégico</span>
               </h1>
 
               <p className="text-secondary mb-xl helper-center-mobile text-lg">
@@ -137,7 +137,7 @@ export default function DisenoWebPage() {
 
             {/* Columna Izquierda: 2/3 (Ocupa 2 de las 3 columnas) */}
             <div className="col-span-2 text-left pr-lg">
-              <h2 className="mb-md">Qué es realmente el <br /><span className="gradient-text">diseño web profesional</span></h2>
+              <h2 className="mb-md">Qué es realmente el <br /><span className="text-primary">diseño web profesional</span></h2>
 
               <div className="space-y-md text-secondary text-lg mb-xl">
                 <p>
@@ -184,7 +184,7 @@ export default function DisenoWebPage() {
       <section className="section">
         <div className="container">
           <header className="section-header text-center animate-on-scroll">
-            <h2 className="section-header__title">Qué problemas soluciona una <span className="gradient-text">buena página web</span></h2>
+            <h2 className="section-header__title">Qué problemas soluciona una <span className="text-primary">buena página web</span></h2>
             <p className="section-header__subtitle max-w-3xl mx-auto">
               Muchas empresas tienen una web, pero eso no significa que esté cumpliendo realmente su función.
               Una web bien diseñada soluciona los problemas más habituales de los negocios en internet.
@@ -239,7 +239,7 @@ export default function DisenoWebPage() {
       <section className="section bg-dark-soft">
         <div className="container">
           <header className="section-header text-center animate-on-scroll">
-            <h2 className="section-header__title">Qué incluye mi <span className="gradient-text">servicio de diseño web</span></h2>
+            <h2 className="section-header__title">Qué incluye mi <span className="text-primary">servicio de diseño web</span></h2>
             <p className="section-header__subtitle max-w-3xl mx-auto">
               Para que una web funcione como herramienta de negocio, trabajo distintos aspectos: desde la estructura de la información hasta el rendimiento técnico y el SEO.
             </p>
@@ -284,7 +284,7 @@ export default function DisenoWebPage() {
       <section className="section">
         <div className="container">
           <header className="section-header text-center animate-on-scroll">
-            <h2 className="section-header__title">Tipos de páginas web <span className="gradient-text">que desarrollo</span></h2>
+            <h2 className="section-header__title">Tipos de páginas web <span className="text-primary">que desarrollo</span></h2>
             <p className="section-header__subtitle max-w-3xl mx-auto">
               Cada negocio tiene necesidades diferentes. Por eso el diseño web no consiste en aplicar una plantilla estándar, sino en construir una web adaptada al tipo de empresa.
             </p>
@@ -338,7 +338,7 @@ export default function DisenoWebPage() {
         <div className="container">
 
           <header className="section-header text-center animate-on-scroll">
-            <h2 className="section-header__title">SEO técnico y optimización para <span className="gradient-text">inteligencia artificial</span></h2>
+            <h2 className="section-header__title">SEO técnico y optimización para <span className="text-primary">inteligencia artificial</span></h2>
             <p className="section-header__subtitle max-w-3xl mx-auto">
               Hoy en día una página web no solo debe verse bien. También debe estar preparada para que los buscadores y motores de IA puedan entenderla correctamente.
             </p>
@@ -385,10 +385,10 @@ export default function DisenoWebPage() {
       </section>
 
       {/* SECCIÓN 7 — MÉTODO ORBITA INTERACTIVO */}
-      <section className="section bg-glass">
+      <section className="section bg-dark-soft">
         <div className="container">
           <header className="section-header text-center animate-on-scroll">
-            <h2 className="section-header__title">El método ORBITA:<br></br>una web que <span className="gradient-text">trabaja como sistema</span></h2>
+            <h2 className="section-header__title">El método ORBITA:<br></br>una web que <span className="text-primary">trabaja como sistema</span></h2>
             <p className="section-header__subtitle max-w-3xl mx-auto">
               No desarrollo páginas web aisladas. Trabajo con un enfoque estructurado que convierte la web en el centro del ecosistema digital de una empresa.
             </p>
@@ -425,7 +425,7 @@ export default function DisenoWebPage() {
         <div className="container">
           {/* Cabecera de la sección a ancho completo */}
           <div className="animate-on-scroll mb-2xl text-center max-w-4xl mx-auto">
-            <h2 className="mb-md">Tecnología orientada a rendimiento, <br className="hidden lg:block" /><span className="gradient-text">SEO y visibilidad</span></h2>
+            <h2 className="mb-md">Tecnología orientada a rendimiento, <br className="hidden lg:block" /><span className="text-primary">SEO y visibilidad</span></h2>
             <p className="text-secondary text-lg mb-sm">
               La tecnología no es un simple detalle técnico. Es uno de los factores que más influyen en el rendimiento y la capacidad de crecimiento de tu web.
             </p>
@@ -437,17 +437,17 @@ export default function DisenoWebPage() {
           {/* Fila única con las 3 tarjetas principales - USANDO GRID PARA CONSISTENCIA */}
           <div className="grid grid-cols-3 gap-lg mb-2xl animate-on-scroll">
             {/* TARJETA 1: NEXT.JS & REACT */}
-            <div className="card card--no-hover border-purple-900/30 flex flex-col items-center text-center gap-md p-lg group h-auto">
+            <div className="card card--no-hover border-border/50 flex flex-col items-center text-center gap-md p-lg group h-auto">
               <div className="shrink-0 w-16 h-16 flex items-center justify-center relative mb-xs">
-                <div className="absolute inset-0 bg-purple-500/20 blur-xl rounded-full group-hover:bg-purple-500/30 transition-colors"></div>
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 drop-shadow-glow-purple">
+                <div className="absolute inset-0 bg-surface/60 rounded-full transition-colors"></div>
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 text-brand-primary">
                   <circle cx="24" cy="24" r="20" stroke="url(#gradient-p1)" strokeWidth="2" strokeDasharray="80 40" />
-                  <path d="M14 24L22 32L34 16" stroke="#c4b5fd" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M24 8V12M24 36V40M8 24H12M36 24H40" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M14 24L22 32L34 16" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M24 8V12M24 36V40M8 24H12M36 24H40" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                   <defs>
                     <linearGradient id="gradient-p1" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#8b5cf6" />
-                      <stop offset="1" stopColor="#d946ef" />
+                      <stop stopColor="currentColor" />
+                      <stop offset="1" stopColor="currentColor" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -459,18 +459,18 @@ export default function DisenoWebPage() {
             </div>
 
             {/* TARJETA 2: ARQUITECTURA SIN CMS TRADICIONAL */}
-            <div className="card card--no-hover border-blue-900/30 flex flex-col items-center text-center gap-md p-lg group h-auto">
+            <div className="card card--no-hover border-border/50 flex flex-col items-center text-center gap-md p-lg group h-auto">
               <div className="shrink-0 w-16 h-16 flex items-center justify-center relative mb-xs">
-                <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full group-hover:bg-blue-500/30 transition-colors"></div>
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 drop-shadow-glow-blue">
+                <div className="absolute inset-0 bg-surface/60 rounded-full transition-colors"></div>
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 text-brand-primary">
                   <rect x="10" y="10" width="28" height="28" rx="4" stroke="url(#gradient-b1)" strokeWidth="2" />
-                  <path d="M18 18H30M18 24H30M18 30H24" stroke="#93c5fd" strokeWidth="2" strokeLinecap="round" />
-                  <circle cx="38" cy="10" r="6" fill="#1d4ed8" fillOpacity="0.4" stroke="#3b82f6" strokeWidth="1" />
-                  <path d="M36 10L38 12L41 8" stroke="#60a5fa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M18 18H30M18 24H30M18 30H24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <circle cx="38" cy="10" r="6" fill="currentColor" fillOpacity="0.4" stroke="currentColor" strokeWidth="1" />
+                  <path d="M36 10L38 12L41 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   <defs>
                     <linearGradient id="gradient-b1" x1="10" y1="10" x2="38" y2="38" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#3b82f6" />
-                      <stop offset="1" stopColor="#2dd4bf" />
+                      <stop stopColor="currentColor" />
+                      <stop offset="1" stopColor="currentColor" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -482,17 +482,17 @@ export default function DisenoWebPage() {
             </div>
 
             {/* TARJETA 3: SEMÁNTICA & IA */}
-            <div className="card card--no-hover border-cyan-900/30 flex flex-col items-center text-center gap-md p-lg group h-auto">
+            <div className="card card--no-hover border-border/50 flex flex-col items-center text-center gap-md p-lg group h-auto">
               <div className="shrink-0 w-16 h-16 flex items-center justify-center relative mb-xs">
-                <div className="absolute inset-0 bg-cyan-500/20 blur-xl rounded-full group-hover:bg-cyan-500/30 transition-colors"></div>
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 drop-shadow-glow-cyan">
+                <div className="absolute inset-0 bg-surface/60 rounded-full transition-colors"></div>
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 text-brand-primary">
                   <path d="M8 24L16 12L32 12L40 24L32 36L16 36L8 24Z" stroke="url(#gradient-c1)" strokeWidth="2" />
-                  <circle cx="24" cy="24" r="4" fill="#22d3ee" />
-                  <path d="M24 12V20M24 28V36M12 21L18 24M30 24L36 27" stroke="#67e8f9" strokeWidth="2" strokeLinecap="round" />
+                  <circle cx="24" cy="24" r="4" fill="currentColor" />
+                  <path d="M24 12V20M24 28V36M12 21L18 24M30 24L36 27" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                   <defs>
                     <linearGradient id="gradient-c1" x1="8" y1="12" x2="40" y2="36" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#06b6d4" />
-                      <stop offset="1" stopColor="#2dd4bf" />
+                      <stop stopColor="currentColor" />
+                      <stop offset="1" stopColor="currentColor" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -517,9 +517,9 @@ export default function DisenoWebPage() {
               <div className="keyword-card flex items-center justify-center p-md text-sm">LLM Ready</div>
             </div>
 
-            <div className="bg-gradient-to-r from-purple-500/10 to-transparent border-l-2 border-purple-500 p-md rounded-r-lg max-w-2xl">
+            <div className="bg-surface border-l-2 border-brand p-md rounded-r-lg max-w-2xl">
               <p className="text-primary font-semibold m-0 flex items-center gap-sm">
-                <CheckCircle className="text-purple-400 shrink-0" size={20} />
+                <CheckCircle className="text-brand-primary shrink-0" size={20} />
                 El resultado es una web premium que posiciona y convierte mejor.
               </p>
             </div>
@@ -534,7 +534,7 @@ export default function DisenoWebPage() {
       <section className="section bg-dark-soft">
         <div className="container">
           <header className="section-header text-center animate-on-scroll">
-            <h2 className="section-header__title">Cómo trabajo <span className="gradient-text">cada proyecto web</span></h2>
+            <h2 className="section-header__title">Cómo trabajo <span className="text-primary">cada proyecto web</span></h2>
             <p className="section-header__subtitle max-w-3xl mx-auto">
               Cada página web es diferente, pero el proceso de trabajo sigue una estructura clara que permite desarrollar webs bien organizadas, rápidas y preparadas para posicionarse.
             </p>
@@ -559,8 +559,8 @@ export default function DisenoWebPage() {
       {/* SECCIÓN 12 — CONTACTO */}
       <section className="section bg-dark-soft">
         <div className="container">
-          <div className="card text-center p-xl border-purple-900/30 animate-on-scroll">
-            <h2 className="mb-md section-header__title">¿Hablamos de <span className="gradient-text">tu proyecto</span>?</h2>
+          <div className="card text-center p-xl border-border/50 animate-on-scroll">
+            <h2 className="mb-md section-header__title">¿Hablamos de <span className="text-primary">tu proyecto</span>?</h2>
             <p className="text-secondary max-w-2xl mx-auto mb-xl text-lg">
               Si estás pensando en crear una nueva web o mejorar la que ya tienes, puedes contarme qué necesitas y cuál es la idea que tienes en mente.
               A partir de ahí podremos ver qué tipo de web encaja mejor con tu negocio y cómo estructurar el proyecto para que realmente cumpla su objetivo.

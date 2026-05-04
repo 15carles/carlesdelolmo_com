@@ -195,13 +195,13 @@ export default function AuditoriaGratuitaPage() {
       <section className="section" style={{ paddingTop: 'var(--spacing-3xl)' }}>
         <div className="container">
           <div className="section-header animate-fade-in-up">
-            <div className="badge badge--purple mb-lg">
+            <div className="badge badge--status mb-lg">
               <span>Solo durante mayo · Plazas limitadas</span>
             </div>
 
             <h1 className="section-header__title">
               Auditoría{' '}
-              <span className="gradient-text">SEO + GEO gratuita</span>
+              <span className="text-primary">SEO + GEO gratuita</span>
             </h1>
 
             <p className="section-header__subtitle">
@@ -218,7 +218,7 @@ export default function AuditoriaGratuitaPage() {
                 <div className="audit-highlight-label">Valor real</div>
               </div>
               <div className="audit-highlight-item">
-                <div className="audit-highlight-value gradient-text">
+                <div className="audit-highlight-value text-primary">
                   0€
                 </div>
                 <div className="audit-highlight-label">Lo que pagas</div>
@@ -252,7 +252,7 @@ export default function AuditoriaGratuitaPage() {
       <section className="section bg-dark-soft">
         <div className="container">
           <header className="section-header animate-on-scroll mb-2xl">
-            <h2 className="gradient-text">¿Qué obtienes exactamente?</h2>
+            <h2 className="text-primary">¿Qué obtienes exactamente?</h2>
             <p className="section-header__subtitle">
               No es un informe automático. Es un análisis manual y estratégico de tu web.
             </p>
@@ -311,7 +311,7 @@ export default function AuditoriaGratuitaPage() {
       <section className="section">
         <div className="container">
           <header className="section-header animate-on-scroll mb-2xl">
-            <div className="badge badge--purple mb-lg">
+            <div className="badge badge--status mb-lg">
               <span>Transparencia total</span>
             </div>
             <h2>Tres pasos y el informe es tuyo</h2>
@@ -347,7 +347,7 @@ export default function AuditoriaGratuitaPage() {
       <section id="formulario" className="section bg-dark-soft">
         <div className="container">
           <div className="section-header animate-on-scroll mb-xl">
-            <div className="badge badge--purple mb-lg">
+            <div className="badge badge--status mb-lg">
               <span>Plazas limitadas · Mayo</span>
             </div>
             <h2>Solicita tu auditoría gratuita</h2>
@@ -376,12 +376,12 @@ export default function AuditoriaGratuitaPage() {
         <div className="container">
           <div className="grid grid-cols-2 gap-2xl items-center animate-on-scroll">
             <div>
-              <div className="badge badge--purple mb-lg">
+              <div className="badge badge--status mb-lg">
                 <span>¿Esto es para ti?</span>
               </div>
               <h2 className="mb-lg">
                 Para negocios que quieren{' '}
-                <span className="gradient-text">visibilidad real</span>
+                <span className="text-primary">visibilidad real</span>
               </h2>
               <div className="flex flex-col gap-md">
                 {FOR_WHOM.map((item) => (
@@ -418,7 +418,7 @@ export default function AuditoriaGratuitaPage() {
       <section className="section bg-dark-soft">
         <div className="container">
           <div className="section-header animate-on-scroll mb-xl">
-            <div className="badge badge--purple mb-lg">
+            <div className="badge badge--status mb-lg">
               <span>Preguntas frecuentes</span>
             </div>
             <h2>Resolvemos tus dudas antes de pedirla</h2>
@@ -443,7 +443,7 @@ export default function AuditoriaGratuitaPage() {
             className="card card--glass card--no-hover p-2xl text-center animate-on-scroll"
             style={{ maxWidth: '820px', margin: '0 auto' }}
           >
-            <div className="badge badge--purple mb-lg" style={{ display: 'inline-block' }}>
+            <div className="badge badge--status mb-lg" style={{ display: 'inline-block' }}>
               <span>Plazas limitadas</span>
             </div>
             <h2 className="mb-md">¿Resuelto? Reserva tu plaza ahora</h2>

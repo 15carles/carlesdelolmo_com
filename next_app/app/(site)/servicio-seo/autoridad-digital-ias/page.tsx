@@ -326,7 +326,7 @@ export default function AutoridadDigitalIas() {
               </div>
 
               <h1 id="hero-title" className="mb-md helper-center-mobile">
-                Autoridad Digital para <span className="gradient-text">IAs</span>
+                Autoridad Digital para <span className="text-primary">IAs</span>
               </h1>
 
               <p className="hero-description text-secondary mb-lg helper-center-mobile">
@@ -418,7 +418,7 @@ export default function AutoridadDigitalIas() {
         <section className="section section-services" aria-labelledby="definicion-title">
           <div className="container">
             <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--blue mb-lg">Definición</span>
+              <span className="section-eyebrow badge badge--status mb-lg">Definición</span>
               <h2 id="definicion-title" className="section-header__title">
                 Qué es la autoridad digital para IAs
               </h2>
@@ -460,7 +460,7 @@ export default function AutoridadDigitalIas() {
         <section className="section section-problem" aria-labelledby="importa-ahora-title">
           <div className="container">
             <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--cyan mb-lg">Por qué ahora</span>
+              <span className="section-eyebrow badge badge--status mb-lg">Por qué ahora</span>
               <h2 id="importa-ahora-title" className="section-header__title">
                 Por qué este servicio importa ahora
               </h2>
@@ -496,7 +496,7 @@ export default function AutoridadDigitalIas() {
         <section id="incluye-servicio" className="section section-services" aria-labelledby="incluye-title">
           <div className="container">
             <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--purple mb-lg">Qué incluye</span>
+              <span className="section-eyebrow badge badge--status mb-lg">Qué incluye</span>
               <h2 id="incluye-title" className="section-header__title">
                 Qué trabajo dentro del servicio de Autoridad Digital para IAs
               </h2>
@@ -639,7 +639,7 @@ export default function AutoridadDigitalIas() {
         <section className="section section-services" aria-labelledby="esperar-title">
           <div className="container">
             <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--blue mb-lg">Resultados esperables</span>
+              <span className="section-eyebrow badge badge--status mb-lg">Resultados esperables</span>
               <h2 id="esperar-title" className="section-header__title">
                 Qué puedes esperar de este servicio
               </h2>
@@ -662,7 +662,7 @@ export default function AutoridadDigitalIas() {
         <section id="servicio-mensual" className="section section-plans" aria-labelledby="mensual-title">
           <div className="container">
             <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--purple mb-lg">Servicio mensual</span>
+              <span className="section-eyebrow badge badge--status mb-lg">Servicio mensual</span>
               <h2 id="mensual-title" className="section-header__title">
                 Qué incluye el servicio mensual
               </h2>
@@ -720,7 +720,7 @@ export default function AutoridadDigitalIas() {
               <article className="plan-card animate-on-scroll">
                 <div className="plan-card__header">
                   <span className="plan-card__tag">Desde</span>
-                  <h3 className="plan-card__title gradient-text">500 €/mes</h3>
+                  <h3 className="plan-card__title text-primary">500 €/mes</h3>
                 </div>
                 <p className="plan-card__description">
                   Servicio pensado para empresas y marcas que quieren construir una presencia digital más sólida a medio

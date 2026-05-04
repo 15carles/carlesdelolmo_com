@@ -42,7 +42,7 @@ export default function CasoDestacadoSection() {
           </div>
 
           <div className="case-study-content">
-            <p className="badge badge--tag badge--purple case-study-label">Proyecto destacado</p>
+            <p className="badge badge--tag badge--status case-study-label">Proyecto destacado</p>
 
             <h3 className="case-study-title">LEDescaparate</h3>
 

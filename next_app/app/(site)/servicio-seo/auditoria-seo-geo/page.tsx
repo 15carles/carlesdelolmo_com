@@ -48,10 +48,10 @@ export default function AuditoriaSeoGeo() {
       <section className="section">
         <div className="container">
           <header className="section-header animate-on-scroll">
-            <div className="badge badge--purple mb-lg">
+            <div className="badge badge--status mb-lg">
               <span>Auditoría Técnica Digital</span>
             </div>
-            <h1 className="section-header__title">Auditoría <span className="gradient-text">SEO + GEO</span></h1>
+            <h1 className="section-header__title">Auditoría <span className="text-primary">SEO + GEO</span></h1>
             <p className="section-header__subtitle">
               No basta con estar online. Necesitas saber por qué no estás vendiendo lo que quieres y cómo los nuevos buscadores de IA interpretan tu negocio.
             </p>
@@ -67,9 +67,9 @@ export default function AuditoriaSeoGeo() {
                 Recibirás un documento accionable con prioridades claras: qué arreglar hoy para ver resultados mañana.
               </p>
               
-              <div className="card card--no-hover p-lg border-purple-900/20 bg-dark-soft">
+              <div className="card card--no-hover p-lg border-border/50 bg-surface">
                 <div className="flex items-center gap-4 mb-md">
-                  <span className="text-2xl font-bold gradient-text">750€</span>
+                  <span className="text-2xl font-bold text-primary">750€</span>
                   <span className="text-muted text-sm">(Pago único, precios sin IVA)</span>
                 </div>
                 <Link href="/contacto" className="btn btn--primary btn--block" data-primary-cta="true">Reservar Auditoría</Link>
@@ -79,7 +79,7 @@ export default function AuditoriaSeoGeo() {
             <div className="grid grid-cols-1 gap-md animate-on-scroll">
               {points.map((point, index) => (
                 <article key={index} className="card p-lg flex gap-4">
-                  <div className="text-purple-400 shrink-0">
+                  <div className="text-brand-primary shrink-0">
                     <point.icon size={28} />
                   </div>
                   <div>
@@ -94,9 +94,9 @@ export default function AuditoriaSeoGeo() {
       </section>
 
       {/* Qué incluye Section */}
-      <section className="section bg-dark-soft">
+      <section className="section bg-surface">
         <div className="container">
-          <div className="card p-2xl border-purple-900/10">
+          <div className="card p-2xl border-border/50">
             <h2 className="text-center mb-xl">¿Qué incluye el informe final?</h2>
             <div className="grid grid-cols-3 gap-lg">
               <div className="flex flex-col gap-3">
@@ -105,12 +105,12 @@ export default function AuditoriaSeoGeo() {
                 <p className="text-sm text-secondary">Correcciones técnicas prioritarias para recuperar visibilidad en Google.</p>
               </div>
               <div className="flex flex-col gap-3">
-                <CheckCircle2 className="text-blue-400" size={20} />
+                <CheckCircle2 className="text-brand-secondary" size={20} />
                 <h4 className="font-bold">Estrategia GEO</h4>
                 <p className="text-sm text-secondary">Optimizaciones semánticas para mejorar tu presencia en respuestas de IA.</p>
               </div>
               <div className="flex flex-col gap-3">
-                <CheckCircle2 className="text-cyan-400" size={20} />
+                <CheckCircle2 className="text-accent" size={20} />
                 <h4 className="font-bold">Benchmarking Local</h4>
                 <p className="text-sm text-secondary">Análisis de qué está haciendo bien tu competencia y cómo superarla.</p>
               </div>

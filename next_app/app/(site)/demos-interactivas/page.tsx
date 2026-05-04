@@ -35,7 +35,7 @@ const DEMOS: DemoData[] = [
     image: '/assets/demos/demo-flowdesk.webp',
     imageAlt: 'Captura de pantalla de la demo Flowdesk',
     badges: [
-      { text: 'Diseño Web', color: 'badge--purple' },
+      { text: 'Diseño Web', color: 'badge--status' },
       { text: 'UX', color: 'badge--teal' },
     ],
   },
@@ -48,7 +48,7 @@ const DEMOS: DemoData[] = [
     imageAlt: 'Captura de pantalla de la demo LocalExpert Gestoría',
     badges: [
       { text: 'SEO Local', color: 'badge--teal' },
-      { text: 'Captación', color: 'badge--blue' },
+      { text: 'Captación', color: 'badge--status' },
     ],
   },
 ];
@@ -111,7 +111,7 @@ export default function DemosInteractivasPage() {
         </header>
 
         {/* ── Demos disponibles (Grid principal movido arriba) ── */}
-        <section className="section bg-glass py-xl animate-on-scroll">
+        <section className="section bg-dark-soft py-xl animate-on-scroll">
           <div className="container">
             <header className="section-header">
               <h2 className="section-header__title">Proyectos en vivo</h2>
@@ -211,7 +211,7 @@ export default function DemosInteractivasPage() {
               </div>
 
               {/* Tarjeta destacada */}
-              <div className="card bg-glass">
+              <div className="card bg-dark-soft">
                 <h3 className="card__title text-left mb-sm">
                   El enfoque detrás: <Link href="/blog/metodo-orbita" className="text-primary hover:underline">método ORBITA</Link>
                 </h3>
@@ -235,7 +235,7 @@ export default function DemosInteractivasPage() {
         </section>
 
         {/* ── Expectativas y Conclusión ── */}
-        <section className="section bg-glass animate-on-scroll">
+        <section className="section bg-dark-soft animate-on-scroll">
           <div className="container">
             <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
               <div className="text-center" style={{ maxWidth: '800px', width: '100%' }}>

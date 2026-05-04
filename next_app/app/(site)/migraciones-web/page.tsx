@@ -330,7 +330,7 @@ export default function MigracionesWebPage() {
             </div>
 
             <h1 id="hero-title" className="mb-md hero-migraciones__title">
-              <span className="gradient-text">Migraciones Web Seguras</span> para no perder visibilidad ni negocio
+              <span className="text-primary">Migraciones Web Seguras</span> para no perder visibilidad ni negocio
             </h1>
 
             <p className="hero-description text-secondary mb-xl hero-migraciones__subtitle">
@@ -408,7 +408,7 @@ export default function MigracionesWebPage() {
       <section className="section section-services" aria-labelledby="proposal-title">
         <div className="container">
           <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--blue mb-lg">Enfoque</span>
+            <span className="section-eyebrow badge badge--status mb-lg">Enfoque</span>
             <h2 id="proposal-title" className="section-header__title">
               No planteo la migración como un simple traslado
             </h2>
@@ -439,7 +439,7 @@ export default function MigracionesWebPage() {
       <section className="section section-services" aria-labelledby="services-title">
         <div className="container">
           <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--purple mb-lg">Qué incluye</span>
+            <span className="section-eyebrow badge badge--status mb-lg">Qué incluye</span>
             <h2 id="services-title" className="section-header__title">
               Qué incluye mi servicio de migración web
             </h2>
@@ -471,7 +471,7 @@ export default function MigracionesWebPage() {
       <section className="section section-fit" aria-labelledby="fit-title">
         <div className="container">
           <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--cyan mb-lg">Cuándo encaja</span>
+            <span className="section-eyebrow badge badge--status mb-lg">Cuándo encaja</span>
             <h2 id="fit-title" className="section-header__title">
               Cuándo tiene sentido plantear una migración web con criterio
             </h2>
@@ -587,7 +587,7 @@ export default function MigracionesWebPage() {
       <section className="section section-services" aria-labelledby="benefits-title">
         <div className="container">
           <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--blue mb-lg">Beneficios</span>
+            <span className="section-eyebrow badge badge--status mb-lg">Beneficios</span>
             <h2 id="benefits-title" className="section-header__title">
               Qué gana una empresa cuando migra su web con control
             </h2>
@@ -616,7 +616,7 @@ export default function MigracionesWebPage() {
       <section className="section section-scope" aria-labelledby="orbita-title">
         <div className="container">
           <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--purple mb-lg">ORBITA</span>
+            <span className="section-eyebrow badge badge--status mb-lg">ORBITA</span>
             <h2 id="orbita-title" className="section-header__title">
               Una migración bien hecha también sigue una lógica ORBITA
             </h2>
@@ -666,7 +666,7 @@ export default function MigracionesWebPage() {
       <section className="section" aria-labelledby="faq-title">
         <div className="container animate-on-scroll">
           <div className="section-heading section-header">
-            <span className="section-eyebrow badge badge--cyan mb-lg">FAQ</span>
+            <span className="section-eyebrow badge badge--status mb-lg">FAQ</span>
             <h2 id="faq-title" className="section-header__title">
               Preguntas frecuentes sobre migraciones web
             </h2>

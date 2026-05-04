@@ -53,8 +53,8 @@ export default function DisenoWebAlicante() {
       image: "/assets/images/muestras/ledescaparate_muestra.webp",
       badges: [
         { text: "SEO", color: "badge--teal" },
-        { text: "GEO", color: "badge--blue" },
-        { text: "Diseño Web", color: "badge--purple" }
+        { text: "GEO", color: "badge--status" },
+        { text: "Diseño Web", color: "badge--status" }
       ],
       description: "Web de captación de Leads optimizada para respuestas de IA con automatización de procesos. +\nAumento del +250% en tráfico orgánico desde ChatGPT y Perplexity."
     },
@@ -64,8 +64,8 @@ export default function DisenoWebAlicante() {
       colorClass: "project-card__image--blue",
       icon: "cloud" as const,
       badges: [
-        { text: "SEO Local", color: "badge--purple" },
-        { text: "Inmobiliaria", color: "badge--cyan" }
+        { text: "SEO Local", color: "badge--status" },
+        { text: "Inmobiliaria", color: "badge--status" }
       ],
       description: "Portal inmobiliario optimizado para búsquedas en la Costa Blanca.\nIncremento del 40% en leads cualificados."
     },
@@ -75,7 +75,7 @@ export default function DisenoWebAlicante() {
       colorClass: "project-card__image--cyan",
       icon: "finance" as const,
       badges: [
-        { text: "GEO", color: "badge--purple" },
+        { text: "GEO", color: "badge--status" },
         { text: "Turismo", color: "badge--teal" }
       ],
       description: "Estructura semántica avanzada para respuestas de IA sobre ocio y turismo.\nReferencia directa en Google Search Generative Experience."
@@ -160,7 +160,7 @@ export default function DisenoWebAlicante() {
               </div>
 
               <h1 className="mb-md helper-center-mobile">
-                Diseño web <span className="gradient-text">Alicante</span>, SEO y Resultados
+                Diseño web <span className="text-primary">Alicante</span>, SEO y Resultados
               </h1>
 
               <p className="text-secondary mb-xl helper-center-mobile">

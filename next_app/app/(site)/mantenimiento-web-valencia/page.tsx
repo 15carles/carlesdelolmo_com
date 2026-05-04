@@ -211,7 +211,7 @@ export default function MantenimientoWebValenciaPage() {
                 </div>
 
                 <h1 id="hero-title" className="mb-md helper-center-mobile">
-                  Mantenimiento Web <span className="gradient-text">Valencia</span>
+                  Mantenimiento Web <span className="text-primary">Valencia</span>
                 </h1>
 
                 <p className="hero-description text-secondary mb-xl helper-center-mobile">
@@ -292,7 +292,7 @@ export default function MantenimientoWebValenciaPage() {
       <section className="section section-services" aria-labelledby="services-title">
         <div className="container">
           <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--blue mb-lg">Qué incluye</span>
+            <span className="section-eyebrow badge badge--status mb-lg">Qué incluye</span>
             <h2 id="services-title" className="section-header__title">
               Un mantenimiento pensado para que la web siga bien atendida
             </h2>
@@ -349,7 +349,7 @@ export default function MantenimientoWebValenciaPage() {
       <section className="section section-plans" aria-labelledby="plans-title">
         <div className="container">
           <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--purple mb-lg">Modalidad de servicio</span>
+            <span className="section-eyebrow badge badge--status mb-lg">Modalidad de servicio</span>
             <h2 id="plans-title" className="section-header__title">
               No todas las webs necesitan el mismo nivel de mantenimiento
             </h2>
@@ -396,7 +396,7 @@ export default function MantenimientoWebValenciaPage() {
       <section className="section section-fit" aria-labelledby="fit-title">
         <div className="container">
           <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--cyan mb-lg">Encaje del servicio</span>
+            <span className="section-eyebrow badge badge--status mb-lg">Encaje del servicio</span>
             <h2 id="fit-title" className="section-header__title">
               Un servicio pensado para webs que necesitan continuidad real
             </h2>

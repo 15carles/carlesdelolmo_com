@@ -15,7 +15,7 @@ const servicios: ServicioItem[] = [
     description:
       'Creo páginas web profesionales, claras y bien estructuradas para que tu negocio transmita mejor, gane solidez y tenga una base técnica preparada para crecer.',
     label: 'Servicio principal',
-    badgeClass: 'badge--purple',
+    badgeClass: 'badge--status',
     featured: true,
   },
   {
@@ -23,14 +23,14 @@ const servicios: ServicioItem[] = [
     description:
       'Trabajo la arquitectura, los contenidos y la organización de la web para facilitar una mejor comprensión por parte de buscadores y reforzar la visibilidad orgánica.',
     label: 'Visibilidad orgánica',
-    badgeClass: 'badge--blue',
+    badgeClass: 'badge--status',
   },
   {
     title: 'Preparación para IA y GEO',
     description:
       'Optimizo la base semántica y la claridad del sitio para que tu presencia digital esté mejor preparada para entornos de inteligencia artificial y sistemas de respuesta.',
     label: 'Entornos IA',
-    badgeClass: 'badge--cyan',
+    badgeClass: 'badge--status',
   },
   {
     title: 'Automatización como apoyo',

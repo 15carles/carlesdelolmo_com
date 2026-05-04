@@ -71,8 +71,8 @@ export default function ProjectsSection() {
       image: "/assets/images/muestras/ledescaparate_muestra.webp",
       badges: [
         { text: "SEO", color: "badge--teal" },
-        { text: "GEO", color: "badge--blue" },
-        { text: "Diseño Web", color: "badge--purple" }
+        { text: "GEO", color: "badge--status" },
+        { text: "Diseño Web", color: "badge--status" }
       ],
       description: "Web de captación de Leads optimizada para respuestas de IA con automatización de procesos. +\nAumento del +250% en tráfico orgánico desde ChatGPT y Perplexity."
     },
@@ -82,8 +82,8 @@ export default function ProjectsSection() {
       colorClass: "project-card__image--blue",
       icon: "cloud",
       badges: [
-        { text: "GEO", color: "badge--purple" },
-        { text: "SaaS", color: "badge--cyan" }
+        { text: "GEO", color: "badge--status" },
+        { text: "SaaS", color: "badge--status" }
       ],
       description: "Plataforma SaaS con contenido estructurado para IAs.\nPrimera posición en respuestas de Gemini y Claude."
     },
@@ -93,7 +93,7 @@ export default function ProjectsSection() {
       colorClass: "project-card__image--cyan",
       icon: "finance",
       badges: [
-        { text: "GEO", color: "badge--purple" },
+        { text: "GEO", color: "badge--status" },
         { text: "Startup", color: "badge--teal" }
       ],
       description: "Web financiera con datos estructurados para LLMs.\nCitado en más de 500 respuestas de IA mensuales."

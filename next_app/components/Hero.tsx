@@ -17,7 +17,7 @@ export default function Hero() {
 
             <h1 id="hero-title" className="mb-md helper-center-mobile">
               Diseño web estratégico<br />
-              <span className="gradient-text">para empresas</span>
+              <span className="text-primary">para empresas</span>
             </h1>
 
             <p className="text-secondary mb-xl helper-center-mobile hero-subtitle">

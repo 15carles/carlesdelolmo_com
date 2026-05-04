@@ -190,7 +190,7 @@ export default function GoogleReviewsSection({
         {showHeader && (
           <header className="mb-xl text-center animate-on-scroll">
             <h2 id="google-reviews-title" className="section-header__title mb-lg">
-              Reseñas en <span className="gradient-text">Google</span>
+              Reseñas en <span className="text-primary">Google</span>
             </h2>
             
             <div className="flex flex-wrap items-center justify-center" style={{ gap: '1.5rem' }}>

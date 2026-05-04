@@ -65,7 +65,7 @@ export default function SobreCarlesDelOlmoPage() {
             <div className="animate-on-scroll mt-xl">
               <div className="badge badge--status mb-md inline-block">Sobre mí</div>
               <h1 className="page-header__title mb-md">
-                Diseño web con criterio técnico, estructura y una <span className="gradient-text">decisión muy clara de fondo</span>
+                Diseño web con criterio técnico, estructura y una <span className="text-primary">decisión muy clara de fondo</span>
               </h1>
               <p className="page-header__subtitle max-w-2xl mx-auto">
                 Soy Carles del Olmo, diseñador web en Valencia con foco en rendimiento, estructura semántica, SEO técnico y GEO.
@@ -87,7 +87,7 @@ export default function SobreCarlesDelOlmoPage() {
           <div className="container">
             <div className="grid grid-cols-2 gap-xl items-center mb-2xl">
               <div className="card animate-on-scroll h-full">
-                <div className="badge badge--purple mb-md">El punto de partida</div>
+                <div className="badge badge--status mb-md">El punto de partida</div>
                 <h2 className="text-2xl mb-md">No llegué a este camino por casualidad</h2>
                 <div className="text-secondary text-lg text-left">
                   <p className="mb-sm">Llegué porque entendí que quería construir algo propio, más sólido y alineado con cómo pienso y cómo trabajo.</p>
@@ -96,8 +96,8 @@ export default function SobreCarlesDelOlmoPage() {
               </div>
 
               <div className="card animate-on-scroll h-full">
-                <div className="badge badge--cyan mb-md">Mi base</div>
-                <h2 className="text-2xl mb-md">No empecé en el diseño web, <span className="gradient-text">empecé entendiendo procesos</span></h2>
+                <div className="badge badge--status mb-md">Mi base</div>
+                <h2 className="text-2xl mb-md">No empecé en el diseño web, <span className="text-primary">empecé entendiendo procesos</span></h2>
                 <div className="text-secondary text-lg text-left">
                   <p className="mb-sm">Antes de centrarme en el código, trabajé en administración orientada a procesos. Ahí aprendí que muchos problemas surgen de sistemas mal planteados.</p>
                   <p className="mb-0"><strong>Hoy no veo una web como una pieza visual.</strong> La veo como un sistema que tiene que ser claro, rápido, comprensible y útil para el negocio.</p>
@@ -105,7 +105,7 @@ export default function SobreCarlesDelOlmoPage() {
               </div>
             </div>
 
-            <div className="card precision-grid-card animate-on-scroll border-cyan-900/30 px-md py-xl md:p-xl text-center max-w-4xl mx-auto">
+            <div className="card precision-grid-card animate-on-scroll border-border/50 px-md py-xl md:p-xl text-center max-w-4xl mx-auto">
               <div className="badge badge--status mb-md">Punto de inflexión</div>
               <h2 className="text-2xl md:text-3xl mb-md">La DANA no fue solo un golpe. Fue una llamada de atención</h2>
               <div className="text-secondary text-lg text-left md:text-center max-w-3xl mx-auto">
@@ -124,7 +124,7 @@ export default function SobreCarlesDelOlmoPage() {
           <div className="container">
             <div className="grid grid-cols-2 gap-xl items-center animate-on-scroll">
               <div className="col-span-2 lg:col-span-1 text-left">
-                <h2 className="mb-md">Qué hago hoy y <span className="gradient-text">cómo entiendo este trabajo</span></h2>
+                <h2 className="mb-md">Qué hago hoy y <span className="text-primary">cómo entiendo este trabajo</span></h2>
                 <div className="text-secondary text-lg">
                   <p className="mb-sm">Hoy desarrollo webs con una visión que mezcla diseño, estructura, rendimiento y estrategia de visibilidad.</p>
                   <p className="mb-sm">Me interesa que una web se vea bien, por supuesto. Pero me interesa todavía más que esté bien pensada.</p>
@@ -162,15 +162,15 @@ export default function SobreCarlesDelOlmoPage() {
         </section>
 
         {/* ── SECCIÓN 4: Las 3 cosas que más me importan ── */}
-        <section className="section bg-glass">
+        <section className="section bg-dark-soft">
           <div className="container">
             <header className="section-header text-center animate-on-scroll">
-              <h2 className="section-header__title">Las tres cosas que <span className="gradient-text">más me importan</span> cuando trabajo un proyecto</h2>
+              <h2 className="section-header__title">Las tres cosas que <span className="text-primary">más me importan</span> cuando trabajo un proyecto</h2>
             </header>
 
             <div className="grid grid-cols-3 gap-lg mt-xl">
               <article className="card precision-grid-card animate-on-scroll flex flex-col items-center">
-                <div className="text-4xl font-bold gradient-text mb-sm inline-block">01</div>
+                <div className="text-4xl font-bold text-primary mb-sm inline-block">01</div>
                 <h3 className="card__title text-center text-xl mb-md">Que todo tenga sentido</h3>
                 <p className="card__content text-center mb-0">
                   No me gusta añadir elementos porque sí. Cada bloque, cada mensaje y cada decisión deberían responder a una lógica.
@@ -178,7 +178,7 @@ export default function SobreCarlesDelOlmoPage() {
               </article>
 
               <article className="card precision-grid-card animate-on-scroll flex flex-col items-center">
-                <div className="text-4xl font-bold gradient-text mb-sm inline-block">02</div>
+                <div className="text-4xl font-bold text-primary mb-sm inline-block">02</div>
                 <h3 className="card__title text-center text-xl mb-md">Que la estructura ayude</h3>
                 <p className="card__content text-center mb-0">
                   Una web puede tener buen diseño y aun así ser confusa. La claridad no aparece sola. Hay que construirla.
@@ -186,7 +186,7 @@ export default function SobreCarlesDelOlmoPage() {
               </article>
 
               <article className="card precision-grid-card animate-on-scroll flex flex-col items-center">
-                <div className="text-4xl font-bold gradient-text mb-sm inline-block">03</div>
+                <div className="text-4xl font-bold text-primary mb-sm inline-block">03</div>
                 <h3 className="card__title text-center text-xl mb-md">Que sirva para algo real</h3>
                 <p className="card__content text-center mb-0">
                   No trabajo pensando en métricas vacías. Trabajo pensando en utilidad, visibilidad y capacidad de conversión.
@@ -203,7 +203,7 @@ export default function SobreCarlesDelOlmoPage() {
               
               <div className="card h-full">
                 <div className="badge badge--teal mb-md">Más allá del diseño</div>
-                <h2 className="text-2xl mb-md">Conectar técnica con <span className="gradient-text">mentalidad práctica</span></h2>
+                <h2 className="text-2xl mb-md">Conectar técnica con <span className="text-primary">mentalidad práctica</span></h2>
                 <div className="text-secondary text-lg text-left">
                   <p className="mb-sm">Me gusta entender cómo funcionan las cosas, detectar dónde falla un sistema, ordenar y simplificar sin simplificar de más.</p>
                   <p className="mb-sm">Esa combinación me lleva a trabajar con un enfoque metódico. Prefiero entender la base, ver qué está mal planteado y construir desde ahí algo sólido.</p>
@@ -234,7 +234,7 @@ export default function SobreCarlesDelOlmoPage() {
           <div className="container">
             <div className="cta-section">
               <h2 className="cta-section__title text-2xl md:text-3xl lg:text-4xl">
-                Si has llegado hasta aquí, probablemente <span className="gradient-text">no buscas una web cualquiera</span>
+                Si has llegado hasta aquí, probablemente <span className="text-primary">no buscas una web cualquiera</span>
               </h2>
               
               <div className="text-secondary mb-xl max-w-3xl mx-auto text-lg">

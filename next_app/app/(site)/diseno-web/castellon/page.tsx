@@ -53,8 +53,8 @@ export default function DisenoWebCastellon() {
       image: "/assets/images/muestras/ledescaparate_muestra.webp",
       badges: [
         { text: "SEO", color: "badge--teal" },
-        { text: "GEO", color: "badge--blue" },
-        { text: "Diseño Web", color: "badge--purple" }
+        { text: "GEO", color: "badge--status" },
+        { text: "Diseño Web", color: "badge--status" }
       ],
       description: "Web de captación de Leads optimizada para respuestas de IA con automatización de procesos. +\nAumento del +250% en tráfico orgánico desde ChatGPT y Perplexity."
     },
@@ -64,8 +64,8 @@ export default function DisenoWebCastellon() {
       colorClass: "project-card__image--blue",
       icon: "cloud" as const,
       badges: [
-        { text: "SEO Técnico", color: "badge--purple" },
-        { text: "B2B", color: "badge--cyan" }
+        { text: "SEO Técnico", color: "badge--status" },
+        { text: "B2B", color: "badge--status" }
       ],
       description: "Catálogo digital optimizado para el sector cerámico de Castellón.\nMejora del 60% en la velocidad de carga y experiencia móvil."
     },
@@ -75,7 +75,7 @@ export default function DisenoWebCastellon() {
       colorClass: "project-card__image--cyan",
       icon: "finance" as const,
       badges: [
-        { text: "GEO", color: "badge--purple" },
+        { text: "GEO", color: "badge--status" },
         { text: "Industria", color: "badge--teal" }
       ],
       description: "Arquitectura de datos estructurados para servicios logísticos e industriales.\nReferencia de confianza en respuestas de IA empresariales."
@@ -160,7 +160,7 @@ export default function DisenoWebCastellon() {
               </div>
 
               <h1 className="mb-md helper-center-mobile">
-                Diseño web <span className="gradient-text">Castellón</span>, SEO e Innovación
+                Diseño web <span className="text-primary">Castellón</span>, SEO e Innovación
               </h1>
 
               <p className="text-secondary mb-xl helper-center-mobile">

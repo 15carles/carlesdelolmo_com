@@ -362,7 +362,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     : props.variant === 'gradient'
                       ? 'bg-gradient'
                       : props.variant === 'glass'
-                        ? 'bg-glass'
+                        ? 'bg-dark-soft'
                         : '';
               
               const paddingClass = props.padding === 'large' ? 'padding-large' :

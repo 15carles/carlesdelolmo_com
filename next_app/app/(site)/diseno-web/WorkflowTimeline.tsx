@@ -6,8 +6,8 @@ const phases = [
   {
     id: '01',
     colorTag: 'purple',
-    titleClass: 'text-purple-400',
-    activeClass: 'border-purple-500/40 shadow-[0_0_40px_rgba(168,85,247,0.1)] bg-neutral-900/60',
+    titleClass: 'text-primary',
+    activeClass: 'border-border-strong bg-surface',
     title: 'Análisis del proyecto',
     desc: 'El primer paso es entender el negocio, sus servicios y los objetivos. Esto permite definir qué información debe aparecer, cómo se organizará el contenido y qué papel tendrá la web dentro de la estrategia digital.'
   },
@@ -15,15 +15,15 @@ const phases = [
     id: '02',
     colorTag: 'blue',
     titleClass: 'text-blue-400',
-    activeClass: 'border-blue-500/40 shadow-[0_0_40px_rgba(59,130,246,0.1)] bg-neutral-900/60',
+    activeClass: 'border-border-strong bg-surface',
     title: 'Definición de la estructura',
     desc: 'Una vez claro el objetivo del proyecto, se diseña la arquitectura de la web. Esto incluye la organización de las páginas, la jerarquía del contenido y la forma en que el visitante navegará por el sitio.'
   },
   {
     id: '03',
     colorTag: 'cyan',
-    titleClass: 'text-cyan-400',
-    activeClass: 'border-cyan-500/40 shadow-[0_0_40px_rgba(6,182,212,0.1)] bg-neutral-900/60',
+    titleClass: 'text-primary',
+    activeClass: 'border-border-strong bg-surface',
     title: 'Desarrollo y optimización',
     desc: 'Con la estructura definida comienza el desarrollo de la web. Durante esta fase se trabaja tanto el diseño como la base técnica para asegurar buen rendimiento, velocidad de carga y compatibilidad con dispositivos.'
   },
@@ -31,7 +31,7 @@ const phases = [
     id: '04',
     colorTag: 'teal',
     titleClass: 'text-teal-400',
-    activeClass: 'border-teal-500/40 shadow-[0_0_40px_rgba(20,184,166,0.1)] bg-neutral-900/60',
+    activeClass: 'border-border-strong bg-surface',
     title: 'Publicación y evolución',
     desc: 'Una vez publicada, la web se convierte en un activo digital que puede seguir creciendo. A partir de ese momento se pueden mejorar contenidos, ampliar secciones y optimizar el posicionamiento en buscadores.'
   }

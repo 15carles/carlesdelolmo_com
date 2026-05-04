@@ -23,19 +23,19 @@ export default function PosicionamientoSeoGeo() {
       title: 'Dominio de Google Local',
       description: 'Optimizamos tu Google Business Profile y tu autoridad local para captar clientes en tu zona de influencia.',
       icon: MapPin,
-      color: 'text-purple-400'
+      color: 'text-brand-primary'
     },
     {
       title: 'Estrategia de Contenido Semántico',
       description: 'Creamos y optimizamos contenido basado en entidades, no solo en palabras clave, para ser entendidos por IAs.',
       icon: Sparkles,
-      color: 'text-blue-400'
+      color: 'text-brand-secondary'
     },
     {
       title: 'Crecimiento Sostenible',
       description: 'Enfoque en tráfico de calidad que realmente convierte visitas en clientes finales.',
       icon: TrendingUp,
-      color: 'text-cyan-400'
+      color: 'text-accent'
     }
   ];
 
@@ -46,10 +46,10 @@ export default function PosicionamientoSeoGeo() {
       <section className="section">
         <div className="container">
           <header className="section-header animate-on-scroll">
-            <div className="badge badge--blue mb-lg">
+            <div className="badge badge--status mb-lg">
               <span>Servicio de Continuidad</span>
             </div>
-            <h1 className="section-header__title">Posicionamiento <span className="gradient-text">SEO + GEO</span></h1>
+            <h1 className="section-header__title">Posicionamiento <span className="text-primary">SEO + GEO</span></h1>
             <p className="section-header__subtitle">
               Estrategia híbrida para liderar los resultados de búsqueda tradicionales y las nuevas respuestas generativas.
             </p>
@@ -65,9 +65,9 @@ export default function PosicionamientoSeoGeo() {
                 Nuestro servicio mensual de posicionamiento SEO + GEO asegura que tu negocio mantenga una autoridad sólida en todos estos canales de forma simultánea.
               </p>
               
-              <div className="card card--no-hover p-lg border-blue-900/20 bg-dark-soft">
+              <div className="card card--no-hover p-lg border-border/50 bg-surface">
                 <div className="flex items-center gap-4 mb-md">
-                  <span className="text-2xl font-bold gradient-text">600€/mes</span>
+                  <span className="text-2xl font-bold text-primary">600€/mes</span>
                   <span className="text-muted text-sm">(Compromiso sugerido de 6 meses)</span>
                 </div>
                 <Link href="/contacto" className="btn btn--primary btn--block" data-primary-cta="true">Empezar ahora</Link>
@@ -90,13 +90,13 @@ export default function PosicionamientoSeoGeo() {
       </section>
 
       {/* SEO vs GEO Comparison */}
-      <section className="section bg-dark-soft">
+      <section className="section bg-surface">
         <div className="container">
           <h2 className="text-center mb-xl">¿Por qué SEO + GEO juntos?</h2>
           <div className="grid grid-cols-2 gap-xl">
-            <div className="card p-xl border-purple-900/10">
+            <div className="card p-xl border-border/50">
               <h3 className="mb-md flex items-center gap-2">
-                <Globe className="text-purple-400" size={24} /> SEO Tradicional
+                <Globe className="text-brand-primary" size={24} /> SEO Tradicional
               </h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2 text-sm text-secondary">
@@ -113,21 +113,21 @@ export default function PosicionamientoSeoGeo() {
                 </li>
               </ul>
             </div>
-            <div className="card p-xl border-blue-900/10">
+            <div className="card p-xl border-border/50">
               <h3 className="mb-md flex items-center gap-2">
-                <Sparkles className="text-blue-400" size={24} /> GEO (Optimización IA)
+                <Sparkles className="text-brand-secondary" size={24} /> GEO (Optimización IA)
               </h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-2 text-sm text-secondary">
-                  <CheckCircle2 size={16} className="text-blue-400 mt-1 shrink-0" />
+                  <CheckCircle2 size={16} className="text-brand-secondary mt-1 shrink-0" />
                   <span>Optimización semántica basada en entidades.</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-secondary">
-                  <CheckCircle2 size={16} className="text-blue-400 mt-1 shrink-0" />
+                  <CheckCircle2 size={16} className="text-brand-secondary mt-1 shrink-0" />
                   <span>Mejora de la citación de marca en LLMs.</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-secondary">
-                  <CheckCircle2 size={16} className="text-blue-400 mt-1 shrink-0" />
+                  <CheckCircle2 size={16} className="text-brand-secondary mt-1 shrink-0" />
                   <span>Estructuración de datos para respuestas inteligentes.</span>
                 </li>
               </ul>

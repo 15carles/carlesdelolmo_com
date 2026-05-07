@@ -10,15 +10,14 @@ export const metadata = {
 
 export default function GraciasPage() {
   return (
-    <main className="section flex items-center justify-center" style={{ minHeight: '80vh' }}>
+    <main className="section flex items-center justify-center min-h-80vh">
       <div className="container text-center animate-fade-in-up">
         {/* Success Icon */}
         <div className="mb-lg">
           <CheckCircle 
             size={80} 
             strokeWidth={1.5} 
-            className="text-accent-purple" 
-            style={{ margin: '0 auto', color: 'var(--color-accent-purple)' }} 
+            className="mx-auto text-brand-primary"
           />
         </div>
 

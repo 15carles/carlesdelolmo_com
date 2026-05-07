@@ -621,6 +621,7 @@
     margin-top: var(--spacing-md);
     margin-bottom: var(--spacing-md);
 }
+.min-h-80vh { min-height: 80vh; }
 
 .max-w-lg { max-width: 32rem; }
 .max-w-2xl { max-width: 42rem; }

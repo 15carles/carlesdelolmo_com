@@ -40,7 +40,7 @@ export default function PosicionamientoSeoGeo() {
   ];
 
   return (
-    <main className="page__content">
+    <main className="page__content page--seo-growth">
       <Breadcrumbs items={breadcrumbs} />
 
       <section className="section">

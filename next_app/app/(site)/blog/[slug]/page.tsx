@@ -81,7 +81,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
-      <main className="page__content">
+      <main className="page__content page--blog-post">
         <header className="page-header animate-on-scroll">
           <div className="container">
             <Breadcrumbs items={breadcrumbs} />
@@ -171,10 +171,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     </div>
                   ),
                   ctaSection: (props) => (
-                    <div className="cta-section mt-2xl">
-                      <h2 className="cta-section__title" style={{ fontSize: '1.5rem' }}>{props.title}</h2>
+                    <div className="cta-section blog-article-cta mt-2xl">
+                      <h2 className="cta-section__title blog-article-cta__title">{props.title}</h2>
                       <p className="cta-section__text">{props.text}</p>
-                      <div className="cta-section__buttons" style={{ marginTop: '2rem' }}>
+                      <div className="cta-section__buttons blog-article-cta__buttons">
                         <Link
                           href={props.buttonLink || '/contacto'}
                           className={`btn btn--${props.buttonVariant || 'primary'}`}
@@ -185,24 +185,18 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     </div>
                   ),
                   notice: (props) => {
-                    const colors = {
-                      info: 'var(--color-accent-blue)',
-                      warning: 'var(--color-accent-purple)',
-                      tip: 'var(--color-accent-green)'
-                    };
+                    const noticeType: 'info' | 'warning' | 'tip' =
+                      props.type === 'warning' || props.type === 'tip' ? props.type : 'info';
                     const icons = {
                       info: 'ℹ️',
                       warning: '⚠️',
                       tip: '💡'
                     };
                     return (
-                      <div
-                        className="article-box mt-lg mb-lg"
-                        style={{ borderLeft: `4px solid ${colors[props.type as keyof typeof colors] || colors.info}` }}
-                      >
-                        <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '0.5rem', fontWeight: 'bold', fontSize: '0.9rem', color: colors[props.type as keyof typeof colors] }}>
-                          <span>{icons[props.type as keyof typeof icons] || icons.info}</span>
-                          <span style={{ textTransform: 'uppercase' }}>{props.type}</span>
+                      <div className={`article-box blog-notice blog-notice--${noticeType} mt-lg mb-lg`}>
+                        <div className="blog-notice__label">
+                          <span>{icons[noticeType]}</span>
+                          <span>{noticeType}</span>
                         </div>
                         {props.content}
                       </div>

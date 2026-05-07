@@ -50,7 +50,7 @@ export default function DisenoWebPage() {
   const jsonLd = generateFaqPageSchema(disenoWebFaqs, `${SITE_URL}/diseno-web#faq`);
 
   return (
-    <main className="page__content">
+    <main className="page__content page--diseno-web">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}

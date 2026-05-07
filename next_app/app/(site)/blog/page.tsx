@@ -67,7 +67,7 @@ export default async function BlogIndex() {
     .sort((a, b) => toTimestamp(b.isoDate, b.date) - toTimestamp(a.isoDate, a.date));
 
   return (
-    <main className="page__content">
+    <main className="page__content page--blog-index">
       <header className="page-header animate-on-scroll">
         <div className="container">
           <Breadcrumbs items={breadcrumbs} />

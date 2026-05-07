@@ -201,7 +201,7 @@ export default function DisenoWebValencia() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
-      <main className="page__content">
+      <main className="page__content page--diseno-web-valencia">
         <Breadcrumbs items={breadcrumbs} />
 
         {/* Hero Section */}

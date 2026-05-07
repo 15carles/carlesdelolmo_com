@@ -11,7 +11,7 @@ export const metadata = constructMetadata({
 
 export default function ContactPage() {
   return (
-    <main className="page__content">
+    <main className="page__content page--contact">
       <section id="contacto" className="pricing-contact">
         <div className="container">
           <header className="section-header animate-on-scroll mb-lg">

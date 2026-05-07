@@ -315,7 +315,7 @@ export default function AutoridadDigitalIas() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }} />
 
-      <main className="page__content">
+      <main className="page__content page--authority-ia">
         <Breadcrumbs items={breadcrumbs} />
 
         <section id="inicio" className="section hero hero-service" aria-labelledby="hero-title">

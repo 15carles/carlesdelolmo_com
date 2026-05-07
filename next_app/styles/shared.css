@@ -516,3 +516,284 @@
 .text-xs { font-size: 0.75rem; }
 .tracking-wide { letter-spacing: 0.05em; }
 .underline { text-decoration: underline; }
+
+/* ============================================
+   UTILIDADES DE COMPATIBILIDAD (FASE 5D)
+   ============================================ */
+.inline-block { display: inline-block; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inset-0 { inset: 0; }
+.z-10 { z-index: 10; }
+.object-cover { object-fit: cover; }
+.shrink-0 { flex-shrink: 0; }
+.h-full { height: 100%; }
+.w-16 { width: 4rem; }
+.h-16 { height: 4rem; }
+.aspect-\[3\/2\] { aspect-ratio: 3 / 2; }
+.max-w-\[300px\] { max-width: 300px; }
+
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-r-lg {
+    border-top-right-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
+}
+
+.bg-dark-soft {
+    background-color: var(--color-bg-elevated);
+    border-top: 1px solid var(--color-border-subtle);
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.bg-surface {
+    background: var(--color-surface);
+}
+
+.bg-surface\/60 {
+    background: var(--color-surface-soft);
+    opacity: 0.72;
+}
+
+.glass-effect {
+    background: var(--color-bg-card-strong);
+    border: 1px solid var(--color-border-strong);
+    box-shadow: var(--shadow-sm);
+}
+
+.border-border\/50 {
+    border-color: var(--color-border-strong);
+}
+
+.border-border-strong {
+    border-color: var(--color-border-strong);
+}
+
+.border-brand {
+    border-color: var(--color-brand-primary);
+}
+
+.border-l-2 {
+    border-left-width: 2px;
+    border-left-style: solid;
+}
+
+.text-primary { color: var(--color-text-primary); }
+.text-brand-primary { color: var(--color-brand-primary); }
+.text-brand-secondary { color: var(--color-brand-secondary); }
+.text-accent { color: var(--color-accent); }
+.text-teal-400 { color: var(--color-accent); }
+
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.italic { font-style: italic; }
+.leading-relaxed { line-height: 1.75; }
+
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-3xl { font-size: 1.875rem; }
+.text-4xl { font-size: 2.25rem; }
+
+.p-lg { padding: var(--spacing-lg); }
+.p-xl { padding: var(--spacing-xl); }
+.p-2xl { padding: var(--spacing-2xl); }
+.py-2xl {
+    padding-top: var(--spacing-2xl);
+    padding-bottom: var(--spacing-2xl);
+}
+.pb-md { padding-bottom: var(--spacing-md); }
+.pb-3xl { padding-bottom: var(--spacing-3xl); }
+.mt-xs { margin-top: var(--spacing-xs); }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2xl { margin-top: var(--spacing-2xl); }
+.mt-3xl { margin-top: var(--spacing-3xl); }
+.mt-auto { margin-top: auto; }
+.mb-xs { margin-bottom: var(--spacing-xs); }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.m-0 { margin: 0; }
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+.my-md {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.max-w-lg { max-width: 32rem; }
+.max-w-2xl { max-width: 42rem; }
+.max-w-3xl { max-width: 48rem; }
+.max-w-4xl { max-width: 56rem; }
+
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-2xl { gap: var(--spacing-2xl); }
+
+.flex-wrap { flex-wrap: wrap; }
+
+@media (min-width: 640px) {
+    .sm\:w-auto { width: auto; }
+}
+
+@media (min-width: 768px) {
+    .md\:p-xl { padding: var(--spacing-xl); }
+    .md\:text-center { text-align: center; }
+}
+
+@media (min-width: 1024px) {
+    .lg\:col-span-1 { grid-column: span 1 / span 1; }
+    .lg\:block { display: block; }
+}
+
+/* ============================================
+   RITMO EDITORIAL DE PLANTILLAS (FASE 5D)
+   ============================================ */
+.page--blog-index .page-header,
+.page--blog-post .page-header,
+.page--demos .page-header,
+.page--about .page-header {
+    padding-bottom: var(--spacing-lg);
+}
+
+.page--blog-index .post-list {
+    gap: var(--spacing-xl);
+}
+
+.page--blog-post .article-content {
+    max-width: 52rem;
+    line-height: 1.78;
+}
+
+.page--blog-post .article-content p,
+.page--blog-post .article-content li {
+    color: var(--color-text-secondary);
+}
+
+.blog-article-cta {
+    margin-top: var(--spacing-3xl);
+}
+
+.blog-article-cta__title {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+}
+
+.blog-article-cta__buttons {
+    margin-top: var(--spacing-xl);
+}
+
+.blog-notice {
+    border-left-width: 4px;
+    border-left-style: solid;
+}
+
+.blog-notice--info {
+    border-left-color: var(--color-state-info);
+}
+
+.blog-notice--warning {
+    border-left-color: var(--color-state-warning);
+}
+
+.blog-notice--tip {
+    border-left-color: var(--color-state-success);
+}
+
+.blog-notice__label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+}
+
+.page--contact .pricing-contact {
+    padding-top: var(--spacing-2xl);
+}
+
+.page--contact .card.card--no-hover {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page--demos .section-header {
+    margin-bottom: var(--spacing-xl);
+}
+
+.demos-conclusion-shell {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.demos-conclusion-inner {
+    width: 100%;
+    max-width: 50rem;
+}
+
+.demos-conclusion-divider {
+    margin: 2rem auto;
+}
+
+.page--about .cta-section {
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page--free-audit .section {
+    padding-top: var(--spacing-2xl);
+    padding-bottom: var(--spacing-2xl);
+}
+
+.page--free-audit .section-header {
+    margin-bottom: var(--spacing-xl);
+}
+
+.free-audit-hero {
+    padding-top: var(--spacing-3xl);
+}
+
+.free-audit-hero-actions {
+    flex-wrap: wrap;
+}
+
+.free-audit-highlight-value--secondary {
+    color: var(--color-brand-secondary);
+}
+
+.free-audit-highlight-value--accent {
+    color: var(--color-accent);
+}
+
+.free-audit-step-time {
+    margin-top: auto;
+    justify-content: flex-start;
+}
+
+.free-audit-form-shell {
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.free-audit-checklist-item {
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.free-audit-final-cta {
+    max-width: 52rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.free-audit-final-cta__text {
+    max-width: 32.5rem;
+    margin: 0 auto var(--spacing-xl);
+}

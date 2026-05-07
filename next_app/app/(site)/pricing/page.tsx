@@ -58,7 +58,7 @@ export default function PricingPage() {
         dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
       <PricingTabs />
-      <main className="page">
+      <main className="page page--pricing">
         <div className="page__content">
           {/* CABECERA DE PÁGINA */}
           <header className="page-header">

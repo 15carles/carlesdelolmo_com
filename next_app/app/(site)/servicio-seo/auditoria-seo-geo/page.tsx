@@ -42,7 +42,7 @@ export default function AuditoriaSeoGeo() {
   ];
 
   return (
-    <main className="page__content">
+    <main className="page__content page--seo-audit">
       <Breadcrumbs items={breadcrumbs} />
 
       <section className="section">

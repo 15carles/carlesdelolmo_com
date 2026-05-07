@@ -93,7 +93,7 @@ export default function DemosInteractivasPage() {
         dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
 
-      <main className="page__content">
+      <main className="page__content page--demos">
         {/* ── Hero / Header ── */}
         <header className="page-header animate-on-scroll">
           <div className="container">
@@ -237,17 +237,17 @@ export default function DemosInteractivasPage() {
         {/* ── Expectativas y Conclusión ── */}
         <section className="section bg-dark-soft animate-on-scroll">
           <div className="container">
-            <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-              <div className="text-center" style={{ maxWidth: '800px', width: '100%' }}>
+            <div className="demos-conclusion-shell">
+              <div className="text-center demos-conclusion-inner">
                 <h2 className="section-header__title mb-md">Qué puedes esperar si trabajamos juntos</h2>
-                <div className="article-content" style={{ margin: '0 auto' }}>
+                <div className="article-content mx-auto">
                   <p>
                     Si decides trabajar conmigo, el enfoque no será replicar una demo. Será construir algo adaptado a tu caso. Eso implica analizar el punto de partida, definir qué se necesita realmente, y estructurar la web como un sistema con una base técnica sólida.
                   </p>
                   <p className="mt-sm font-bold text-primary">
                     No trabajo sobre plantillas genéricas. Trabajo sobre problemas concretos.
                   </p>
-                  <hr className="my-md opacity-20" style={{ margin: '2rem auto' }} />
+                  <hr className="my-md opacity-20 demos-conclusion-divider" />
                   <p>
                     Las demos no sustituyen a un proyecto real. Pero sí permiten ver algo importante: <strong>cómo se piensa antes de construir</strong>. En un entorno donde muchas webs se parecen entre sí, la diferencia real está en la estructura, en la lógica y en las decisiones. Eso es lo que intentan enseñar estas demos.
                   </p>

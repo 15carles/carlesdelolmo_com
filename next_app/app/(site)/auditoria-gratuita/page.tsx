@@ -186,13 +186,13 @@ export default function AuditoriaGratuitaPage() {
   const jsonLd = generateAuditOfferSchema(FAQ_ITEMS);
 
   return (
-    <main className="page__content">
+    <main className="page__content page--free-audit">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
       {/* ── HERO ── */}
-      <section className="section" style={{ paddingTop: 'var(--spacing-3xl)' }}>
+      <section className="section free-audit-hero">
         <div className="container">
           <div className="section-header animate-fade-in-up">
             <div className="badge badge--status mb-lg">
@@ -212,7 +212,7 @@ export default function AuditoriaGratuitaPage() {
 
             <div className="audit-highlight-bar animate-fade-in-up">
               <div className="audit-highlight-item">
-                <div className="audit-highlight-value" style={{ color: 'var(--color-accent-teal)' }}>
+                <div className="audit-highlight-value free-audit-highlight-value--secondary">
                   +750€
                 </div>
                 <div className="audit-highlight-label">Valor real</div>
@@ -224,14 +224,14 @@ export default function AuditoriaGratuitaPage() {
                 <div className="audit-highlight-label">Lo que pagas</div>
               </div>
               <div className="audit-highlight-item">
-                <div className="audit-highlight-value" style={{ color: 'var(--color-accent-cyan)' }}>
+                <div className="audit-highlight-value free-audit-highlight-value--accent">
                   Mayo
                 </div>
                 <div className="audit-highlight-label">Solo este mes</div>
               </div>
             </div>
 
-            <div className="mt-xl flex gap-md" style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div className="mt-xl flex gap-md justify-center free-audit-hero-actions">
               <a href="#formulario" className="btn btn--primary btn--large">
                 Quiero mi auditoría gratuita
               </a>
@@ -240,7 +240,7 @@ export default function AuditoriaGratuitaPage() {
               </Link>
             </div>
 
-            <div className="mt-xl flex items-center gap-sm" style={{ justifyContent: 'center', color: 'var(--color-text-muted)' }}>
+            <div className="mt-xl flex items-center gap-sm justify-center text-muted">
               <ArrowDown size={16} className="animate-bounce" />
               <span className="text-sm">Descubre qué recibirás</span>
             </div>
@@ -265,7 +265,7 @@ export default function AuditoriaGratuitaPage() {
                   {item.illustration}
                 </div>
                 <h3 className="text-lg mb-2">{item.title}</h3>
-                <p className="text-secondary text-sm" style={{ lineHeight: '1.7' }}>
+                <p className="text-secondary text-sm leading-relaxed">
                   {item.description}
                 </p>
               </article>
@@ -276,7 +276,7 @@ export default function AuditoriaGratuitaPage() {
             <h3 className="text-center mb-xl">El informe final incluye</h3>
             <div className="grid grid-cols-3 gap-lg">
               <div className="audit-checklist-item">
-                <CheckCircle2 size={24} style={{ color: 'var(--color-accent-purple)' }} className="shrink-0" />
+                <CheckCircle2 size={24} className="shrink-0 text-brand-primary" />
                 <div>
                   <h4 className="font-bold mb-1">Errores priorizados</h4>
                   <p className="text-sm text-secondary">
@@ -285,7 +285,7 @@ export default function AuditoriaGratuitaPage() {
                 </div>
               </div>
               <div className="audit-checklist-item">
-                <CheckCircle2 size={24} style={{ color: 'var(--color-accent-purple)' }} className="shrink-0" />
+                <CheckCircle2 size={24} className="shrink-0 text-brand-primary" />
                 <div>
                   <h4 className="font-bold mb-1">Estrategia GEO</h4>
                   <p className="text-sm text-secondary">
@@ -294,7 +294,7 @@ export default function AuditoriaGratuitaPage() {
                 </div>
               </div>
               <div className="audit-checklist-item">
-                <CheckCircle2 size={24} style={{ color: 'var(--color-accent-purple)' }} className="shrink-0" />
+                <CheckCircle2 size={24} className="shrink-0 text-brand-primary" />
                 <div>
                   <h4 className="font-bold mb-1">Benchmarking competitivo</h4>
                   <p className="text-sm text-secondary">
@@ -330,10 +330,10 @@ export default function AuditoriaGratuitaPage() {
                   </div>
                 </div>
                 <h3 className="text-lg">{step.title}</h3>
-                <p className="text-secondary text-sm" style={{ lineHeight: '1.7' }}>
+                <p className="text-secondary text-sm leading-relaxed">
                   {step.description}
                 </p>
-                <div className="flex items-center gap-sm text-muted text-sm" style={{ marginTop: 'auto', justifyContent: 'flex-start' }}>
+                <div className="flex items-center gap-sm text-muted text-sm free-audit-step-time">
                   <Clock size={14} />
                   <span>{step.time}</span>
                 </div>
@@ -357,7 +357,7 @@ export default function AuditoriaGratuitaPage() {
             </p>
           </div>
 
-          <div style={{ maxWidth: '640px', margin: '0 auto' }} className="animate-on-scroll card card--glass p-xl">
+          <div className="animate-on-scroll card card--glass p-xl free-audit-form-shell">
             <AuditoriaGratuitaForm />
           </div>
 
@@ -385,11 +385,10 @@ export default function AuditoriaGratuitaPage() {
               </h2>
               <div className="flex flex-col gap-md">
                 {FOR_WHOM.map((item) => (
-                  <div key={item} className="audit-checklist-item" style={{ padding: 'var(--spacing-sm) var(--spacing-md)' }}>
+                  <div key={item} className="audit-checklist-item free-audit-checklist-item">
                     <CheckCircle2
                       size={20}
-                      className="shrink-0 mt-1"
-                      style={{ color: 'var(--color-accent-purple)' }}
+                      className="shrink-0 mt-1 text-brand-primary"
                     />
                     <span className="text-secondary">{item}</span>
                   </div>
@@ -439,15 +438,12 @@ export default function AuditoriaGratuitaPage() {
       {/* ── CTA FINAL ── */}
       <section className="section">
         <div className="container">
-          <div
-            className="card card--glass card--no-hover p-2xl text-center animate-on-scroll"
-            style={{ maxWidth: '820px', margin: '0 auto' }}
-          >
-            <div className="badge badge--status mb-lg" style={{ display: 'inline-block' }}>
+          <div className="card card--glass card--no-hover p-2xl text-center animate-on-scroll free-audit-final-cta">
+            <div className="badge badge--status mb-lg inline-block">
               <span>Plazas limitadas</span>
             </div>
             <h2 className="mb-md">¿Resuelto? Reserva tu plaza ahora</h2>
-            <p className="text-secondary mb-xl" style={{ maxWidth: '520px', margin: '0 auto var(--spacing-xl)' }}>
+            <p className="text-secondary mb-xl free-audit-final-cta__text">
               El orden de llegada determina las plazas. Cuando se llenen, cierro la promoción y vuelvo a la tarifa de 750€.
             </p>
             <a href="#formulario" className="btn btn--primary btn--large">

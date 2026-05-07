@@ -54,7 +54,7 @@ export default function SobreCarlesDelOlmoPage() {
         dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
 
-      <main className="page__content">
+      <main className="page__content page--about">
         
         {/* ── HERO SOBRE MÍ ── */}
         <header className="section page-header pb-xl" id="inicio">

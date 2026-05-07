@@ -2104,6 +2104,55 @@
 }
 
 /* ============================================
+   RITMO PREMIUM DE SECCIONES (FASE 5D)
+   ============================================ */
+.page--diseno-web .section,
+.page--diseno-web-valencia .section,
+.page--authority-ia .section,
+.page--seo-audit .section,
+.page--seo-growth .section {
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.page--diseno-web .section-header,
+.page--diseno-web-valencia .section-header,
+.page--authority-ia .section-header,
+.page--seo-audit .section-header,
+.page--seo-growth .section-header {
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.page--diseno-web .card.card--no-hover,
+.page--diseno-web-valencia .card.card--no-hover,
+.page--seo-audit .card,
+.page--seo-growth .card,
+.page--authority-ia .card {
+    background: var(--color-bg-card-strong);
+    border-color: var(--color-border-strong);
+}
+
+.page--seo-audit .section-header,
+.page--seo-growth .section-header {
+    max-width: 58rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page--pricing .pricing-section {
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.page--pricing .pricing-section__header {
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.page--pricing .faq {
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* ============================================
    SECCIÓN CREDIBILIDAD
    ============================================ */
 .credibilidad-heading {

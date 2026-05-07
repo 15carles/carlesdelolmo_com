@@ -253,7 +253,7 @@ export default function CookieBanner() {
               <button
                 type="button"
                 onClick={(event) => openModal(event.currentTarget)}
-                className="cookie-banner__settings-btn"
+                className="cookie-banner__settings-btn btn btn--ghost"
                 aria-controls={COOKIE_MODAL_ID}
               >
                 Configurar

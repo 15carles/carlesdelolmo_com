@@ -17,8 +17,8 @@ export default function ContactSection() {
         <div className="grid grid-cols-3 gap-xl items-start">
           {/* Columna Izquierda: Información y Contexto */}
           <div className="flex flex-col gap-md pr-lg animate-fade-in-up">
-            <div className="badge badge--status self-start">
-              <span className="text-accent-purple font-semibold tracking-wide text-xs">
+            <div className="badge badge--status self-start contact-section__quick-badge">
+              <span className="contact-section__quick-label">
                 RÁPIDO Y SENCILLO
               </span>
             </div>

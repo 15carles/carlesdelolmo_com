@@ -26,7 +26,7 @@ export default function BlogCard({ title, excerpt, slug, date, isoDate, category
       <p className="post-item__excerpt">
         {excerpt}
       </p>
-      <Link href={`/blog/${slug}`} className="project-card__link">
+      <Link href={`/blog/${slug}`} className="blog-card__link">
         Leer más
       </Link>
     </article>

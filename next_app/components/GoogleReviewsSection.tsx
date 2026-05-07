@@ -132,7 +132,7 @@ export default function GoogleReviewsSection({
 
   const renderStars = (rating: number, size: number = 14) => {
     return (
-      <div className="flex gap-[2px]" aria-label={`Valoración de ${rating} sobre 5 estrellas`}>
+      <div className="google-review-stars" aria-label={`Valoración de ${rating} sobre 5 estrellas`}>
         {[...Array(5)].map((_, i) => (
           <GoogleStar key={i} size={size} filled={i < rating} />
         ))}
@@ -192,18 +192,17 @@ export default function GoogleReviewsSection({
               Reseñas en <span className="text-primary">Google</span>
             </h2>
             
-            <div className="flex flex-wrap items-center justify-center" style={{ gap: '1.5rem' }}>
+            <div className="google-review-summary">
               <div className="google-review-average">
                 {averageRating.toFixed(1).replace('.', ',')}
               </div>
-              <div className="flex flex-col items-start gap-1">
+              <div className="google-review-summary-meta">
                 {renderStars(Math.round(averageRating), 28)}
                 <a 
                   href={googleMapsUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-sm text-secondary hover:underline flex items-center mt-1"
-                  style={{ gap: '0.5rem' }}
+                  className="google-review-summary-link"
                 >
                   Basado en {totalReviews} reseñas
                   <GoogleIcon size={14} />

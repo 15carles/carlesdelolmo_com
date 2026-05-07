@@ -70,7 +70,7 @@ export default function ProjectsSection() {
       colorClass: "project-card__image--purple",
       image: "/assets/images/muestras/ledescaparate_muestra.webp",
       badges: [
-        { text: "SEO", color: "badge--teal" },
+        { text: "SEO", color: "badge--status" },
         { text: "GEO", color: "badge--status" },
         { text: "Diseño Web", color: "badge--status" }
       ],
@@ -94,7 +94,7 @@ export default function ProjectsSection() {
       icon: "finance",
       badges: [
         { text: "GEO", color: "badge--status" },
-        { text: "Startup", color: "badge--teal" }
+        { text: "Startup", color: "badge--status" }
       ],
       description: "Web financiera con datos estructurados para LLMs.\nCitado en más de 500 respuestas de IA mensuales."
     }

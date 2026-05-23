@@ -74,7 +74,7 @@ export default function SobreCarlesDelOlmoPage() {
                 <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large w-full sm:w-auto">
                   Hablemos de tu proyecto
                 </Link>
-                <Link href="/proyectos" className="btn btn--secondary btn--large w-full sm:w-auto">
+                <Link href="/proyectos/ledescaparate" className="btn btn--secondary btn--large w-full sm:w-auto">
                   Ver proyectos
                 </Link>
               </div>
@@ -254,7 +254,7 @@ export default function SobreCarlesDelOlmoPage() {
 
               {/* Interlinks contextuales */}
               <nav className="demos-interlinks mt-xl" aria-label="Enlaces relacionados">
-                <Link href="/proyectos" className="demos-interlinks__link">
+                <Link href="/demos-interactivas" className="demos-interlinks__link">
                   Ver proyectos
                 </Link>
                 <Link href="/demos-interactivas" className="demos-interlinks__link">

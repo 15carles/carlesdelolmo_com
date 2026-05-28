@@ -37,12 +37,14 @@ const SERVICIOS_INTERES_PERMITIDOS = new Set([
   'Auditoría',
   'Diseño Web',
   'Mantenimiento',
+  'Migraciones',
   'SEO/GEO',
   'Automatización',
 ]);
 const SERVICIOS_ADICIONALES_PERMITIDOS = new Set([
   'Mantenimiento',
   'Formación',
+  'Automatización',
   'No',
 ]);
 const IDENTIDAD_VISUAL_PERMITIDOS = new Set([
@@ -201,10 +203,14 @@ function validate(body: RawBody): { ok: true; lead: LeadInsert } | { ok: false; 
   if (serviciosInteres.length === 0) {
     return { ok: false, error: 'servicios_interes vacío' };
   }
-  const serviciosAdicionales = asStringArray(
+  const serviciosAdicionalesSeleccionados = asStringArray(
     body.servicios_adicionales,
     SERVICIOS_ADICIONALES_PERMITIDOS
   );
+  const serviciosAdicionales =
+    serviciosAdicionalesSeleccionados.length > 0
+      ? serviciosAdicionalesSeleccionados
+      : ['No'];
 
   return {
     ok: true,

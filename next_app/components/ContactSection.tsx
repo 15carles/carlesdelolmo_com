@@ -39,8 +39,8 @@ export default function ContactSection() {
               </svg>
             </div>
 
-            <h3 className="text-2xl font-bold leading-tight flex items-start">
-              Rellena el formulario y me pondré en contacto contigo
+            <h3 className="text-2xl font-bold leading-tight text-left">
+              Rellena el formulario y te responderé con una propuesta clara para tu caso
             </h3>
 
             <p className="text-secondary leading-relaxed text-left">
@@ -48,9 +48,22 @@ export default function ContactSection() {
               diseñaré una propuesta adaptada a tu caso: estrategia digital, desarrollo web, optimización avanzada para
               buscadores e IA...
             </p>
-            <p className="text-secondary leading-relaxed text-left">
-              {ENTITY.email}
-            </p>
+
+            <div className="text-secondary leading-relaxed text-left">
+              <p><strong>Ubicación:</strong> València, Comunitat Valenciana</p>
+              <p>
+                <strong>Email:</strong>{' '}
+                <a href={`mailto:${ENTITY.email}`} className="contact-info-card__link">{ENTITY.email}</a>
+              </p>
+              <p>
+                <strong>Teléfono:</strong>{' '}
+                <a href={`tel:${ENTITY.phoneE164}`} className="contact-info-card__link">{ENTITY.phoneDisplay}</a>
+              </p>
+              <p>
+                <strong>WhatsApp:</strong>{' '}
+                <a href={ENTITY.whatsappUrl} className="contact-info-card__link" target="_blank" rel="noopener noreferrer">Abrir chat</a>
+              </p>
+            </div>
           </div>
 
           {/* Columna Derecha: El Formulario */}

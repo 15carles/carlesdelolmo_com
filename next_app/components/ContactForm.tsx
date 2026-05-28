@@ -26,7 +26,9 @@ export default function ContactForm({
     nombre: '',
     email: '',
     telefono: '',
+    empresa: '',
     servicios_interes: [...defaultServiciosInteres] as string[],
+    mensaje: '',
     identidad_visual: '',
     servicios_adicionales: [...defaultServiciosAdicionales] as string[],
     fecha_limite: '',
@@ -34,7 +36,9 @@ export default function ContactForm({
     acepta_privacidad: false
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
     const { name, value, type } = e.target;
 
     if (type === 'checkbox') {
@@ -53,11 +57,8 @@ export default function ContactForm({
         });
       } else if (name === 'servicios_adicionales') {
         setFormData(prev => {
-          let current = [...prev.servicios_adicionales];
-          if (value === 'No' && checked) {
-            current = ['No'];
-          } else if (checked) {
-            current = current.filter(v => v !== 'No');
+          const current = [...prev.servicios_adicionales];
+          if (checked) {
             current.push(value);
           } else {
             const index = current.indexOf(value);
@@ -91,6 +92,12 @@ export default function ContactForm({
     if (formData.telefono && !/^[0-9+ \-]{9,15}$/.test(formData.telefono)) {
       newErrors.telefono = 'El formato no es válido';
     }
+    if (formData.empresa.length > 200) {
+      newErrors.empresa = 'Máximo 200 caracteres';
+    }
+    if (formData.mensaje.length > 5000) {
+      newErrors.mensaje = 'Máximo 5000 caracteres';
+    }
     if (formData.servicios_interes.length === 0) {
       newErrors.servicios_interes = 'Debes seleccionar al menos un servicio';
     }
@@ -117,7 +124,9 @@ export default function ContactForm({
         nombre: formData.nombre,
         email: formData.email,
         telefono: formData.telefono,
+        empresa: formData.empresa,
         servicios_interes: formData.servicios_interes,
+        mensaje: formData.mensaje,
         identidad_visual: formData.identidad_visual,
         servicios_adicionales: formData.servicios_adicionales,
         fecha_limite: formData.fecha_limite,
@@ -153,8 +162,11 @@ export default function ContactForm({
       onSubmit={handleSubmit}
       noValidate
     >
+      <div className="mb-md">
+        <h3 className="form__section-title">Datos de contacto</h3>
+      </div>
+
       <div className="grid grid-cols-2 gap-md mb-md">
-        {/* Identificación */}
         <div className="form__group">
           <label htmlFor="nombre" className="form__label text-left">Nombre *</label>
           <input
@@ -162,7 +174,7 @@ export default function ContactForm({
             id="nombre"
             name="nombre"
             className={`form__input ${errors.nombre ? 'form__input--error' : ''}`}
-            placeholder="Tu nombre completo"
+            placeholder="Ej. Marta Garcia"
             required
             autoComplete="name"
             value={formData.nombre}
@@ -178,7 +190,7 @@ export default function ContactForm({
             id="email"
             name="email"
             className={`form__input ${errors.email ? 'form__input--error' : ''}`}
-            placeholder="tu@email.com"
+            placeholder="Ej. marta@empresa.com"
             required
             autoComplete="email"
             value={formData.email}
@@ -195,7 +207,7 @@ export default function ContactForm({
           id="telefono"
           name="telefono"
           className={`form__input ${errors.telefono ? 'form__input--error' : ''}`}
-          placeholder="+34 600 000 000"
+          placeholder="Ej. +34 600 000 000"
           autoComplete="tel"
           value={formData.telefono}
           onChange={handleChange}
@@ -203,22 +215,33 @@ export default function ContactForm({
         {errors.telefono && <div className="form__error">{errors.telefono}</div>}
       </div>
 
+      <div className="form__group">
+        <label htmlFor="empresa" className="form__label text-left">Empresa o proyecto</label>
+        <input
+          type="text"
+          id="empresa"
+          name="empresa"
+          className={`form__input ${errors.empresa ? 'form__input--error' : ''}`}
+          placeholder="Ej. Estudio Nova"
+          autoComplete="organization"
+          value={formData.empresa}
+          onChange={handleChange}
+          maxLength={200}
+        />
+        {errors.empresa && <div className="form__error">{errors.empresa}</div>}
+      </div>
+
       <hr className="border-t mb-md" aria-hidden="true" />
+
+      <div className="mb-md">
+        <h3 className="form__section-title">Sobre tu proyecto</h3>
+      </div>
 
       {/* Selección de Servicios */}
       <div className="form__group">
         <label className="form__label text-left">¿En qué servicios estás interesado? *</label>
-        <div className="flex flex-col gap-sm">
-          <label className="flex items-center gap-sm cursor-pointer justify-start">
-            <input
-              type="checkbox"
-              name="servicios_interes"
-              value="Auditoría"
-              checked={formData.servicios_interes.includes('Auditoría')}
-              onChange={handleChange}
-            />
-            <span className="text-secondary">Auditoría SEO/GEO</span>
-          </label>
+        <p className="text-muted text-sm mb-sm">Selecciona lo principal para priorizar bien la propuesta.</p>
+        <div className="grid grid-cols-2 gap-sm">
           <label className="flex items-center gap-sm cursor-pointer justify-start">
             <input
               type="checkbox"
@@ -228,6 +251,26 @@ export default function ContactForm({
               onChange={handleChange}
             />
             <span className="text-secondary">Diseño Web Estratégico</span>
+          </label>
+          <label className="flex items-center gap-sm cursor-pointer justify-start">
+            <input
+              type="checkbox"
+              name="servicios_interes"
+              value="SEO/GEO"
+              checked={formData.servicios_interes.includes('SEO/GEO')}
+              onChange={handleChange}
+            />
+            <span className="text-secondary">Posicionamiento SEO + GEO</span>
+          </label>
+          <label className="flex items-center gap-sm cursor-pointer justify-start">
+            <input
+              type="checkbox"
+              name="servicios_interes"
+              value="Auditoría"
+              checked={formData.servicios_interes.includes('Auditoría')}
+              onChange={handleChange}
+            />
+            <span className="text-secondary">Auditoría SEO/GEO</span>
           </label>
           <label className="flex items-center gap-sm cursor-pointer justify-start">
             <input
@@ -253,16 +296,6 @@ export default function ContactForm({
             <input
               type="checkbox"
               name="servicios_interes"
-              value="SEO/GEO"
-              checked={formData.servicios_interes.includes('SEO/GEO')}
-              onChange={handleChange}
-            />
-            <span className="text-secondary">Posicionamiento SEO + GEO</span>
-          </label>
-          <label className="flex items-center gap-sm cursor-pointer justify-start">
-            <input
-              type="checkbox"
-              name="servicios_interes"
               value="Automatización"
               checked={formData.servicios_interes.includes('Automatización')}
               onChange={handleChange}
@@ -271,6 +304,21 @@ export default function ContactForm({
           </label>
         </div>
         {errors.servicios_interes && <div className="form__error">{errors.servicios_interes}</div>}
+      </div>
+
+      <div className="form__group mt-md">
+        <label htmlFor="mensaje" className="form__label text-left">Cuéntame tu caso (opcional)</label>
+        <textarea
+          id="mensaje"
+          name="mensaje"
+          className={`form__textarea ${errors.mensaje ? 'form__textarea--error' : ''}`}
+          placeholder="Ej. Quiero renovar mi web para captar más contactos y mejorar visibilidad en Google/IA."
+          value={formData.mensaje}
+          onChange={handleChange}
+          maxLength={5000}
+        />
+        <p className="text-muted text-sm mt-xs mb-0">Si prefieres, puedes dejarlo en blanco y lo vemos en la primera llamada.</p>
+        {errors.mensaje && <div className="form__error">{errors.mensaje}</div>}
       </div>
 
       {/* Identidad Visual */}
@@ -293,20 +341,15 @@ export default function ContactForm({
 
       <hr className="border-t mb-md" aria-hidden="true" />
 
+      <div className="mb-md">
+        <h3 className="form__section-title">Contexto y planificación</h3>
+      </div>
+
       {/* Servicios Adicionales */}
       <div className="form__group">
         <label className="form__label text-left">¿Necesitas añadir algo más?</label>
+        <p className="text-muted text-sm mb-sm">Opcional, por si quieres incluir soporte adicional desde el inicio.</p>
         <div className="grid grid-cols-2 gap-sm mt-sm">
-          <label className="flex items-center gap-sm cursor-pointer justify-start">
-            <input
-              type="checkbox"
-              name="servicios_adicionales"
-              value="Mantenimiento"
-              checked={formData.servicios_adicionales.includes('Mantenimiento')}
-              onChange={handleChange}
-            />
-            <span className="text-secondary">Mantenimiento Proactivo</span>
-          </label>
           <label className="flex items-center gap-sm cursor-pointer justify-start">
             <input
               type="checkbox"
@@ -321,12 +364,21 @@ export default function ContactForm({
             <input
               type="checkbox"
               name="servicios_adicionales"
-              value="No"
-              id="no-gracias"
-              checked={formData.servicios_adicionales.includes('No')}
+              value="Automatización"
+              checked={formData.servicios_adicionales.includes('Automatización')}
               onChange={handleChange}
             />
-            <span className="text-secondary">No, de momento solo lo anterior</span>
+            <span className="text-secondary">Automatizaciones de procesos</span>
+          </label>
+          <label className="flex items-center gap-sm cursor-pointer justify-start">
+            <input
+              type="checkbox"
+              name="servicios_adicionales"
+              value="Mantenimiento"
+              checked={formData.servicios_adicionales.includes('Mantenimiento')}
+              onChange={handleChange}
+            />
+            <span className="text-secondary">Mantenimiento Web Proactivo</span>
           </label>
         </div>
       </div>
@@ -388,7 +440,7 @@ export default function ContactForm({
         className="btn btn--primary btn--large btn--block mt-md w-full"
         disabled={loading}
       >
-        {loading ? 'Procesando...' : 'Enviar Presupuesto'}
+        {loading ? 'Procesando...' : 'Enviar solicitud'}
       </button>
     </form>
   );

@@ -31,41 +31,48 @@ const fitItems: FitItem[] = [
 
 export default function ParaQuienSection() {
   return (
-    <section id="para-quien" className="section" aria-labelledby="para-quien-title">
+    <section id="para-quien" className="section section--band" aria-labelledby="para-quien-title">
       <div className="container">
-        <header className="section-header animate-on-scroll fit-heading">
-          <p className="section-header__eyebrow">Para quién</p>
-          <h2 id="para-quien-title" className="section-header__title">
-            Este enfoque encaja mejor con ciertos proyectos
-          </h2>
-          <p className="section-header__subtitle">
-            No todas las webs necesitan el mismo nivel de planteamiento. Suelo encajar mejor con
-            empresas y profesionales que quieren una presencia digital clara, bien construida
-            y preparada para aportar valor real al negocio.
-          </p>
-        </header>
+        <div className="split-section split-section--reverse">
+          <div className="split-section__aside animate-on-scroll">
+            <header className="section-header section-header--left fit-heading">
+              <p className="section-header__eyebrow">Para quién</p>
+              <h2 id="para-quien-title" className="section-header__title">
+                Este enfoque encaja mejor con ciertos proyectos
+              </h2>
+              <p className="section-header__subtitle">
+                No todas las webs necesitan el mismo nivel de planteamiento. Suelo encajar mejor con
+                empresas y profesionales que quieren una presencia digital clara, bien construida
+                y preparada para aportar valor real al negocio.
+              </p>
+            </header>
 
-        <div className="fit-shell animate-on-scroll">
-          <div className="fit-grid">
-            {fitItems.map((item) => (
-              <article key={item.title} className="fit-item">
-                <h3 className="fit-item__title">{item.title}</h3>
-                <p className="fit-item__description">{item.description}</p>
-              </article>
-            ))}
+            <div className="section-actions section-actions--left mt-xl fit-actions" role="group" aria-label="Acciones de encaje de proyecto">
+              <Link href="/contacto" className="btn btn--primary">Cuéntame tu proyecto</Link>
+              <Link href="/pricing" className="btn btn--secondary">Ver servicios y precios</Link>
+            </div>
           </div>
 
-          <div className="fit-note">
-            <p>
-              Suelo aportar más valor cuando el proyecto busca algo más que “tener una web”.
-              Si hay intención de ordenar mejor la presencia digital, mejorar la base del sitio y
-              trabajar con criterio, probablemente encajemos bien.
-            </p>
-          </div>
+          <div className="split-section__body animate-on-scroll">
+            <ul className="editorial-list">
+              {fitItems.map((item, index) => (
+                <li key={item.title} className="editorial-item">
+                  <span className="editorial-item__num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                  <div>
+                    <h3 className="editorial-item__title">{item.title}</h3>
+                    <p className="editorial-item__description">{item.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
 
-          <div className="section-actions fit-actions" role="group" aria-label="Acciones de encaje de proyecto">
-            <Link href="/contacto" className="btn btn--primary">Cuéntame tu proyecto</Link>
-            <Link href="/pricing" className="btn btn--secondary">Ver servicios y precios</Link>
+            <aside className="editorial-note">
+              <p>
+                Suelo aportar más valor cuando el proyecto busca algo más que “tener una web”.
+                Si hay intención de ordenar mejor la presencia digital, mejorar la base del sitio y
+                trabajar con criterio, probablemente encajemos bien.
+              </p>
+            </aside>
           </div>
         </div>
       </div>

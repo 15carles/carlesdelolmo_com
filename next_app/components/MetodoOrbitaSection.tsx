@@ -51,7 +51,7 @@ export default function MetodoOrbitaSection() {
   return (
     <section id="metodo-orbita" className="section" aria-labelledby="metodo-orbita-title">
       <div className="container">
-        <header className="section-header animate-on-scroll orbita-home-heading">
+        <header className="section-header section-header--left orbita-home-heading animate-on-scroll mb-2xl">
           <p className="section-header__eyebrow">Método de trabajo</p>
           <h2 id="metodo-orbita-title" className="section-header__title">
             Trabajo con un enfoque estructurado: método ORBITA
@@ -70,17 +70,17 @@ export default function MetodoOrbitaSection() {
               una web útil, clara y preparada para buscadores, inteligencia artificial y crecimiento.
             </p>
 
-            <div className="orbita-home-grid">
+            <ul className="editorial-list editorial-list--two-col">
               {orbitaItems.map((item) => (
-                <article key={item.letter} className="orbita-home-item">
-                  <h3 className="orbita-home-item__title">
-                    <span className="orbita-home-item__letter" aria-hidden="true">{item.letter}</span>
-                    <span>{item.title}</span>
-                  </h3>
-                  <p className="orbita-home-item__description">{item.description}</p>
-                </article>
+                <li key={item.letter} className="editorial-item">
+                  <span className="editorial-item__num" aria-hidden="true">{item.letter}</span>
+                  <div>
+                    <h3 className="editorial-item__title">{item.title}</h3>
+                    <p className="editorial-item__description">{item.description}</p>
+                  </div>
+                </li>
               ))}
-            </div>
+            </ul>
 
             <div className="orbita-home-actions" role="group" aria-label="Acciones del método ORBITA">
               <Link href="/blog/metodo-orbita" className="btn btn--primary">Entender el método ORBITA</Link>

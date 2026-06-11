@@ -43,32 +43,37 @@ export default function DiferenciadoresSection() {
   return (
     <section id="diferenciadores" className="section" aria-labelledby="diferenciadores-title">
       <div className="container">
-        <header className="section-header animate-on-scroll diferenciadores-heading">
-          <p className="section-header__eyebrow">Por qué conmigo</p>
-          <h2 id="diferenciadores-title" className="section-header__title">
-            Qué hace que una web esté mejor planteada
-          </h2>
-          <p className="section-header__subtitle">
-            No se trata solo de que una web se vea bien. Una base digital sólida también debe
-            ayudar a entender mejor el negocio, transmitir confianza y facilitar una mejor
-            visibilidad a medio y largo plazo.
-          </p>
-        </header>
+        <div className="split-section split-section--reverse">
+          <div className="split-section__aside animate-on-scroll">
+            <header className="section-header section-header--left diferenciadores-heading">
+              <p className="section-header__eyebrow">Por qué conmigo</p>
+              <h2 id="diferenciadores-title" className="section-header__title">
+                Qué hace que una web esté mejor planteada
+              </h2>
+              <p className="section-header__subtitle">
+                No se trata solo de que una web se vea bien. Una base digital sólida también debe
+                ayudar a entender mejor el negocio, transmitir confianza y facilitar una mejor
+                visibilidad a medio y largo plazo.
+              </p>
+            </header>
 
-        <div className="diferenciadores-shell animate-on-scroll">
-          <div className="diferenciadores-grid">
-            {diferenciadores.map((item) => (
-              <article key={item.title} className="diferenciador-item">
-                <h3 className="diferenciador-item__title">{item.title}</h3>
-                <p className="diferenciador-item__description">{item.description}</p>
-              </article>
+            <div className="section-actions section-actions--left mt-xl" role="group" aria-label="Acciones de diferenciadores">
+              <Link href="/diseno-web/valencia" className="btn btn--primary">Ver enfoque de diseño web</Link>
+              <Link href="/contacto" className="btn btn--secondary">Hablar sobre tu web</Link>
+            </div>
+          </div>
+
+          <ul className="editorial-list split-section__body animate-on-scroll">
+            {diferenciadores.map((item, index) => (
+              <li key={item.title} className="editorial-item">
+                <span className="editorial-item__num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3 className="editorial-item__title">{item.title}</h3>
+                  <p className="editorial-item__description">{item.description}</p>
+                </div>
+              </li>
             ))}
-          </div>
-
-          <div className="section-actions diferenciadores-actions" role="group" aria-label="Acciones de diferenciadores">
-            <Link href="/diseno-web/valencia" className="btn btn--primary">Ver enfoque de diseño web</Link>
-            <Link href="/contacto" className="btn btn--secondary">Hablar sobre tu web</Link>
-          </div>
+          </ul>
         </div>
       </div>
     </section>

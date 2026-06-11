@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import { AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
 
 interface ProblemaItem {
@@ -35,17 +34,39 @@ export default function QueResuelvoSection() {
   return (
     <section id="que-resuelvo" className="section" aria-labelledby="que-resuelvo-title">
       <div className="container">
-        <header className="section-header animate-on-scroll que-resuelvo-heading">
-          <p className="section-header__eyebrow">Qué resuelvo</p>
-          <h2 id="que-resuelvo-title" className="section-header__title">Una web no debería estar solo para estar</h2>
-          <p className="section-header__subtitle">
-            Muchas empresas ya tienen página web, pero eso no significa que esté bien planteada.
-            Si no explica bien lo que haces, no transmite confianza y no guía al usuario,
-            difícilmente te ayudará a captar oportunidades.
-          </p>
-        </header>
+        <div className="split-section split-section--reverse">
+          <div className="split-section__aside animate-on-scroll">
+            <header className="section-header section-header--left que-resuelvo-heading">
+              <p className="section-header__eyebrow">Qué resuelvo</p>
+              <h2 id="que-resuelvo-title" className="section-header__title">Una web no debería estar solo para estar</h2>
+              <p className="section-header__subtitle">
+                Muchas empresas ya tienen página web, pero eso no significa que esté bien planteada.
+                Si no explica bien lo que haces, no transmite confianza y no guía al usuario,
+                difícilmente te ayudará a captar oportunidades.
+              </p>
+            </header>
 
-        <figure className="que-resuelvo-figure animate-on-scroll">
+            <div className="section-actions section-actions--left mt-xl" role="group" aria-label="Enlaces de solución">
+              <Link href="/diseno-web/valencia" className="btn btn--primary">Ver servicio principal</Link>
+              <Link href="/pricing" className="btn btn--secondary">Ver servicios y precios</Link>
+              <Link href="/blog/estructura-ideal-pagina-web-empresas" className="btn btn--secondary">Ver guía de estructura</Link>
+            </div>
+          </div>
+
+          <ol className="editorial-list split-section__body animate-on-scroll">
+            {problemas.map((problema, index) => (
+              <li key={problema.title} className="editorial-item">
+                <span className="editorial-item__num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3 className="editorial-item__title">{problema.title}</h3>
+                  <p className="editorial-item__description">{problema.description}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <figure className="que-resuelvo-figure animate-on-scroll mt-2xl">
           <div className="que-resuelvo-figure__media">
             <Image
               src="/assets/images/mockups/mockup_multi.webp"
@@ -60,26 +81,6 @@ export default function QueResuelvoSection() {
             Una web útil no solo se ve bien: también ordena la información, transmite confianza y facilita el siguiente paso.
           </figcaption>
         </figure>
-
-        <div className="grid grid-cols-2 problemas-grid">
-          {problemas.map((problema) => (
-            <article key={problema.title} className="card problema-item animate-on-scroll">
-              <div className="problema-item__heading">
-                <span className="problema-item__icon" aria-hidden="true">
-                  <AlertTriangle size={16} strokeWidth={2.5} />
-                </span>
-                <h3 className="problema-item__title">{problema.title}</h3>
-              </div>
-              <p className="problema-item__description">{problema.description}</p>
-            </article>
-          ))}
-        </div>
-
-        <div className="section-actions animate-on-scroll mt-xl" role="group" aria-label="Enlaces de solución">
-          <Link href="/diseno-web/valencia" className="btn btn--primary">Ver servicio principal</Link>
-          <Link href="/pricing" className="btn btn--secondary">Ver servicios y precios</Link>
-          <Link href="/blog/estructura-ideal-pagina-web-empresas" className="btn btn--secondary">Ver guía de estructura</Link>
-        </div>
       </div>
     </section>
   );

@@ -1535,14 +1535,14 @@
     font-size: 0.75rem;
     font-weight: 600;
     border-radius: var(--radius-sm);
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--color-bg-inset);
+    border: 1px solid var(--color-border);
     color: var(--color-text-secondary);
     transition: all var(--transition-fast);
 }
 
 .service-card__tag:hover {
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: var(--color-green-50);
     border-color: rgba(20, 92, 53, 0.3);
     color: var(--color-text-primary);
 }
@@ -2982,7 +2982,7 @@
 }
 
 .pagespeed-circle .bg {
-    stroke: rgba(255, 255, 255, 0.1);
+    stroke: var(--color-border);
 }
 
 .pagespeed-circle .progress {
@@ -3026,8 +3026,8 @@
     align-items: center;
     gap: var(--spacing-sm);
     padding: 0.75rem 1.25rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     font-weight: 600;
     color: var(--color-text-primary);
@@ -4143,7 +4143,7 @@
 }
 
 .cookie-modal__content::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--color-bg-inset);
     border-radius: 10px;
 }
 
@@ -4216,7 +4216,7 @@
     align-items: flex-start;
     gap: var(--spacing-md);
     padding: var(--spacing-md);
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--color-bg-inset);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
 }
@@ -5074,7 +5074,7 @@ body.has-promo-banner .navbar {
     gap: var(--spacing-md);
     padding: var(--spacing-md);
     border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--color-bg-card);
     border: 1px solid transparent;
     transition: all var(--transition-normal);
 }

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 import Navbar from "@/components/Navbar";
@@ -16,9 +17,26 @@ export const metadata: Metadata = constructMetadata({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
-  colorScheme: "dark light",
+  themeColor: "#FAF7F1",
+  colorScheme: "light",
 };
+
+// Fuentes variables auto-alojadas (woff2 subset latin, ~97 KB total)
+const fraunces = localFont({
+  src: "../../public/fonts/fraunces-latin-var.woff2",
+  display: "swap",
+  variable: "--font-fraunces",
+  weight: "100 900",
+  style: "normal",
+});
+
+const instrumentSans = localFont({
+  src: "../../public/fonts/instrument-sans-latin-var.woff2",
+  display: "swap",
+  variable: "--font-instrument",
+  weight: "400 700",
+  style: "normal",
+});
 
 export default function RootLayout({
   children,
@@ -26,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es" className={`${fraunces.variable} ${instrumentSans.variable}`}>
       <head>
         {/* Google Consent Mode v2 (Initial State) */}
         <Script id="google-consent-mode" strategy="beforeInteractive">
@@ -66,25 +84,6 @@ export default function RootLayout({
           <ContextualLeadBanner />
           <ScrollReveal />
         </Providers>
-
-        {/* Script inline para evitar parpadeo blanco (FOUC) en el modo oscuro.
-            Validamos el valor leído de localStorage para no inyectar un string
-            arbitrario como atributo data-theme (defensa en profundidad). */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var saved = localStorage.getItem('theme');
-                  var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
-                  document.documentElement.setAttribute('data-theme', theme);
-                } catch (e) {
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                }
-              })();
-            `,
-          }}
-        />
       </body>
     </html>
   );

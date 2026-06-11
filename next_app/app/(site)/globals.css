@@ -4,10 +4,10 @@
 
 /* Sobrescribir estilos base de Next.js si es necesario */
 :root {
-  --background: #0a0a0a; /* Por defecto oscuro para encajar con tu diseño premium */
-  --foreground: #ffffff;
+  --background: #FAF7F1;
+  --foreground: #1D1B16;
 }
 
 html, body {
-  background-color: var(--bg-dark); /* De tu main.css */
+  background-color: var(--color-bg-primary);
 }

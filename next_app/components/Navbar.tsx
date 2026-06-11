@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
 
 // Estructura de datos para los servicios (Fase 1)
 const SERVICES_DATA = [
@@ -178,8 +177,6 @@ function NavbarContent({ pathname }: NavbarContentProps) {
           <Link href="/demos-interactivas" className={`navbar__link ${isActive('/demos-interactivas') ? 'active' : ''}`}>Demos</Link>
           <Link href="/pricing" className={`navbar__link ${isActive('/pricing') ? 'active' : ''}`}>Pricing</Link>
 
-          <ThemeToggle />
-
           <Link href="/contacto" className="btn btn--primary">Hablemos</Link>
         </div>
 
@@ -258,7 +255,6 @@ function NavbarContent({ pathname }: NavbarContentProps) {
         <Link href="/contacto" className="navbar__link" onClick={closeMobileMenu}>Contacto</Link>
         <Link href="/pricing" className="navbar__link" onClick={closeMobileMenu}>Pricing</Link>
 
-        <ThemeToggle className="theme-toggle theme-toggle--mobile" />
         <Link href="/contacto" className="btn btn--primary btn--block" onClick={closeMobileMenu}>Hablemos</Link>
       </div>
     </nav>

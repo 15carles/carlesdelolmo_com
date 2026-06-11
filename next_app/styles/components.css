@@ -983,37 +983,37 @@
     border-color: var(--color-border-hover);
 }
 
+/* Chip de icono: cuadrado tintado, sin gradientes ni círculos */
 .service-card__icon-wrapper {
-    width: 4rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
     margin: 0 auto var(--spacing-md);
-    border-radius: 50%;
+    border-radius: var(--radius-md);
+    background: var(--color-green-50);
+    border: 1px solid var(--color-green-100);
+    color: var(--color-green-800);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.service-card__icon-wrapper--purple {
-    background: linear-gradient(to bottom right, var(--color-green-900), var(--color-green-700));
-}
-
-.service-card__icon-wrapper--blue {
-    background: linear-gradient(to bottom right, var(--color-green-700), var(--color-green-500));
-}
-
+.service-card__icon-wrapper--purple,
+.service-card__icon-wrapper--blue,
 .service-card__icon-wrapper--cyan {
-    background: linear-gradient(to bottom right, var(--color-green-800), var(--color-green-700));
+    background: var(--color-green-50);
 }
 
 .service-card__icon {
-    width: 2rem;
-    height: 2rem;
-    color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--color-green-800);
 }
 
 .service-card__title {
+    font-family: var(--font-display);
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 560;
+    letter-spacing: var(--tracking-display);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -1622,27 +1622,26 @@
 }
 
 .contact-info-card__icon-wrapper {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-md);
+    background: var(--color-green-50);
+    border: 1px solid var(--color-green-100);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
 }
 
-.contact-info-card__icon-wrapper--purple {
-    background: linear-gradient(to bottom right, var(--color-green-900), var(--color-green-700));
-}
-
+.contact-info-card__icon-wrapper--purple,
 .contact-info-card__icon-wrapper--blue {
-    background: linear-gradient(to bottom right, var(--color-green-700), var(--color-green-500));
+    background: var(--color-green-50);
 }
 
 .contact-info-card__icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: white;
+    width: 1.375rem;
+    height: 1.375rem;
+    color: var(--color-green-800);
 }
 
 .contact-info-card__title {
@@ -1660,7 +1659,7 @@
 }
 
 .contact-info-card__link:hover {
-    color: var(--color-accent-cyan);
+    color: var(--color-accent);
 }
 
 /* ============================================
@@ -5084,4 +5083,120 @@ body.has-promo-banner .navbar {
     background: rgba(20, 92, 53, 0.05);
     border-color: rgba(20, 92, 53, 0.2);
     transform: translateX(5px);
+}
+
+/* ============================================
+   UTILIDADES DE COMPATIBILIDAD
+   Clases usadas en páginas que no existían
+   (no hay framework CSS). Al final del archivo
+   para ganar en cascada a los componentes.
+   ============================================ */
+.m-0 {
+    margin: 0 !important;
+}
+
+.mt-1 {
+    margin-top: 0.25rem;
+}
+
+.mb-1 {
+    margin-bottom: 0.25rem;
+}
+
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.p-md {
+    padding: var(--spacing-md);
+}
+
+.p-lg {
+    padding: var(--spacing-lg);
+}
+
+.p-xl {
+    padding: var(--spacing-xl);
+}
+
+.gap-1 {
+    gap: 0.25rem;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.gap-3 {
+    gap: 0.75rem;
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+.space-y-2>*+* {
+    margin-top: 0.5rem;
+}
+
+.space-y-3>*+* {
+    margin-top: 0.75rem;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.shrink-0 {
+    flex-shrink: 0;
+}
+
+.leading-relaxed {
+    line-height: 1.7;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+}
+
+.text-primary {
+    color: var(--color-text-primary);
+}
+
+.max-w-lg {
+    max-width: 32rem;
+}
+
+.max-w-2xl {
+    max-width: 42rem;
+}
+
+.max-w-3xl {
+    max-width: 48rem;
+}
+
+.max-w-4xl {
+    max-width: 56rem;
+}
+
+.w-16 {
+    width: 4rem;
+}
+
+.h-16 {
+    height: 4rem;
+}
+
+/* Acentos de iconos legacy: todos al verde de marca */
+.text-purple-400,
+.text-blue-400,
+.text-cyan-400,
+.text-teal-400,
+.text-green-400 {
+    color: var(--color-accent);
 }

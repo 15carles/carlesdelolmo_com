@@ -15,6 +15,23 @@ import FaqAccordion from '@/components/FaqAccordion';
 
 export const revalidate = 3600;
 
+// Slug estable para anclas de encabezados (TOC de la barra lateral)
+function slugifyHeading(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+// Extrae el texto plano de los hijos de un nodo del documento
+function extractNodeText(node: any): string {
+  if (typeof node?.text === 'string') return node.text;
+  if (Array.isArray(node?.children)) return node.children.map(extractNodeText).join('');
+  return '';
+}
+
 export async function generateStaticParams() {
   const posts = await reader.collections.posts.all();
 
@@ -75,6 +92,25 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   const content = await post.content();
 
+  // Tabla de contenidos: h2 del documento (solo si hay al menos 2).
+  // h2Ids guarda el id de cada h2 en orden de documento para que el
+  // renderer de headings los asigne secuencialmente.
+  const h2Ids: (string | undefined)[] = (Array.isArray(content) ? content : [])
+    .filter((node: any) => node?.type === 'heading' && node?.level === 2)
+    .map((node: any) => {
+      const text = extractNodeText(node).trim();
+      return text ? slugifyHeading(text) : undefined;
+    });
+  const tocItems = (Array.isArray(content) ? content : [])
+    .filter((node: any) => node?.type === 'heading' && node?.level === 2)
+    .map((node: any) => {
+      const text = extractNodeText(node).trim();
+      return { text, id: slugifyHeading(text) };
+    })
+    .filter((item) => item.text.length > 0);
+  const showToc = tocItems.length >= 2;
+  let h2RenderIndex = 0;
+
   // Posts relacionados para la barra lateral: misma categoría primero, luego recientes
   const allPosts = await reader.collections.posts.all();
   const currentCategories = new Set(post.categories || []);
@@ -127,6 +163,15 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 document={content}
                 renderers={{
                   block: {
+                    heading: ({ level, children, textAlign }) => {
+                      const Tag = `h${level}` as keyof React.JSX.IntrinsicElements;
+                      const id = level === 2 ? h2Ids[h2RenderIndex++] : undefined;
+                      return (
+                        <Tag id={id} style={textAlign ? { textAlign } : undefined}>
+                          {children}
+                        </Tag>
+                      );
+                    },
                     table: (props) => (
                       <div className="article-box--overflow mb-lg">
                         <table className="article-table">
@@ -258,6 +303,21 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
             <aside className="article-aside" aria-label="Contenido relacionado">
               <div className="article-aside__inner">
+                {showToc && (
+                  <nav aria-labelledby="toc-title" className="article-aside__toc">
+                    <p id="toc-title" className="article-aside__title">En este artículo</p>
+                    <ol className="article-aside__toc-list">
+                      {tocItems.map((item) => (
+                        <li key={item.id}>
+                          <a href={`#${item.id}`} className="article-aside__toc-link">
+                            {item.text}
+                          </a>
+                        </li>
+                      ))}
+                    </ol>
+                  </nav>
+                )}
+
                 {relatedPosts.length > 0 && (
                   <nav aria-labelledby="related-posts-title">
                     <p id="related-posts-title" className="article-aside__title">Más artículos</p>

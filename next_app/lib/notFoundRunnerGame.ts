@@ -280,7 +280,7 @@ export class NotFoundRunnerGame {
 
   private drawGround() {
     this.ctx.save();
-    this.ctx.strokeStyle = 'rgba(8, 145, 178, 0.6)';
+    this.ctx.strokeStyle = 'rgba(20, 92, 53, 0.5)';
     this.ctx.lineWidth = 2;
     this.ctx.setLineDash([8, 8]);
     this.ctx.beginPath();
@@ -298,18 +298,18 @@ export class NotFoundRunnerGame {
     const radius = this.isDucking ? 8 : 12;
 
     this.ctx.save();
-    this.ctx.fillStyle = '#5a67d8';
+    this.ctx.fillStyle = '#145C35';
     this.roundRect(x, y, width, height, radius);
     this.ctx.fill();
 
-    this.ctx.fillStyle = '#ffffff';
+    this.ctx.fillStyle = '#FAF7F1';
     this.ctx.fillRect(x + width - 12, y + 10, 4, 4);
     this.ctx.restore();
   }
 
   private drawObstacles() {
     this.ctx.save();
-    this.ctx.fillStyle = '#0891b2';
+    this.ctx.fillStyle = '#2FA866';
 
     for (const obstacle of this.obstacles) {
       const top = obstacle.y - obstacle.height;
@@ -323,7 +323,7 @@ export class NotFoundRunnerGame {
   private drawScore() {
     this.ctx.save();
     this.ctx.font = '600 14px system-ui, -apple-system, Segoe UI, sans-serif';
-    this.ctx.fillStyle = '#1d1d1f';
+    this.ctx.fillStyle = '#1D1B16';
     this.ctx.textAlign = 'left';
     this.ctx.fillText(`Puntos: ${Math.floor(this.score)}`, 14, 24);
     this.ctx.fillText(`Récord: ${this.bestScore}`, 14, 42);
@@ -332,11 +332,11 @@ export class NotFoundRunnerGame {
 
   private drawOverlay(message: string) {
     this.ctx.save();
-    this.ctx.fillStyle = 'rgba(15, 23, 42, 0.72)';
+    this.ctx.fillStyle = 'rgba(25, 24, 19, 0.78)';
     this.roundRect(18, 18, this.width - 36, this.height - 36, 12);
     this.ctx.fill();
 
-    this.ctx.fillStyle = '#ffffff';
+    this.ctx.fillStyle = '#FAF7F1';
     this.ctx.font = '600 15px system-ui, -apple-system, Segoe UI, sans-serif';
     this.ctx.textAlign = 'center';
     this.ctx.fillText(message, this.width / 2, this.height / 2);

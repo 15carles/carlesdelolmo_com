@@ -1,6 +1,6 @@
 import React from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { TrendingUp, Globe, MapPin, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Globe, Sparkles, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = {
@@ -22,20 +22,14 @@ export default function PosicionamientoSeoGeo() {
     {
       title: 'Dominio de Google Local',
       description: 'Optimizamos tu Google Business Profile y tu autoridad local para captar clientes en tu zona de influencia.',
-      icon: MapPin,
-      color: 'text-purple-400'
     },
     {
       title: 'Estrategia de Contenido Semántico',
       description: 'Creamos y optimizamos contenido basado en entidades, no solo en palabras clave, para ser entendidos por IAs.',
-      icon: Sparkles,
-      color: 'text-blue-400'
     },
     {
       title: 'Crecimiento Sostenible',
       description: 'Enfoque en tráfico de calidad que realmente convierte visitas en clientes finales.',
-      icon: TrendingUp,
-      color: 'text-cyan-400'
     }
   ];
 
@@ -65,7 +59,7 @@ export default function PosicionamientoSeoGeo() {
                 Nuestro servicio mensual de posicionamiento SEO + GEO asegura que tu negocio mantenga una autoridad sólida en todos estos canales de forma simultánea.
               </p>
               
-              <div className="card card--no-hover p-lg border-blue-900/20 bg-dark-soft">
+              <div className="card card--no-hover p-lg">
                 <div className="flex items-center gap-4 mb-md">
                   <span className="text-2xl font-bold gradient-text">600€/mes</span>
                   <span className="text-muted text-sm">(Compromiso sugerido de 6 meses)</span>
@@ -74,17 +68,17 @@ export default function PosicionamientoSeoGeo() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-md animate-on-scroll">
+            <ol className="editorial-list animate-on-scroll">
               {valueProps.map((prop, index) => (
-                <article key={index} className="card p-lg flex flex-col gap-3 glass-effect">
-                  <div className={`${prop.color} shrink-0`}>
-                    <prop.icon size={32} />
+                <li key={index} className="editorial-item">
+                  <span className="editorial-item__num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                  <div>
+                    <h3 className="editorial-item__title">{prop.title}</h3>
+                    <p className="editorial-item__description">{prop.description}</p>
                   </div>
-                  <h3 className="text-xl mb-1">{prop.title}</h3>
-                  <p className="text-secondary">{prop.description}</p>
-                </article>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </div>
       </section>
@@ -94,7 +88,7 @@ export default function PosicionamientoSeoGeo() {
         <div className="container">
           <h2 className="text-center mb-xl">¿Por qué SEO + GEO juntos?</h2>
           <div className="grid grid-cols-2 gap-xl">
-            <div className="card p-xl border-purple-900/10">
+            <div className="comparison-col">
               <h3 className="mb-md flex items-center gap-2">
                 <Globe className="text-purple-400" size={24} /> SEO Tradicional
               </h3>
@@ -113,7 +107,7 @@ export default function PosicionamientoSeoGeo() {
                 </li>
               </ul>
             </div>
-            <div className="card p-xl border-blue-900/10">
+            <div className="comparison-col">
               <h3 className="mb-md flex items-center gap-2">
                 <Sparkles className="text-blue-400" size={24} /> GEO (Optimización IA)
               </h3>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { Search, Eye, ListChecks, Zap, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = {
@@ -21,23 +21,19 @@ export default function AuditoriaSeoGeo() {
   const points = [
     {
       title: 'Análisis de Visibilidad en Buscadores',
-      description: 'Evaluamos cómo te ven Google y Bing actualmente, detectando bloqueos técnicos e indexación.',
-      icon: Search
+      description: 'Evaluamos cómo te ven Google y Bing actualmente, detectando bloqueos técnicos e indexación.'
     },
     {
       title: 'Auditoría de Respuestas de IA (GEO)',
-      description: 'Reviso si las IAs (ChatGPT, Gemini, Perplexity) te están citando y cómo presentan tu marca.',
-      icon: Eye
+      description: 'Reviso si las IAs (ChatGPT, Gemini, Perplexity) te están citando y cómo presentan tu marca.'
     },
     {
       title: 'Arquitectura Semántica',
-      description: 'Analizo si tu web utiliza los datos estructurados necesarios para ser entendida por modelos de lenguaje.',
-      icon: ListChecks
+      description: 'Analizo si tu web utiliza los datos estructurados necesarios para ser entendida por modelos de lenguaje.'
     },
     {
       title: 'Rendimiento y Core Web Vitals',
-      description: 'Estudio profundo de la velocidad de carga y experiencia de usuario técnica.',
-      icon: Zap
+      description: 'Estudio profundo de la velocidad de carga y experiencia de usuario técnica.'
     }
   ];
 
@@ -67,7 +63,7 @@ export default function AuditoriaSeoGeo() {
                 Recibirás un documento accionable con prioridades claras: qué arreglar hoy para ver resultados mañana.
               </p>
               
-              <div className="card card--no-hover p-lg border-purple-900/20 bg-dark-soft">
+              <div className="card card--no-hover p-lg">
                 <div className="flex items-center gap-4 mb-md">
                   <span className="text-2xl font-bold gradient-text">750€</span>
                   <span className="text-muted text-sm">(Pago único, precios sin IVA)</span>
@@ -76,19 +72,17 @@ export default function AuditoriaSeoGeo() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-md animate-on-scroll">
+            <ol className="editorial-list animate-on-scroll">
               {points.map((point, index) => (
-                <article key={index} className="card p-lg flex gap-4">
-                  <div className="text-purple-400 shrink-0">
-                    <point.icon size={28} />
-                  </div>
+                <li key={index} className="editorial-item">
+                  <span className="editorial-item__num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                   <div>
-                    <h3 className="text-lg mb-2">{point.title}</h3>
-                    <p className="text-secondary text-sm">{point.description}</p>
+                    <h3 className="editorial-item__title">{point.title}</h3>
+                    <p className="editorial-item__description">{point.description}</p>
                   </div>
-                </article>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </div>
       </section>
@@ -96,24 +90,22 @@ export default function AuditoriaSeoGeo() {
       {/* Qué incluye Section */}
       <section className="section bg-dark-soft">
         <div className="container">
-          <div className="card p-2xl border-purple-900/10">
-            <h2 className="text-center mb-xl">¿Qué incluye el informe final?</h2>
-            <div className="grid grid-cols-3 gap-lg">
-              <div className="flex flex-col gap-3">
-                <CheckCircle2 className="text-teal-400" size={20} />
-                <h4 className="font-bold">Plan de Acción SEO</h4>
-                <p className="text-sm text-secondary">Correcciones técnicas prioritarias para recuperar visibilidad en Google.</p>
-              </div>
-              <div className="flex flex-col gap-3">
-                <CheckCircle2 className="text-blue-400" size={20} />
-                <h4 className="font-bold">Estrategia GEO</h4>
-                <p className="text-sm text-secondary">Optimizaciones semánticas para mejorar tu presencia en respuestas de IA.</p>
-              </div>
-              <div className="flex flex-col gap-3">
-                <CheckCircle2 className="text-cyan-400" size={20} />
-                <h4 className="font-bold">Benchmarking Local</h4>
-                <p className="text-sm text-secondary">Análisis de qué está haciendo bien tu competencia y cómo superarla.</p>
-              </div>
+          <h2 className="text-center mb-xl">¿Qué incluye el informe final?</h2>
+          <div className="grid grid-cols-3 gap-lg">
+            <div className="comparison-col flex flex-col gap-3">
+              <CheckCircle2 className="text-teal-400" size={20} />
+              <h4 className="font-bold">Plan de Acción SEO</h4>
+              <p className="text-sm text-secondary">Correcciones técnicas prioritarias para recuperar visibilidad en Google.</p>
+            </div>
+            <div className="comparison-col flex flex-col gap-3">
+              <CheckCircle2 className="text-blue-400" size={20} />
+              <h4 className="font-bold">Estrategia GEO</h4>
+              <p className="text-sm text-secondary">Optimizaciones semánticas para mejorar tu presencia en respuestas de IA.</p>
+            </div>
+            <div className="comparison-col flex flex-col gap-3">
+              <CheckCircle2 className="text-cyan-400" size={20} />
+              <h4 className="font-bold">Benchmarking Local</h4>
+              <p className="text-sm text-secondary">Análisis de qué está haciendo bien tu competencia y cómo superarla.</p>
             </div>
           </div>
         </div>

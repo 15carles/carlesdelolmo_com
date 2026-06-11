@@ -442,12 +442,12 @@ export default function DisenoWebPage() {
                 <div className="absolute inset-0 bg-purple-500/20 blur-xl rounded-full group-hover:bg-purple-500/30 transition-colors"></div>
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 drop-shadow-glow-purple">
                   <circle cx="24" cy="24" r="20" stroke="url(#gradient-p1)" strokeWidth="2" strokeDasharray="80 40" />
-                  <path d="M14 24L22 32L34 16" stroke="#c4b5fd" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M24 8V12M24 36V40M8 24H12M36 24H40" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M14 24L22 32L34 16" stroke="#1F7A45" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M24 8V12M24 36V40M8 24H12M36 24H40" stroke="#2FA866" strokeWidth="2" strokeLinecap="round" />
                   <defs>
                     <linearGradient id="gradient-p1" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#8b5cf6" />
-                      <stop offset="1" stopColor="#d946ef" />
+                      <stop stopColor="#145C35" />
+                      <stop offset="1" stopColor="#2FA866" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -464,13 +464,13 @@ export default function DisenoWebPage() {
                 <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full group-hover:bg-blue-500/30 transition-colors"></div>
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 drop-shadow-glow-blue">
                   <rect x="10" y="10" width="28" height="28" rx="4" stroke="url(#gradient-b1)" strokeWidth="2" />
-                  <path d="M18 18H30M18 24H30M18 30H24" stroke="#93c5fd" strokeWidth="2" strokeLinecap="round" />
-                  <circle cx="38" cy="10" r="6" fill="#1d4ed8" fillOpacity="0.4" stroke="#3b82f6" strokeWidth="1" />
-                  <path d="M36 10L38 12L41 8" stroke="#60a5fa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M18 18H30M18 24H30M18 30H24" stroke="#1F7A45" strokeWidth="2" strokeLinecap="round" />
+                  <circle cx="38" cy="10" r="6" fill="#145C35" fillOpacity="0.4" stroke="#1F7A45" strokeWidth="1" />
+                  <path d="M36 10L38 12L41 8" stroke="#2FA866" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   <defs>
                     <linearGradient id="gradient-b1" x1="10" y1="10" x2="38" y2="38" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#3b82f6" />
-                      <stop offset="1" stopColor="#2dd4bf" />
+                      <stop stopColor="#1F7A45" />
+                      <stop offset="1" stopColor="#2FA866" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -487,12 +487,12 @@ export default function DisenoWebPage() {
                 <div className="absolute inset-0 bg-cyan-500/20 blur-xl rounded-full group-hover:bg-cyan-500/30 transition-colors"></div>
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 drop-shadow-glow-cyan">
                   <path d="M8 24L16 12L32 12L40 24L32 36L16 36L8 24Z" stroke="url(#gradient-c1)" strokeWidth="2" />
-                  <circle cx="24" cy="24" r="4" fill="#22d3ee" />
-                  <path d="M24 12V20M24 28V36M12 21L18 24M30 24L36 27" stroke="#67e8f9" strokeWidth="2" strokeLinecap="round" />
+                  <circle cx="24" cy="24" r="4" fill="#2FA866" />
+                  <path d="M24 12V20M24 28V36M12 21L18 24M30 24L36 27" stroke="#1F7A45" strokeWidth="2" strokeLinecap="round" />
                   <defs>
                     <linearGradient id="gradient-c1" x1="8" y1="12" x2="40" y2="36" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#06b6d4" />
-                      <stop offset="1" stopColor="#2dd4bf" />
+                      <stop stopColor="#145C35" />
+                      <stop offset="1" stopColor="#2FA866" />
                     </linearGradient>
                   </defs>
                 </svg>

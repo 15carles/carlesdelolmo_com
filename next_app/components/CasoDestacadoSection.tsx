@@ -14,6 +14,7 @@ export default function CasoDestacadoSection() {
     <section id="caso-destacado" className="section" aria-labelledby="caso-destacado-title">
       <div className="container">
         <header className="section-header animate-on-scroll case-study-heading">
+          <p className="section-header__eyebrow">Caso real</p>
           <h2 id="caso-destacado-title" className="section-header__title">Caso de estudio destacado</h2>
           <p className="section-header__subtitle">
             Una muestra real de cómo planteo un proyecto web con enfoque estratégico,

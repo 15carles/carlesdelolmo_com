@@ -52,6 +52,7 @@ export default function MetodoOrbitaSection() {
     <section id="metodo-orbita" className="section" aria-labelledby="metodo-orbita-title">
       <div className="container">
         <header className="section-header animate-on-scroll orbita-home-heading">
+          <p className="section-header__eyebrow">Método de trabajo</p>
           <h2 id="metodo-orbita-title" className="section-header__title">
             Trabajo con un enfoque estructurado: método ORBITA
           </h2>

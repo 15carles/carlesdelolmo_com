@@ -189,7 +189,8 @@ export default function GoogleReviewsSection({
       <div className="container">
         {showHeader && (
           <header className="mb-xl text-center animate-on-scroll">
-            <h2 id="google-reviews-title" className="section-header__title mb-lg">
+            <p className="section-header__eyebrow">Opiniones</p>
+          <h2 id="google-reviews-title" className="section-header__title mb-lg">
               Reseñas en <span className="gradient-text">Google</span>
             </h2>
             

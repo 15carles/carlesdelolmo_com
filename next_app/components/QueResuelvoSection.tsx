@@ -36,6 +36,7 @@ export default function QueResuelvoSection() {
     <section id="que-resuelvo" className="section" aria-labelledby="que-resuelvo-title">
       <div className="container">
         <header className="section-header animate-on-scroll que-resuelvo-heading">
+          <p className="section-header__eyebrow">Qué resuelvo</p>
           <h2 id="que-resuelvo-title" className="section-header__title">Una web no debería estar solo para estar</h2>
           <p className="section-header__subtitle">
             Muchas empresas ya tienen página web, pero eso no significa que esté bien planteada.

@@ -34,6 +34,7 @@ export default function ParaQuienSection() {
     <section id="para-quien" className="section" aria-labelledby="para-quien-title">
       <div className="container">
         <header className="section-header animate-on-scroll fit-heading">
+          <p className="section-header__eyebrow">Para quién</p>
           <h2 id="para-quien-title" className="section-header__title">
             Este enfoque encaja mejor con ciertos proyectos
           </h2>

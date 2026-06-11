@@ -105,6 +105,7 @@ export default function ProjectsSection() {
       <div className="container">
         {/* Section Header */}
         <header className="section-header animate-on-scroll">
+          <p className="section-header__eyebrow">Proyectos</p>
           <h2 className="section-header__title">Proyectos Destacados</h2>
           <p className="section-header__subtitle">
             Soluciones web optimizadas para la era de la inteligencia artificial

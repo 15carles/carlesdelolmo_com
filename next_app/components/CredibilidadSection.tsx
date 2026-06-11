@@ -34,6 +34,7 @@ export default function CredibilidadSection() {
     <section id="credibilidad" className="section" aria-labelledby="credibilidad-title">
       <div className="container">
         <header className="section-header animate-on-scroll credibilidad-heading">
+          <p className="section-header__eyebrow">Enfoque</p>
           <h2 id="credibilidad-title" className="section-header__title">Diseño web con enfoque estratégico</h2>
           <p className="section-header__subtitle">
             Desarrollo webs pensadas para transmitir mejor, posicionar con más solidez

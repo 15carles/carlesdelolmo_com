@@ -8,6 +8,7 @@ export default function ContactSection() {
       <div className="container">
         {/* Section Header */}
         <header className="section-header animate-on-scroll">
+          <p className="section-header__eyebrow">Contacto</p>
           <h2 className="section-header__title">¿Listo para dominar el GEO?</h2>
           <p className="section-header__subtitle">
             Hablemos sobre cómo puedo ayudar a tu empresa a destacar en las respuestas de inteligencia artificial.

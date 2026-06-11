@@ -42,6 +42,7 @@ export default function InsightsSection() {
     <section id="insights" className="section" aria-labelledby="insights-title">
       <div className="container">
         <header className="section-header animate-on-scroll insights-heading">
+          <p className="section-header__eyebrow">Del blog</p>
           <h2 id="insights-title" className="section-header__title">
             Insights para entender mejor qué hace que una web funcione
           </h2>

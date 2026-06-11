@@ -75,6 +75,24 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   const content = await post.content();
 
+  // Posts relacionados para la barra lateral: misma categoría primero, luego recientes
+  const allPosts = await reader.collections.posts.all();
+  const currentCategories = new Set(post.categories || []);
+  const relatedPosts = allPosts
+    .filter((p) => p.slug !== slug && isPostVisible({ status: p.entry.status, isoDate: p.entry.isoDate }))
+    .map((p) => ({
+      slug: p.slug,
+      title:
+        typeof p.entry.title === 'string'
+          ? p.entry.title
+          : String((p.entry.title as any)?.name ?? p.entry.title ?? ''),
+      date: p.entry.date,
+      isoDate: p.entry.isoDate ?? '',
+      shared: (p.entry.categories || []).some((c) => currentCategories.has(c)) ? 1 : 0,
+    }))
+    .sort((a, b) => b.shared - a.shared || Date.parse(b.isoDate || '0') - Date.parse(a.isoDate || '0'))
+    .slice(0, 4);
+
   return (
     <>
       <script
@@ -102,7 +120,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
         <article className="section animate-on-scroll">
           <div className="container">
-            <div className="article-content">
+            <div className="article-layout">
+            <div className="article-main">
+            <div className="article-content article-content--post">
               <DocumentRenderer
                 document={content}
                 renderers={{
@@ -234,6 +254,38 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 />
               </div>
             )}
+            </div>
+
+            <aside className="article-aside" aria-label="Contenido relacionado">
+              <div className="article-aside__inner">
+                {relatedPosts.length > 0 && (
+                  <nav aria-labelledby="related-posts-title">
+                    <p id="related-posts-title" className="article-aside__title">Más artículos</p>
+                    <ul className="article-aside__list">
+                      {relatedPosts.map((related) => (
+                        <li key={related.slug} className="article-aside__item">
+                          <Link href={`/blog/${related.slug}`} className="article-aside__link">
+                            {related.title}
+                            <span className="article-aside__date">{related.date}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                )}
+
+                <div className="article-aside__cta">
+                  <p className="article-aside__cta-title">¿Tu web necesita un repaso?</p>
+                  <p className="article-aside__cta-text">
+                    Pide una auditoría gratuita y descubre qué está frenando tu visibilidad.
+                  </p>
+                  <Link href="/auditoria-gratuita" className="btn btn--primary">
+                    Auditoría gratuita
+                  </Link>
+                </div>
+              </div>
+            </aside>
+            </div>
           </div>
         </article>
       </main>

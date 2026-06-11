@@ -46,6 +46,7 @@ export default function ServicesSection() {
     <section id="servicios" className="section" aria-labelledby="servicios-title">
       <div className="container">
         <header className="section-header animate-on-scroll">
+          <p className="section-header__eyebrow">Servicios</p>
           <h2 id="servicios-title" className="section-header__title">
             Servicios pensados para construir una presencia digital sólida
           </h2>

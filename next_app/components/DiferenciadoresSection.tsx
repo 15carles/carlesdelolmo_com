@@ -44,6 +44,7 @@ export default function DiferenciadoresSection() {
     <section id="diferenciadores" className="section" aria-labelledby="diferenciadores-title">
       <div className="container">
         <header className="section-header animate-on-scroll diferenciadores-heading">
+          <p className="section-header__eyebrow">Por qué conmigo</p>
           <h2 id="diferenciadores-title" className="section-header__title">
             Qué hace que una web esté mejor planteada
           </h2>

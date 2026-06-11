@@ -7,6 +7,12 @@ export default function ScrollReveal() {
   const pathname = usePathname();
 
   useEffect(() => {
+    // Con soporte nativo de scroll-driven animations el CSS se encarga
+    // (ver @supports en main.css); el observer solo es el fallback.
+    if (typeof CSS !== 'undefined' && CSS.supports('animation-timeline: view()')) {
+      return;
+    }
+
     const observerOptions = {
       threshold: 0,
       rootMargin: "0px 0px -50px 0px"

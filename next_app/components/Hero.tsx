@@ -1,8 +1,11 @@
 "use client";
 
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { Check } from 'lucide-react';
 import Link from 'next/link';
+
+const HeroCanvas = dynamic(() => import('./HeroCanvas'));
 
 export default function Hero() {
   return (
@@ -57,21 +60,8 @@ export default function Hero() {
           </div>
 
           <div className="animate-on-scroll flex flex-col justify-center pb-3xl hero-right-col hidden-mobile">
-            <div className="terminal">
-              <div className="terminal__header">
-                <span className="terminal__dot terminal__dot--red" aria-hidden="true"></span>
-                <span className="terminal__dot terminal__dot--yellow" aria-hidden="true"></span>
-                <span className="terminal__dot terminal__dot--green" aria-hidden="true"></span>
-                <span className="terminal__filename">developer.js</span>
-              </div>
-
-              <div className="terminal__code">
-                <pre><code><span className="code-keyword">const</span> <span className="code-variable">developer</span> = {'{'}{"\n"}
-  <span className="code-property">nombre</span>: <span className="code-string">&quot;Carles del Olmo&quot;</span>,{"\n"}
-  <span className="code-property">skills</span>: [<span className="code-string">&quot;GEO&quot;</span>, <span className="code-string">&quot;SEO&quot;</span>, <span className="code-string">&quot;Web&quot;</span>, <span className="code-string">&quot;Automatización&quot;</span>],{"\n"}
-  <span className="code-property">disponible</span>: <span className="code-boolean">true</span>{"\n"}
-{'}'};</code></pre>
-              </div>
+            <div className="hero-canvas-frame">
+              <HeroCanvas className="hero-canvas" />
             </div>
           </div>
         </div>

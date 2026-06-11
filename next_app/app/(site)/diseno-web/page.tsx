@@ -1,6 +1,6 @@
 import React from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { Check, ArrowRight, Layout, Zap, MessageSquare, Shield, MousePointer, Search, BarChart, Globe, Rocket, Code, Layers, Cpu, CheckCircle } from 'lucide-react';
+import { Check, ArrowRight, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProjectsSection from '@/components/ProjectsSection';
@@ -183,152 +183,159 @@ export default function DisenoWebPage() {
       {/* SECCIÓN 3 — QUÉ PROBLEMAS SOLUCIONA UNA BUENA WEB */}
       <section className="section">
         <div className="container">
-          <header className="section-header text-center animate-on-scroll">
-            <h2 className="section-header__title">Qué problemas soluciona una <span className="gradient-text">buena página web</span></h2>
-            <p className="section-header__subtitle max-w-3xl mx-auto">
-              Muchas empresas tienen una web, pero eso no significa que esté cumpliendo realmente su función.
-              Una web bien diseñada soluciona los problemas más habituales de los negocios en internet.
-            </p>
-          </header>
+          <div className="split-section">
+            <div className="split-section__aside animate-on-scroll">
+              <header className="section-header section-header--left">
+                <p className="section-header__eyebrow">Problemas que resuelve</p>
+                <h2 className="section-header__title">Qué problemas soluciona una <span className="gradient-text">buena página web</span></h2>
+                <p className="section-header__subtitle">
+                  Muchas empresas tienen una web, pero eso no significa que esté cumpliendo realmente su función.
+                  Una web bien diseñada soluciona los problemas más habituales de los negocios en internet.
+                </p>
+              </header>
+            </div>
 
-          <div className="grid grid-cols-2 gap-lg mt-xl">
-            <article className="card animate-on-scroll">
-              <div className="service-card__icon-wrapper service-card__icon-wrapper--purple mb-md">
-                <MessageSquare size={24} />
-              </div>
-              <h3 className="card__title text-center">No se entiende bien qué hace la empresa</h3>
-              <p className="card__content text-center">
-                Uno de los problemas más comunes es que la web no explica claramente qué hace la empresa. Una estructura clara permite que cualquier persona entienda en pocos segundos qué hace el negocio y cómo puede ayudarle.
-              </p>
-            </article>
-
-            <article className="card animate-on-scroll">
-              <div className="service-card__icon-wrapper service-card__icon-wrapper--cyan mb-md">
-                <MousePointer size={24} />
-              </div>
-              <h3 className="card__title text-center">La web no genera contactos ni oportunidades</h3>
-              <p className="card__content text-center">
-                Muchas páginas funcionan como una simple tarjeta de presentación. Un buen diseño web organiza los contenidos y las llamadas a la acción para facilitar que el visitante dé el siguiente paso.
-              </p>
-            </article>
-
-            <article className="card animate-on-scroll">
-              <div className="service-card__icon-wrapper service-card__icon-wrapper--blue mb-md">
-                <Zap size={24} />
-              </div>
-              <h3 className="card__title text-center">La página carga lenta o funciona mal en móvil</h3>
-              <p className="card__content text-center">
-                Si la web es lenta o difícil de usar desde el teléfono, muchos usuarios abandonan. La velocidad de carga y la adaptación móvil son factores fundamentales para retener visitas.
-              </p>
-            </article>
-
-            <article className="card animate-on-scroll">
-              <div className="service-card__icon-wrapper service-card__icon-wrapper--purple mb-md">
-                <Search size={24} />
-              </div>
-              <h3 className="card__title text-center">La web no aparece en buscadores</h3>
-              <p className="card__content text-center">
-                Si no está bien estructurada, es difícil que aparezca en Google. El diseño web profesional tiene en cuenta aspectos técnicos que ayudan a mejorar la visibilidad online significativamente.
-              </p>
-            </article>
+            <ol className="editorial-list split-section__body animate-on-scroll">
+              <li className="editorial-item">
+                <span className="editorial-item__num" aria-hidden="true">01</span>
+                <div>
+                  <h3 className="editorial-item__title">No se entiende bien qué hace la empresa</h3>
+                  <p className="editorial-item__description">
+                    Uno de los problemas más comunes es que la web no explica claramente qué hace la empresa. Una estructura clara permite que cualquier persona entienda en pocos segundos qué hace el negocio y cómo puede ayudarle.
+                  </p>
+                </div>
+              </li>
+              <li className="editorial-item">
+                <span className="editorial-item__num" aria-hidden="true">02</span>
+                <div>
+                  <h3 className="editorial-item__title">La web no genera contactos ni oportunidades</h3>
+                  <p className="editorial-item__description">
+                    Muchas páginas funcionan como una simple tarjeta de presentación. Un buen diseño web organiza los contenidos y las llamadas a la acción para facilitar que el visitante dé el siguiente paso.
+                  </p>
+                </div>
+              </li>
+              <li className="editorial-item">
+                <span className="editorial-item__num" aria-hidden="true">03</span>
+                <div>
+                  <h3 className="editorial-item__title">La página carga lenta o funciona mal en móvil</h3>
+                  <p className="editorial-item__description">
+                    Si la web es lenta o difícil de usar desde el teléfono, muchos usuarios abandonan. La velocidad de carga y la adaptación móvil son factores fundamentales para retener visitas.
+                  </p>
+                </div>
+              </li>
+              <li className="editorial-item">
+                <span className="editorial-item__num" aria-hidden="true">04</span>
+                <div>
+                  <h3 className="editorial-item__title">La web no aparece en buscadores</h3>
+                  <p className="editorial-item__description">
+                    Si no está bien estructurada, es difícil que aparezca en Google. El diseño web profesional tiene en cuenta aspectos técnicos que ayudan a mejorar la visibilidad online significativamente.
+                  </p>
+                </div>
+              </li>
+            </ol>
           </div>
         </div>
       </section>
 
       {/* SECCIÓN 4 — QUÉ INCLUYE MI SERVICIO DE DISEÑO WEB */}
-      <section className="section bg-dark-soft">
+      <section className="section section--band">
         <div className="container">
-          <header className="section-header text-center animate-on-scroll">
-            <h2 className="section-header__title">Qué incluye mi <span className="gradient-text">servicio de diseño web</span></h2>
-            <p className="section-header__subtitle max-w-3xl mx-auto">
-              Para que una web funcione como herramienta de negocio, trabajo distintos aspectos: desde la estructura de la información hasta el rendimiento técnico y el SEO.
-            </p>
-          </header>
+          <div className="split-section split-section--reverse">
+            <div className="split-section__aside animate-on-scroll">
+              <header className="section-header section-header--left">
+                <p className="section-header__eyebrow">Qué incluye</p>
+                <h2 className="section-header__title">Qué incluye mi <span className="gradient-text">servicio de diseño web</span></h2>
+                <p className="section-header__subtitle">
+                  Para que una web funcione como herramienta de negocio, trabajo distintos aspectos: desde la estructura de la información hasta el rendimiento técnico y el SEO.
+                </p>
+              </header>
+            </div>
 
-          <div className="grid grid-cols-2 gap-lg mt-xl">
-            <article className="card animate-on-scroll">
-              <div className="service-card__icon-wrapper service-card__icon-wrapper--cyan mb-md">
-                <Layout size={24} />
-              </div>
-              <h3 className="card__title text-center">Estructura clara</h3>
-              <p className="card__content text-secondary text-center">Organización del contenido para que se entienda qué haces en pocos segundos.</p>
-            </article>
-
-            <article className="card animate-on-scroll">
-              <div className="service-card__icon-wrapper service-card__icon-wrapper--purple mb-md">
-                <Shield size={24} />
-              </div>
-              <h3 className="card__title text-center">Experiencia de usuario</h3>
-              <p className="card__content text-secondary text-center">Diseño orientado a facilitar la navegación y que el visitante avance de forma natural.</p>
-            </article>
-
-            <article className="card animate-on-scroll">
-              <div className="service-card__icon-wrapper service-card__icon-wrapper--blue mb-md">
-                <BarChart size={24} />
-              </div>
-              <h3 className="card__title text-center">Optimización técnica</h3>
-              <p className="card__content text-secondary text-center">Webs que cargan rápido y funcionan perfectamente en cualquier dispositivo.</p>
-            </article>
-
-            <article className="card animate-on-scroll">
-              <div className="service-card__icon-wrapper service-card__icon-wrapper--cyan mb-md">
-                <Search size={24} />
-              </div>
-              <h3 className="card__title text-center">Preparada para SEO</h3>
-              <p className="card__content text-secondary text-center">Arquitectura diseñada para que los buscadores entiendan y posicionen tu sitio.</p>
-            </article>
+            <ol className="editorial-list split-section__body animate-on-scroll">
+              <li className="editorial-item">
+                <span className="editorial-item__num" aria-hidden="true">01</span>
+                <div>
+                  <h3 className="editorial-item__title">Estructura clara</h3>
+                  <p className="editorial-item__description">Organización del contenido para que se entienda qué haces en pocos segundos.</p>
+                </div>
+              </li>
+              <li className="editorial-item">
+                <span className="editorial-item__num" aria-hidden="true">02</span>
+                <div>
+                  <h3 className="editorial-item__title">Experiencia de usuario</h3>
+                  <p className="editorial-item__description">Diseño orientado a facilitar la navegación y que el visitante avance de forma natural.</p>
+                </div>
+              </li>
+              <li className="editorial-item">
+                <span className="editorial-item__num" aria-hidden="true">03</span>
+                <div>
+                  <h3 className="editorial-item__title">Optimización técnica</h3>
+                  <p className="editorial-item__description">Webs que cargan rápido y funcionan perfectamente en cualquier dispositivo.</p>
+                </div>
+              </li>
+              <li className="editorial-item">
+                <span className="editorial-item__num" aria-hidden="true">04</span>
+                <div>
+                  <h3 className="editorial-item__title">Preparada para SEO</h3>
+                  <p className="editorial-item__description">Arquitectura diseñada para que los buscadores entiendan y posicionen tu sitio.</p>
+                </div>
+              </li>
+            </ol>
           </div>
         </div>
       </section>
       {/* SECCIÓN 5 — TIPOS DE PÁGINAS WEB */}
       <section className="section">
         <div className="container">
-          <header className="section-header text-center animate-on-scroll">
-            <h2 className="section-header__title">Tipos de páginas web <span className="gradient-text">que desarrollo</span></h2>
-            <p className="section-header__subtitle max-w-3xl mx-auto">
-              Cada negocio tiene necesidades diferentes. Por eso el diseño web no consiste en aplicar una plantilla estándar, sino en construir una web adaptada al tipo de empresa.
-            </p>
-          </header>
+          <div className="split-section">
+            <div className="split-section__aside animate-on-scroll">
+              <header className="section-header section-header--left">
+                <p className="section-header__eyebrow">Tipos de web</p>
+                <h2 className="section-header__title">Tipos de páginas web <span className="gradient-text">que desarrollo</span></h2>
+                <p className="section-header__subtitle">
+                  Cada negocio tiene necesidades diferentes. Por eso el diseño web no consiste en aplicar una plantilla estándar, sino en construir una web adaptada al tipo de empresa.
+                </p>
+              </header>
 
-          <div className="grid grid-cols-2 gap-lg mt-xl">
-            <article className="card animate-on-scroll">
-              <div className="service-card__icon-wrapper service-card__icon-wrapper--blue mb-md">
-                <Globe size={24} />
+              <div className="section-actions section-actions--left mt-xl animate-on-scroll" role="group" aria-label="Acciones sobre tipos de web">
+                <Link href="/pricing" className="btn btn--secondary">
+                  Ver tarifas y servicios
+                </Link>
+                <Link href="/proyectos/ledescaparate" className="btn btn--secondary">
+                  Ver caso real
+                </Link>
               </div>
-              <h3 className="card__title text-center">Web corporativa</h3>
-              <p className="card__content text-secondary text-center">
-                El tipo de web más habitual para empresas y profesionales. Su objetivo es presentar la empresa, explicar los servicios y facilitar que los clientes potenciales puedan contactar o solicitar información.
-              </p>
-            </article>
+            </div>
 
-            <article className="card animate-on-scroll">
-              <div className="service-card__icon-wrapper service-card__icon-wrapper--purple mb-md">
-                <Rocket size={24} />
-              </div>
-              <h3 className="card__title text-center">Landing page</h3>
-              <p className="card__content text-secondary text-center">
-                Pensadas para una acción concreta: promocionar un servicio, captar contactos o apoyar campañas de marketing. Son páginas más directas y enfocadas en la conversión.
-              </p>
-            </article>
-
-            <article className="card animate-on-scroll col-span-2">
-              <div className="service-card__icon-wrapper service-card__icon-wrapper--cyan mb-md">
-                <Code size={24} />
-              </div>
-              <h3 className="card__title text-center">Web a medida</h3>
-              <p className="card__content text-secondary text-center">
-                Para proyectos que requieren funcionalidades específicas o una estructura más compleja. En estos casos se desarrolla una web adaptada completamente a las necesidades del negocio, optimizando cada detalle según tus objetivos reales.
-              </p>
-            </article>
-          </div>
-
-          <div className="flex justify-center mt-xl animate-on-scroll gap-md flex-wrap">
-            <Link href="/pricing" className="btn btn--secondary w-full sm:w-auto">
-              Ver tarifas y servicios
-            </Link>
-            <Link href="/proyectos/ledescaparate" className="btn btn--secondary w-full sm:w-auto">
-              Ver caso real
-            </Link>
+            <ol className="editorial-list split-section__body animate-on-scroll">
+              <li className="editorial-item">
+                <span className="editorial-item__num" aria-hidden="true">01</span>
+                <div>
+                  <h3 className="editorial-item__title">Web corporativa</h3>
+                  <p className="editorial-item__description">
+                    El tipo de web más habitual para empresas y profesionales. Su objetivo es presentar la empresa, explicar los servicios y facilitar que los clientes potenciales puedan contactar o solicitar información.
+                  </p>
+                </div>
+              </li>
+              <li className="editorial-item">
+                <span className="editorial-item__num" aria-hidden="true">02</span>
+                <div>
+                  <h3 className="editorial-item__title">Landing page</h3>
+                  <p className="editorial-item__description">
+                    Pensadas para una acción concreta: promocionar un servicio, captar contactos o apoyar campañas de marketing. Son páginas más directas y enfocadas en la conversión.
+                  </p>
+                </div>
+              </li>
+              <li className="editorial-item">
+                <span className="editorial-item__num" aria-hidden="true">03</span>
+                <div>
+                  <h3 className="editorial-item__title">Web a medida</h3>
+                  <p className="editorial-item__description">
+                    Para proyectos que requieren funcionalidades específicas o una estructura más compleja. En estos casos se desarrolla una web adaptada completamente a las necesidades del negocio, optimizando cada detalle según tus objetivos reales.
+                  </p>
+                </div>
+              </li>
+            </ol>
           </div>
         </div>
       </section>
@@ -337,49 +344,56 @@ export default function DisenoWebPage() {
       <section className="section bg-dark-soft">
         <div className="container">
 
-          <header className="section-header text-center animate-on-scroll">
-            <h2 className="section-header__title">SEO técnico y optimización para <span className="gradient-text">inteligencia artificial</span></h2>
-            <p className="section-header__subtitle max-w-3xl mx-auto">
-              Hoy en día una página web no solo debe verse bien. También debe estar preparada para que los buscadores y motores de IA puedan entenderla correctamente.
-            </p>
-          </header>
-
-          <div className="grid grid-cols-3 gap-lg mt-xl animate-on-scroll">
-            <div className="card card--no-hover border-border/50 flex flex-col gap-sm">
-              <div className="service-card__icon-wrapper service-card__icon-wrapper--purple mb-sm">
-                <Layers size={24} />
-              </div>
-              <h3 className="text-xl text-center font-bold mb-xs">Arquitectura web clara</h3>
-              <p className="text-secondary text-sm text-center">Organizada de forma lógica para que tanto usuarios como buscadores puedan entender fácilmente el contenido y la jerarquía de cada página.</p>
+          <div className="split-section split-section--reverse">
+            <div className="split-section__aside animate-on-scroll">
+              <header className="section-header section-header--left">
+                <p className="section-header__eyebrow">SEO + IA</p>
+                <h2 className="section-header__title">SEO técnico y optimización para <span className="gradient-text">inteligencia artificial</span></h2>
+                <p className="section-header__subtitle">
+                  Hoy en día una página web no solo debe verse bien. También debe estar preparada para que los buscadores y motores de IA puedan entenderla correctamente.
+                </p>
+              </header>
             </div>
 
-            <div className="card card--no-hover border-border/50 flex flex-col gap-sm">
-              <div className="service-card__icon-wrapper service-card__icon-wrapper--blue mb-sm">
-                <Search size={24} />
-              </div>
-              <h3 className="text-xl text-center font-bold mb-xs">Optimización para buscadores</h3>
-              <p className="text-secondary text-center text-sm">Elementos técnicos que ayudan al posicionamiento, como la estructura del contenido, la jerarquía de títulos o el rendimiento.</p>
-            </div>
+            <div className="split-section__body animate-on-scroll">
+              <ol className="editorial-list">
+                <li className="editorial-item">
+                  <span className="editorial-item__num" aria-hidden="true">01</span>
+                  <div>
+                    <h3 className="editorial-item__title">Arquitectura web clara</h3>
+                    <p className="editorial-item__description">Organizada de forma lógica para que tanto usuarios como buscadores puedan entender fácilmente el contenido y la jerarquía de cada página.</p>
+                  </div>
+                </li>
+                <li className="editorial-item">
+                  <span className="editorial-item__num" aria-hidden="true">02</span>
+                  <div>
+                    <h3 className="editorial-item__title">Optimización para buscadores</h3>
+                    <p className="editorial-item__description">Elementos técnicos que ayudan al posicionamiento, como la estructura del contenido, la jerarquía de títulos o el rendimiento.</p>
+                  </div>
+                </li>
+                <li className="editorial-item">
+                  <span className="editorial-item__num" aria-hidden="true">03</span>
+                  <div>
+                    <h3 className="editorial-item__title">Preparada para motores de IA</h3>
+                    <p className="editorial-item__description">Información organizada de forma clara y comprensible para que motores como ChatGPT o Perplexity puedan generar respuestas directas.</p>
+                  </div>
+                </li>
+              </ol>
 
-            <div className="card card--no-hover border-border/50 flex flex-col gap-sm">
-              <div className="service-card__icon-wrapper service-card__icon-wrapper--cyan mb-sm">
-                <Cpu size={24} />
-              </div>
-              <h3 className="text-xl text-center font-bold mb-xs">Preparada para motores de IA</h3>
-              <p className="text-secondary text-center text-sm">Información organizada de forma clara y comprensible para que motores como ChatGPT o Perplexity puedan generar respuestas directas.</p>
+              <aside className="editorial-note">
+                <p>
+                  Si quieres entender esta base con mas detalle, te recomiendo leer {' '}
+                  <Link href="/blog/metodo-orbita" className="underline hover:text-primary transition-colors">
+                    el metodo ORBITA
+                  </Link>{' '}
+                  y esta guia sobre {' '}
+                  <Link href="/blog/estructura-ideal-pagina-web-empresas" className="underline hover:text-primary transition-colors">
+                    estructura web para empresas
+                  </Link>.
+                </p>
+              </aside>
             </div>
           </div>
-
-          <p className="text-secondary text-center mt-lg max-w-3xl mx-auto leading-relaxed">
-            Si quieres entender esta base con mas detalle, te recomiendo leer {' '}
-            <Link href="/blog/metodo-orbita" className="underline hover:text-primary transition-colors">
-              el metodo ORBITA
-            </Link>{' '}
-            y esta guia sobre {' '}
-            <Link href="/blog/estructura-ideal-pagina-web-empresas" className="underline hover:text-primary transition-colors">
-              estructura web para empresas
-            </Link>.
-          </p>
 
         </div>
       </section>
@@ -559,7 +573,7 @@ export default function DisenoWebPage() {
       {/* SECCIÓN 12 — CONTACTO */}
       <section className="section bg-dark-soft">
         <div className="container">
-          <div className="card text-center p-xl border-purple-900/30 animate-on-scroll">
+          <div className="text-center animate-on-scroll">
             <h2 className="mb-md section-header__title">¿Hablamos de <span className="gradient-text">tu proyecto</span>?</h2>
             <p className="text-secondary max-w-2xl mx-auto mb-xl text-lg">
               Si estás pensando en crear una nueva web o mejorar la que ya tienes, puedes contarme qué necesitas y cuál es la idea que tienes en mente.

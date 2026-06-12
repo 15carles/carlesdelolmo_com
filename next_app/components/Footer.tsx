@@ -120,6 +120,7 @@ const LEGAL_LINKS: FooterLink[] = [
   { href: '/politica-privacidad', label: 'Política de Privacidad' },
   { href: '/terminos-y-condiciones', label: 'Términos y Condiciones' },
   { href: '/politica-cookies', label: 'Política de Cookies' },
+  { href: '/colofon', label: 'Cómo está hecha esta web' },
 ];
 
 const CONTACT_LINKS: FooterContactLink[] = [

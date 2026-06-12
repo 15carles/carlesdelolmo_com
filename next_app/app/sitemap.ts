@@ -27,6 +27,7 @@ const STATIC_ROUTES: Array<{
   { path: '/blog', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/auditoria-gratuita', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/contacto', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/colofon', changeFrequency: 'monthly', priority: 0.4 },
   { path: '/politica-privacidad', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/politica-cookies', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/terminos-y-condiciones', changeFrequency: 'yearly', priority: 0.3 },

@@ -85,9 +85,9 @@ export default function SobreCarlesDelOlmoPage() {
         {/* ── INTRODUCCIÓN & BACKGROUND ── */}
         <section className="section">
           <div className="container">
-            <div className="grid grid-cols-2 gap-xl items-center mb-2xl">
-              <div className="card animate-on-scroll h-full">
-                <div className="badge badge--purple mb-md">El punto de partida</div>
+            <div className="grid grid-cols-2 gap-xl items-start mb-2xl">
+              <div className="animate-on-scroll h-full">
+                <p className="section-header__eyebrow">El punto de partida</p>
                 <h2 className="text-2xl mb-md">No llegué a este camino por casualidad</h2>
                 <div className="text-secondary text-lg text-left">
                   <p className="mb-sm">Llegué porque entendí que quería construir algo propio, más sólido y alineado con cómo pienso y cómo trabajo.</p>
@@ -95,8 +95,8 @@ export default function SobreCarlesDelOlmoPage() {
                 </div>
               </div>
 
-              <div className="card animate-on-scroll h-full">
-                <div className="badge badge--cyan mb-md">Mi base</div>
+              <div className="animate-on-scroll h-full">
+                <p className="section-header__eyebrow">Mi base</p>
                 <h2 className="text-2xl mb-md">No empecé en el diseño web, <span className="gradient-text">empecé entendiendo procesos</span></h2>
                 <div className="text-secondary text-lg text-left">
                   <p className="mb-sm">Antes de centrarme en el código, trabajé en administración orientada a procesos. Ahí aprendí que muchos problemas surgen de sistemas mal planteados.</p>
@@ -105,8 +105,8 @@ export default function SobreCarlesDelOlmoPage() {
               </div>
             </div>
 
-            <div className="card precision-grid-card animate-on-scroll border-cyan-900/30 px-md py-xl md:p-xl text-center max-w-4xl mx-auto">
-              <div className="badge badge--status mb-md">Punto de inflexión</div>
+            <div className="editorial-highlight animate-on-scroll text-center max-w-4xl mx-auto">
+              <p className="section-header__eyebrow">Punto de inflexión</p>
               <h2 className="text-2xl md:text-3xl mb-md">La DANA no fue solo un golpe. Fue una llamada de atención</h2>
               <div className="text-secondary text-lg text-left md:text-center max-w-3xl mx-auto">
                 <p className="mb-sm">Hay momentos que te obligan a revisar muchas cosas de golpe.</p>
@@ -169,26 +169,26 @@ export default function SobreCarlesDelOlmoPage() {
             </header>
 
             <div className="grid grid-cols-3 gap-lg mt-xl">
-              <article className="card precision-grid-card animate-on-scroll flex flex-col items-center">
-                <div className="text-4xl font-bold gradient-text mb-sm inline-block">01</div>
-                <h3 className="card__title text-center text-xl mb-md">Que todo tenga sentido</h3>
-                <p className="card__content text-center mb-0">
+              <article className="comparison-col animate-on-scroll">
+                <div className="editorial-step-num" aria-hidden="true">01</div>
+                <h3 className="text-xl mb-md">Que todo tenga sentido</h3>
+                <p className="text-secondary mb-0">
                   No me gusta añadir elementos porque sí. Cada bloque, cada mensaje y cada decisión deberían responder a una lógica.
                 </p>
               </article>
 
-              <article className="card precision-grid-card animate-on-scroll flex flex-col items-center">
-                <div className="text-4xl font-bold gradient-text mb-sm inline-block">02</div>
-                <h3 className="card__title text-center text-xl mb-md">Que la estructura ayude</h3>
-                <p className="card__content text-center mb-0">
+              <article className="comparison-col animate-on-scroll">
+                <div className="editorial-step-num" aria-hidden="true">02</div>
+                <h3 className="text-xl mb-md">Que la estructura ayude</h3>
+                <p className="text-secondary mb-0">
                   Una web puede tener buen diseño y aun así ser confusa. La claridad no aparece sola. Hay que construirla.
                 </p>
               </article>
 
-              <article className="card precision-grid-card animate-on-scroll flex flex-col items-center">
-                <div className="text-4xl font-bold gradient-text mb-sm inline-block">03</div>
-                <h3 className="card__title text-center text-xl mb-md">Que sirva para algo real</h3>
-                <p className="card__content text-center mb-0">
+              <article className="comparison-col animate-on-scroll">
+                <div className="editorial-step-num" aria-hidden="true">03</div>
+                <h3 className="text-xl mb-md">Que sirva para algo real</h3>
+                <p className="text-secondary mb-0">
                   No trabajo pensando en métricas vacías. Trabajo pensando en utilidad, visibilidad y capacidad de conversión.
                 </p>
               </article>
@@ -201,8 +201,8 @@ export default function SobreCarlesDelOlmoPage() {
           <div className="container">
             <div className="grid grid-cols-2 gap-xl animate-on-scroll">
               
-              <div className="card h-full">
-                <div className="badge badge--teal mb-md">Más allá del diseño</div>
+              <div className="h-full">
+                <p className="section-header__eyebrow">Más allá del diseño</p>
                 <h2 className="text-2xl mb-md">Conectar técnica con <span className="gradient-text">mentalidad práctica</span></h2>
                 <div className="text-secondary text-lg text-left">
                   <p className="mb-sm">Me gusta entender cómo funcionan las cosas, detectar dónde falla un sistema, ordenar y simplificar sin simplificar de más.</p>

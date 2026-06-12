@@ -55,9 +55,9 @@ export default function ServicesSection() {
 
             <div className="section-actions section-actions--left mt-xl" role="group" aria-label="Acciones de servicios">
               <Link href="/pricing" className="btn btn--primary">Ver servicios y precios</Link>
-              <Link href="/diseno-web/valencia" className="btn btn--secondary">Diseño web en Valencia</Link>
-              <Link href="/proyectos/ledescaparate" className="btn btn--secondary">Ver un caso real</Link>
-              <Link href="/contacto" className="btn btn--secondary">Cuéntame tu proyecto</Link>
+              <Link href="/diseno-web/valencia" className="action-link">Diseño web en Valencia</Link>
+              <Link href="/proyectos/ledescaparate" className="action-link">Ver un caso real</Link>
+              <Link href="/contacto" className="action-link">Cuéntame tu proyecto</Link>
             </div>
           </div>
 

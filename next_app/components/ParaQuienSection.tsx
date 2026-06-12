@@ -49,7 +49,7 @@ export default function ParaQuienSection() {
 
             <div className="section-actions section-actions--left mt-xl fit-actions" role="group" aria-label="Acciones de encaje de proyecto">
               <Link href="/contacto" className="btn btn--primary">Cuéntame tu proyecto</Link>
-              <Link href="/pricing" className="btn btn--secondary">Ver servicios y precios</Link>
+              <Link href="/pricing" className="action-link">Ver servicios y precios</Link>
             </div>
           </div>
 

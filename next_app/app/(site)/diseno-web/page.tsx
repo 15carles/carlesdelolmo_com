@@ -298,10 +298,10 @@ export default function DisenoWebPage() {
               </header>
 
               <div className="section-actions section-actions--left mt-xl animate-on-scroll" role="group" aria-label="Acciones sobre tipos de web">
-                <Link href="/pricing" className="btn btn--secondary">
+                <Link href="/pricing" className="action-link">
                   Ver tarifas y servicios
                 </Link>
-                <Link href="/proyectos/ledescaparate" className="btn btn--secondary">
+                <Link href="/proyectos/ledescaparate" className="action-link">
                   Ver caso real
                 </Link>
               </div>

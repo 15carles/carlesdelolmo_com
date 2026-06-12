@@ -46,8 +46,8 @@ export default function CredibilidadSection() {
 
             <div className="section-actions section-actions--left mt-xl" role="group" aria-label="Enlaces de credibilidad">
               <Link href="/proyectos/ledescaparate" className="btn btn--primary">Ver un caso real</Link>
-              <Link href="/blog/metodo-orbita" className="btn btn--secondary">Entender mi método</Link>
-              <Link href="/diseno-web/valencia" className="btn btn--secondary">Ver diseño web en Valencia</Link>
+              <Link href="/blog/metodo-orbita" className="action-link">Entender mi método</Link>
+              <Link href="/diseno-web/valencia" className="action-link">Ver diseño web en Valencia</Link>
             </div>
           </div>
 

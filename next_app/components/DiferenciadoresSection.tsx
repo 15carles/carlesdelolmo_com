@@ -59,7 +59,7 @@ export default function DiferenciadoresSection() {
 
             <div className="section-actions section-actions--left mt-xl" role="group" aria-label="Acciones de diferenciadores">
               <Link href="/diseno-web/valencia" className="btn btn--primary">Ver enfoque de diseño web</Link>
-              <Link href="/contacto" className="btn btn--secondary">Hablar sobre tu web</Link>
+              <Link href="/contacto" className="action-link">Hablar sobre tu web</Link>
             </div>
           </div>
 

@@ -48,8 +48,8 @@ export default function QueResuelvoSection() {
 
             <div className="section-actions section-actions--left mt-xl" role="group" aria-label="Enlaces de solución">
               <Link href="/diseno-web/valencia" className="btn btn--primary">Ver servicio principal</Link>
-              <Link href="/pricing" className="btn btn--secondary">Ver servicios y precios</Link>
-              <Link href="/blog/estructura-ideal-pagina-web-empresas" className="btn btn--secondary">Ver guía de estructura</Link>
+              <Link href="/pricing" className="action-link">Ver servicios y precios</Link>
+              <Link href="/blog/estructura-ideal-pagina-web-empresas" className="action-link">Ver guía de estructura</Link>
             </div>
           </div>
 

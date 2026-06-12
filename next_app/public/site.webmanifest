@@ -22,8 +22,8 @@
       "purpose": "any maskable"
     }
   ],
-  "theme_color": "#FAF7F1",
-  "background_color": "#FAF7F1",
+  "theme_color": "#FDFCFA",
+  "background_color": "#FDFCFA",
   "display": "standalone",
   "categories": ["business", "productivity", "marketing"],
   "prefer_related_applications": false

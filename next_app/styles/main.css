@@ -9,7 +9,7 @@
    ============================================ */
 :root {
     /* Fondos - neutros cálidos */
-    --color-bg-primary: #FAF7F1;
+    --color-bg-primary: #FDFCFA;
     --color-bg-secondary: #F1EBDF;
     --color-bg-card: #FFFFFF;
     --color-bg-card-strong: #FFFFFF;
@@ -20,7 +20,7 @@
     --color-text-primary: #1D1B16;
     --color-text-secondary: #57534A;
     --color-text-muted: #837D70;
-    --color-text-on-accent: #FAF7F1;
+    --color-text-on-accent: #FDFCFA;
     --color-text-on-ink: #F1EBDF;
 
     /* Bordes */

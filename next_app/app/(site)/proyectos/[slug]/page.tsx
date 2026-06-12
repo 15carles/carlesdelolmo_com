@@ -510,7 +510,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                           {props.link && (
                             <>
                               {' '}
-                              —{' '}
+                              ·{' '}
                               <a href={props.link} target="_blank" rel="noopener noreferrer">
                                 {getLinkLabel(props.link, props.linkText)}
                               </a>

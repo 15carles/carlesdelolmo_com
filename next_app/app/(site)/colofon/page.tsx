@@ -50,7 +50,7 @@ const stackItems: ColofonItem[] = [
   {
     title: 'CSS artesanal, sin framework',
     description:
-      'Todo el sistema visual —tokens, componentes, composición editorial— está escrito a medida. Sin Bootstrap, sin Tailwind, sin kilos de utilidades sin usar.',
+      'Todo el sistema visual (tokens, componentes, composición editorial) está escrito a medida. Sin Bootstrap, sin Tailwind, sin kilos de utilidades sin usar.',
   },
 ];
 
@@ -104,7 +104,7 @@ const privacyItems: ColofonItem[] = [
   {
     title: 'Movimiento que respeta tus preferencias',
     description:
-      'Todas las animaciones —incluido el lienzo generativo de la portada— se desactivan si tu sistema indica prefers-reduced-motion.',
+      'Todas las animaciones, incluido el lienzo generativo de la portada, se desactivan si tu sistema indica prefers-reduced-motion.',
   },
   {
     title: 'Funciona sin conexión',
@@ -148,7 +148,7 @@ export default function ColofonPage() {
             <h1 className="page-header__title mt-xl">Cómo está hecha esta web</h1>
             <p className="page-header__subtitle">
               Las revistas impresas cierran con un colofón: papel, tipos y taller.
-              Esta es la versión digital — y la mejor prueba de cómo trabajo.
+              Esta es la versión digital, y la mejor prueba de cómo trabajo.
             </p>
           </div>
         </header>

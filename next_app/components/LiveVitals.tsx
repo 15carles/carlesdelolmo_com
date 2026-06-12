@@ -132,7 +132,7 @@ export default function LiveVitals() {
             <div key={metric.key} className="vitals__metric">
               <p className="vitals__label">{metric.label}</p>
               <p className="vitals__value">
-                {measured ? metric.format(value as number) : '—'}
+                {measured ? metric.format(value as number) : '…'}
               </p>
               <p className={`vitals__status ${measured ? (good ? 'vitals__status--good' : 'vitals__status--warn') : ''}`}>
                 {measured

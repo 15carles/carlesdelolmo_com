@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { CheckCircle } from 'lucide-react';
 
 export const metadata = {
-  title: 'Gracias por contactar — Carles del Olmo',
+  title: 'Gracias por contactar | Carles del Olmo',
   description: 'Mensaje recibido correctamente. Me pondré en contacto contigo lo antes posible.',
   robots: 'noindex, nofollow'
 };

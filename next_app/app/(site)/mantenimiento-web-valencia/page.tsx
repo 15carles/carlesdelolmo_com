@@ -203,39 +203,41 @@ export default function MantenimientoWebValenciaPage() {
         <Breadcrumbs items={breadcrumbs} />
 
         <section id="inicio" className="section hero hero-service hero-maintenance" aria-labelledby="hero-title">
-          <div className="container">
-            <div className="grid grid-cols-2 mt-2xl">
-              <div className="animate-on-scroll hero-content-wrapper">
-                <div className="badge badge--status mb-lg helper-center-mobile">
-                  <span>Valencia y remoto</span>
-                </div>
-
-                <h1 id="hero-title" className="mb-md helper-center-mobile">
-                  Mantenimiento Web <span className="gradient-text">Valencia</span>
-                </h1>
-
-                <p className="hero-description text-secondary mb-xl helper-center-mobile">
-                  Mantengo webs ya publicadas para que sigan funcionando bien, transmitan profesionalidad y no se deterioren
-                  con el tiempo. Tanto si la web la he desarrollado yo como si viene de otro profesional o agencia.
-                </p>
-
-                <div className="hero-actions mb-xl helper-flex-center-mobile">
-                  <Link className="btn btn--primary btn--large" href="/contacto" data-primary-cta="true">
-                    Solicitar mantenimiento
-                  </Link>
-                </div>
-
-                <ul id="hero-checklist" className="hero-highlights hero-features grid grid-cols-2 gap-md mb-0 animate-on-scroll" aria-label="Puntos clave del servicio">
-                  {HERO_HIGHLIGHTS.map((highlight) => (
-                    <li key={highlight} className="hero-features__item">
-                      <span className="hero-features__icon-wrapper" aria-hidden="true">
-                        <Check size={20} strokeWidth={3} />
-                      </span>
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
+          <div className="container hero-maintenance__container">
+            <div className="hero-maintenance__inner animate-on-scroll mt-2xl">
+              <div className="badge badge--status mb-lg hero-maintenance__badge">
+                <span>Valencia y remoto</span>
               </div>
+
+              <h1 id="hero-title" className="mb-md hero-maintenance__title">
+                Mantenimiento Web <span className="gradient-text">Valencia</span>
+              </h1>
+
+              <p className="hero-description text-secondary mb-xl hero-maintenance__subtitle">
+                Mantengo webs ya publicadas para que sigan funcionando bien, transmitan profesionalidad y no se deterioren
+                con el tiempo. Tanto si la web la he desarrollado yo como si viene de otro profesional o agencia.
+              </p>
+
+              <div className="hero-actions hero-maintenance__actions mb-xl">
+                <Link className="btn btn--primary btn--large" href="/contacto" data-primary-cta="true">
+                  Solicitar mantenimiento
+                </Link>
+              </div>
+
+              <ul
+                id="hero-checklist"
+                className="hero-highlights hero-features hero-maintenance__highlights grid grid-cols-2 gap-md mb-0"
+                aria-label="Puntos clave del servicio"
+              >
+                {HERO_HIGHLIGHTS.map((highlight) => (
+                  <li key={highlight} className="hero-features__item">
+                    <span className="hero-features__icon-wrapper" aria-hidden="true">
+                      <Check size={20} strokeWidth={3} />
+                    </span>
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>

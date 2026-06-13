@@ -3932,6 +3932,15 @@
     margin-bottom: var(--spacing-3xl);
 }
 
+/* Centrado vertical de la figura del hero respecto a la columna de texto */
+.grid-cols-2:has(> .hero-right-col) {
+    align-items: center;
+}
+
+.grid-cols-2:has(> .hero-right-col) > .hero-right-col {
+    padding-bottom: 0;
+}
+
 @media (max-width: 767px) {
     .hero-migraciones__highlights {
         gap: var(--spacing-sm) !important;

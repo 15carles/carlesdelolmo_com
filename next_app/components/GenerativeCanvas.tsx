@@ -10,7 +10,10 @@ export type CanvasVariant =
   | 'nodes'
   | 'audit'
   | 'code'
-  | 'shield';
+  | 'shield'
+  | 'valencia'
+  | 'alicante'
+  | 'castellon';
 
 interface GenerativeCanvasProps {
   className?: string;
@@ -61,6 +64,9 @@ const DEFAULT_ARIA: Record<CanvasVariant, string> = {
   audit: 'Animación decorativa: partículas que trazan una lupa sobre una lista de verificación',
   code: 'Animación decorativa: partículas que trazan el editor de código de una web a medida',
   shield: 'Animación decorativa: partículas que trazan un escudo con una marca de verificación',
+  valencia: 'Animación decorativa: partículas que trazan las Torres de Serranos de Valencia',
+  alicante: 'Animación decorativa: partículas que trazan el Castillo de Santa Bárbara de Alicante',
+  castellon: 'Animación decorativa: partículas que trazan la torre El Fadrí de Castellón',
 };
 
 /**
@@ -98,6 +104,18 @@ function geometryFor(variant: CanvasVariant, seed = 0): RawSegment[] {
   };
   const check = (cx: number, cy: number, accent = true) =>
     poly([[cx, cy], [cx + 0.025, cy + 0.04], [cx + 0.08, cy - 0.05]], accent);
+  // Almenas: línea de merlones entre x0 y x1, base en y, altura h, n merlones
+  const crenel = (x0: number, x1: number, y: number, h: number, n: number, accent = false) => {
+    const w = (x1 - x0) / (2 * n + 1);
+    const pts: Array<[number, number]> = [[x0, y]];
+    for (let i = 0; i < n; i++) {
+      const mx0 = x0 + (2 * i + 1) * w;
+      const mx1 = mx0 + w;
+      pts.push([mx0, y], [mx0, y - h], [mx1, y - h], [mx1, y]);
+    }
+    pts.push([x1, y]);
+    poly(pts, accent);
+  };
 
   switch (variant) {
     // Gráfico de posiciones en ascenso (SEO/GEO): ejes, barras crecientes y flecha de tendencia
@@ -206,6 +224,68 @@ function geometryFor(variant: CanvasVariant, seed = 0): RawSegment[] {
         [0.50, 0.12],
       ]);
       poly([[0.36, 0.46], [0.46, 0.58], [0.66, 0.34]], true);
+      break;
+    }
+    // Valencia — Torres de Serranos: dos torres almenadas y una puerta central con arco
+    case 'valencia': {
+      line(0.08, 0.90, 0.92, 0.90);
+      // Torre izquierda
+      line(0.12, 0.90, 0.12, 0.30);
+      line(0.36, 0.90, 0.36, 0.30);
+      crenel(0.12, 0.36, 0.30, 0.045, 3);
+      line(0.12, 0.44, 0.36, 0.44);
+      rect(0.19, 0.52, 0.10, 0.15);
+      // Torre derecha
+      line(0.64, 0.90, 0.64, 0.30);
+      line(0.88, 0.90, 0.88, 0.30);
+      crenel(0.64, 0.88, 0.30, 0.045, 3);
+      line(0.64, 0.44, 0.88, 0.44);
+      rect(0.71, 0.52, 0.10, 0.15);
+      // Cuerpo central (puerta), más bajo
+      crenel(0.36, 0.64, 0.48, 0.04, 2);
+      // Arco de entrada (acento)
+      line(0.44, 0.90, 0.44, 0.68, true);
+      poly([[0.44, 0.68], [0.47, 0.635], [0.50, 0.625], [0.53, 0.635], [0.56, 0.68]], true);
+      line(0.56, 0.90, 0.56, 0.68, true);
+      break;
+    }
+    // Alicante — Castillo de Santa Bárbara: fortaleza almenada sobre el monte Benacantil
+    case 'alicante': {
+      line(0.04, 0.90, 0.96, 0.90);
+      // Ladera del monte
+      poly([[0.04, 0.90], [0.30, 0.60], [0.42, 0.56], [0.64, 0.56], [0.80, 0.68], [0.96, 0.90]]);
+      // Torre del homenaje
+      line(0.42, 0.56, 0.42, 0.34);
+      line(0.54, 0.56, 0.54, 0.34);
+      crenel(0.42, 0.54, 0.34, 0.04, 2);
+      rect(0.46, 0.44, 0.04, 0.09, true);
+      // Asta y bandera (acento)
+      line(0.48, 0.30, 0.48, 0.24, true);
+      poly([[0.48, 0.24], [0.53, 0.262], [0.48, 0.285]], true);
+      // Muralla a la derecha de la torre
+      line(0.54, 0.46, 0.66, 0.46);
+      line(0.66, 0.46, 0.66, 0.56);
+      crenel(0.54, 0.66, 0.46, 0.035, 2);
+      break;
+    }
+    // Castellón — El Fadrí: campanario octogonal exento, esbelto, con reloj
+    case 'castellon': {
+      line(0.22, 0.90, 0.78, 0.90);
+      // Fuste ligeramente troncocónico
+      line(0.40, 0.90, 0.43, 0.20);
+      line(0.60, 0.90, 0.57, 0.20);
+      // Cuerpos (divisiones horizontales)
+      line(0.415, 0.38, 0.585, 0.38);
+      line(0.405, 0.54, 0.595, 0.54);
+      line(0.40, 0.70, 0.60, 0.70);
+      // Balaustrada superior (almenas pequeñas)
+      crenel(0.43, 0.57, 0.20, 0.035, 3);
+      // Reloj (acento)
+      ring(0.50, 0.30, 0.045, 12, true);
+      // Ventana del campanario
+      rect(0.46, 0.44, 0.08, 0.08);
+      // Puerta
+      rect(0.455, 0.78, 0.09, 0.12);
       break;
     }
     // Esqueleto de una landing: nav, hero (texto + imagen) y fila de tres tarjetas

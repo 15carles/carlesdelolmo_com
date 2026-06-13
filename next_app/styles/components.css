@@ -5481,6 +5481,9 @@ body.has-promo-banner .navbar {
     padding: 0;
     box-shadow: none;
     max-width: 52rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 /* Columna de problema: regla superior verde */

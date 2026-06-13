@@ -405,7 +405,7 @@ export default function MantenimientoWebValenciaPage() {
       <section className="section section-fit" aria-labelledby="fit-title">
         <div className="container">
           <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--cyan mb-lg">Encaje del servicio</span>
+            <span className="section-eyebrow badge badge--status mb-lg">Encaje del servicio</span>
             <h2 id="fit-title" className="section-header__title">
               Un servicio pensado para webs que necesitan continuidad real
             </h2>

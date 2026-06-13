@@ -162,6 +162,62 @@
     overflow-x: auto;
 }
 
+/* ============================================
+   POST SECTION (Keystatic: contenedor con fondo)
+   Panel contenido dentro de la columna del artículo.
+   ============================================ */
+.post-section {
+    margin: var(--spacing-xl) 0;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-2xl);
+}
+
+/* Variante por defecto (sin clase bg-*): card con borde */
+.post-section:not([class*="bg-"]) {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+}
+
+.post-section--lg {
+    padding: var(--spacing-2xl);
+}
+
+.post-section--none {
+    padding: 0;
+}
+
+.post-section>*:last-child {
+    margin-bottom: 0;
+}
+
+.post-section__header {
+    margin-bottom: var(--spacing-md);
+}
+
+.post-section.text-center .section-header__subtitle {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* El título es un prop, no un H2 del documento: sin regla inferior ni
+   margen superior de .article-content para que lea como cabecera de panel. */
+.article-content .post-section .section-header__title {
+    margin-top: 0;
+}
+
+.article-content .post-section .section-header__title::after {
+    display: none;
+}
+
+/* Eyebrow legible sobre fondo verde (no existe override de bg-gradient) */
+.bg-gradient .section-header__eyebrow {
+    color: var(--color-text-on-accent);
+}
+
+.bg-gradient .section-header__eyebrow::before {
+    background: var(--color-text-on-accent);
+}
+
 .article-table {
     width: 100%;
     border-collapse: collapse;

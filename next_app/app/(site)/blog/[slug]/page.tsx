@@ -276,7 +276,28 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         </div>
                       ))}
                     </div>
-                  )
+                  ),
+                  section: (props) => {
+                    const variantClass = props.variant === 'secondary' ? 'bg-secondary'
+                      : props.variant === 'dark' ? 'bg-dark'
+                      : props.variant === 'accent' ? 'bg-gradient'
+                      : '';
+                    const padClass = props.padding === 'large' ? 'post-section--lg'
+                      : props.padding === 'none' ? 'post-section--none' : '';
+                    const alignClass = props.textAlign === 'center' ? 'text-center' : '';
+                    return (
+                      <section className={`post-section ${variantClass} ${padClass} ${alignClass}`.replace(/\s+/g, ' ').trim()}>
+                        {(props.eyebrow || props.title || props.subtitle) && (
+                          <header className="post-section__header">
+                            {props.eyebrow && <div className="section-header__eyebrow">{props.eyebrow}</div>}
+                            {props.title && <h2 className="section-header__title">{props.title}</h2>}
+                            {props.subtitle && <p className="section-header__subtitle">{props.subtitle}</p>}
+                          </header>
+                        )}
+                        {props.content}
+                      </section>
+                    );
+                  }
                 }}
               />
             </div>

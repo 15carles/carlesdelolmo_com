@@ -257,6 +257,92 @@ export default config({
                 ),
               },
             }),
+            section: component({
+              preview: (props) => {
+                const variant = props.fields.variant.value;
+                const align = props.fields.textAlign.value;
+                const styles = variant === 'dark'
+                  ? { background: '#191813', color: '#F1EBDF', border: '1px solid #191813' }
+                  : variant === 'accent'
+                    ? { background: '#145C35', color: '#FDFCFA', border: '1px solid #145C35' }
+                    : variant === 'secondary'
+                      ? { background: '#F1EBDF', color: '#1D1B16', border: '1px solid #E6DFD0' }
+                      : { background: '#FFFFFF', color: '#1D1B16', border: '1px solid #E6DFD0' };
+                const isDark = variant === 'dark' || variant === 'accent';
+                const accentColor = isDark ? '#FDFCFA' : '#145C35';
+                return (
+                  <div style={{
+                    borderRadius: '18px',
+                    padding: props.fields.padding.value === 'large' ? '28px' : props.fields.padding.value === 'none' ? '8px' : '18px',
+                    textAlign: align,
+                    ...styles,
+                  }}>
+                    {(props.fields.eyebrow.value || props.fields.title.value || props.fields.subtitle.value) && (
+                      <div style={{ marginBottom: '12px' }}>
+                        {props.fields.eyebrow.value && (
+                          <div style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: 600, color: accentColor, marginBottom: '6px' }}>
+                            {props.fields.eyebrow.value}
+                          </div>
+                        )}
+                        {props.fields.title.value && (
+                          <strong style={{ fontSize: '18px' }}>{props.fields.title.value}</strong>
+                        )}
+                        {props.fields.subtitle.value && (
+                          <div style={{ fontSize: '13px', marginTop: '4px', opacity: 0.8 }}>{props.fields.subtitle.value}</div>
+                        )}
+                      </div>
+                    )}
+                    <div>{props.fields.content.element}</div>
+                  </div>
+                );
+              },
+              label: 'Contenedor: Sección con Fondo',
+              schema: {
+                eyebrow: fields.text({ label: 'Eyebrow / Rótulo superior', defaultValue: '' }),
+                title: fields.text({ label: 'Título de la Sección (H2)', defaultValue: '' }),
+                subtitle: fields.text({ label: 'Subtítulo / Descripción mini', defaultValue: '' }),
+                variant: fields.select({
+                  label: 'Fondo / Variante',
+                  options: [
+                    { label: 'Estándar (Blanco)', value: 'default' },
+                    { label: 'Secundario (Crema)', value: 'secondary' },
+                    { label: 'Oscuro (Tinta)', value: 'dark' },
+                    { label: 'Acento (Verde)', value: 'accent' },
+                  ],
+                  defaultValue: 'default',
+                }),
+                textAlign: fields.select({
+                  label: 'Alineación de Texto',
+                  options: [
+                    { label: 'Izquierda', value: 'left' },
+                    { label: 'Centro', value: 'center' },
+                  ],
+                  defaultValue: 'left',
+                }),
+                padding: fields.select({
+                  label: 'Espaciado',
+                  options: [
+                    { label: 'Normal', value: 'normal' },
+                    { label: 'Grande', value: 'large' },
+                    { label: 'Ninguno', value: 'none' },
+                  ],
+                  defaultValue: 'normal',
+                }),
+                content: fields.child({
+                  kind: 'block',
+                  placeholder: 'Contenido de la sección...',
+                  links: 'inherit',
+                  componentBlocks: 'inherit',
+                  formatting: {
+                    headingLevels: [],
+                    inlineMarks: 'inherit',
+                    listTypes: 'inherit',
+                    alignment: 'inherit',
+                    softBreaks: 'inherit',
+                  },
+                }),
+              },
+            }),
           },
         }),
         faqs: fields.array(

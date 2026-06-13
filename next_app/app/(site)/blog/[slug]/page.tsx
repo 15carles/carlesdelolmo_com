@@ -250,25 +250,15 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     </div>
                   ),
                   notice: (props) => {
-                    const colors = {
-                      info: 'var(--color-accent-blue)',
-                      warning: 'var(--color-accent-purple)',
-                      tip: 'var(--color-accent-green)'
+                    const labels: Record<string, string> = {
+                      info: 'Información',
+                      warning: 'Aviso',
+                      tip: 'Consejo',
                     };
-                    const icons = {
-                      info: 'ℹ️',
-                      warning: '⚠️',
-                      tip: '💡'
-                    };
+                    const type = labels[props.type as string] ? (props.type as string) : 'info';
                     return (
-                      <div
-                        className="article-box mt-lg mb-lg"
-                        style={{ borderLeft: `4px solid ${colors[props.type as keyof typeof colors] || colors.info}` }}
-                      >
-                        <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', marginBottom: '0.5rem', fontWeight: 'bold', fontSize: '0.9rem', color: colors[props.type as keyof typeof colors] }}>
-                          <span>{icons[props.type as keyof typeof icons] || icons.info}</span>
-                          <span style={{ textTransform: 'uppercase' }}>{props.type}</span>
-                        </div>
+                      <div className={`notice notice--${type}`} role="note">
+                        <p className="notice__label">{labels[type]}</p>
                         {props.content}
                       </div>
                     );

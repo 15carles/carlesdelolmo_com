@@ -839,6 +839,46 @@
     display: block;
 }
 
+/* ============================================
+   BLOQUES NOTICE (Keystatic: info / warning / tip)
+   ============================================ */
+.notice {
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--notice-color, var(--color-notice-info));
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.notice>*:last-child {
+    margin-bottom: 0;
+}
+
+.notice__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--notice-color, var(--color-notice-info));
+    margin-bottom: var(--spacing-xs);
+}
+
+.notice--info {
+    --notice-color: var(--color-notice-info);
+}
+
+.notice--tip {
+    --notice-color: var(--color-notice-tip);
+    background: var(--color-green-50);
+}
+
+.notice--warning {
+    --notice-color: var(--color-notice-warning);
+    background: var(--color-amber-50);
+}
+
 .img--glass {
     max-width: 100%;
     height: auto;

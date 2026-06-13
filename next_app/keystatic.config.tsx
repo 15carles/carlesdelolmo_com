@@ -181,17 +181,25 @@ export default config({
               },
             }),
             notice: component({
-              preview: (props) => (
-                <div style={{
-                  padding: '10px',
-                  borderLeft: '4px solid ' + (props.fields.type.value === 'warning' ? '#f59e0b' : props.fields.type.value === 'tip' ? '#10b981' : '#3b82f6'),
-                  backgroundColor: 'rgba(0,0,0,0.05)',
-                  margin: '10px 0'
-                }}>
-                  <div style={{ fontWeight: 'bold', textTransform: 'uppercase', fontSize: '10px', marginBottom: '4px' }}>{props.fields.type.value}</div>
-                  {props.fields.content.element}
-                </div>
-              ),
+              preview: (props) => {
+                const type = props.fields.type.value;
+                const color = type === 'warning' ? '#9A5B1E' : type === 'tip' ? '#145C35' : '#57534A';
+                const bg = type === 'warning' ? '#F7EEDD' : type === 'tip' ? '#ECF6EF' : '#FFFFFF';
+                const label = type === 'warning' ? 'Aviso' : type === 'tip' ? 'Consejo' : 'Información';
+                return (
+                  <div style={{
+                    padding: '12px 16px',
+                    border: '1px solid #E6DFD0',
+                    borderLeft: '4px solid ' + color,
+                    borderRadius: '14px',
+                    backgroundColor: bg,
+                    margin: '10px 0'
+                  }}>
+                    <div style={{ fontWeight: 700, textTransform: 'uppercase', fontSize: '11px', letterSpacing: '0.06em', color, marginBottom: '6px' }}>{label}</div>
+                    {props.fields.content.element}
+                  </div>
+                );
+              },
               label: 'Nota / Aviso',
               schema: {
                 type: fields.select({

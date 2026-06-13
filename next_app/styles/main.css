@@ -40,6 +40,15 @@
     --color-accent-hover: var(--color-green-700);
     --color-accent-bright: var(--color-green-500);
 
+    /* Ámbar cálido - semántica de aviso (warning), encaja en la base crema */
+    --color-amber-700: #9A5B1E;
+    --color-amber-50: #F7EEDD;
+
+    /* Semántica de bloques notice (info neutro · tip verde · warning ámbar) */
+    --color-notice-info: var(--color-text-secondary);
+    --color-notice-tip: var(--color-accent);
+    --color-notice-warning: var(--color-amber-700);
+
     /* Sombras - tinte cálido marrón-gris */
     --shadow-sm: 0 1px 2px rgba(58, 50, 33, 0.06);
     --shadow-md: 0 3px 10px rgba(58, 50, 33, 0.08);

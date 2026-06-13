@@ -104,14 +104,14 @@ function geometryFor(variant: CanvasVariant, seed = 0): RawSegment[] {
   };
   const check = (cx: number, cy: number, accent = true) =>
     poly([[cx, cy], [cx + 0.025, cy + 0.04], [cx + 0.08, cy - 0.05]], accent);
-  // Almenas: línea de merlones entre x0 y x1, base en y, altura h, n merlones
+  // Almenas: n merlones entre x0 y x1, base en y, altura h. Empieza y acaba en
+  // merlón (esquinas hacia arriba) para un remate de torre limpio.
   const crenel = (x0: number, x1: number, y: number, h: number, n: number, accent = false) => {
-    const w = (x1 - x0) / (2 * n + 1);
+    const u = (x1 - x0) / (2 * n - 1);
     const pts: Array<[number, number]> = [[x0, y]];
-    for (let i = 0; i < n; i++) {
-      const mx0 = x0 + (2 * i + 1) * w;
-      const mx1 = mx0 + w;
-      pts.push([mx0, y], [mx0, y - h], [mx1, y - h], [mx1, y]);
+    for (let i = 0; i < 2 * n - 1; i++) {
+      const yy = i % 2 === 0 ? y - h : y;
+      pts.push([x0 + i * u, yy], [x0 + (i + 1) * u, yy]);
     }
     pts.push([x1, y]);
     poly(pts, accent);
@@ -232,13 +232,13 @@ function geometryFor(variant: CanvasVariant, seed = 0): RawSegment[] {
       // Torre izquierda
       line(0.12, 0.90, 0.12, 0.30);
       line(0.36, 0.90, 0.36, 0.30);
-      crenel(0.12, 0.36, 0.30, 0.045, 3);
+      crenel(0.12, 0.36, 0.30, 0.055, 3);
       line(0.12, 0.44, 0.36, 0.44);
       rect(0.19, 0.52, 0.10, 0.15);
       // Torre derecha
       line(0.64, 0.90, 0.64, 0.30);
       line(0.88, 0.90, 0.88, 0.30);
-      crenel(0.64, 0.88, 0.30, 0.045, 3);
+      crenel(0.64, 0.88, 0.30, 0.055, 3);
       line(0.64, 0.44, 0.88, 0.44);
       rect(0.71, 0.52, 0.10, 0.15);
       // Cuerpo central (puerta), más bajo

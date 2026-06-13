@@ -3,6 +3,31 @@ import { config, fields, collection, component } from '@keystatic/core';
 // Modo de desarrollo escribe local. Producción (Cloudflare) exige GitHub puro.
 const isLocalDev = process.env.NODE_ENV === 'development';
 
+// Paleta de marca "Minimalismo cálido" como hex literales. Los previews del
+// editor de Keystatic NO cargan las CSS vars del sitio, así que deben usar estos
+// valores en vez de var(--...). Única fuente de verdad para los previews.
+const BRAND = {
+  bg: '#FDFCFA',
+  secondary: '#F1EBDF',
+  card: '#FFFFFF',
+  inset: '#F4F0E7',
+  ink: '#191813',
+  text: '#1D1B16',
+  textSecondary: '#57534A',
+  textMuted: '#837D70',
+  onAccent: '#FDFCFA',
+  onInk: '#F1EBDF',
+  border: '#E6DFD0',
+  borderStrong: '#D5CCB8',
+  accent: '#145C35',
+  accentHover: '#1F7A45',
+  accentBright: '#2FA866',
+  green50: '#ECF6EF',
+  green100: '#DBEEE0',
+  amber: '#9A5B1E',
+  amber50: '#F7EEDD',
+} as const;
+
 export default config({
   storage: isLocalDev
     ? { kind: 'local' }
@@ -66,8 +91,8 @@ export default config({
           componentBlocks: {
             articleBox: component({
               preview: (props) => (
-                <div style={{ border: '1px dotted #ccc', padding: '10px', borderRadius: '4px' }}>
-                  <div style={{ fontSize: '12px', color: '#999', marginBottom: '5px' }}>Article Box</div>
+                <div style={{ border: `1px solid ${BRAND.border}`, background: BRAND.card, padding: '12px', borderRadius: '14px' }}>
+                  <div style={{ fontSize: '12px', color: BRAND.textMuted, marginBottom: '5px' }}>Article Box</div>
                   {props.fields.content.element}
                 </div>
               ),
@@ -87,10 +112,10 @@ export default config({
                 <div style={{ padding: '10px', textAlign: 'center' }}>
                   <button style={{
                     padding: props.fields.size.value === 'large' ? '12px 24px' : '8px 16px',
-                    backgroundColor: props.fields.variant.value === 'primary' ? '#3b82f6' : '#eee',
-                    color: props.fields.variant.value === 'primary' ? '#fff' : '#333',
-                    border: 'none',
-                    borderRadius: '4px'
+                    backgroundColor: props.fields.variant.value === 'primary' ? BRAND.accent : 'transparent',
+                    color: props.fields.variant.value === 'primary' ? BRAND.onAccent : BRAND.text,
+                    border: props.fields.variant.value === 'primary' ? 'none' : `1px solid ${BRAND.borderStrong}`,
+                    borderRadius: '999px'
                   }}>
                     {props.fields.label.value || 'Botón'}
                   </button>
@@ -121,9 +146,9 @@ export default config({
             }),
             styledImage: component({
               preview: (props) => (
-                <div style={{ border: '1px dashed #ccc', padding: '10px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '12px', color: '#999' }}>Imagen con estilo: {props.fields.width.value}</div>
-                  <div style={{ width: props.fields.width.value, height: '100px', backgroundColor: '#f0f0f0', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ border: `1px solid ${BRAND.border}`, borderRadius: '14px', padding: '10px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '12px', color: BRAND.textMuted, marginBottom: '8px' }}>Imagen con estilo: {props.fields.width.value}</div>
+                  <div style={{ width: props.fields.width.value, height: '100px', backgroundColor: BRAND.inset, borderRadius: '10px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', color: BRAND.textMuted }}>
                     IMG
                   </div>
                 </div>
@@ -158,10 +183,10 @@ export default config({
             }),
             ctaSection: component({
               preview: (props) => (
-                <div style={{ backgroundColor: '#f0f0f0', padding: '15px', borderRadius: '8px', textAlign: 'center' }}>
-                  <div style={{ fontWeight: 'bold' }}>{props.fields.title.value || 'Título del CTA'}</div>
-                  <div style={{ fontSize: '14px', margin: '10px 0' }}>{props.fields.text.value}</div>
-                  <button style={{ padding: '5px 15px' }}>{props.fields.buttonText.value || 'Botón'}</button>
+                <div style={{ backgroundColor: BRAND.secondary, border: `1px solid ${BRAND.border}`, padding: '16px', borderRadius: '16px', textAlign: 'center' }}>
+                  <div style={{ fontWeight: 700, color: BRAND.text }}>{props.fields.title.value || 'Título del CTA'}</div>
+                  <div style={{ fontSize: '14px', margin: '10px 0', color: BRAND.textSecondary }}>{props.fields.text.value}</div>
+                  <button style={{ padding: '8px 18px', borderRadius: '999px', border: 'none', backgroundColor: BRAND.accent, color: BRAND.onAccent }}>{props.fields.buttonText.value || 'Botón'}</button>
                 </div>
               ),
               label: 'Sección CTA',
@@ -183,13 +208,13 @@ export default config({
             notice: component({
               preview: (props) => {
                 const type = props.fields.type.value;
-                const color = type === 'warning' ? '#9A5B1E' : type === 'tip' ? '#145C35' : '#57534A';
-                const bg = type === 'warning' ? '#F7EEDD' : type === 'tip' ? '#ECF6EF' : '#FFFFFF';
+                const color = type === 'warning' ? BRAND.amber : type === 'tip' ? BRAND.accent : BRAND.textSecondary;
+                const bg = type === 'warning' ? BRAND.amber50 : type === 'tip' ? BRAND.green50 : BRAND.card;
                 const label = type === 'warning' ? 'Aviso' : type === 'tip' ? 'Consejo' : 'Información';
                 return (
                   <div style={{
                     padding: '12px 16px',
-                    border: '1px solid #E6DFD0',
+                    border: `1px solid ${BRAND.border}`,
                     borderLeft: '4px solid ' + color,
                     borderRadius: '14px',
                     backgroundColor: bg,
@@ -221,11 +246,11 @@ export default config({
             }),
             imageGallery: component({
               preview: (props) => (
-                <div style={{ border: '1px dashed #ccc', padding: '10px' }}>
-                  <div style={{ fontSize: '12px', color: '#999', marginBottom: '5px' }}>Galería ({props.fields.columns.value} columnas)</div>
-                  <div style={{ display: 'grid', gridTemplateColumns: `repeat(${props.fields.columns.value}, 1fr)`, gap: '5px' }}>
+                <div style={{ border: `1px solid ${BRAND.border}`, borderRadius: '14px', padding: '10px' }}>
+                  <div style={{ fontSize: '12px', color: BRAND.textMuted, marginBottom: '8px' }}>Galería ({props.fields.columns.value} columnas)</div>
+                  <div style={{ display: 'grid', gridTemplateColumns: `repeat(${props.fields.columns.value}, 1fr)`, gap: '8px' }}>
                     {[1, 2, 3].slice(0, Number(props.fields.columns.value)).map((i) => (
-                      <div key={i} style={{ aspectRatio: '4/3', backgroundColor: '#eee', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px' }}>Imagen</div>
+                      <div key={i} style={{ aspectRatio: '4/3', backgroundColor: BRAND.inset, borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', color: BRAND.textMuted }}>Imagen</div>
                     ))}
                   </div>
                 </div>
@@ -262,14 +287,14 @@ export default config({
                 const variant = props.fields.variant.value;
                 const align = props.fields.textAlign.value;
                 const styles = variant === 'dark'
-                  ? { background: '#191813', color: '#F1EBDF', border: '1px solid #191813' }
+                  ? { background: BRAND.ink, color: BRAND.onInk, border: `1px solid ${BRAND.ink}` }
                   : variant === 'accent'
-                    ? { background: '#145C35', color: '#FDFCFA', border: '1px solid #145C35' }
+                    ? { background: BRAND.accent, color: BRAND.onAccent, border: `1px solid ${BRAND.accent}` }
                     : variant === 'secondary'
-                      ? { background: '#F1EBDF', color: '#1D1B16', border: '1px solid #E6DFD0' }
-                      : { background: '#FFFFFF', color: '#1D1B16', border: '1px solid #E6DFD0' };
+                      ? { background: BRAND.secondary, color: BRAND.text, border: `1px solid ${BRAND.border}` }
+                      : { background: BRAND.card, color: BRAND.text, border: `1px solid ${BRAND.border}` };
                 const isDark = variant === 'dark' || variant === 'accent';
-                const accentColor = isDark ? '#FDFCFA' : '#145C35';
+                const accentColor = isDark ? BRAND.onAccent : BRAND.accent;
                 return (
                   <div style={{
                     borderRadius: '18px',
@@ -411,11 +436,11 @@ export default config({
           componentBlocks: {
             projectHero: component({
               preview: (props) => (
-                <div style={{ padding: '20px', border: '2px solid #5a67d8', borderRadius: '8px', backgroundColor: '#fafafa' }}>
-                  <div style={{ fontSize: '10px', color: '#666', marginBottom: '10px' }}>[ HERO DEL PROYECTO ]</div>
-                  <div style={{ fontSize: '18px', fontWeight: 'bold' }}>{props.fields.title.value}</div>
-                  <div style={{ fontSize: '14px', color: '#333' }}>{props.fields.subtitle.value}</div>
-                  <div style={{ borderTop: '1px solid #eee', marginTop: '10px', paddingTop: '5px', fontSize: '12px' }}>
+                <div style={{ padding: '20px', border: `2px solid ${BRAND.accent}`, borderRadius: '16px', backgroundColor: BRAND.bg }}>
+                  <div style={{ fontSize: '10px', color: BRAND.accent, marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>[ HERO DEL PROYECTO ]</div>
+                  <div style={{ fontSize: '18px', fontWeight: 700, color: BRAND.text }}>{props.fields.title.value}</div>
+                  <div style={{ fontSize: '14px', color: BRAND.textSecondary }}>{props.fields.subtitle.value}</div>
+                  <div style={{ borderTop: `1px solid ${BRAND.border}`, marginTop: '10px', paddingTop: '5px', fontSize: '12px', color: BRAND.textSecondary }}>
                     <strong>Sector:</strong> {props.fields.sector.value} | <strong>Foco:</strong> {props.fields.foco.value}
                   </div>
                 </div>
@@ -439,20 +464,21 @@ export default config({
             }),
             styledImage: component({
               preview: (props) => (
-                <div style={{ border: '1px dashed #cbd5e1', padding: '10px', textAlign: 'center', borderRadius: '10px' }}>
-                  <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '8px' }}>
+                <div style={{ border: `1px solid ${BRAND.border}`, padding: '10px', textAlign: 'center', borderRadius: '14px' }}>
+                  <div style={{ fontSize: '12px', color: BRAND.textMuted, marginBottom: '8px' }}>
                     Imagen con estilo: {props.fields.width.value}
                   </div>
                   <div style={{
                     width: props.fields.width.value,
                     height: '100px',
-                    backgroundColor: '#f1f5f9',
+                    backgroundColor: BRAND.inset,
                     borderRadius: '10px',
                     margin: '0 auto',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    border: props.fields.effect.value === 'glass' ? '1px solid #cbd5e1' : '1px solid #e2e8f0',
+                    color: BRAND.textMuted,
+                    border: props.fields.effect.value === 'glass' ? `1px solid ${BRAND.borderStrong}` : `1px solid ${BRAND.border}`,
                   }}>
                     IMG
                   </div>
@@ -488,8 +514,8 @@ export default config({
             }),
             imageGallery: component({
               preview: (props) => (
-                <div style={{ border: '1px dashed #cbd5e1', padding: '10px', borderRadius: '10px' }}>
-                  <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '8px' }}>
+                <div style={{ border: `1px solid ${BRAND.border}`, padding: '10px', borderRadius: '14px' }}>
+                  <div style={{ fontSize: '12px', color: BRAND.textMuted, marginBottom: '8px' }}>
                     Galería ({props.fields.columns.value} columnas)
                   </div>
                   <div style={{
@@ -503,12 +529,12 @@ export default config({
                         style={{
                           aspectRatio: '4/3',
                           borderRadius: '8px',
-                          backgroundColor: '#e2e8f0',
+                          backgroundColor: BRAND.inset,
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
                           fontSize: '10px',
-                          color: '#475569',
+                          color: BRAND.textMuted,
                         }}
                       >
                         Imagen {i}
@@ -550,21 +576,21 @@ export default config({
                 const mode = props.fields.mode.value;
                 return (
                   <div style={{
-                    backgroundColor: '#10151e',
-                    color: '#e6edf3',
-                    borderRadius: '12px',
-                    border: '1px solid #2d333b',
-                    boxShadow: '0 8px 24px rgba(0,0,0,0.24)',
+                    backgroundColor: BRAND.inset,
+                    color: BRAND.text,
+                    borderRadius: '14px',
+                    border: `1px solid ${BRAND.border}`,
+                    boxShadow: '0 8px 24px rgba(58,50,33,0.12)',
                     fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
                     maxWidth: isNarrow ? '750px' : '100%',
                     margin: isNarrow ? '0 auto' : '0',
                     overflow: 'hidden'
                   }}>
                     <div style={{
-                      borderBottom: '1px solid #2d333b',
+                      borderBottom: `1px solid ${BRAND.border}`,
                       padding: '8px 12px',
                       fontSize: '12px',
-                      color: '#9da7b3',
+                      color: BRAND.textMuted,
                       display: 'flex',
                       justifyContent: 'space-between'
                     }}>
@@ -574,7 +600,7 @@ export default config({
                     {mode === 'chat' && (
                       <div style={{ padding: '10px', display: 'grid', gap: '8px' }}>
                         {props.fields.messages.elements.length === 0 && (
-                          <div style={{ fontSize: '12px', color: '#9da7b3' }}>Añade mensajes para previsualizar el chat.</div>
+                          <div style={{ fontSize: '12px', color: BRAND.textMuted }}>Añade mensajes para previsualizar el chat.</div>
                         )}
                         {props.fields.messages.elements.slice(0, 4).map((message, i) => {
                           const isUser = message.fields.role.value === 'user';
@@ -588,8 +614,8 @@ export default config({
                                 borderRadius: '10px',
                                 fontSize: '12px',
                                 lineHeight: 1.5,
-                                background: isUser ? '#1f6feb' : '#30363d',
-                                color: '#f0f6fc',
+                                background: isUser ? BRAND.accent : BRAND.secondary,
+                                color: isUser ? BRAND.onAccent : BRAND.text,
                               }}
                             >
                               <strong style={{ marginRight: '6px' }}>{isUser ? 'USER:' : 'IA:'}</strong>
@@ -604,23 +630,23 @@ export default config({
                         padding: '10px 12px',
                         fontSize: '12px',
                         lineHeight: 1.6,
-                        color: '#c9d1d9'
+                        color: BRAND.textSecondary
                       }}>
                         {props.fields.logs.elements.length === 0 && (
-                          <div style={{ color: '#9da7b3' }}>[Sin logs todavia]</div>
+                          <div style={{ color: BRAND.textMuted }}>[Sin logs todavia]</div>
                         )}
                         {props.fields.logs.elements.slice(0, 8).map((log, i) => {
                           const color = log.fields.variant.value === 'success'
-                            ? '#3fb950'
+                            ? BRAND.accentBright
                             : log.fields.variant.value === 'variable'
-                              ? '#79c0ff'
+                              ? BRAND.accent
                               : log.fields.variant.value === 'property'
-                                ? '#39c5cf'
-                                : '#c9d1d9';
+                                ? BRAND.accentHover
+                                : BRAND.textSecondary;
                           return (
                             <div key={i}>
                               {log.fields.timestamp.value && (
-                                <span style={{ color: '#8b949e', marginRight: '6px' }}>
+                                <span style={{ color: BRAND.textMuted, marginRight: '6px' }}>
                                   {log.fields.timestamp.value}
                                 </span>
                               )}
@@ -704,16 +730,16 @@ export default config({
             }),
             insightGrid: component({
               preview: (props) => (
-                <div style={{ border: '1px dashed #5a67d8', padding: '14px', borderRadius: '12px' }}>
-                  <div style={{ fontSize: '11px', color: '#64748b', marginBottom: '8px' }}>
+                <div style={{ border: `1px solid ${BRAND.accent}`, padding: '14px', borderRadius: '14px' }}>
+                  <div style={{ fontSize: '11px', color: BRAND.textMuted, marginBottom: '8px' }}>
                     Grid unificado · {props.fields.variant.value} · {props.fields.columns.value} cols
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: `repeat(${props.fields.columns.value}, minmax(0, 1fr))`, gap: '8px' }}>
                     {props.fields.items.elements.slice(0, 3).map((item, i) => (
-                      <div key={i} style={{ border: '1px solid #e2e8f0', borderRadius: '10px', padding: '8px', fontSize: '11px' }}>
+                      <div key={i} style={{ border: `1px solid ${BRAND.border}`, borderRadius: '10px', padding: '8px', fontSize: '11px', color: BRAND.text }}>
                         <strong>{item.fields.title.value || `Elemento ${i + 1}`}</strong>
                         {item.fields.badge.value && (
-                          <div style={{ marginTop: '4px', fontSize: '10px', color: '#475569' }}>
+                          <div style={{ marginTop: '4px', fontSize: '10px', color: BRAND.textSecondary }}>
                             {item.fields.badge.value}
                           </div>
                         )}
@@ -758,8 +784,8 @@ export default config({
             }),
             metricsPanel: component({
               preview: (props) => (
-                <div style={{ border: '1px solid #cbd5e1', borderRadius: '12px', padding: '12px' }}>
-                  <div style={{ fontSize: '11px', color: '#64748b', marginBottom: '6px' }}>
+                <div style={{ border: `1px solid ${BRAND.border}`, borderRadius: '14px', padding: '12px', color: BRAND.text }}>
+                  <div style={{ fontSize: '11px', color: BRAND.textMuted, marginBottom: '6px' }}>
                     Métricas · {props.fields.mode.value}
                   </div>
                   {props.fields.mode.value === 'lighthouse' && (
@@ -774,7 +800,7 @@ export default config({
                     <div style={{ fontSize: '12px' }}>
                       <strong>{props.fields.title.value || 'Simulador'}</strong>
                       {props.fields.description.value && (
-                        <div style={{ marginTop: '6px', color: '#475569' }}>{props.fields.description.value}</div>
+                        <div style={{ marginTop: '6px', color: BRAND.textSecondary }}>{props.fields.description.value}</div>
                       )}
                     </div>
                   )}
@@ -785,9 +811,9 @@ export default config({
                   )}
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0,1fr))', gap: '6px', marginTop: '8px' }}>
                     {props.fields.stats.elements.slice(0, 3).map((stat, i) => (
-                      <div key={i} style={{ fontSize: '10px', textAlign: 'center', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '6px' }}>
+                      <div key={i} style={{ fontSize: '10px', textAlign: 'center', border: `1px solid ${BRAND.border}`, borderRadius: '8px', padding: '6px' }}>
                         <div>{stat.fields.value.value || '0'}</div>
-                        <div style={{ color: '#64748b' }}>{stat.fields.label.value || 'Etiqueta'}</div>
+                        <div style={{ color: BRAND.textMuted }}>{stat.fields.label.value || 'Etiqueta'}</div>
                       </div>
                     ))}
                   </div>
@@ -847,14 +873,14 @@ export default config({
                 const customBackgroundColor = props.fields.backgroundColor.value?.trim();
                 const isDark = variant === 'dark' || variant === 'gradient';
                 const variantStyles = variant === 'dark'
-                  ? { background: '#0f172a', border: '1px solid #1e293b', color: '#f8fafc' }
+                  ? { background: BRAND.ink, border: `1px solid ${BRAND.ink}`, color: BRAND.onInk }
                   : variant === 'gradient'
-                    ? { background: 'linear-gradient(135deg, #0b2545 0%, #1d4ed8 55%, #4338ca 100%)', border: '1px solid #1d4ed8', color: '#f8fafc' }
+                    ? { background: BRAND.accent, border: `1px solid ${BRAND.accent}`, color: BRAND.onAccent }
                     : variant === 'glass'
-                      ? { background: 'linear-gradient(135deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.52) 100%)', border: '1px solid rgba(148,163,184,0.45)', color: '#0f172a', backdropFilter: 'blur(6px)' }
+                      ? { background: BRAND.card, border: `1px solid ${BRAND.border}`, color: BRAND.text }
                       : variant === 'secondary'
-                        ? { background: '#f8fafc', border: '1px solid #e2e8f0', color: '#0f172a' }
-                        : { background: '#ffffff', border: '1px solid #e5e7eb', color: '#0f172a' };
+                        ? { background: BRAND.secondary, border: `1px solid ${BRAND.border}`, color: BRAND.text }
+                        : { background: BRAND.card, border: `1px solid ${BRAND.border}`, color: BRAND.text };
                 const sectionPadding = padding === 'large' ? '28px' : padding === 'none' ? '8px' : '18px';
                 return (
                   <div style={{
@@ -865,13 +891,13 @@ export default config({
                     ...(customBackgroundColor ? { background: customBackgroundColor } : {})
                   }}>
                     <div style={{
-                      borderBottom: isDark ? '1px solid rgba(148,163,184,0.35)' : '1px solid #e2e8f0',
+                      borderBottom: isDark ? '1px solid rgba(241,235,223,0.30)' : `1px solid ${BRAND.border}`,
                       marginBottom: '12px',
                       paddingBottom: '8px'
                     }}>
                       <div style={{
                         fontSize: '11px',
-                        color: isDark ? '#93c5fd' : '#64748b',
+                        color: isDark ? BRAND.onInk : BRAND.textMuted,
                         marginBottom: '4px',
                         textTransform: 'uppercase',
                         letterSpacing: '0.04em'
@@ -884,10 +910,10 @@ export default config({
                             fontSize: '10px',
                             textTransform: 'uppercase',
                             letterSpacing: '0.06em',
-                            border: isDark ? '1px solid rgba(148,163,184,0.45)' : '1px solid #cbd5e1',
+                            border: isDark ? '1px solid rgba(241,235,223,0.40)' : `1px solid ${BRAND.border}`,
                             borderRadius: '999px',
                             padding: '4px 8px',
-                            color: isDark ? '#bfdbfe' : '#334155'
+                            color: isDark ? BRAND.onInk : BRAND.textSecondary
                           }}>
                             {props.fields.eyebrow.value}
                           </span>
@@ -898,7 +924,7 @@ export default config({
                         <div style={{
                           fontSize: '13px',
                           marginTop: '4px',
-                          color: isDark ? '#cbd5e1' : '#475569'
+                          color: isDark ? 'rgba(241,235,223,0.80)' : BRAND.textSecondary
                         }}>
                           {props.fields.subtitle.value}
                         </div>
@@ -957,8 +983,8 @@ export default config({
                 return (
                   <div style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`, gap: '10px', padding: '10px' }}>
                     {props.fields.items.elements.slice(0, 4).map((item, i) => (
-                      <div key={i} style={{ border: '1px solid #cbd5e1', borderRadius: '10px', padding: '8px' }}>
-                        <div style={{ fontSize: '11px', color: '#64748b', marginBottom: '4px' }}>
+                      <div key={i} style={{ border: `1px solid ${BRAND.border}`, borderRadius: '10px', padding: '8px', color: BRAND.text }}>
+                        <div style={{ fontSize: '11px', color: BRAND.textMuted, marginBottom: '4px' }}>
                           {item.fields.filename.value || 'terminal.log'}
                         </div>
                         <strong style={{ fontSize: '12px' }}>{item.fields.title.value || `Panel ${i + 1}`}</strong>
@@ -1001,7 +1027,7 @@ export default config({
               },
             }),
             sirBadge: component({
-              preview: () => <div style={{ textAlign: 'center', padding: '10px', background: '#f0f0f0' }}>Badge SIR de Autoridad</div>,
+              preview: () => <div style={{ textAlign: 'center', padding: '10px', borderRadius: '999px', background: BRAND.green50, color: BRAND.accent, border: `1px solid ${BRAND.green100}` }}>Badge SIR de Autoridad</div>,
               label: 'Badge: Puntuación SIR',
               schema: {},
             }),
@@ -1011,20 +1037,21 @@ export default config({
                   textAlign: 'center',
                   padding: '24px',
                   borderRadius: '16px',
-                  background: 'linear-gradient(135deg, #0b1220 0%, #0f172a 55%, #1e293b 100%)',
-                  border: '1px solid #334155',
-                  color: '#f8fafc'
+                  background: BRAND.ink,
+                  border: '1px solid rgba(241,235,223,0.15)',
+                  color: BRAND.onInk
                 }}>
-                  <div style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.06em', color: '#93c5fd', marginBottom: '8px' }}>
+                  <div style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.06em', color: BRAND.accentBright, marginBottom: '8px' }}>
                     Call to action
                   </div>
                   <strong style={{ display: 'block', fontSize: '20px', lineHeight: 1.3 }}>{props.fields.title.value}</strong>
-                  <p style={{ margin: '12px auto 16px', maxWidth: '620px', fontSize: '14px', lineHeight: 1.55, color: '#cbd5e1', whiteSpace: 'pre-line' }}>
+                  <p style={{ margin: '12px auto 16px', maxWidth: '620px', fontSize: '14px', lineHeight: 1.55, color: 'rgba(241,235,223,0.80)', whiteSpace: 'pre-line' }}>
                     {props.fields.text.value}
                   </p>
                   <span style={{
                     display: 'inline-block',
-                    backgroundColor: '#1d4ed8',
+                    backgroundColor: BRAND.accent,
+                    color: BRAND.onAccent,
                     borderRadius: '999px',
                     padding: '10px 18px',
                     fontSize: '13px',
@@ -1045,13 +1072,13 @@ export default config({
             testimonial: component({
               preview: (props) => (
                 <div style={{
-                  border: '1px solid #e2e8f0',
+                  border: `1px solid ${BRAND.border}`,
                   padding: '18px',
                   borderRadius: '14px',
-                  backgroundColor: '#ffffff',
-                  boxShadow: '0 8px 24px rgba(15,23,42,0.08)'
+                  backgroundColor: BRAND.card,
+                  boxShadow: '0 8px 24px rgba(58,50,33,0.10)'
                 }}>
-                  <div style={{ fontSize: '11px', color: '#64748b', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  <div style={{ fontSize: '11px', color: BRAND.textMuted, marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                     Mención de Honor
                   </div>
                   <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
@@ -1065,30 +1092,30 @@ export default config({
                           height: '64px',
                           objectFit: 'contain',
                           borderRadius: '10px',
-                          border: '1px solid #e2e8f0',
-                          backgroundColor: '#f8fafc',
+                          border: `1px solid ${BRAND.border}`,
+                          backgroundColor: BRAND.inset,
                           padding: '8px',
                           flexShrink: 0
                         }}
                       />
                     )}
                     <div>
-                      <div style={{ fontStyle: 'italic', marginBottom: '10px', fontSize: '14px', lineHeight: 1.55, color: '#0f172a' }}>
+                      <div style={{ fontStyle: 'italic', marginBottom: '10px', fontSize: '14px', lineHeight: 1.55, color: BRAND.text }}>
                         &quot;{props.fields.quote.value || 'Añade una cita de cliente'}&quot;
                       </div>
-                      <div style={{ fontWeight: 700, color: '#0f172a' }}>
+                      <div style={{ fontWeight: 700, color: BRAND.text }}>
                         {props.fields.author.value || 'Autor del testimonio'}
                       </div>
-                      <div style={{ fontSize: '13px', color: '#475569', marginTop: '3px' }}>
+                      <div style={{ fontSize: '13px', color: BRAND.textSecondary, marginTop: '3px' }}>
                         {props.fields.role.value || 'Cargo / Empresa'}
                         {props.fields.link.value && (
-                          <span style={{ marginLeft: '8px', color: '#1d4ed8' }}>
+                          <span style={{ marginLeft: '8px', color: BRAND.accent }}>
                             · {props.fields.linkText.value || props.fields.link.value}
                           </span>
                         )}
                       </div>
                       {props.fields.location.value && (
-                        <div style={{ fontSize: '11px', color: '#64748b', marginTop: '6px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                        <div style={{ fontSize: '11px', color: BRAND.textMuted, marginTop: '6px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                           {props.fields.location.value}
                         </div>
                       )}

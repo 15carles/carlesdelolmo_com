@@ -321,60 +321,62 @@ export default function AutoridadDigitalIas() {
 
         <section id="inicio" className="section hero hero-service" aria-labelledby="hero-title">
           <div className="container">
-            <div className="mt-2xl animate-on-scroll">
-              <div className="badge badge--status mb-lg helper-center-mobile">
-                <span>Optimización Avanzada</span>
+            <div className="grid grid-cols-2 mt-2xl">
+              <div className="animate-on-scroll hero-content-wrapper">
+                <div className="badge badge--status mb-lg helper-center-mobile">
+                  <span>Optimización Avanzada</span>
+                </div>
+
+                <h1 id="hero-title" className="mb-md helper-center-mobile">
+                  Autoridad Digital para <span className="gradient-text">IAs</span>
+                </h1>
+
+                <p className="hero-description text-secondary mb-lg helper-center-mobile">
+                  Preparo la estructura, el contenido y las señales de confianza de tu web para que buscadores y sistemas de
+                  inteligencia artificial entiendan mejor tu marca, tus servicios y tu especialización.
+                </p>
+
+                <p className="text-secondary mb-md helper-center-mobile">
+                  La visibilidad digital ya no depende solo de aparecer en Google. Cada vez más usuarios preguntan
+                  directamente a sistemas de IA, asistentes conversacionales y motores generativos antes de decidir.
+                </p>
+
+                <p className="text-secondary mb-xl helper-center-mobile">
+                  Este servicio trabaja la capa semántica, técnica y estratégica de tu presencia digital para construir una
+                  marca más comprensible, consistente y preparada para el nuevo entorno de búsqueda.
+                </p>
+
+                <div className="hero-actions mb-xl helper-flex-center-mobile">
+                  <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large">
+                    Solicitar valoración de mi caso
+                  </Link>
+                  <a href="#incluye-servicio" className="btn btn--secondary btn--large">
+                    Ver qué incluye el servicio
+                  </a>
+                </div>
+
+                <p className="text-secondary mb-xl helper-center-mobile text-sm">
+                  Servicio orientado a marcas, profesionales y empresas que quieren construir visibilidad digital a medio
+                  plazo, sin depender de promesas rápidas ni tácticas superficiales.
+                </p>
+
+                <ul
+                  id="hero-checklist"
+                  className="hero-highlights hero-features grid grid-cols-2 gap-md mb-0 animate-on-scroll"
+                  aria-label="Puntos clave del servicio"
+                >
+                  {HERO_HIGHLIGHTS.map((highlight) => (
+                    <li key={highlight} className="hero-features__item">
+                      <span className="hero-features__icon-wrapper" aria-hidden="true">
+                        <Check size={20} strokeWidth={3} />
+                      </span>
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <h1 id="hero-title" className="mb-md helper-center-mobile">
-                Autoridad Digital para <span className="gradient-text">IAs</span>
-              </h1>
-
-              <p className="hero-description text-secondary mb-lg helper-center-mobile">
-                Preparo la estructura, el contenido y las señales de confianza de tu web para que buscadores y sistemas de
-                inteligencia artificial entiendan mejor tu marca, tus servicios y tu especialización.
-              </p>
-
-              <p className="text-secondary mb-md helper-center-mobile">
-                La visibilidad digital ya no depende solo de aparecer en Google. Cada vez más usuarios preguntan
-                directamente a sistemas de IA, asistentes conversacionales y motores generativos antes de decidir.
-              </p>
-
-              <p className="text-secondary mb-xl helper-center-mobile">
-                Este servicio trabaja la capa semántica, técnica y estratégica de tu presencia digital para construir una
-                marca más comprensible, consistente y preparada para el nuevo entorno de búsqueda.
-              </p>
-
-              <div className="hero-actions mb-xl helper-flex-center-mobile">
-                <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large">
-                  Solicitar valoración de mi caso
-                </Link>
-                <a href="#incluye-servicio" className="btn btn--secondary btn--large">
-                  Ver qué incluye el servicio
-                </a>
-              </div>
-
-              <p className="text-secondary mb-xl helper-center-mobile text-sm">
-                Servicio orientado a marcas, profesionales y empresas que quieren construir visibilidad digital a medio
-                plazo, sin depender de promesas rápidas ni tácticas superficiales.
-              </p>
-
-              <ul
-                id="hero-checklist"
-                className="hero-highlights hero-features grid grid-cols-2 gap-md mb-0 animate-on-scroll"
-                aria-label="Puntos clave del servicio"
-              >
-                {HERO_HIGHLIGHTS.map((highlight) => (
-                  <li key={highlight} className="hero-features__item">
-                    <span className="hero-features__icon-wrapper" aria-hidden="true">
-                      <Check size={20} strokeWidth={3} />
-                    </span>
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="generative-band animate-on-scroll mt-2xl">
+              <div className="animate-on-scroll flex flex-col justify-center pb-3xl hero-right-col hidden-mobile">
                 <div className="hero-canvas-frame">
                   <GenerativeCanvas variant="nodes" className="hero-canvas" />
                 </div>

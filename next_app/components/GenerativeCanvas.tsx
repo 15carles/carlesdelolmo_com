@@ -21,6 +21,8 @@ interface GenerativeCanvasProps {
   ariaLabel?: string;
   /** Figura que el campo dibuja al converger */
   variant?: CanvasVariant;
+  /** Semilla para variar figuras parametrizables (p. ej. el mapa por ciudad) */
+  seed?: number;
 }
 
 interface RawSegment {
@@ -67,7 +69,7 @@ const DEFAULT_ARIA: Record<CanvasVariant, string> = {
  * (pin del mapa) se aproximan con polilíneas. `accent: true` marca los segmentos
  * que deben trazarse en verde de forma intencionada.
  */
-function geometryFor(variant: CanvasVariant): RawSegment[] {
+function geometryFor(variant: CanvasVariant, seed = 0): RawSegment[] {
   const segs: RawSegment[] = [];
   const line = (x1: number, y1: number, x2: number, y2: number, accent = false) =>
     segs.push({ x1, y1, x2, y2, accent });
@@ -125,16 +127,30 @@ function geometryFor(variant: CanvasVariant): RawSegment[] {
       line(0.56, 0.50, 0.50, 0.54, true);
       break;
     }
-    // Marcador de ubicación (SEO local): trama de calles + pin con su punto central en acento
+    // Marcador de ubicación (SEO local): trama de calles + pin con su punto central en acento.
+    // `seed` (0-2) varía la trama de calles y la posición del pin para diferenciar ciudades.
     case 'map': {
-      line(0.12, 0.84, 0.88, 0.84);
-      line(0.22, 0.92, 0.50, 0.78);
-      line(0.50, 0.78, 0.84, 0.90);
-      line(0.40, 0.84, 0.40, 0.92);
-      ring(0.50, 0.36, 0.16, 22);
-      line(0.405, 0.45, 0.50, 0.70);
-      line(0.595, 0.45, 0.50, 0.70);
-      ring(0.50, 0.36, 0.055, 12, true);
+      const s = ((seed % 3) + 3) % 3;
+      if (s === 1) {
+        line(0.10, 0.86, 0.90, 0.86);
+        line(0.30, 0.74, 0.30, 0.95);
+        line(0.30, 0.82, 0.86, 0.82);
+        line(0.64, 0.74, 0.64, 0.95);
+      } else if (s === 2) {
+        line(0.14, 0.80, 0.86, 0.88);
+        line(0.16, 0.92, 0.82, 0.84);
+        line(0.52, 0.80, 0.58, 0.95);
+      } else {
+        line(0.12, 0.84, 0.88, 0.84);
+        line(0.22, 0.92, 0.50, 0.78);
+        line(0.50, 0.78, 0.84, 0.90);
+        line(0.40, 0.84, 0.40, 0.92);
+      }
+      const px = s === 1 ? 0.40 : s === 2 ? 0.60 : 0.50;
+      ring(px, 0.36, 0.16, 22);
+      line(px - 0.095, 0.45, px, 0.70);
+      line(px + 0.095, 0.45, px, 0.70);
+      ring(px, 0.36, 0.055, 12, true);
       break;
     }
     // Red de nodos conectados (IA / GEO): nodo central en acento y cuatro satélites
@@ -236,6 +252,7 @@ export default function GenerativeCanvas({
   accentRatio = 0.08,
   ariaLabel,
   variant = 'wireframe',
+  seed = 0,
 }: GenerativeCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -258,7 +275,7 @@ export default function GenerativeCanvas({
     let zOffset = Math.random() * 100;
     let particles: Particle[] = [];
 
-    const rawSegments = geometryFor(variant);
+    const rawSegments = geometryFor(variant, seed);
 
     // Geometría escalada al canvas + longitudes acumuladas
     let segments: Segment[] = [];
@@ -525,7 +542,7 @@ export default function GenerativeCanvas({
       document.removeEventListener('visibilitychange', onVisibilityChange);
       reducedMotionQuery.removeEventListener('change', onMotionPreferenceChange);
     };
-  }, [density, accentRatio, variant]);
+  }, [density, accentRatio, variant, seed]);
 
   return (
     <canvas

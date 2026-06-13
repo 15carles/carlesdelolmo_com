@@ -197,7 +197,7 @@ export default function DisenoWebCastellon() {
 
             <div className="animate-on-scroll flex flex-col justify-center pb-3xl hero-right-col hidden-mobile">
               <div className="hero-canvas-frame">
-                <GenerativeCanvas variant="map" className="hero-canvas" />
+                <GenerativeCanvas variant="map" seed={2} className="hero-canvas" />
               </div>
             </div>
           </div>

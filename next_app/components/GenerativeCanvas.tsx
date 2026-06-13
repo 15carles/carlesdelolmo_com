@@ -2,7 +2,15 @@
 
 import React, { useEffect, useRef } from 'react';
 
-export type CanvasVariant = 'wireframe' | 'map' | 'bars' | 'migrate';
+export type CanvasVariant =
+  | 'wireframe'
+  | 'map'
+  | 'bars'
+  | 'migrate'
+  | 'nodes'
+  | 'audit'
+  | 'code'
+  | 'shield';
 
 interface GenerativeCanvasProps {
   className?: string;
@@ -47,6 +55,10 @@ const DEFAULT_ARIA: Record<CanvasVariant, string> = {
   map: 'Animación decorativa: partículas que trazan un marcador de ubicación sobre un mapa',
   bars: 'Animación decorativa: partículas que trazan un gráfico de posiciones en ascenso',
   migrate: 'Animación decorativa: partículas que trazan una migración entre dos sitios web',
+  nodes: 'Animación decorativa: partículas que trazan una red de nodos conectados',
+  audit: 'Animación decorativa: partículas que trazan una lupa sobre una lista de verificación',
+  code: 'Animación decorativa: partículas que trazan el editor de código de una web a medida',
+  shield: 'Animación decorativa: partículas que trazan un escudo con una marca de verificación',
 };
 
 /**
@@ -77,6 +89,13 @@ function geometryFor(variant: CanvasVariant): RawSegment[] {
       py = ny;
     }
   };
+  const poly = (pts: Array<[number, number]>, accent = false) => {
+    for (let i = 0; i < pts.length - 1; i++) {
+      line(pts[i][0], pts[i][1], pts[i + 1][0], pts[i + 1][1], accent);
+    }
+  };
+  const check = (cx: number, cy: number, accent = true) =>
+    poly([[cx, cy], [cx + 0.025, cy + 0.04], [cx + 0.08, cy - 0.05]], accent);
 
   switch (variant) {
     // Gráfico de posiciones en ascenso (SEO/GEO): ejes, barras crecientes y flecha de tendencia
@@ -116,6 +135,61 @@ function geometryFor(variant: CanvasVariant): RawSegment[] {
       line(0.405, 0.45, 0.50, 0.70);
       line(0.595, 0.45, 0.50, 0.70);
       ring(0.50, 0.36, 0.055, 12, true);
+      break;
+    }
+    // Red de nodos conectados (IA / GEO): nodo central en acento y cuatro satélites
+    case 'nodes': {
+      line(0.50, 0.50, 0.22, 0.26);
+      line(0.50, 0.50, 0.80, 0.24);
+      line(0.50, 0.50, 0.26, 0.78);
+      line(0.50, 0.50, 0.78, 0.74);
+      line(0.80, 0.24, 0.78, 0.74);
+      ring(0.22, 0.26, 0.05, 12);
+      ring(0.80, 0.24, 0.05, 12);
+      ring(0.26, 0.78, 0.05, 12);
+      ring(0.78, 0.74, 0.05, 12);
+      ring(0.50, 0.50, 0.075, 16, true);
+      break;
+    }
+    // Lupa sobre una lista de verificación (auditoría)
+    case 'audit': {
+      check(0.10, 0.30);
+      line(0.21, 0.30, 0.60, 0.30);
+      check(0.10, 0.44);
+      line(0.21, 0.44, 0.52, 0.44);
+      check(0.10, 0.58);
+      line(0.21, 0.58, 0.58, 0.58);
+      ring(0.70, 0.66, 0.18, 20);
+      line(0.83, 0.79, 0.93, 0.92);
+      break;
+    }
+    // Editor de código (desarrollo a medida): ventana con barra y líneas indentadas
+    case 'code': {
+      rect(0.10, 0.16, 0.80, 0.66);
+      line(0.10, 0.30, 0.90, 0.30);
+      ring(0.15, 0.23, 0.014, 6);
+      ring(0.20, 0.23, 0.014, 6);
+      ring(0.25, 0.23, 0.014, 6);
+      line(0.16, 0.41, 0.40, 0.41);
+      line(0.22, 0.50, 0.56, 0.50, true);
+      line(0.22, 0.59, 0.46, 0.59);
+      line(0.16, 0.68, 0.36, 0.68);
+      break;
+    }
+    // Escudo con marca de verificación (mantenimiento)
+    case 'shield': {
+      poly([
+        [0.50, 0.12],
+        [0.82, 0.24],
+        [0.82, 0.52],
+        [0.74, 0.68],
+        [0.50, 0.86],
+        [0.26, 0.68],
+        [0.18, 0.52],
+        [0.18, 0.24],
+        [0.50, 0.12],
+      ]);
+      poly([[0.36, 0.46], [0.46, 0.58], [0.66, 0.34]], true);
       break;
     }
     // Esqueleto de una landing: nav, hero (texto + imagen) y fila de tres tarjetas

@@ -1,5 +1,6 @@
 import React from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import GenerativeCanvas from '@/components/GenerativeCanvas';
 import { CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -52,6 +53,12 @@ export default function AuditoriaSeoGeo() {
               No basta con estar online. Necesitas saber por qué no estás vendiendo lo que quieres y cómo los nuevos buscadores de IA interpretan tu negocio.
             </p>
           </header>
+
+          <div className="generative-band animate-on-scroll mt-2xl">
+            <div className="hero-canvas-frame">
+              <GenerativeCanvas variant="audit" className="hero-canvas" />
+            </div>
+          </div>
 
           <div className="grid grid-cols-2 mt-2xl items-center gap-xl">
             <div className="animate-on-scroll">

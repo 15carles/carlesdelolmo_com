@@ -1,6 +1,7 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ContactForm from '@/components/ContactForm';
 import FaqAccordion from '@/components/FaqAccordion';
+import GenerativeCanvas from '@/components/GenerativeCanvas';
 import { constructMetadata } from '@/lib/seo/metadata';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
 import {
@@ -366,6 +367,12 @@ export default function MigracionesWebPage() {
                 </li>
               ))}
             </ul>
+
+            <div className="generative-band hero-migraciones__figure animate-on-scroll mt-2xl">
+              <div className="hero-canvas-frame">
+                <GenerativeCanvas variant="migrate" className="hero-canvas" />
+              </div>
+            </div>
           </div>
         </div>
       </section>

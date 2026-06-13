@@ -2,6 +2,28 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [v4.0.0] - 2026-06-13
+### Añadido
+- **Sistema de diseño:** Nuevo sistema visual «minimalismo cálido» con tipografía propia y modo claro único, sustituyendo por completo al glassmorphism anterior.
+- **Hero:** Canvas generativo de campo orgánico con reveals nativos.
+- **Colofón:** Bloque de Web Vitals en directo y microtipografía editorial.
+- **Método ORBITA:** Portada del método sobre el nuevo fondo base blanco roto (`#FDFCFA`).
+- **PWA:** Instalabilidad y fallback offline.
+- **Reseñas:** Nueva reseña (Lora) y carrusel con movimiento suavizado.
+
+### Cambiado
+- **Recomposición editorial:** Home, `/diseno-web`, páginas de servicio SEO, `/sobre-carles-del-olmo`, `/pricing`, `/mantenimiento-web-valencia` y utilidades compartidas reescritas a la nueva línea editorial.
+- **Componentes:** Restyle completo, botones rectos editoriales, enlaces de acción y purga de glassmorphism.
+- **Assets gráficos:** Migración a la paleta cálida de marca.
+- **Contacto:** Mejora de UX del formulario y alineación con la validación de la API.
+
+### Corregido
+- **Contenido:** Eliminación de guiones largos en el contenido visible y resolución de enlaces internos y de medios rotos.
+- **Promoción:** Retirada de banner caducado.
+
+### Control de versionado
+- Sincronización de `VERSION`, `CHANGELOG.md`, `README.md`, `next_app/package.json`, `next_app/package-lock.json`, `next_app/public/llms.txt` y `next_app/public/humans.txt`.
+
 ## [v3.5.0] - 2026-05-02
 ### Añadido
 - **Servicios:** Nueva landing `/migraciones-web` con enfoque de continuidad técnica, protección SEO/GEO, proceso de trabajo y FAQ.
@@ -424,8 +446,8 @@ Solucionado el problema de ancho insuficiente del navbar en dispositivos móvile
 - **Reingeniería de Chat**: Interfaz de mensajería moderna con alineación diferenciada y lógica de IA generativa visualmente optimizada.
 - **Testimonio Premium**: Refinamiento estético de la tarjeta "Mención de Honor" con glassmorphism profundo y jerarquía tipográfica corregida.
 
-**Versión**: v3.5.0
-**Última actualización**: 2 Mayo 2026 (Nuevas páginas de servicios, refuerzo de copy/estructura y sincronización de versionado)
+**Versión**: v4.0.0
+**Última actualización**: 13 Junio 2026 (Nuevo sistema de diseño minimalismo cálido, PWA, reseñas y refuerzo editorial)
 
 ## [1.3.0] - 18-01-2026
 

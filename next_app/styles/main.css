@@ -522,6 +522,10 @@ a {
     margin-top: var(--spacing-xl);
 }
 
+.mt-2xl {
+    margin-top: var(--spacing-2xl) !important;
+}
+
 .pt-sm {
     padding-top: var(--spacing-sm) !important;
 }

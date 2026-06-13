@@ -1,5 +1,6 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FaqAccordion from '@/components/FaqAccordion';
+import GenerativeCanvas from '@/components/GenerativeCanvas';
 import { constructMetadata } from '@/lib/seo/metadata';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
 import {
@@ -329,44 +330,52 @@ export default function DesarrolloWebAMedidaPage() {
 
         <section id="inicio" className="section hero hero-service" aria-labelledby="hero-title">
           <div className="container">
-            <div className="mt-2xl animate-on-scroll">
-              <div className="badge badge--status mb-lg helper-center-mobile">
-                <span>Desarrollo web a medida</span>
+            <div className="grid grid-cols-2 mt-2xl">
+              <div className="animate-on-scroll hero-content-wrapper">
+                <div className="badge badge--status mb-lg helper-center-mobile">
+                  <span>Desarrollo web a medida</span>
+                </div>
+
+                <h1 id="hero-title" className="mb-md helper-center-mobile">
+                  Desarrollo web a medida para empresas que necesitan algo más que una web estándar
+                </h1>
+
+                <p className="hero-description text-secondary mb-xl helper-center-mobile">
+                  Diseño y desarrollo soluciones web adaptadas a procesos reales de negocio: plataformas, herramientas
+                  internas, áreas privadas, calculadoras, sistemas de captación, integraciones y funcionalidades que una
+                  plantilla no puede resolver bien.
+                </p>
+
+                <div className="hero-actions mb-xl helper-flex-center-mobile">
+                  <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large">
+                    Cuéntame tu proyecto
+                  </Link>
+                  <a href="#proceso" className="btn btn--secondary btn--large">
+                    Ver cómo trabajo
+                  </a>
+                </div>
+
+                <ul
+                  id="hero-checklist"
+                  className="hero-highlights hero-features grid grid-cols-2 gap-md mb-0 animate-on-scroll"
+                  aria-label="Puntos clave del servicio"
+                >
+                  {HERO_HIGHLIGHTS.map((highlight) => (
+                    <li key={highlight} className="hero-features__item">
+                      <span className="hero-features__icon-wrapper" aria-hidden="true">
+                        <Check size={20} strokeWidth={3} />
+                      </span>
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <h1 id="hero-title" className="mb-md helper-center-mobile">
-                Desarrollo web a medida para empresas que necesitan algo más que una web estándar
-              </h1>
-
-              <p className="hero-description text-secondary mb-xl helper-center-mobile">
-                Diseño y desarrollo soluciones web adaptadas a procesos reales de negocio: plataformas, herramientas
-                internas, áreas privadas, calculadoras, sistemas de captación, integraciones y funcionalidades que una
-                plantilla no puede resolver bien.
-              </p>
-
-              <div className="hero-actions mb-xl helper-flex-center-mobile">
-                <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large">
-                  Cuéntame tu proyecto
-                </Link>
-                <a href="#proceso" className="btn btn--secondary btn--large">
-                  Ver cómo trabajo
-                </a>
+              <div className="animate-on-scroll flex flex-col justify-center pb-3xl hero-right-col hidden-mobile">
+                <div className="hero-canvas-frame">
+                  <GenerativeCanvas variant="code" className="hero-canvas" />
+                </div>
               </div>
-
-              <ul
-                id="hero-checklist"
-                className="hero-highlights hero-features grid grid-cols-2 gap-md mb-0 animate-on-scroll"
-                aria-label="Puntos clave del servicio"
-              >
-                {HERO_HIGHLIGHTS.map((highlight) => (
-                  <li key={highlight} className="hero-features__item">
-                    <span className="hero-features__icon-wrapper" aria-hidden="true">
-                      <Check size={20} strokeWidth={3} />
-                    </span>
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </section>

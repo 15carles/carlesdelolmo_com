@@ -1,5 +1,6 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ContactForm from '@/components/ContactForm';
+import GenerativeCanvas from '@/components/GenerativeCanvas';
 import { constructMetadata } from '@/lib/seo/metadata';
 import { BUSINESS_SCHEMA, PERSON_SCHEMA, SITE_URL, generateBreadcrumbSchema } from '@/lib/seo/schemas';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
@@ -238,6 +239,12 @@ export default function MantenimientoWebValenciaPage() {
                   </li>
                 ))}
               </ul>
+
+              <div className="generative-band animate-on-scroll mt-2xl">
+                <div className="hero-canvas-frame">
+                  <GenerativeCanvas variant="shield" className="hero-canvas" />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -398,7 +405,7 @@ export default function MantenimientoWebValenciaPage() {
       <section className="section section-fit" aria-labelledby="fit-title">
         <div className="container">
           <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--cyan mb-lg">Encaje del servicio</span>
+            <span className="section-eyebrow badge badge--status mb-lg">Encaje del servicio</span>
             <h2 id="fit-title" className="section-header__title">
               Un servicio pensado para webs que necesitan continuidad real
             </h2>

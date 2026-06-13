@@ -2,8 +2,8 @@ import React from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { ProjectCard } from '@/components/ProjectsSection';
 import FaqAccordion from '@/components/FaqAccordion';
+import GenerativeCanvas from '@/components/GenerativeCanvas';
 import { Code, MapPin, Zap, Search, Layout, MousePointer2, Check, Shield, Gauge, Settings } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { SITE_URL, generateFaqPageSchema } from '@/lib/seo/schemas';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
@@ -196,14 +196,8 @@ export default function DisenoWebCastellon() {
             </div>
 
             <div className="animate-on-scroll flex flex-col justify-center pb-3xl hero-right-col hidden-mobile">
-              <div className="relative w-full aspect-[3/2]">
-                <Image 
-                  src="/assets/images/stock/plaza-santa-clara-castellon.webp"
-                  alt="Plaza Santa Clara en Castellón"
-                  fill
-                  className="img--responsive img--glass object-cover rounded-xl"
-                  priority
-                />
+              <div className="hero-canvas-frame">
+                <GenerativeCanvas variant="map" seed={2} className="hero-canvas" />
               </div>
             </div>
           </div>

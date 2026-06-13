@@ -1,5 +1,6 @@
 import React from 'react';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import GenerativeCanvas from '@/components/GenerativeCanvas';
 import { Globe, Sparkles, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -48,6 +49,12 @@ export default function PosicionamientoSeoGeo() {
               Estrategia híbrida para liderar los resultados de búsqueda tradicionales y las nuevas respuestas generativas.
             </p>
           </header>
+
+          <div className="generative-band animate-on-scroll mt-2xl">
+            <div className="hero-canvas-frame">
+              <GenerativeCanvas variant="bars" className="hero-canvas" />
+            </div>
+          </div>
 
           <div className="grid grid-cols-2 mt-2xl items-center gap-xl">
             <div className="animate-on-scroll">

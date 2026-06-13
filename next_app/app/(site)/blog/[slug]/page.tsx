@@ -224,7 +224,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         <img
                           src={props.image}
                           alt={props.alt || ''}
-                          className={props.effect === 'glass' ? 'img--glass' : 'img--responsive'}
+                          className={(props.effect === 'framed' || props.effect === 'glass') ? 'img--glass' : 'img--responsive'}
                           style={{
                             width: props.width,
                             height: 'auto',

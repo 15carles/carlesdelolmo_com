@@ -171,10 +171,10 @@ export default config({
                   defaultValue: '100%',
                 }),
                 effect: fields.select({
-                  label: 'Efecto Visual',
+                  label: 'Estilo de imagen',
                   options: [
-                    { label: 'Normal', value: 'normal' },
-                    { label: 'Glassmorphism', value: 'glass' },
+                    { label: 'Simple', value: 'normal' },
+                    { label: 'Con marco', value: 'framed' },
                   ],
                   defaultValue: 'normal',
                 }),
@@ -478,7 +478,7 @@ export default config({
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: BRAND.textMuted,
-                    border: props.fields.effect.value === 'glass' ? `1px solid ${BRAND.borderStrong}` : `1px solid ${BRAND.border}`,
+                    border: props.fields.effect.value === 'framed' ? `1px solid ${BRAND.borderStrong}` : `1px solid ${BRAND.border}`,
                   }}>
                     IMG
                   </div>
@@ -502,10 +502,10 @@ export default config({
                   defaultValue: '100%',
                 }),
                 effect: fields.select({
-                  label: 'Efecto visual',
+                  label: 'Estilo de imagen',
                   options: [
-                    { label: 'Normal', value: 'normal' },
-                    { label: 'Glassmorphism', value: 'glass' },
+                    { label: 'Simple', value: 'normal' },
+                    { label: 'Con marco', value: 'framed' },
                   ],
                   defaultValue: 'normal',
                 }),

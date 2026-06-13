@@ -398,7 +398,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   <img
                     src={props.image}
                     alt={props.alt || ''}
-                    className={props.effect === 'glass' ? 'img--glass' : 'img--responsive'}
+                    className={(props.effect === 'framed' || props.effect === 'glass') ? 'img--glass' : 'img--responsive'}
                     style={{
                       width: props.width || '100%',
                       height: 'auto',

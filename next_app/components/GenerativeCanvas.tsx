@@ -116,6 +116,18 @@ function geometryFor(variant: CanvasVariant, seed = 0): RawSegment[] {
     pts.push([x1, y]);
     poly(pts, accent);
   };
+  // Almenas marcadas: línea de remate sólida + n merlones anchos (cajas abiertas
+  // por abajo) bien separados. Lee más limpio que crenel a tamaño pequeño.
+  const battlement = (x0: number, x1: number, y: number, h: number, n: number, accent = false) => {
+    line(x0, y, x1, y, accent);
+    const total = x1 - x0;
+    const mw = total * 0.26;
+    const gap = n > 1 ? (total - n * mw) / (n - 1) : 0;
+    for (let i = 0; i < n; i++) {
+      const mx0 = x0 + i * (mw + gap);
+      poly([[mx0, y], [mx0, y - h], [mx0 + mw, y - h], [mx0 + mw, y]], accent);
+    }
+  };
 
   switch (variant) {
     // Gráfico de posiciones en ascenso (SEO/GEO): ejes, barras crecientes y flecha de tendencia
@@ -232,17 +244,17 @@ function geometryFor(variant: CanvasVariant, seed = 0): RawSegment[] {
       // Torre izquierda
       line(0.12, 0.90, 0.12, 0.30);
       line(0.36, 0.90, 0.36, 0.30);
-      crenel(0.12, 0.36, 0.30, 0.055, 3);
+      battlement(0.12, 0.36, 0.30, 0.06, 3);
       line(0.12, 0.44, 0.36, 0.44);
       rect(0.19, 0.52, 0.10, 0.15);
       // Torre derecha
       line(0.64, 0.90, 0.64, 0.30);
       line(0.88, 0.90, 0.88, 0.30);
-      crenel(0.64, 0.88, 0.30, 0.055, 3);
+      battlement(0.64, 0.88, 0.30, 0.06, 3);
       line(0.64, 0.44, 0.88, 0.44);
       rect(0.71, 0.52, 0.10, 0.15);
       // Cuerpo central (puerta), más bajo
-      crenel(0.36, 0.64, 0.48, 0.04, 2);
+      battlement(0.36, 0.64, 0.48, 0.045, 3);
       // Arco de entrada (acento)
       line(0.44, 0.90, 0.44, 0.68, true);
       poly([[0.44, 0.68], [0.47, 0.635], [0.50, 0.625], [0.53, 0.635], [0.56, 0.68]], true);

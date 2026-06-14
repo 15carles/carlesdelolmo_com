@@ -3941,6 +3941,17 @@
     padding-bottom: 0;
 }
 
+/* En móvil el mt-2xl del hero se suma al padding de la sección y deja un hueco
+   exagerado bajo el breadcrumb; se reduce (sin quitarlo) ya que la sección ya
+   aporta espacio suficiente. La figura está oculta en móvil. */
+@media (max-width: 767px) {
+    .grid-cols-2:has(> .hero-right-col),
+    .hero-migraciones__container > .hero-migraciones__inner,
+    .hero-maintenance__container > .hero-maintenance__inner {
+        margin-top: var(--spacing-md) !important;
+    }
+}
+
 @media (max-width: 767px) {
     .hero-migraciones__highlights {
         gap: var(--spacing-sm) !important;

@@ -253,7 +253,7 @@ export default function DisenoWebValencia() {
 
               <div className="animate-on-scroll flex flex-col justify-center pb-3xl hero-right-col hidden-mobile">
                 <div className="hero-canvas-frame">
-                  <GenerativeCanvas variant="valencia" className="hero-canvas" />
+                  <GenerativeCanvas variant="valencia" density={200} className="hero-canvas" />
                 </div>
               </div>
             </div>

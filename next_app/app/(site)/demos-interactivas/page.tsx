@@ -26,6 +26,9 @@ interface DemoData {
   badges: { text: string; color: string }[];
 }
 
+// Las demos se muestran intercaladas en un único grid: son de estilos de
+// diseño distintos, así que el orden está pensado para que no queden juntas
+// dos del mismo estilo.
 const DEMOS: DemoData[] = [
   {
     title: 'Flowdesk',
@@ -39,6 +42,18 @@ const DEMOS: DemoData[] = [
       { text: 'UX', color: 'badge--teal' },
     ],
   },
+  // TODO: sustituir título, descripción, imagen y badges por los reales.
+  {
+    title: 'Demo 3',
+    description:
+      'Descripción provisional de la demo 3. Sustituye este texto por el enfoque real de la demo.',
+    demoUrl: 'https://demo3.carlesdelolmo.com',
+    image: '/assets/demos/demo-3.webp',
+    imageAlt: 'Captura de pantalla de la demo 3',
+    badges: [
+      { text: 'Diseño Web', color: 'badge--blue' },
+    ],
+  },
   {
     title: 'LocalExpert Gestoría',
     description:
@@ -49,6 +64,30 @@ const DEMOS: DemoData[] = [
     badges: [
       { text: 'SEO Local', color: 'badge--teal' },
       { text: 'Captación', color: 'badge--blue' },
+    ],
+  },
+  // TODO: sustituir título, descripción, imagen y badges por los reales.
+  {
+    title: 'Demo 4',
+    description:
+      'Descripción provisional de la demo 4. Sustituye este texto por el enfoque real de la demo.',
+    demoUrl: 'https://demo4.carlesdelolmo.com',
+    image: '/assets/demos/demo-4.webp',
+    imageAlt: 'Captura de pantalla de la demo 4',
+    badges: [
+      { text: 'UX', color: 'badge--purple' },
+    ],
+  },
+  // TODO: sustituir título, descripción, imagen y badges por los reales.
+  {
+    title: 'Demo 5',
+    description:
+      'Descripción provisional de la demo 5. Sustituye este texto por el enfoque real de la demo.',
+    demoUrl: 'https://demo5.carlesdelolmo.com',
+    image: '/assets/demos/demo-5.webp',
+    imageAlt: 'Captura de pantalla de la demo 5',
+    badges: [
+      { text: 'Diseño Web', color: 'badge--teal' },
     ],
   },
 ];

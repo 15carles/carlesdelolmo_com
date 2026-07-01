@@ -42,16 +42,16 @@ const DEMOS: DemoData[] = [
       { text: 'UX', color: 'badge--teal' },
     ],
   },
-  // TODO: sustituir título, descripción, imagen y badges por los reales.
   {
-    title: 'Demo 3',
+    title: 'Esilo Neumorfismo',
     description:
-      'Descripción provisional de la demo 3. Sustituye este texto por el enfoque real de la demo.',
+      'Estudio ficticio de diseño digital con estética neumórfica: interfaces suaves, táctiles y memorables. Un ejemplo de cómo un estilo visual muy marcado puede seguir siendo usable y orientado a conversión.',
     demoUrl: 'https://demo3.carlesdelolmo.com',
-    image: '/assets/demos/demo-3.webp',
-    imageAlt: 'Captura de pantalla de la demo 3',
+    image: '/assets/demos/demo-esilo.webp',
+    imageAlt: 'Captura de pantalla de la demo Esilo Neumorfismo',
     badges: [
-      { text: 'Diseño Web', color: 'badge--blue' },
+      { text: 'Diseño Web', color: 'badge--purple' },
+      { text: 'Neumorfismo', color: 'badge--teal' },
     ],
   },
   {
@@ -66,28 +66,28 @@ const DEMOS: DemoData[] = [
       { text: 'Captación', color: 'badge--blue' },
     ],
   },
-  // TODO: sustituir título, descripción, imagen y badges por los reales.
   {
-    title: 'Demo 4',
+    title: 'Kinetiq Labs',
     description:
-      'Descripción provisional de la demo 4. Sustituye este texto por el enfoque real de la demo.',
+      'Web para negocios locales centrada en velocidad y acción: vender, reservar y responder sin perder oportunidades. Estilo brutalista con tipografía monoespaciada y una retícula muy marcada.',
     demoUrl: 'https://demo4.carlesdelolmo.com',
-    image: '/assets/demos/demo-4.webp',
-    imageAlt: 'Captura de pantalla de la demo 4',
+    image: '/assets/demos/demo-kinetiq.webp',
+    imageAlt: 'Captura de pantalla de la demo Kinetiq Labs',
     badges: [
-      { text: 'UX', color: 'badge--purple' },
+      { text: 'Negocios locales', color: 'badge--blue' },
+      { text: 'Velocidad', color: 'badge--teal' },
     ],
   },
-  // TODO: sustituir título, descripción, imagen y badges por los reales.
   {
-    title: 'Demo 5',
+    title: 'Martillo Marketing',
     description:
-      'Descripción provisional de la demo 5. Sustituye este texto por el enfoque real de la demo.',
+      'Agencia de marketing ficticia con identidad neobrutalista: color saturado, contraste alto y collage. Un ejemplo de branding con carácter que prioriza el impacto y la diferenciación.',
     demoUrl: 'https://demo5.carlesdelolmo.com',
-    image: '/assets/demos/demo-5.webp',
-    imageAlt: 'Captura de pantalla de la demo 5',
+    image: '/assets/demos/demo-martillo.webp',
+    imageAlt: 'Captura de pantalla de la demo Martillo Marketing',
     badges: [
-      { text: 'Diseño Web', color: 'badge--teal' },
+      { text: 'Marketing', color: 'badge--purple' },
+      { text: 'Branding', color: 'badge--cyan' },
     ],
   },
 ];

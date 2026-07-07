@@ -46,7 +46,7 @@ const DEMOS: DemoData[] = [
     title: 'Esilo Neumorfismo',
     description:
       'Estudio ficticio de diseño digital con estética neumórfica: interfaces suaves, táctiles y memorables. Un ejemplo de cómo un estilo visual muy marcado puede seguir siendo usable y orientado a conversión.',
-    demoUrl: 'https://demo3.carlesdelolmo.com',
+    demoUrl: 'https://demo5.carlesdelolmo.com',
     image: '/assets/demos/demo-esilo.webp',
     imageAlt: 'Captura de pantalla de la demo Esilo Neumorfismo',
     badges: [
@@ -70,7 +70,7 @@ const DEMOS: DemoData[] = [
     title: 'Kinetiq Labs',
     description:
       'Web para negocios locales centrada en velocidad y acción: vender, reservar y responder sin perder oportunidades. Estilo brutalista con tipografía monoespaciada y una retícula muy marcada.',
-    demoUrl: 'https://demo4.carlesdelolmo.com',
+    demoUrl: 'https://demo3.carlesdelolmo.com',
     image: '/assets/demos/demo-kinetiq.webp',
     imageAlt: 'Captura de pantalla de la demo Kinetiq Labs',
     badges: [
@@ -82,7 +82,7 @@ const DEMOS: DemoData[] = [
     title: 'Martillo Marketing',
     description:
       'Agencia de marketing ficticia con identidad neobrutalista: color saturado, contraste alto y collage. Un ejemplo de branding con carácter que prioriza el impacto y la diferenciación.',
-    demoUrl: 'https://demo5.carlesdelolmo.com',
+    demoUrl: 'https://demo4.carlesdelolmo.com',
     image: '/assets/demos/demo-martillo.webp',
     imageAlt: 'Captura de pantalla de la demo Martillo Marketing',
     badges: [

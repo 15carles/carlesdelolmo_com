@@ -7,10 +7,18 @@ import { constructMetadata } from '@/lib/seo/metadata';
 import { SITE_URL, generateAuditOfferSchema } from '@/lib/seo/schemas';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
 
+const getCurrentMonthName = () => {
+  const months = [
+    'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+    'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+  ];
+  return months[new Date().getMonth()];
+};
+
 export const metadata = constructMetadata({
-  title: 'Auditoría SEO + GEO Gratuita - Solo en Mayo | Carles del Olmo',
+  title: `Auditoría SEO + GEO Gratuita - Solo en ${getCurrentMonthName().charAt(0).toUpperCase() + getCurrentMonthName().slice(1)} | Carles del Olmo`,
   description:
-    'Durante mayo regalo una Auditoría SEO + GEO valorada en +750€. Analizo tu web, tu visibilidad en Google y tu presencia en IAs (ChatGPT, Gemini). Plazas limitadas.',
+    `Durante ${getCurrentMonthName()} regalo una Auditoría SEO + GEO valorada en +750€. Analizo tu web, tu visibilidad en Google y tu presencia en IAs (ChatGPT, Gemini). Plazas limitadas.`,
   exactUrl: `${SITE_URL}/auditoria-gratuita`,
 });
 
@@ -196,7 +204,7 @@ export default function AuditoriaGratuitaPage() {
         <div className="container">
           <div className="section-header animate-fade-in-up">
             <div className="badge badge--purple mb-lg">
-              <span>Solo durante mayo · Plazas limitadas</span>
+              <span>Solo durante {getCurrentMonthName()} · Plazas limitadas</span>
             </div>
 
             <h1 className="section-header__title">
@@ -205,7 +213,7 @@ export default function AuditoriaGratuitaPage() {
             </h1>
 
             <p className="section-header__subtitle">
-              Durante mayo analizo tu web, tu visibilidad en Google y tu presencia en
+              Durante {getCurrentMonthName()} analizo tu web, tu visibilidad en Google y tu presencia en
               IAs como ChatGPT o Gemini <strong>sin coste</strong> para ti. Servicio valorado en{' '}
               <strong>+750€</strong>.
             </p>
@@ -225,7 +233,7 @@ export default function AuditoriaGratuitaPage() {
               </div>
               <div className="audit-highlight-item">
                 <div className="audit-highlight-value" style={{ color: 'var(--color-accent-cyan)' }}>
-                  Mayo
+                  {getCurrentMonthName().charAt(0).toUpperCase() + getCurrentMonthName().slice(1)}
                 </div>
                 <div className="audit-highlight-label">Solo este mes</div>
               </div>
@@ -348,7 +356,7 @@ export default function AuditoriaGratuitaPage() {
         <div className="container">
           <div className="section-header animate-on-scroll mb-xl">
             <div className="badge badge--purple mb-lg">
-              <span>Plazas limitadas · Mayo</span>
+              <span>Plazas limitadas · {getCurrentMonthName().charAt(0).toUpperCase() + getCurrentMonthName().slice(1)}</span>
             </div>
             <h2>Solicita tu auditoría gratuita</h2>
             <p className="section-header__subtitle">

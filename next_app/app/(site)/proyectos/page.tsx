@@ -3,9 +3,22 @@ import Link from 'next/link';
 import { ArrowRight, Rocket } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { ProjectCard } from '@/components/ProjectsSection';
+import DemoCard from '@/components/DemoCard';
+import CtaFinalSection from '@/components/CtaFinalSection';
+import { DEMOS } from '@/data/demos';
 import { reader } from '@/lib/keystatic';
 import { constructMetadata } from '@/lib/seo/metadata';
 import { SITE_URL } from '@/lib/seo/schemas';
+
+type ProjectTestimonial = {
+  text: string;
+  author: string;
+  role: string;
+  location: string;
+  clientName: string;
+  clientUrl?: string;
+  clientLogo?: string;
+};
 
 type ProjectListItem = {
   slug: string;
@@ -14,6 +27,7 @@ type ProjectListItem = {
   isoDate?: string;
   badges: { text: string; color: string }[];
   image?: string;
+  testimonial?: ProjectTestimonial;
 };
 
 // Imagen de tarjeta por proyecto (la colección Keystatic no tiene campo de portada).
@@ -28,6 +42,21 @@ const BADGE_COLORS: Record<string, string> = {
   'Desarrollo Web': 'badge--purple',
   'Automatización': 'badge--cyan',
 };
+
+// Demos destacadas en la preview del laboratorio.
+const FEATURED_DEMOS = ['LocalExpert Gestoría', 'Kinetiq Labs'];
+
+// Mismo stack que la sección de tecnología de /diseno-web.
+const STACK_KEYWORDS = [
+  'Next.js',
+  'React',
+  'Core Web Vitals',
+  'JSON-LD',
+  'TailwindCSS',
+  'Astro',
+  'Schema.org',
+  'LLM Ready',
+];
 
 function badgeColor(text: string, index: number): string {
   const fallback = ['badge--blue', 'badge--purple', 'badge--teal', 'badge--cyan'];
@@ -71,8 +100,22 @@ export default async function ProyectosIndex() {
         color: badgeColor(badge, index),
       })),
       image: PROJECT_CARD_IMAGES[project.slug],
+      testimonial: project.entry.testimonial?.text
+        ? {
+            text: project.entry.testimonial.text,
+            author: project.entry.testimonial.author,
+            role: project.entry.testimonial.role,
+            location: project.entry.testimonial.location,
+            clientName: project.entry.client.name,
+            clientUrl: project.entry.client.url || undefined,
+            clientLogo: project.entry.client.logo || undefined,
+          }
+        : undefined,
     }))
     .sort((a, b) => toTimestamp(b.isoDate) - toTimestamp(a.isoDate));
+
+  const featuredTestimonial = projects.find((project) => project.testimonial)?.testimonial;
+  const featuredDemos = DEMOS.filter((demo) => FEATURED_DEMOS.includes(demo.title));
 
   return (
     <main className="page__content">
@@ -86,6 +129,7 @@ export default async function ProyectosIndex() {
         </div>
       </header>
 
+      {/* ── Método ORBITA + casos de éxito ── */}
       <section className="section animate-on-scroll" aria-labelledby="proyectos-orbita-title">
         <div className="container">
           <header className="section-header section-header--left mb-2xl">
@@ -146,6 +190,112 @@ export default async function ProyectosIndex() {
           </div>
         </div>
       </section>
+
+      {/* ── Testimonio del caso más reciente ── */}
+      {featuredTestimonial && (
+        <section className="section animate-on-scroll" aria-labelledby="proyectos-testimonio-title">
+          <div className="container">
+            <header className="section-header">
+              <p className="section-header__eyebrow">Resultados</p>
+              <h2 id="proyectos-testimonio-title" className="section-header__title">
+                Lo que dice el cliente
+              </h2>
+            </header>
+            <div className="testimonial-card">
+              {featuredTestimonial.clientLogo && (
+                <div className="testimonial__logo-col">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- logo pequeño gestionado desde Keystatic */}
+                  <img
+                    src={featuredTestimonial.clientLogo}
+                    alt={`Logo de ${featuredTestimonial.clientName}`}
+                    className="testimonial__logo"
+                  />
+                </div>
+              )}
+              <div className="testimonial__content-col">
+                <blockquote className="testimonial__quote">
+                  &ldquo;{featuredTestimonial.text}&rdquo;
+                </blockquote>
+                <div className="testimonial__author">
+                  <span><strong>{featuredTestimonial.author}</strong></span>
+                  <span className="testimonial__position">
+                    {featuredTestimonial.role}
+                    {featuredTestimonial.clientUrl && (
+                      <>
+                        {' '}·{' '}
+                        <a href={featuredTestimonial.clientUrl} target="_blank" rel="noopener noreferrer">
+                          {featuredTestimonial.clientName}
+                        </a>
+                      </>
+                    )}
+                  </span>
+                  {featuredTestimonial.location && (
+                    <span className="testimonial__location">{featuredTestimonial.location}</span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Laboratorio: preview de demos ── */}
+      <section className="section bg-glass animate-on-scroll" aria-labelledby="proyectos-demos-title">
+        <div className="container">
+          <header className="section-header">
+            <p className="section-header__eyebrow">Laboratorio</p>
+            <h2 id="proyectos-demos-title" className="section-header__title">
+              Demos de diseño web
+            </h2>
+            <p className="section-header__subtitle">
+              Además de los casos reales, mantengo demos en vivo donde exploro estilos, estructuras
+              y patrones de conversión. Son la capa de práctica que después alimenta los proyectos.
+            </p>
+          </header>
+
+          <div className="grid grid-cols-2 demos-grid">
+            {featuredDemos.map((demo) => (
+              <DemoCard key={demo.title} {...demo} />
+            ))}
+          </div>
+
+          <div className="mt-xl text-center">
+            <Link href="/demos-interactivas" className="btn btn--secondary">
+              Ver las {DEMOS.length} demos interactivas
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Herramientas / stack ── */}
+      <section className="section animate-on-scroll" aria-labelledby="proyectos-stack-title">
+        <div className="container">
+          <header className="section-header">
+            <p className="section-header__eyebrow">Herramientas</p>
+            <h2 id="proyectos-stack-title" className="section-header__title">
+              Con qué construyo cada proyecto
+            </h2>
+            <p className="section-header__subtitle">
+              La capa de Optimización técnica de ORBITA empieza por elegir bien la base:
+              tecnología moderna, rápida y legible tanto para buscadores como para
+              inteligencia artificial. Sin plantillas genéricas ni dependencias frágiles.
+            </p>
+          </header>
+
+          <div className="flex flex-col items-center">
+            <div className="grid--keywords w-full max-w-4xl gap-md">
+              {STACK_KEYWORDS.map((keyword) => (
+                <div key={keyword} className="keyword-card flex items-center justify-center p-md text-sm">
+                  {keyword}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA final ── */}
+      <CtaFinalSection />
     </main>
   );
 }

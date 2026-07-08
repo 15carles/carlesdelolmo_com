@@ -704,15 +704,15 @@
 }
 
 .terminal__dot--red {
-    background-color: var(--color-border-strong);
+    background-color: #FF5F56;
 }
 
 .terminal__dot--yellow {
-    background-color: var(--color-border-strong);
+    background-color: #FFBD2E;
 }
 
 .terminal__dot--green {
-    background-color: var(--color-accent-bright);
+    background-color: #27C93F;
 }
 
 .terminal__filename {

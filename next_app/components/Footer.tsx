@@ -96,7 +96,7 @@ function GoogleBusinessIcon({ className }: FooterIconProps) {
 
 const NAV_LINKS: FooterLink[] = [
   { href: '/#inicio', label: 'Inicio' },
-  { href: '/#proyectos', label: 'Proyectos' },
+  { href: '/proyectos', label: 'Proyectos' },
   { href: '/#servicios', label: 'Servicios' },
   { href: '/blog', label: 'Blog' },
   { href: '/demos-interactivas', label: 'Demos' },

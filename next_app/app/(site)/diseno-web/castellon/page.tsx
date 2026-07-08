@@ -264,7 +264,7 @@ export default function DisenoWebCastellon() {
           </div>
 
           <div className="flex justify-center mt-xl">
-            <Link href="/#proyectos" className="btn btn--secondary">Ver portafolio de proyectos</Link>
+            <Link href="/proyectos" className="btn btn--secondary">Ver portafolio de proyectos</Link>
           </div>
         </div>
       </section>

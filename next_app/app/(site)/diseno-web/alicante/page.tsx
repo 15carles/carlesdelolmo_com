@@ -265,7 +265,7 @@ export default function DisenoWebAlicante() {
           </div>
 
           <div className="flex justify-center mt-xl">
-            <Link href="/#proyectos" className="btn btn--secondary">Explorar portafolio completo</Link>
+            <Link href="/proyectos" className="btn btn--secondary">Explorar portafolio completo</Link>
           </div>
         </div>
       </section>

@@ -31,7 +31,7 @@ export default function Hero() {
               <Link href="/contacto" className="btn btn--primary btn--large" aria-label="Pedir presupuesto">
                 Pide presupuesto
               </Link>
-              <Link href="/#proyectos" className="btn btn--secondary btn--large" aria-label="Ver proyectos">
+              <Link href="/proyectos" className="btn btn--secondary btn--large" aria-label="Ver proyectos">
                 Ver proyectos
               </Link>
             </div>

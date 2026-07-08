@@ -807,7 +807,7 @@
 
 .chat-bubble--user {
     align-self: flex-end;
-    text-align: right;
+    text-align: left;
     background: var(--color-accent);
     color: var(--color-text-on-accent);
     border: none;

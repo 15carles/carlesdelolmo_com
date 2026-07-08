@@ -71,6 +71,47 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     });
   };
 
+  const renderContentWithLinks = (text: string) => {
+    const linkRegex = /<a\s+href=['"]([^'"]+)['"]\s+target=['"]([^'"]+)['"]\s*>([^<]+)<\/a>/gi;
+    const parts: (string | React.ReactNode)[] = [];
+    let lastIndex = 0;
+    let match;
+
+    while ((match = linkRegex.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        parts.push(text.substring(lastIndex, match.index));
+      }
+      const [fullMatch, href, target, linkText] = match;
+      parts.push(
+        <a
+          key={`link-${match.index}`}
+          href={href}
+          target={target}
+          rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+          className="link"
+        >
+          {linkText}
+        </a>
+      );
+      lastIndex = match.index + fullMatch.length;
+    }
+
+    if (lastIndex < text.length) {
+      parts.push(text.substring(lastIndex));
+    }
+
+    if (parts.length === 0) {
+      return renderInlineBold(text);
+    }
+
+    return parts.map((part, index) => {
+      if (typeof part === 'string') {
+        return <React.Fragment key={index}>{renderInlineBold(part)}</React.Fragment>;
+      }
+      return part;
+    });
+  };
+
   const renderMultilineText = (text?: string) => {
     if (!text) return null;
     const lines = text.split('\n');
@@ -124,10 +165,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     key={i}
                     className={`chat-bubble chat-bubble--${role}`}
                   >
-                    {/* Use the existing safe `**bold**` renderer instead of
-                        dangerouslySetInnerHTML — content comes from Keystatic
-                        and could otherwise be used to inject scripts. */}
-                    {renderInlineBold(msg.content || '')}
+                    {renderContentWithLinks(msg.content || '')}
                   </div>
                 );
               })}

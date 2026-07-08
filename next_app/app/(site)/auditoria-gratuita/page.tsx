@@ -20,6 +20,7 @@ export const metadata = constructMetadata({
   description:
     `Durante ${getCurrentMonthName()} regalo una Auditoría SEO + GEO valorada en +750€. Analizo tu web, tu visibilidad en Google y tu presencia en IAs (ChatGPT, Gemini). Plazas limitadas.`,
   exactUrl: `${SITE_URL}/auditoria-gratuita`,
+  modifiedTime: new Date().toISOString(),
 });
 
 const AUDIT_ITEMS = [

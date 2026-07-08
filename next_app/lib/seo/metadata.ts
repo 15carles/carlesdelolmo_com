@@ -17,6 +17,7 @@ interface ConstructMetadataProps {
   // Article specific
   publishedTime?: string;
   authors?: string[];
+  modifiedTime?: string;
 }
 
 /**
@@ -32,6 +33,7 @@ export function constructMetadata({
   type = 'website',
   publishedTime,
   authors = ['Carles del Olmo'],
+  modifiedTime,
 }: ConstructMetadataProps): Metadata {
   return {
     applicationName: 'Carles del Olmo',
@@ -86,6 +88,7 @@ export function constructMetadata({
       type,
       ...(type === 'article' && publishedTime && {
         publishedTime,
+        ...(modifiedTime && { modifiedTime }),
         authors,
       }),
     },

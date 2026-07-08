@@ -561,7 +561,7 @@ export function generateProjectSchema(project: {
     },
     generateBreadcrumbSchema([
       { label: 'Inicio', href: '/' },
-      { label: 'Proyectos', href: '/#proyectos' },
+      { label: 'Proyectos', href: '/proyectos' },
       { label: project.title, href: `/proyectos/${project.slug}` }
     ], breadcrumbId),
     {

@@ -24,6 +24,7 @@ const STATIC_ROUTES: Array<{
   { path: '/migraciones-web', changeFrequency: 'monthly', priority: 0.85 },
   { path: '/pricing', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/demos-interactivas', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/proyectos', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/blog', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/auditoria-gratuita', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/contacto', changeFrequency: 'monthly', priority: 0.6 },

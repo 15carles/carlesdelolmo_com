@@ -108,7 +108,7 @@ function NavbarContent({ pathname }: NavbarContentProps) {
         {/* Menú Desktop */}
         <div className="navbar__menu hidden-mobile">
           <Link href="/#inicio" className={`navbar__link ${isActive('/#inicio') ? 'active' : ''}`}>Inicio</Link>
-          <Link href="/#proyectos" className={`navbar__link ${isActive('/#proyectos') ? 'active' : ''}`}>Proyectos</Link>
+          <Link href="/proyectos" className={`navbar__link ${isActive('/proyectos') ? 'active' : ''}`}>Proyectos</Link>
 
           {/* Dropdown Servicios Desktop */}
           <div className={`dropdown ${activeDropdown === 'servicios' ? 'is-active' : ''}`}>
@@ -195,7 +195,7 @@ function NavbarContent({ pathname }: NavbarContentProps) {
       {/* Menú Móvil (Acordeón) */}
       <div id="mobile-menu" className={`navbar__mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
         <Link href="/#inicio" className="navbar__link" onClick={closeMobileMenu}>Inicio</Link>
-        <Link href="/#proyectos" className="navbar__link" onClick={closeMobileMenu}>Proyectos</Link>
+        <Link href="/proyectos" className="navbar__link" onClick={closeMobileMenu}>Proyectos</Link>
 
         {/* Dropdown Servicios Móvil */}
         <div className={`mobile-dropdown ${activeDropdown === 'servicios-mobile' ? 'is-active' : ''}`}>

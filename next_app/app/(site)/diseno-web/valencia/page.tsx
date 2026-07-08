@@ -360,7 +360,7 @@ export default function DisenoWebValencia() {
             </div>
 
             <div className="flex justify-center mt-xl">
-              <Link href="/#proyectos" className="btn btn--secondary">Ver todos los proyectos</Link>
+              <Link href="/proyectos" className="btn btn--secondary">Ver todos los proyectos</Link>
             </div>
           </div>
         </section>

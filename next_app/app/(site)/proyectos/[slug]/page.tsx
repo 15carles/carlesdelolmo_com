@@ -228,7 +228,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     <span className="breadcrumbs__separator">/</span>
                   </li>
                   <li className="breadcrumbs__item">
-                    <Link href="/#proyectos" className="breadcrumbs__link">Proyectos</Link>
+                    <Link href="/proyectos" className="breadcrumbs__link">Proyectos</Link>
                     <span className="breadcrumbs__separator">/</span>
                   </li>
                   <li className="breadcrumbs__item breadcrumbs__current" aria-current="page">
@@ -353,7 +353,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                         <span className="breadcrumbs__separator">/</span>
                       </li>
                       <li className="breadcrumbs__item">
-                        <Link href="/#proyectos" className="breadcrumbs__link">Proyectos</Link>
+                        <Link href="/proyectos" className="breadcrumbs__link">Proyectos</Link>
                         <span className="breadcrumbs__separator">/</span>
                       </li>
                       <li className="breadcrumbs__item breadcrumbs__current" aria-current="page">

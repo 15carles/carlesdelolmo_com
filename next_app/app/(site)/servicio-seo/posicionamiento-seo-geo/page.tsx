@@ -22,11 +22,11 @@ export default function PosicionamientoSeoGeo() {
   const valueProps = [
     {
       title: 'Dominio de Google Local',
-      description: 'Optimizamos tu Google Business Profile y tu autoridad local para captar clientes en tu zona de influencia.',
+      description: 'Optimizo tu Google Business Profile y tu autoridad local para captar clientes en tu zona de influencia.',
     },
     {
       title: 'Estrategia de Contenido Semántico',
-      description: 'Creamos y optimizamos contenido basado en entidades, no solo en palabras clave, para ser entendidos por IAs.',
+      description: 'Creo y optimizo contenido basado en entidades, no solo en palabras clave, para ser entendido por IAs.',
     },
     {
       title: 'Crecimiento Sostenible',
@@ -63,7 +63,7 @@ export default function PosicionamientoSeoGeo() {
                 El SEO ya no es solo aparecer en los 10 enlaces azules de Google. Hoy, tus clientes te buscan a través de asistentes de voz, ChatGPT, Perplexity y las nuevas funcionalidades de IA de los buscadores.
               </p>
               <p className="text-secondary mb-xl">
-                Nuestro servicio mensual de posicionamiento SEO + GEO asegura que tu negocio mantenga una autoridad sólida en todos estos canales de forma simultánea.
+                Mi servicio mensual de posicionamiento SEO + GEO asegura que tu negocio mantenga una autoridad sólida en todos estos canales de forma simultánea.
               </p>
               
               <div className="card card--no-hover p-lg">

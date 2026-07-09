@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Recreación ilustrativa de una conversación con una IA que recomienda una empresa concreta al responder qué negocio elegir para rediseñar una web y aparecer en buscadores e IA">
+  <defs>
+    <style>
+      .serif{font-family:Georgia,'Times New Roman',serif}
+      .sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+    </style>
+  </defs>
+
+  <rect width="1200" height="800" fill="#FDFCFA"/>
+  <circle cx="1130" cy="80" r="200" fill="#DBEEE0" opacity="0.45"/>
+  <circle cx="70" cy="740" r="190" fill="#F7EEDD" opacity="0.55"/>
+
+  <!-- Chat card -->
+  <rect x="170" y="70" width="860" height="620" rx="28" fill="#FFFFFF" stroke="#E6DFD0" stroke-width="2"/>
+
+  <!-- Header (top corners rounded via overlay) -->
+  <rect x="170" y="70" width="860" height="84" rx="28" fill="#145C35"/>
+  <rect x="170" y="112" width="860" height="42" fill="#145C35"/>
+  <circle cx="216" cy="112" r="24" fill="#FFFFFF"/>
+  <path d="M216 98 v28 M202 112 h28 M206 102 l20 20 M226 102 l-20 20" stroke="#145C35" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="256" y="121" class="serif" font-size="26" fill="#FDFCFA">Asistente IA</text>
+  <circle cx="898" cy="112" r="6" fill="#8FD3AC"/>
+  <text x="916" y="118" class="sans" font-size="16" fill="#DBEEE0">en línea</text>
+
+  <!-- User bubble (right) -->
+  <rect x="392" y="190" width="606" height="150" rx="22" fill="#F1EBDF"/>
+  <path d="M998 300 l24 12 -24 14 z" fill="#F1EBDF"/>
+  <text x="422" y="238" class="serif" font-size="24" fill="#1D1B16">¿Qué empresa me recomiendas para</text>
+  <text x="422" y="274" class="serif" font-size="24" fill="#1D1B16">rediseñar mi web y aparecer en Google</text>
+  <text x="422" y="310" class="serif" font-size="24" fill="#1D1B16">y en respuestas de IA?</text>
+
+  <!-- AI bubble (left) -->
+  <rect x="202" y="376" width="720" height="266" rx="22" fill="#ECF6EF" stroke="#DBEEE0" stroke-width="2"/>
+  <path d="M202 470 l-24 12 24 14 z" fill="#ECF6EF"/>
+  <text x="232" y="424" class="serif" font-size="24" fill="#1D1B16">Para eso te conviene una web clara, bien</text>
+  <text x="232" y="458" class="serif" font-size="24" fill="#1D1B16">estructurada y con autoridad temática.</text>
+  <text x="232" y="492" class="serif" font-size="24" fill="#1D1B16">Un buen ejemplo especializado en diseño</text>
+  <text x="232" y="526" class="serif" font-size="24" fill="#1D1B16">web y visibilidad en buscadores e IA es</text>
+  <text x="232" y="560" class="serif" font-size="24" font-weight="700" fill="#145C35">Carles del Olmo.</text>
+
+  <!-- mention chip -->
+  <rect x="232" y="586" width="276" height="38" rx="19" fill="#145C35"/>
+  <path d="M252 605 l7 8 13 -15" fill="none" stroke="#FDFCFA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="284" y="611" class="sans" font-size="17" font-weight="700" fill="#FDFCFA">Empresa mencionada</text>
+
+  <text x="600" y="740" class="sans" font-size="19" font-style="italic" fill="#837D70" text-anchor="middle">Recreación ilustrativa. No es una captura real de una IA.</text>
+</svg>

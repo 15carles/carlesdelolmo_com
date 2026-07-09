@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Quiero que mi negocio sea mencionado por la IA: qué debe tener tu web para conseguirlo. Guía de SEO y GEO por Carles del Olmo">
+  <defs>
+    <style>
+      .serif{font-family:Georgia,'Times New Roman',serif}
+      .sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#FDFCFA"/>
+  <circle cx="1140" cy="70" r="230" fill="#DBEEE0" opacity="0.55"/>
+  <circle cx="70" cy="600" r="200" fill="#F7EEDD" opacity="0.6"/>
+
+  <text x="80" y="118" class="sans" font-size="22" letter-spacing="3.5" font-weight="700" fill="#145C35">GUÍA · SEO + GEO</text>
+
+  <text x="80" y="220" class="serif" font-size="56" font-weight="700" fill="#1D1B16">Quiero que mi negocio</text>
+  <text x="80" y="288" class="serif" font-size="56" font-weight="700" fill="#1D1B16">sea mencionado por la IA</text>
+  <text x="80" y="360" class="serif" font-size="30" fill="#57534A">Qué debe tener tu web para conseguirlo</text>
+
+  <!-- author chip -->
+  <circle cx="104" cy="536" r="26" fill="#145C35"/>
+  <text x="104" y="545" class="serif" font-size="24" font-weight="700" fill="#FDFCFA" text-anchor="middle">C</text>
+  <text x="144" y="528" class="sans" font-size="24" font-weight="700" fill="#1D1B16">Carles del Olmo</text>
+  <text x="144" y="558" class="sans" font-size="19" fill="#837D70">Diseño web · SEO · GEO</text>
+
+  <!-- right motif: mini answer card -->
+  <rect x="792" y="150" width="330" height="300" rx="22" fill="#FFFFFF" stroke="#E6DFD0" stroke-width="2"/>
+  <circle cx="828" cy="196" r="18" fill="#145C35"/>
+  <path d="M828 182 v28 M814 196 h28 M818 186 l20 20 M838 186 l-20 20" stroke="#FDFCFA" stroke-width="2.2" stroke-linecap="round"/>
+  <text x="858" y="204" class="serif" font-size="21" fill="#1D1B16">Respuesta de la IA</text>
+  <line x1="820" y1="228" x2="1094" y2="228" stroke="#E6DFD0" stroke-width="2"/>
+  <rect x="820" y="250" width="274" height="74" rx="14" fill="#ECF6EF" stroke="#2FA866" stroke-width="2"/>
+  <rect x="838" y="268" width="40" height="40" rx="10" fill="#145C35"/>
+  <text x="858" y="295" class="serif" font-size="20" font-weight="700" fill="#FDFCFA" text-anchor="middle">TE</text>
+  <text x="892" y="284" class="serif" font-size="20" fill="#1D1B16">Tu empresa</text>
+  <text x="892" y="309" class="sans" font-size="14" fill="#145C35">clara y fiable</text>
+  <rect x="820" y="342" width="230" height="20" rx="10" fill="#F1EBDF"/>
+  <rect x="820" y="378" width="274" height="20" rx="10" fill="#F1EBDF"/>
+  <rect x="820" y="414" width="180" height="20" rx="10" fill="#F1EBDF"/>
+</svg>

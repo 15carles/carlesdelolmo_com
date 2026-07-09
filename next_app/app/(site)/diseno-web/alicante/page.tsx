@@ -56,7 +56,7 @@ export default function DisenoWebAlicante() {
         { text: "GEO", color: "badge--blue" },
         { text: "Diseño Web", color: "badge--purple" }
       ],
-      description: "Web de captación de Leads optimizada para respuestas de IA con automatización de procesos. +\nAumento del +250% en tráfico orgánico desde ChatGPT y Perplexity."
+      description: "Web de captación de Leads optimizada para respuestas de IA con automatización de procesos.\nAumento del +250% en tráfico orgánico desde ChatGPT y Perplexity en sus primeros 30 días."
     }
   ];
 

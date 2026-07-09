@@ -81,13 +81,7 @@ Disallow: /api/keystatic/
 
 
 # --- Bloqueo herramientas “competencia” (opcional) ---
-User-agent: AhrefsBot
-Disallow: /
-
 User-agent: DotBot
-Disallow: /
-
-User-agent: SemrushBot
 Disallow: /
 
 

@@ -57,28 +57,6 @@ export default function DisenoWebAlicante() {
         { text: "Diseño Web", color: "badge--purple" }
       ],
       description: "Web de captación de Leads optimizada para respuestas de IA con automatización de procesos. +\nAumento del +250% en tráfico orgánico desde ChatGPT y Perplexity."
-    },
-    {
-      title: "CostaLife Real Estate",
-      href: "#contacto",
-      colorClass: "project-card__image--blue",
-      icon: "cloud" as const,
-      badges: [
-        { text: "SEO Local", color: "badge--purple" },
-        { text: "Inmobiliaria", color: "badge--cyan" }
-      ],
-      description: "Portal inmobiliario optimizado para búsquedas en la Costa Blanca.\nIncremento del 40% en leads cualificados."
-    },
-    {
-      title: "TurismoAlicante Hub",
-      href: "#contacto",
-      colorClass: "project-card__image--cyan",
-      icon: "finance" as const,
-      badges: [
-        { text: "GEO", color: "badge--purple" },
-        { text: "Turismo", color: "badge--teal" }
-      ],
-      description: "Estructura semántica avanzada para respuestas de IA sobre ocio y turismo.\nReferencia directa en Google Search Generative Experience."
     }
   ];
 
@@ -132,11 +110,11 @@ export default function DisenoWebAlicante() {
     },
     {
       question: '¿Mi web aparecerá en Google para búsquedas en Alicante?',
-      answer: 'Sí, implementamos estrategias de SEO Local específicas para que aparezcas cuando tus clientes busquen servicios en la zona de Alicante y la Costa Blanca.'
+      answer: 'Sí, implemento estrategias de SEO Local específicas para que aparezcas cuando tus clientes busquen servicios en la zona de Alicante y la Costa Blanca.'
     },
     {
       question: '¿Sus webs están preparadas para la IA?',
-      answer: 'Absolutamente. Todas nuestras webs incluyen arquitectura GEO (Generative Engine Optimization) para ser citadas en ChatGPT, Gemini y Perplexity.'
+      answer: 'Absolutamente. Todas mis webs incluyen arquitectura GEO (Generative Engine Optimization) para ser citadas en ChatGPT, Gemini y Perplexity.'
     }
   ];
 
@@ -254,11 +232,11 @@ export default function DisenoWebAlicante() {
           <header className="section-header animate-on-scroll">
             <h2 className="section-header__title">Proyectos destacados</h2>
             <p className="section-header__subtitle">
-              Ayudamos a empresas de Alicante a transformar su canal digital.
+              Ayudo a empresas de Alicante a transformar su canal digital.
             </p>
           </header>
 
-          <div className="grid grid-cols-3">
+          <div style={{ maxWidth: '720px', margin: '0 auto' }}>
             {portfolio.map((project, index) => (
               <ProjectCard key={index} {...project} />
             ))}
@@ -284,8 +262,8 @@ export default function DisenoWebAlicante() {
             <div className="article-box">
               <h3>Tu socio digital en la provincia de Alicante</h3>
               <p>
-                Entendemos que el diseño web en Alicante requiere un equilibrio entre 
-                visibilidad internacional y cercanía local. Optimizamos cada detalle 
+                Entiendo que el diseño web en Alicante requiere un equilibrio entre
+                visibilidad internacional y cercanía local. Optimizo cada detalle
                 para que tu empresa sea la respuesta que buscan tus futuros clientes.
               </p>
               <div className="flex mt-lg">
@@ -302,7 +280,7 @@ export default function DisenoWebAlicante() {
           <header className="section-header animate-on-scroll">
             <h2 className="section-header__title">Estándares de excelencia</h2>
             <p className="section-header__subtitle">
-              Cada web que sale de nuestro estudio cumple con los más altos estándares técnicos.
+              Cada web que entrego cumple con los más altos estándares técnicos.
             </p>
           </header>
 

@@ -59,28 +59,6 @@ export default function DisenoWebValencia() {
         { text: "Diseño Web", color: "badge--purple" }
       ],
       description: "Web de captación de Leads optimizada para respuestas de IA con automatización de procesos. +\nAumento del +250% en tráfico orgánico desde ChatGPT y Perplexity."
-    },
-    {
-      title: "CloudMetrics",
-      href: "#contacto",
-      colorClass: "project-card__image--blue",
-      icon: "cloud" as const,
-      badges: [
-        { text: "GEO", color: "badge--purple" },
-        { text: "SaaS", color: "badge--cyan" }
-      ],
-      description: "Plataforma SaaS con contenido estructurado para IAs.\nPrimera posición en respuestas de Gemini y Claude."
-    },
-    {
-      title: "FinanceAI Hub",
-      href: "#contacto",
-      colorClass: "project-card__image--cyan",
-      icon: "finance" as const,
-      badges: [
-        { text: "GEO", color: "badge--purple" },
-        { text: "Startup", color: "badge--teal" }
-      ],
-      description: "Web financiera con datos estructurados para LLMs.\nCitado en más de 500 respuestas de IA mensuales."
     }
   ];
 
@@ -353,7 +331,7 @@ export default function DisenoWebValencia() {
               </p>
             </header>
 
-            <div className="grid grid-cols-3">
+            <div style={{ maxWidth: '720px', margin: '0 auto' }}>
               {portfolio.map((project, index) => (
                 <ProjectCard key={index} {...project} />
               ))}

@@ -57,28 +57,6 @@ export default function DisenoWebCastellon() {
         { text: "Diseño Web", color: "badge--purple" }
       ],
       description: "Web de captación de Leads optimizada para respuestas de IA con automatización de procesos. +\nAumento del +250% en tráfico orgánico desde ChatGPT y Perplexity."
-    },
-    {
-      title: "Azulejos CeramicPro",
-      href: "#contacto",
-      colorClass: "project-card__image--blue",
-      icon: "cloud" as const,
-      badges: [
-        { text: "SEO Técnico", color: "badge--purple" },
-        { text: "B2B", color: "badge--cyan" }
-      ],
-      description: "Catálogo digital optimizado para el sector cerámico de Castellón.\nMejora del 60% en la velocidad de carga y experiencia móvil."
-    },
-    {
-      title: "LogísticaCastellón",
-      href: "#contacto",
-      colorClass: "project-card__image--cyan",
-      icon: "finance" as const,
-      badges: [
-        { text: "GEO", color: "badge--purple" },
-        { text: "Industria", color: "badge--teal" }
-      ],
-      description: "Arquitectura de datos estructurados para servicios logísticos e industriales.\nReferencia de confianza en respuestas de IA empresariales."
     }
   ];
 
@@ -136,7 +114,7 @@ export default function DisenoWebCastellon() {
     },
     {
       question: '¿Preparáis las webs para el nuevo buscador de OpenAI (SearchGPT)?',
-      answer: 'Totalmente. Implementamos protocolos GEO para asegurar que tu empresa sea visible en los nuevos buscadores de IA y asistentes conversacionales.'
+      answer: 'Totalmente. Implemento protocolos GEO para asegurar que tu empresa sea visible en los nuevos buscadores de IA y asistentes conversacionales.'
     }
   ];
 
@@ -164,8 +142,8 @@ export default function DisenoWebCastellon() {
               </h1>
 
               <p className="text-secondary mb-xl helper-center-mobile">
-                Potenciamos el tejido empresarial de Castellón con soluciones digitales de alto rendimiento. 
-                Desde el sector industrial hasta el comercial, creamos webs que no solo informan, sino que 
+                Potencio el tejido empresarial de Castellón con soluciones digitales de alto rendimiento.
+                Desde el sector industrial hasta el comercial, creo webs que no solo informan, sino que
                 convierten y posicionan con autoridad.
               </p>
 
@@ -251,13 +229,13 @@ export default function DisenoWebCastellon() {
       <section id="proyectos-castellon" className="section">
         <div className="container">
           <header className="section-header animate-on-scroll">
-            <h2 className="section-header__title">Nuestros trabajos en Castellón</h2>
+            <h2 className="section-header__title">Mis trabajos en Castellón</h2>
             <p className="section-header__subtitle">
               Haciendo que empresas locales brillen en el entorno global.
             </p>
           </header>
 
-          <div className="grid grid-cols-3">
+          <div style={{ maxWidth: '720px', margin: '0 auto' }}>
             {portfolio.map((project, index) => (
               <ProjectCard key={index} {...project} />
             ))}
@@ -283,9 +261,9 @@ export default function DisenoWebCastellon() {
             <div className="article-box">
               <h3>Diseño web para empresas en la Plana</h3>
               <p>
-                En Castellón conocemos la importancia de la sobriedad y la eficacia. 
-                Nuestros diseños web para empresas castellonenses se centran en la 
-                claridad, el rendimiento y una estructura SEO impecable que garantiza 
+                En Castellón conozco la importancia de la sobriedad y la eficacia.
+                Mis diseños web para empresas castellonenses se centran en la
+                claridad, el rendimiento y una estructura SEO impecable que garantiza
                 que tu negocio sea encontrado.
               </p>
               <div className="flex mt-lg">

@@ -12,7 +12,7 @@ import { PWARegister } from "@/components/PWARegister";
 import { constructMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Diseño web estratégico | Carles del Olmo - SEO y GEO",
+  title: "Carles del Olmo | Diseño web estratégico, SEO y GEO",
   description: "Diseño web estratégico para empresas que quieren una web clara, rápida y preparada para posicionar en buscadores y en IA.",
 });
 

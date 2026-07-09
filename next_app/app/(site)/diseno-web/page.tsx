@@ -446,6 +446,10 @@ export default function DisenoWebPage() {
             <p className="text-secondary text-lg">
               Por eso no trabajo con plantillas genéricas. Desarrollo cada proyecto con <strong>tecnología moderna</strong> para crear webs estables, rápidas y preparadas para el futuro.
             </p>
+            <p className="text-secondary text-lg mt-sm">
+              ¿Curioso por el detalle técnico? Puedes ver{' '}
+              <Link href="/colofon" className="underline">cómo está hecha esta misma web</Link>.
+            </p>
           </div>
 
           {/* Fila única con las 3 tarjetas principales - USANDO GRID PARA CONSISTENCIA */}

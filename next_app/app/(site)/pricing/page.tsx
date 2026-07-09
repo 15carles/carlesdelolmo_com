@@ -10,8 +10,8 @@ import { SITE_URL, generateFaqPageSchema } from '@/lib/seo/schemas';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
 
 export const metadata = constructMetadata({
-  title: 'Servicios y Precios | Carles del Olmo - Diseño Web en Valencia, SEO y GEO',
-  description: 'Servicios y tarifas de Carles del Olmo: diseño web a medida en Valencia, posicionamiento SEO/GEO y mantenimiento. Precios transparentes y sin letra pequeña.',
+  title: 'Precios de diseño web, SEO y mantenimiento | Carles del Olmo',
+  description: 'Tarifas y precios de Carles del Olmo: diseño web a medida, posicionamiento SEO/GEO y mantenimiento web. Precios transparentes y sin letra pequeña.',
   exactUrl: `${SITE_URL}/pricing`,
 });
 

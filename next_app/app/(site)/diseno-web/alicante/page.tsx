@@ -5,7 +5,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import GenerativeCanvas from '@/components/GenerativeCanvas';
 import { Code, MapPin, Zap, Search, Layout, MousePointer2, Check, Shield, Gauge, Settings } from 'lucide-react';
 import Link from 'next/link';
-import { SITE_URL, generateFaqPageSchema } from '@/lib/seo/schemas';
+import { SITE_URL, generateLocalPageSchema } from '@/lib/seo/schemas';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
 import { constructMetadata } from '@/lib/seo/metadata';
 
@@ -115,10 +115,52 @@ export default function DisenoWebAlicante() {
     {
       question: '¿Sus webs están preparadas para la IA?',
       answer: 'Absolutamente. Todas mis webs incluyen arquitectura GEO (Generative Engine Optimization) para ser citadas en ChatGPT, Gemini y Perplexity.'
+    },
+    {
+      question: '¿Trabajas con empresas de toda la provincia de Alicante o solo de la capital?',
+      answer: 'Con toda la provincia: Alicante y Elche, la Marina Baixa (Benidorm, Altea), la Marina Alta (Dénia, Jávea) y la Vega Baja (Torrevieja). Trabajo en remoto con reuniones cuando hacen falta, así que tu ubicación dentro de la provincia no es ningún límite.'
     }
   ];
 
-  const jsonLd = generateFaqPageSchema(faqs, `${SITE_URL}/diseno-web/alicante#faq`);
+  const zones = [
+    {
+      name: 'Alicante y Elche',
+      description: 'El núcleo empresarial e industrial de la provincia: servicios, comercio y empresas B2B que compiten en un mercado urbano exigente.'
+    },
+    {
+      name: 'Benidorm, Altea y la Marina Baixa',
+      description: 'Turismo y hostelería con público internacional. Webs preparadas para captar reservas directas y búsquedas en varios idiomas.'
+    },
+    {
+      name: 'Dénia, Jávea y la Marina Alta',
+      description: 'Zona de residentes extranjeros que preguntan en inglés y alemán. Aquí la visibilidad multiidioma en Google y en las IAs marca la diferencia.'
+    },
+    {
+      name: 'Torrevieja y la Vega Baja',
+      description: 'Inmobiliaria, salud y servicios orientados al comprador nórdico y de segunda residencia, con fuerte competencia por las mismas búsquedas.'
+    }
+  ];
+
+  const jsonLd = generateLocalPageSchema({
+    path: '/diseno-web/alicante',
+    name: 'Diseño web en Alicante preparado para buscadores e inteligencia artificial',
+    description: 'Diseño y desarrollo web en Alicante y la Costa Blanca con enfoque en SEO técnico, visibilidad local multiidioma y Generative Engine Optimization (GEO).',
+    breadcrumbs: [
+      { label: 'Inicio', href: '/' },
+      { label: 'Diseño web', href: '/diseno-web' },
+      { label: 'Alicante', href: '/diseno-web/alicante' }
+    ],
+    cities: [
+      { name: 'Alicante', sameAs: 'https://es.wikipedia.org/wiki/Alicante' },
+      { name: 'Elche', sameAs: 'https://es.wikipedia.org/wiki/Elche' },
+      { name: 'Benidorm', sameAs: 'https://es.wikipedia.org/wiki/Benidorm' },
+      { name: 'Altea', sameAs: 'https://es.wikipedia.org/wiki/Altea' },
+      { name: 'Dénia', sameAs: 'https://es.wikipedia.org/wiki/Denia' },
+      { name: 'Jávea', sameAs: 'https://es.wikipedia.org/wiki/J%C3%A1vea' },
+      { name: 'Torrevieja', sameAs: 'https://es.wikipedia.org/wiki/Torrevieja' }
+    ],
+    faqs
+  });
 
   return (
     <main className="page__content">
@@ -203,6 +245,33 @@ export default function DisenoWebAlicante() {
                   <Link href={service.href}>{service.title}</Link>
                 </h3>
                 <p className="service-card__description">{service.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Zonas de la provincia */}
+      <section className="section">
+        <div className="container">
+          <header className="section-header animate-on-scroll">
+            <h2 className="section-header__title">Especialista en la Costa Blanca</h2>
+            <p className="section-header__subtitle">
+              No es lo mismo vender en la Marina Alta que en Elche. Adapto la web a cómo busca
+              cada zona: que tu clínica dental en Jávea aparezca cuando un residente extranjero
+              pregunta por un dentista en ChatGPT, que tu inmobiliaria de Torrevieja compita en
+              Google frente a los grandes portales o que el restaurante de Altea llene mesas también
+              en temporada baja.
+            </p>
+          </header>
+
+          <div className="grid grid-cols-2 animate-on-scroll">
+            {zones.map((zone) => (
+              <article key={zone.name} className="card card--glass p-xl">
+                <h3 className="text-lg mb-2">{zone.name}</h3>
+                <p className="text-secondary text-sm" style={{ lineHeight: '1.7' }}>
+                  {zone.description}
+                </p>
               </article>
             ))}
           </div>

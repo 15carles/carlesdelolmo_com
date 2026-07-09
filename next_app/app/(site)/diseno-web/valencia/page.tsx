@@ -6,7 +6,7 @@ import GenerativeCanvas from '@/components/GenerativeCanvas';
 import { Code, MapPin, Zap, Search, Layout, MousePointer2, Check, Shield, Gauge, Settings } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PERSON_SCHEMA, BUSINESS_SCHEMA, generateBreadcrumbSchema, generateFaqPageNode, SITE_URL } from '@/lib/seo/schemas';
+import { generateLocalPageSchema, SITE_URL } from '@/lib/seo/schemas';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
 import { constructMetadata } from '@/lib/seo/metadata';
 
@@ -112,13 +112,6 @@ export default function DisenoWebValencia() {
     { title: 'WhatsApp', desc: 'Canal directo de captación configurado.' },
   ];
 
-  const keywords = [
-    "Posicionamiento web Valencia", "SEO Valencia", "Empresa de diseño web en Valencia",
-    "Diseñador web freelance Valencia", "Optimización web", "Diseño web profesional",
-    "Agencia SEO Valencia", "Desarrollo web a medida", "Diseño de páginas web en Valencia",
-    "Diseñador web Valencia", "Precio diseño web Valencia", "Creación de páginas web Valencia"
-  ];
-
   const tools = [
     { name: 'Google Analytics 4', light: '/assets/images/logos-herramientas/logo-google-analytics-4.webp', dark: '/assets/images/logos-herramientas/logo-google-analytics-4-blanco.webp' },
     { name: 'Google', light: '/assets/images/logos-herramientas/logo-google.webp', dark: '/assets/images/logos-herramientas/logo-google-blanco.webp' },
@@ -148,31 +141,50 @@ export default function DisenoWebValencia() {
     {
       question: '¿Incluye posicionamiento SEO?',
       answer: 'Sí, tu web incluye una estructura SEO técnica on-page desde el primer día, etiquetas optimizadas e indexación en Google.'
+    },
+    {
+      question: '¿Trabajas con empresas de toda la provincia de Valencia o solo de la capital?',
+      answer: 'Con toda la provincia: Valencia capital y l\'Horta, el área industrial de Torrent y Paterna, la costa de Gandia y La Safor, y el Camp de Morvedre en torno a Sagunt. Trabajo en remoto con reuniones cuando hacen falta, así que tu ubicación dentro de la provincia no es ningún límite.'
     }
   ];
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      PERSON_SCHEMA,
-      BUSINESS_SCHEMA,
-      {
-        "@type": "WebPage",
-        "@id": `${SITE_URL}/diseno-web/valencia#webpage`,
-        "url": `${SITE_URL}/diseno-web/valencia`,
-        "name": "Diseño web en Valencia preparado para buscadores e inteligencia artificial",
-        "description": "Diseño y desarrollo web en Valencia con enfoque en arquitectura semántica, rendimiento (Core Web Vitals), SEO técnico y Generative Engine Optimization (GEO).",
-        "isPartOf": { "@id": `${SITE_URL}/#website` },
-        "breadcrumb": { "@id": `${SITE_URL}/diseno-web/valencia#breadcrumbs` }
-      },
-      generateBreadcrumbSchema([
-        { label: 'Inicio', href: '/' },
-        { label: 'Diseño web', href: '/diseno-web' },
-        { label: 'Valencia', href: '/diseno-web/valencia' }
-      ], `${SITE_URL}/diseno-web/valencia#breadcrumbs`),
-      generateFaqPageNode(faqs, `${SITE_URL}/diseno-web/valencia#faq`)
-    ]
-  };
+  const zones = [
+    {
+      name: 'Valencia capital y l\'Horta',
+      description: 'Servicios, comercio y hostelería urbana que compiten por las búsquedas más disputadas de la ciudad.'
+    },
+    {
+      name: 'Torrent, Paterna y l\'Horta Oest',
+      description: 'Empresas industriales y tecnológicas (Parque Tecnológico de Paterna) que captan clientes B2B en Google y en respuestas de IA.'
+    },
+    {
+      name: 'Gandia y La Safor',
+      description: 'Turismo y hostelería de playa. Webs orientadas a llenar también fuera de la temporada alta.'
+    },
+    {
+      name: 'Sagunt y el Camp de Morvedre',
+      description: 'Industria, puerto y logística con necesidades de comunicación B2B y visibilidad técnica.'
+    }
+  ];
+
+  const jsonLd = generateLocalPageSchema({
+    path: '/diseno-web/valencia',
+    name: 'Diseño web en Valencia preparado para buscadores e inteligencia artificial',
+    description: 'Diseño y desarrollo web en Valencia con enfoque en arquitectura semántica, rendimiento (Core Web Vitals), SEO técnico y Generative Engine Optimization (GEO).',
+    breadcrumbs: [
+      { label: 'Inicio', href: '/' },
+      { label: 'Diseño web', href: '/diseno-web' },
+      { label: 'Valencia', href: '/diseno-web/valencia' }
+    ],
+    cities: [
+      { name: 'Valencia', sameAs: 'https://es.wikipedia.org/wiki/Valencia' },
+      { name: 'Torrent', sameAs: 'https://es.wikipedia.org/wiki/Torrente_(Valencia)' },
+      { name: 'Paterna', sameAs: 'https://es.wikipedia.org/wiki/Paterna' },
+      { name: 'Gandia', sameAs: 'https://es.wikipedia.org/wiki/Gand%C3%ADa' },
+      { name: 'Sagunto', sameAs: 'https://es.wikipedia.org/wiki/Sagunto' }
+    ],
+    faqs
+  });
 
   return (
     <>
@@ -427,15 +439,24 @@ export default function DisenoWebValencia() {
         <section className="section">
           <div className="container">
             <header className="section-header animate-on-scroll">
-              <h2 className="section-header__title">Búsquedas de diseño Web Valencia</h2>
+              <h2 className="section-header__title">Diseño web en toda la provincia de Valencia</h2>
               <p className="section-header__subtitle">
-                Por qué términos me encuentran.
+                No busca igual una empresa del Parque Tecnológico de Paterna que un restaurante de
+                Gandia. Adapto la web a cómo busca cada zona: que tu clínica dental en Torrent aparezca
+                cuando alguien pide un dentista cerca en ChatGPT, que tu empresa industrial de Sagunt
+                capte clientes B2B en Google o que tu negocio de playa en La Safor llene también fuera
+                de temporada.
               </p>
             </header>
 
-            <div className="grid--keywords animate-on-scroll">
-              {keywords.map((kw, index) => (
-                <span key={index} className="keyword-card">{kw}</span>
+            <div className="grid grid-cols-2 animate-on-scroll">
+              {zones.map((zone) => (
+                <article key={zone.name} className="card card--glass p-xl">
+                  <h3 className="text-lg mb-2">{zone.name}</h3>
+                  <p className="text-secondary text-sm" style={{ lineHeight: '1.7' }}>
+                    {zone.description}
+                  </p>
+                </article>
               ))}
             </div>
           </div>

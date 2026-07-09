@@ -388,6 +388,59 @@ export function generateFaqPageSchema(
   };
 }
 
+/**
+ * Grafo JSON-LD para páginas locales de provincia (Valencia, Castellón, Alicante).
+ * Añade un nodo Service con areaServed a nivel de página (zonas/localidades
+ * concretas), sin modificar el BUSINESS_SCHEMA global compartido por toda la web.
+ */
+export function generateLocalPageSchema(opts: {
+  path: string;
+  name: string;
+  description: string;
+  breadcrumbs: { label: string; href?: string }[];
+  cities: readonly { name: string; sameAs?: string }[];
+  faqs?: readonly { question: string; answer: string }[];
+}) {
+  const url = `${SITE_URL}${opts.path}`;
+
+  const graph: Record<string, unknown>[] = [
+    PERSON_SCHEMA,
+    BUSINESS_SCHEMA,
+    {
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      "url": url,
+      "name": opts.name,
+      "description": opts.description,
+      "isPartOf": { "@id": `${SITE_URL}/#website` },
+      "breadcrumb": { "@id": `${url}#breadcrumbs` }
+    },
+    generateBreadcrumbSchema(opts.breadcrumbs, `${url}#breadcrumbs`),
+    {
+      "@type": "Service",
+      "@id": `${url}#local-service`,
+      "name": "Diseño web y SEO local",
+      "serviceType": "Diseño web",
+      "provider": { "@id": `${SITE_URL}/#business` },
+      "areaServed": opts.cities.map((city) => ({
+        "@type": "City",
+        "name": city.name,
+        ...(city.sameAs ? { "sameAs": city.sameAs } : {})
+      })),
+      "isPartOf": { "@id": `${url}#webpage` }
+    }
+  ];
+
+  if (opts.faqs && opts.faqs.length > 0) {
+    graph.push(generateFaqPageNode(opts.faqs, `${url}#faq`));
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph
+  };
+}
+
 export function generateBlogSchema(post: {
   slug: string;
   title: string;

@@ -5,7 +5,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import GenerativeCanvas from '@/components/GenerativeCanvas';
 import { Code, MapPin, Zap, Search, Layout, MousePointer2, Check, Shield, Gauge, Settings } from 'lucide-react';
 import Link from 'next/link';
-import { SITE_URL, generateFaqPageSchema } from '@/lib/seo/schemas';
+import { SITE_URL, generateLocalPageSchema } from '@/lib/seo/schemas';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
 import { constructMetadata } from '@/lib/seo/metadata';
 
@@ -115,10 +115,52 @@ export default function DisenoWebCastellon() {
     {
       question: '¿Preparáis las webs para el nuevo buscador de OpenAI (SearchGPT)?',
       answer: 'Totalmente. Implemento protocolos GEO para asegurar que tu empresa sea visible en los nuevos buscadores de IA y asistentes conversacionales.'
+    },
+    {
+      question: '¿Trabajas con empresas de toda la provincia de Castellón o solo de la capital?',
+      answer: 'Con toda la provincia: Castellón de la Plana, el clúster cerámico de Onda, l\'Alcora y Vila-real, la costa de Benicàssim, Orpesa y Peñíscola, y el Baix Maestrat en torno a Vinaròs. Trabajo en remoto con reuniones cuando hacen falta, así que tu ubicación dentro de la provincia no es ningún límite.'
     }
   ];
 
-  const jsonLd = generateFaqPageSchema(faqs, `${SITE_URL}/diseno-web/castellon#faq`);
+  const zones = [
+    {
+      name: 'Castellón y la Plana',
+      description: 'Servicios, comercio y empresas locales que necesitan una web clara y bien posicionada en su área de influencia.'
+    },
+    {
+      name: 'Onda, l\'Alcora y Vila-real',
+      description: 'El clúster cerámico: webs B2B pensadas para que un distribuidor europeo te encuentre en Google y te cite la IA cuando busca proveedor.'
+    },
+    {
+      name: 'Benicàssim, Orpesa y Peñíscola',
+      description: 'Turismo y hostelería estacional. Webs orientadas a reservas directas y a ser la respuesta cuando planifican las vacaciones.'
+    },
+    {
+      name: 'Vinaròs y el Baix Maestrat',
+      description: 'Sector agroalimentario y comercio que vende fuera de temporada porque su web trabaja todo el año.'
+    }
+  ];
+
+  const jsonLd = generateLocalPageSchema({
+    path: '/diseno-web/castellon',
+    name: 'Diseño web en Castellón preparado para buscadores e inteligencia artificial',
+    description: 'Diseño y desarrollo web en Castellón y provincia con enfoque en SEO técnico, comunicación B2B para el sector industrial y cerámico, y Generative Engine Optimization (GEO).',
+    breadcrumbs: [
+      { label: 'Inicio', href: '/' },
+      { label: 'Diseño web', href: '/diseno-web' },
+      { label: 'Castellón', href: '/diseno-web/castellon' }
+    ],
+    cities: [
+      { name: 'Castellón de la Plana', sameAs: 'https://es.wikipedia.org/wiki/Castell%C3%B3n_de_la_Plana' },
+      { name: 'Onda', sameAs: 'https://es.wikipedia.org/wiki/Onda_(Castell%C3%B3n)' },
+      { name: 'l\'Alcora', sameAs: 'https://es.wikipedia.org/wiki/Alcora' },
+      { name: 'Vila-real', sameAs: 'https://es.wikipedia.org/wiki/Villarreal' },
+      { name: 'Benicàssim', sameAs: 'https://es.wikipedia.org/wiki/Benicasim' },
+      { name: 'Peñíscola', sameAs: 'https://es.wikipedia.org/wiki/Pe%C3%B1%C3%ADscola' },
+      { name: 'Vinaròs', sameAs: 'https://es.wikipedia.org/wiki/Vinaroz' }
+    ],
+    faqs
+  });
 
   return (
     <main className="page__content">
@@ -202,6 +244,32 @@ export default function DisenoWebCastellon() {
                   <Link href={service.href}>{service.title}</Link>
                 </h3>
                 <p className="service-card__description">{service.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Zonas de la provincia */}
+      <section className="section">
+        <div className="container">
+          <header className="section-header animate-on-scroll">
+            <h2 className="section-header__title">Especialista en la provincia de Castellón</h2>
+            <p className="section-header__subtitle">
+              No busca igual una cerámica de Onda que un hotel de Peñíscola. Adapto la web a cada
+              sector: que tu empresa cerámica de Vila-real aparezca cuando un distribuidor europeo
+              busca proveedor en Google y en la IA, que tu hotel de Benicàssim capte reservas directas
+              o que tu agroalimentaria de Vinaròs venda también fuera de temporada.
+            </p>
+          </header>
+
+          <div className="grid grid-cols-2 animate-on-scroll">
+            {zones.map((zone) => (
+              <article key={zone.name} className="card card--glass p-xl">
+                <h3 className="text-lg mb-2">{zone.name}</h3>
+                <p className="text-secondary text-sm" style={{ lineHeight: '1.7' }}>
+                  {zone.description}
+                </p>
               </article>
             ))}
           </div>

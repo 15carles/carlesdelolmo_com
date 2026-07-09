@@ -205,7 +205,7 @@ export default function MantenimientoWebValenciaPage() {
 
         <section id="inicio" className="section hero hero-service hero-maintenance" aria-labelledby="hero-title">
           <div className="container hero-maintenance__container">
-            <div className="hero-maintenance__inner animate-on-scroll mt-2xl">
+            <div className="hero-maintenance__inner animate-on-scroll">
               <div className="badge badge--status mb-lg hero-maintenance__badge">
                 <span>Valencia y remoto</span>
               </div>

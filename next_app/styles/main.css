@@ -222,6 +222,39 @@ a {
 }
 
 /* ============================================
+   Compensación de navbar en páginas interiores con migas de pan
+   En la home el hero (#inicio.section) es el primer elemento y reserva el
+   hueco de la navbar fija con su padding superior. En las páginas interiores
+   (servicios, landings...) el primer elemento son las migas de pan, así que
+   son ellas las que deben dejar ese hueco. El hero que las sigue usa entonces
+   el espaciado normal de sección, sin volver a compensar la navbar: así se
+   elimina el gran vacío entre la navbar y el hero (y las migas dejan de quedar
+   ocultas tras la navbar).
+   ============================================ */
+
+/* En móvil .page__content ya reserva el hueco de la navbar con su padding
+   superior. A partir de 768px ese padding desaparece, así que son las migas
+   que encabezan la página las que asumen la compensación de la navbar fija
+   (4rem hasta 1024px, 5rem a partir de ahí). */
+@media (min-width: 768px) {
+    .page__content > .breadcrumbs {
+        padding-top: calc(var(--spacing-sm) + 4rem + var(--promo-banner-height, 0px));
+    }
+}
+
+@media (min-width: 1024px) {
+    .page__content > .breadcrumbs {
+        padding-top: calc(var(--spacing-sm) + 5rem + var(--promo-banner-height, 0px));
+    }
+}
+
+/* El hero que sigue directamente a las migas ya no necesita compensar la
+   navbar: basta con el espaciado normal de sección. */
+.page__content > .breadcrumbs + #inicio.section {
+    padding-top: var(--spacing-md);
+}
+
+/* ============================================
    SISTEMA DE GRID
    ============================================ */
 .grid {

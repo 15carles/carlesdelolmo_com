@@ -330,7 +330,7 @@ export default function DesarrolloWebAMedidaPage() {
 
         <section id="inicio" className="section hero hero-service" aria-labelledby="hero-title">
           <div className="container">
-            <div className="grid grid-cols-2 mt-2xl">
+            <div className="grid grid-cols-2">
               <div className="animate-on-scroll hero-content-wrapper">
                 <div className="badge badge--status mb-lg helper-center-mobile">
                   <span>Desarrollo web a medida</span>

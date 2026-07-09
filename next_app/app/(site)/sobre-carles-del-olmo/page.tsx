@@ -130,6 +130,9 @@ export default function SobreCarlesDelOlmoPage() {
                   <p className="mb-sm">Me interesa que una web se vea bien, por supuesto. Pero me interesa todavía más que esté bien pensada.</p>
                   <p className="mb-sm">Para mí, una web no debería ser solo una presencia online. Debería ser un activo digital estructurado. Uno que represente bien a la empresa, que explique con claridad lo que hace, que facilite el posicionamiento y que esté preparado para un entorno donde ya no solo buscan las personas, sino también los sistemas de inteligencia artificial.</p>
                   <p className="mt-md font-semibold text-primary mb-0">No me interesa crear webs que solo aparenten. Me interesa crear webs que aguanten bien una mirada técnica y también una mirada de negocio.</p>
+                  <p className="mt-md mb-0">Si quieres ver ese criterio aplicado, puedes revisar{' '}
+                    <Link href="/colofon" className="underline">cómo está hecha esta web</Link>.
+                  </p>
                 </div>
               </div>
               <div className="col-span-2 lg:col-span-1">

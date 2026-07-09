@@ -46,7 +46,7 @@ export default function PosicionamientoSeoGeo() {
             </div>
             <h1 className="section-header__title">Posicionamiento <span className="gradient-text">SEO + GEO</span></h1>
             <p className="section-header__subtitle">
-              Estrategia híbrida para liderar los resultados de búsqueda tradicionales y las nuevas respuestas generativas.
+              Servicio mensual para ganar y mantener posiciones en Google y en los buscadores de IA, con SEO local y trabajo continuo.
             </p>
           </header>
 
@@ -134,6 +134,15 @@ export default function PosicionamientoSeoGeo() {
               </ul>
             </div>
           </div>
+
+          <p className="text-center text-secondary mt-2xl max-w-2xl mx-auto">
+            ¿Buscas que las IAs te reconozcan como referente, no solo aparecer? Esa es la capa
+            de entidad y citabilidad:{' '}
+            <Link href="/servicio-seo/autoridad-digital-ias" className="underline">
+              Autoridad Digital para IAs
+            </Link>
+            .
+          </p>
         </div>
       </section>
 

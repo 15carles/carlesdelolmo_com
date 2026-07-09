@@ -14,7 +14,7 @@ import { Check } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata = constructMetadata({
-  title: 'Autoridad Digital para IAs | SEO y GEO para marcas visibles',
+  title: 'Autoridad Digital para IAs | Que ChatGPT y Gemini citen tu marca',
   description:
     'Servicio de autoridad digital para IAs: estructura tu web, contenidos y señales semánticas para que buscadores y sistemas de IA entiendan mejor tu marca.',
   exactUrl: `${SITE_URL}/servicio-seo/autoridad-digital-ias`,
@@ -572,6 +572,15 @@ export default function AutoridadDigitalIas() {
                 </ul>
               </article>
             </div>
+
+            <p className="text-center text-secondary mt-2xl max-w-2xl mx-auto">
+              ¿Necesitas trabajo mensual de posicionamiento y ranking, no la capa de entidad?
+              Ese es mi servicio de continuidad:{' '}
+              <Link href="/servicio-seo/posicionamiento-seo-geo" className="underline">
+                Posicionamiento SEO + GEO
+              </Link>
+              .
+            </p>
           </div>
         </section>
 

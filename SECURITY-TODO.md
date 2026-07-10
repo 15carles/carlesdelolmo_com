@@ -42,22 +42,20 @@ Pasos manuales pendientes tras la auditoría de 2026-04-18. Ninguno requiere toc
 
 ---
 
-## 3. [MEDIA] Actualizar Next.js a `16.2.4` (fix de CVEs)
+## 3. ~~[MEDIA] Actualizar Next.js a `16.2.4` (fix de CVEs)~~ ✅ HECHO (2026-07-10)
 
-**Por qué:** la versión actual tiene tres CVEs:
-- DoS en Server Components (GHSA-q4gf-8mx6-v5v3)
-- null origin bypass de CSRF en Server Actions (GHSA-mq59-m269-xvcx)
-- null origin bypass de HMR websocket CSRF (GHSA-jcc7-9wpm-mj36)
+Actualizado a `next@16.2.10` (+ `eslint-config-next@16.2.10`), que además de las tres CVEs
+originales corrige las de *middleware bypass* publicadas después de la auditoría
+(GHSA-492v-c6pp-mqqv, GHSA-267c-6grr-h53f, GHSA-26hh-7cqf-hhc6) — relevantes porque el
+basic-auth de `/keystatic` vive en el middleware. `npm run build` verificado OK.
 
-**Cómo:**
-```bash
-cd next_app
-npm install next@16.2.4 --legacy-peer-deps
-npm run build   # verificar que Turbopack + keystatic siguen funcionando
-npm run dev     # smoke-test local
-```
-
-Si todo OK, commit + deploy.
+Notas de la actualización:
+- Next 16.2 marca el convenio `middleware.ts` como deprecado en favor de `proxy.ts`.
+  Sigue funcionando; migrar cuando se planifique (el basic-auth de Keystatic está ahí).
+- `npm run pages:build` (`@cloudflare/next-on-pages@1.13.16`) ya fallaba antes de esta
+  actualización: su peer range es `next <=15.5.2` (blocker documentado en
+  `REDESIGN_PHASE_4B_LOCAL_QA.md`). El adaptador está deprecado aguas arriba; la salida
+  recomendada es migrar a `@opennextjs/cloudflare`. Pendiente aparte.
 
 ---
 

@@ -15,7 +15,7 @@ Se ejecutó una auditoría completa del repositorio (Next.js 15 + Keystatic + Su
 | C1  | Auth básica de `/keystatic` en middleware con `timingSafeEqual` y fail-closed (503) sin credenciales | `next_app/middleware.ts`                             |
 | C2  | Endpoint server-side `/api/contact` con validación, rate-limiting (20 req/h/IP) y proxy a Supabase | `next_app/app/api/contact/route.ts`                  |
 | C2  | Frontend `ContactForm` usa fetch al endpoint interno (no Supabase client directo)                | `next_app/components/ContactForm.tsx`                |
-| C2  | Eliminado `public/assets/js/form.js` (duplicado con credenciales hardcoded)                       | borrado                                              |
+| C2  | Eliminado `public/assets/js/form.js` (duplicado con credenciales hardcoded). ⚠️ Reintroducido accidentalmente por el commit `5892edc` (2026-06-11) y eliminado de nuevo el 2026-07-10. Vigilar que no vuelva: nada lo referencia. | borrado (×2)                                         |
 | C3  | Habilitado RLS en las 24 tablas del ERP que compartían proyecto Supabase                         | Supabase migration `enable_rls_on_all_erp_tables`    |
 | C3  | Policy `leads_contacto` endurecida con límites de longitud y `estado = 'nuevo'` forzado           | Supabase migration `harden_leads_contacto_insert_policy` |
 | H1  | XSS en `PricingCard`: reemplazado `dangerouslySetInnerHTML` por render React seguro de `<br>`+`<strong>` | `next_app/components/PricingCard.tsx`              |
@@ -40,13 +40,16 @@ Se ejecutó una auditoría completa del repositorio (Next.js 15 + Keystatic + Su
 
 ## Estado de `npm audit`
 
-Tras `npm audit fix --legacy-peer-deps`:
+Actualizado 2026-07-10, tras subir a `next@16.2.10` y `npm audit fix --legacy-peer-deps`
+(deps de producción, `--omit=dev`):
 
-- **brace-expansion** (moderate): fix disponible, aplicado automáticamente cuando procede.
-- **cookie** (low): sin fix disponible aguas arriba.
-- **@cloudflare/next-on-pages** (moderate): sin fix disponible aguas arriba.
-- **next 16.1.6** (DoS en Server Components, null-origin CSRF): fix requiere `npm audit fix --force` → `next@16.2.4`, que cae fuera del rango declarado. **Pendiente**: actualizar manualmente tras validar que no rompe Turbopack / keystatic.
+- **next**: ✅ todas las advisories high resueltas con `16.2.10` (incluidas las de middleware bypass).
+- **js-yaml** (moderate, DoS): ✅ corregido vía `npm audit fix`.
+- **postcss** (moderate, XSS en stringify): sin fix razonable — lo arrastra el propio `next` aguas arriba; el "fix" que propone npm es un downgrade rompedor de `@keystatic/core`. Riesgo bajo (no procesamos CSS de terceros en runtime).
 - **undici** (vía `miniflare` dev-dep): sin fix porque miniflare no ha publicado versión actualizada. No afecta producción (solo dev).
+
+Histórico (auditoría 2026-04-18): brace-expansion aplicado; cookie (low) y
+@cloudflare/next-on-pages (moderate) sin fix aguas arriba.
 
 ## Controles NO implementados (requieren decisión / plataforma externa)
 

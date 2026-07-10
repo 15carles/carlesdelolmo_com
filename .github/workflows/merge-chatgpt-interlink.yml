@@ -1,0 +1,75 @@
+name: Merge interlink ChatGPT info incorrecta (one-shot 2026-07-27)
+
+# Rutina de un solo uso. El 27 de julio de 2026 se publica el post
+# "¿ChatGPT muestra información incorrecta sobre tu empresa?". Ese día, este
+# workflow fusiona a main la rama `claude/interlink-chatgpt-info-incorrecta`,
+# que añade enlaces internos desde dos posts anteriores (mención por IA y la
+# paradoja de visibilidad) hacia el nuevo. No se fusionó antes para no dejar
+# esos enlaces apuntando a una URL que aún devolvía 404.
+#
+# Tras completarse, el propio workflow se elimina para no volver a ejecutarse.
+
+on:
+  schedule:
+    # 09:00 UTC del 27 de julio. Para entonces el workflow horario
+    # `publish-scheduled-posts` (min :15) ya ha publicado el post nuevo.
+    - cron: '0 9 27 7 *'
+  workflow_dispatch:
+
+# Permiso mínimo: contents:write para poder hacer merge + push a main.
+permissions:
+  contents: write
+
+concurrency:
+  group: merge-chatgpt-interlink
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: main
+          # Historia completa: necesaria para un merge --no-ff real.
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Guard — solo el 27 jul 2026 o después
+        id: guard
+        run: |
+          TODAY="$(date -u +%Y-%m-%d)"
+          if [[ "$TODAY" < "2026-07-27" ]]; then
+            echo "Todavía es pronto ($TODAY); no se hace nada."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Fusionar la rama del interlink y retirar este workflow
+        if: steps.guard.outputs.proceed == 'true'
+        env:
+          BRANCH: claude/interlink-chatgpt-info-incorrecta
+          POST: next_app/content/posts/la-paradoja-de-visibilidad-de-la-ia.mdoc
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          git fetch origin "$BRANCH"
+
+          # Idempotencia: si el enlace ya está en main, no fusionamos nada.
+          if grep -q 'chatgpt-informacion-incorrecta-empresa' "$POST"; then
+            echo "El enlace interno ya está en main; se omite el merge."
+          else
+            git merge --no-ff FETCH_HEAD \
+              -m "Merge branch 'claude/interlink-chatgpt-info-incorrecta': enlazar posts de visibilidad IA con el post de información incorrecta"
+          fi
+
+          # One-shot: se elimina el propio workflow para no repetir la ejecución.
+          git rm -f .github/workflows/merge-chatgpt-interlink.yml
+          git commit -m "chore(ci): retirar workflow one-shot tras fusionar el interlink de ChatGPT"
+
+          git push origin HEAD:main

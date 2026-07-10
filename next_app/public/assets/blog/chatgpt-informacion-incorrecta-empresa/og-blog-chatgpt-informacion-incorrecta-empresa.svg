@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="¿ChatGPT muestra información incorrecta sobre tu empresa? Esto es lo que puedes hacer. Guía de GEO y autoridad digital por Carles del Olmo">
+  <defs>
+    <style>
+      .serif{font-family:Georgia,'Times New Roman',serif}
+      .sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#FDFCFA"/>
+  <circle cx="1140" cy="70" r="230" fill="#DBEEE0" opacity="0.55"/>
+  <circle cx="70" cy="600" r="200" fill="#F7EEDD" opacity="0.6"/>
+
+  <text x="80" y="118" class="sans" font-size="22" letter-spacing="3.5" font-weight="700" fill="#145C35">GEO · AUTORIDAD DIGITAL</text>
+
+  <text x="80" y="212" class="serif" font-size="50" font-weight="700" fill="#1D1B16">¿ChatGPT dice algo</text>
+  <text x="80" y="274" class="serif" font-size="50" font-weight="700" fill="#1D1B16">incorrecto de tu empresa?</text>
+  <text x="80" y="344" class="serif" font-size="29" fill="#57534A">Esto es lo que puedes hacer</text>
+
+  <!-- author chip -->
+  <circle cx="104" cy="536" r="26" fill="#145C35"/>
+  <text x="104" y="545" class="serif" font-size="24" font-weight="700" fill="#FDFCFA" text-anchor="middle">C</text>
+  <text x="144" y="528" class="sans" font-size="24" font-weight="700" fill="#1D1B16">Carles del Olmo</text>
+  <text x="144" y="558" class="sans" font-size="19" fill="#837D70">Diseño web · SEO · GEO</text>
+
+  <!-- right motif: AI chat answer with correction -->
+  <rect x="792" y="150" width="330" height="300" rx="22" fill="#FFFFFF" stroke="#E6DFD0" stroke-width="2"/>
+  <circle cx="828" cy="196" r="18" fill="#145C35"/>
+  <path d="M828 184 q2 8 10 12 q-8 4 -10 12 q-2 -8 -10 -12 q8 -4 10 -12 z" fill="#FDFCFA"/>
+  <text x="858" y="204" class="serif" font-size="21" fill="#1D1B16">Respuesta de la IA</text>
+  <line x1="820" y1="228" x2="1094" y2="228" stroke="#E6DFD0" stroke-width="2"/>
+
+  <!-- wrong line struck -->
+  <rect x="820" y="248" width="274" height="40" rx="12" fill="#F7EEDD" stroke="#9A5B1E" stroke-width="1.5"/>
+  <text x="836" y="273" class="sans" font-size="16" fill="#9A5B1E">Dato antiguo</text>
+  <line x1="836" y1="268" x2="980" y2="268" stroke="#9A5B1E" stroke-width="2"/>
+  <text x="1078" y="273" class="serif" font-size="20" font-weight="700" fill="#9A5B1E" text-anchor="end">✕</text>
+
+  <!-- corrected line -->
+  <rect x="820" y="300" width="274" height="40" rx="12" fill="#ECF6EF" stroke="#2FA866" stroke-width="1.5"/>
+  <text x="836" y="325" class="sans" font-size="16" font-weight="600" fill="#145C35">Dato correcto y consistente</text>
+  <path d="M1064 320 l6 6 10 -12" stroke="#145C35" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- neutral filler lines -->
+  <rect x="820" y="360" width="230" height="16" rx="8" fill="#F1EBDF"/>
+  <rect x="820" y="388" width="274" height="16" rx="8" fill="#F1EBDF"/>
+  <rect x="820" y="416" width="180" height="16" rx="8" fill="#F1EBDF"/>
+</svg>

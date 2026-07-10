@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="860" viewBox="0 0 1200 860" role="img" aria-label="Efecto espejo de la identidad digital: a la izquierda, fuentes dispersas y contradictorias producen una respuesta de IA confusa; a la derecha, una identidad consistente produce una respuesta más fiable">
+  <defs>
+    <style>
+      .serif{font-family:Georgia,'Times New Roman',serif}
+      .sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+    </style>
+    <marker id="down-a" markerWidth="12" markerHeight="12" refX="5" refY="8" orient="auto">
+      <path d="M0 0 L10 0 L5 8 z" fill="#9A5B1E"/>
+    </marker>
+    <marker id="down-g" markerWidth="12" markerHeight="12" refX="5" refY="8" orient="auto">
+      <path d="M0 0 L10 0 L5 8 z" fill="#145C35"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="860" fill="#FDFCFA"/>
+  <circle cx="1120" cy="60" r="170" fill="#DBEEE0" opacity="0.45"/>
+  <circle cx="60" cy="820" r="150" fill="#F7EEDD" opacity="0.5"/>
+
+  <text x="80" y="82" class="sans" font-size="19" letter-spacing="3" font-weight="700" fill="#145C35">EFECTO ESPEJO DE LA IDENTIDAD DIGITAL</text>
+  <text x="80" y="134" class="serif" font-size="34" font-weight="700" fill="#1D1B16">La IA refleja la imagen que le das</text>
+
+  <!-- ============ LEFT PANEL: dispersa ============ -->
+  <rect x="80" y="180" width="490" height="620" rx="22" fill="#FFFFFF" stroke="#E6DFD0" stroke-width="2"/>
+  <rect x="215" y="210" width="220" height="42" rx="21" fill="#F7EEDD" stroke="#9A5B1E" stroke-width="1.5"/>
+  <text x="325" y="238" class="serif" font-size="21" font-weight="700" fill="#9A5B1E" text-anchor="middle">Identidad dispersa</text>
+
+  <text x="112" y="292" class="sans" font-size="15" letter-spacing="1.5" font-weight="700" fill="#837D70">FUENTES CONTRADICTORIAS</text>
+  <!-- source chips -->
+  <rect x="112" y="306" width="182" height="52" rx="10" fill="#F4F0E7" stroke="#E6DFD0" stroke-width="1.5"/>
+  <text x="126" y="328" class="sans" font-size="13" fill="#837D70">Web antigua</text>
+  <text x="126" y="348" class="sans" font-size="15" font-weight="600" fill="#9A5B1E">C/ Mayor, 3</text>
+  <rect x="308" y="306" width="150" height="52" rx="10" fill="#F4F0E7" stroke="#E6DFD0" stroke-width="1.5"/>
+  <text x="322" y="328" class="sans" font-size="13" fill="#837D70">Directorio</text>
+  <text x="322" y="348" class="sans" font-size="15" font-weight="600" fill="#9A5B1E">96 000 00 00</text>
+  <rect x="112" y="368" width="182" height="52" rx="10" fill="#F4F0E7" stroke="#E6DFD0" stroke-width="1.5"/>
+  <text x="126" y="390" class="sans" font-size="13" fill="#837D70">Perfil local</text>
+  <text x="126" y="410" class="sans" font-size="15" font-weight="600" fill="#9A5B1E">Av. del Puerto, 8</text>
+  <rect x="308" y="368" width="150" height="52" rx="10" fill="#F4F0E7" stroke="#E6DFD0" stroke-width="1.5"/>
+  <text x="322" y="390" class="sans" font-size="13" fill="#837D70">Noticia</text>
+  <text x="322" y="410" class="sans" font-size="15" font-weight="600" fill="#9A5B1E">620 11 22 33</text>
+
+  <line x1="325" y1="424" x2="325" y2="452" stroke="#9A5B1E" stroke-width="2.5" marker-end="url(#down-a)"/>
+
+  <!-- mirror band -->
+  <rect x="112" y="462" width="346" height="60" rx="14" fill="#F1EBDF" stroke="#D5CCB8" stroke-width="1.5"/>
+  <line x1="150" y1="470" x2="120" y2="514" stroke="#FFFFFF" stroke-width="6" opacity="0.7"/>
+  <line x1="180" y1="470" x2="150" y2="514" stroke="#FFFFFF" stroke-width="3" opacity="0.5"/>
+  <text x="325" y="499" class="serif" font-size="20" font-weight="700" fill="#57534A" text-anchor="middle">Espejo · IA</text>
+
+  <line x1="325" y1="524" x2="325" y2="552" stroke="#9A5B1E" stroke-width="2.5" marker-end="url(#down-a)"/>
+
+  <!-- answer card (confusa) -->
+  <rect x="112" y="562" width="346" height="200" rx="14" fill="#FFFFFF" stroke="#9A5B1E" stroke-width="2"/>
+  <circle cx="140" cy="596" r="15" fill="#F7EEDD"/>
+  <text x="140" y="603" class="serif" font-size="19" font-weight="700" fill="#9A5B1E" text-anchor="middle">!</text>
+  <text x="166" y="602" class="serif" font-size="18" fill="#1D1B16">Respuesta confusa</text>
+  <line x1="128" y1="622" x2="442" y2="622" stroke="#F1EBDF" stroke-width="2"/>
+  <text x="128" y="652" class="sans" font-size="15" fill="#57534A">Dirección:</text>
+  <text x="442" y="652" class="sans" font-size="15" font-weight="600" fill="#9A5B1E" text-anchor="end">¿C/ Mayor o Av. Puerto?</text>
+  <text x="128" y="686" class="sans" font-size="15" fill="#57534A">Teléfono:</text>
+  <text x="442" y="686" class="sans" font-size="15" font-weight="600" fill="#9A5B1E" text-anchor="end">dos números distintos</text>
+  <text x="128" y="720" class="sans" font-size="15" fill="#57534A">Actividad:</text>
+  <text x="442" y="720" class="sans" font-size="15" font-weight="600" fill="#9A5B1E" text-anchor="end">mezcla con otra empresa</text>
+  <text x="285" y="748" class="sans" font-size="14" font-style="italic" fill="#837D70" text-anchor="middle">el espejo deforma lo que ya estaba borroso</text>
+
+  <!-- ============ RIGHT PANEL: consistente ============ -->
+  <rect x="630" y="180" width="490" height="620" rx="22" fill="#FFFFFF" stroke="#E6DFD0" stroke-width="2"/>
+  <rect x="762" y="210" width="226" height="42" rx="21" fill="#ECF6EF" stroke="#145C35" stroke-width="1.5"/>
+  <text x="875" y="238" class="serif" font-size="21" font-weight="700" fill="#145C35" text-anchor="middle">Identidad consistente</text>
+
+  <text x="662" y="292" class="sans" font-size="15" letter-spacing="1.5" font-weight="700" fill="#837D70">FUENTES ALINEADAS</text>
+  <rect x="662" y="306" width="182" height="52" rx="10" fill="#ECF6EF" stroke="#2FA866" stroke-width="1.5"/>
+  <text x="676" y="328" class="sans" font-size="13" fill="#57534A">Web oficial</text>
+  <text x="676" y="348" class="sans" font-size="15" font-weight="600" fill="#145C35">Av. del Puerto, 8</text>
+  <rect x="858" y="306" width="150" height="52" rx="10" fill="#ECF6EF" stroke="#2FA866" stroke-width="1.5"/>
+  <text x="872" y="328" class="sans" font-size="13" fill="#57534A">Google Business</text>
+  <text x="872" y="348" class="sans" font-size="15" font-weight="600" fill="#145C35">96 123 45 67</text>
+  <rect x="662" y="368" width="182" height="52" rx="10" fill="#ECF6EF" stroke="#2FA866" stroke-width="1.5"/>
+  <text x="676" y="390" class="sans" font-size="13" fill="#57534A">Perfil local</text>
+  <text x="676" y="410" class="sans" font-size="15" font-weight="600" fill="#145C35">Av. del Puerto, 8</text>
+  <rect x="858" y="368" width="150" height="52" rx="10" fill="#ECF6EF" stroke="#2FA866" stroke-width="1.5"/>
+  <text x="872" y="390" class="sans" font-size="13" fill="#57534A">Schema · sameAs</text>
+  <text x="872" y="410" class="sans" font-size="15" font-weight="600" fill="#145C35">96 123 45 67</text>
+
+  <line x1="875" y1="424" x2="875" y2="452" stroke="#145C35" stroke-width="2.5" marker-end="url(#down-g)"/>
+
+  <!-- mirror band -->
+  <rect x="662" y="462" width="346" height="60" rx="14" fill="#ECF6EF" stroke="#2FA866" stroke-width="1.5"/>
+  <line x1="700" y1="470" x2="670" y2="514" stroke="#FFFFFF" stroke-width="6" opacity="0.8"/>
+  <line x1="730" y1="470" x2="700" y2="514" stroke="#FFFFFF" stroke-width="3" opacity="0.6"/>
+  <text x="875" y="499" class="serif" font-size="20" font-weight="700" fill="#145C35" text-anchor="middle">Espejo · IA</text>
+
+  <line x1="875" y1="524" x2="875" y2="552" stroke="#145C35" stroke-width="2.5" marker-end="url(#down-g)"/>
+
+  <!-- answer card (fiable) -->
+  <rect x="662" y="562" width="346" height="200" rx="14" fill="#FFFFFF" stroke="#145C35" stroke-width="2"/>
+  <circle cx="690" cy="596" r="15" fill="#ECF6EF"/>
+  <path d="M683 596 l5 5 9 -10" stroke="#145C35" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="716" y="602" class="serif" font-size="18" fill="#1D1B16">Respuesta más fiable</text>
+  <line x1="678" y1="622" x2="992" y2="622" stroke="#ECF6EF" stroke-width="2"/>
+  <text x="678" y="652" class="sans" font-size="15" fill="#57534A">Dirección:</text>
+  <text x="992" y="652" class="sans" font-size="15" font-weight="600" fill="#145C35" text-anchor="end">Av. del Puerto, 8</text>
+  <text x="678" y="686" class="sans" font-size="15" fill="#57534A">Teléfono:</text>
+  <text x="992" y="686" class="sans" font-size="15" font-weight="600" fill="#145C35" text-anchor="end">96 123 45 67</text>
+  <text x="678" y="720" class="sans" font-size="15" fill="#57534A">Actividad:</text>
+  <text x="992" y="720" class="sans" font-size="15" font-weight="600" fill="#145C35" text-anchor="end">descrita con precisión</text>
+  <text x="835" y="748" class="sans" font-size="14" font-style="italic" fill="#837D70" text-anchor="middle">una imagen clara se refleja con menos errores</text>
+
+  <text x="600" y="836" class="sans" font-size="18" font-style="italic" fill="#837D70" text-anchor="middle">No controlas la respuesta final, pero sí la imagen que le ofreces al espejo.</text>
+</svg>

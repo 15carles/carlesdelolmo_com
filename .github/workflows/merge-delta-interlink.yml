@@ -1,0 +1,78 @@
+name: Merge interlink modelo DELTA (one-shot 2026-07-20)
+
+# Rutina de un solo uso. El 20 de julio de 2026 se publica el post
+# "El modelo DELTA de visibilidad generativa". Ese día, este workflow
+# fusiona a main la rama `claude/interlink-delta-respuestas-ia`, que añade
+# un enlace interno desde la sección DELTA del post "Por qué muchas webs no
+# aparecen en respuestas de IA" hacia el nuevo. No se fusionó antes para no
+# dejar ese enlace apuntando a una URL que aún devolvía 404.
+#
+# Tras completarse, el propio workflow se elimina para no volver a ejecutarse.
+
+on:
+  schedule:
+    # 09:00 UTC del 20 de julio. Para entonces el workflow horario
+    # `publish-scheduled-posts` (min :15) ya ha publicado el post nuevo.
+    - cron: '0 9 20 7 *'
+  workflow_dispatch:
+
+# Permiso mínimo: contents:write para poder hacer merge + push a main.
+permissions:
+  contents: write
+
+concurrency:
+  group: merge-delta-interlink
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: main
+          # Historia completa: necesaria para un merge --no-ff real.
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Guard — solo el 20 jul 2026 o después
+        id: guard
+        run: |
+          TODAY="$(date -u +%Y-%m-%d)"
+          if [[ "$TODAY" < "2026-07-20" ]]; then
+            echo "Todavía es pronto ($TODAY); no se hace nada."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Fusionar la rama del interlink y retirar este workflow
+        if: steps.guard.outputs.proceed == 'true'
+        env:
+          BRANCH: claude/interlink-delta-respuestas-ia
+          POST: next_app/content/posts/por-que-webs-no-aparecen-respuestas-ia.mdoc
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          git fetch origin "$BRANCH"
+
+          # Idempotencia: si el enlace ya está en main, no fusionamos nada.
+          # El patrón incluye "(/blog/" a propósito: el nombre del post DELTA
+          # también aparece en el post como fichero de imagen bajo /assets/blog/,
+          # y ese falso positivo anularía el merge.
+          if grep -q '(/blog/modelo-delta-visibilidad-generativa)' "$POST"; then
+            echo "El enlace interno ya está en main; se omite el merge."
+          else
+            git merge --no-ff FETCH_HEAD \
+              -m "Merge branch 'claude/interlink-delta-respuestas-ia': enlazar la sección DELTA con el post dedicado al modelo"
+          fi
+
+          # One-shot: se elimina el propio workflow para no repetir la ejecución.
+          git rm -f .github/workflows/merge-delta-interlink.yml
+          git commit -m "chore(ci): retirar workflow one-shot tras fusionar el interlink de DELTA"
+
+          git push origin HEAD:main

@@ -67,7 +67,7 @@ export default function Hero() {
                 src="/assets/images/carles-del-olmo-retrato-estudio.webp"
                 alt="Carles del Olmo, diseñador web, en su estudio"
                 width={1122}
-                height={1402}
+                height={1352}
                 priority
                 sizes="(max-width: 767px) 1px, 50vw"
                 className="hero-photo"

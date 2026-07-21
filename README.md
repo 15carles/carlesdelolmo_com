@@ -5,7 +5,7 @@ Plataforma digital profesional de Carles del Olmo, enfocada en diseño web estra
 ## Estado del proyecto
 
 - Entorno de producción: `https://carlesdelolmo.com`
-- Versión vigente: `v4.0.0`
+- Versión vigente: `v4.1.0`
 - Fecha de versión: `2026-06-13`
 - Stack principal: Next.js 16, React 19, TypeScript
 - Gestión editorial: Keystatic (local en desarrollo, GitHub en producción)

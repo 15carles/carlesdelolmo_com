@@ -11,6 +11,7 @@ const SERVICES_DATA = [
     title: 'Diseño de páginas web',
     id: 'diseno',
     submenu: [
+      { title: 'Diseño web profesional', href: '/diseno-web' },
       { title: 'Diseño web Valencia', href: '/diseno-web/valencia' },
       { title: 'Diseño web en Castellón', href: '/diseno-web/castellon' },
       { title: 'Diseño web en Alicante', href: '/diseno-web/alicante' },

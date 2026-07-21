@@ -548,6 +548,45 @@ export default function DisenoWebPage() {
       {/* SECCIÓN 9 — PROYECTOS REALES */}
       <ProjectsSection />
 
+      {/* SECCIÓN 9.5 — DISEÑO WEB POR ZONAS */}
+      <section className="section" aria-labelledby="zonas-title">
+        <div className="container">
+          <header className="section-header text-center animate-on-scroll">
+            <h2 id="zonas-title" className="section-header__title">
+              Diseño web <span className="gradient-text">por zonas</span>
+            </h2>
+            <p className="section-header__subtitle max-w-3xl mx-auto">
+              Trabajo en remoto para toda España, pero mantengo páginas específicas para las zonas donde más colaboro.
+              Si tu negocio es local, empieza por la tuya.
+            </p>
+          </header>
+
+          <div className="grid grid-cols-3 gap-lg mt-2xl">
+            <Link href="/diseno-web/valencia" className="service-card animate-on-scroll">
+              <h3 className="service-card__title">Diseño web en Valencia</h3>
+              <p className="service-card__description">
+                SEO local y diseño estratégico para empresas de Valencia y su área (Torrent, Paterna, Gandia, Sagunto).
+              </p>
+              <span className="action-link">Ver diseño web en Valencia <ArrowRight size={16} /></span>
+            </Link>
+            <Link href="/diseno-web/castellon" className="service-card animate-on-scroll">
+              <h3 className="service-card__title">Diseño web en Castellón</h3>
+              <p className="service-card__description">
+                Webs profesionales en Castellón con SEO técnico y optimización para IA (GEO).
+              </p>
+              <span className="action-link">Ver diseño web en Castellón <ArrowRight size={16} /></span>
+            </Link>
+            <Link href="/diseno-web/alicante" className="service-card animate-on-scroll">
+              <h3 className="service-card__title">Diseño web en Alicante</h3>
+              <p className="service-card__description">
+                Diseño web orientado a resultados en Alicante, con base técnica sólida y preparada para posicionar.
+              </p>
+              <span className="action-link">Ver diseño web en Alicante <ArrowRight size={16} /></span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* SECCIÓN 10 — CÓMO TRABAJO CADA PROYECTO WEB */}
       <section className="section bg-dark-soft">
         <div className="container">

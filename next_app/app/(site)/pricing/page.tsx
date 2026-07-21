@@ -3,6 +3,7 @@ import Link from 'next/link';
 import PricingTabs from '@/components/PricingTabs';
 import PricingCard from '@/components/PricingCard';
 import FaqAccordion from '@/components/FaqAccordion';
+import SeoServiceChooser from '@/components/SeoServiceChooser';
 import ContactForm from '@/components/ContactForm';
 import { ArrowRight } from 'lucide-react';
 import { constructMetadata } from '@/lib/seo/metadata';
@@ -63,7 +64,7 @@ export default function PricingPage() {
           {/* CABECERA DE PÁGINA */}
           <header className="page-header">
             <div className="container text-center">
-              <h1 className="page-header__title">Servicios de Carles del Olmo</h1>
+              <h1 className="page-header__title">Precios y tarifas de diseño web, SEO y mantenimiento</h1>
               <p className="page-header__subtitle">
                 Servicios y tarifas simplificados y sin letra pequeña.<br />También puedes pedir tu presupuesto personalizado.
               </p>
@@ -269,6 +270,12 @@ export default function PricingPage() {
               />
             </div>
           </section>
+
+          {/* Selector de servicios SEO/GEO: enlaza a las páginas de detalle */}
+          <SeoServiceChooser
+            title="¿Quieres ver cada servicio SEO/GEO en detalle?"
+            subtitle="Los tres son momentos del mismo proceso: diagnóstico, trabajo continuo y capa de autoridad para IAs. Entra en el que encaje con tu situación."
+          />
 
           {/* SECCIÓN 3: MANTENIMIENTO */}
           <section id="mantenimiento" className="pricing-section">

@@ -1,6 +1,7 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FaqAccordion from '@/components/FaqAccordion';
 import GenerativeCanvas from '@/components/GenerativeCanvas';
+import SeoServiceChooser from '@/components/SeoServiceChooser';
 import { constructMetadata } from '@/lib/seo/metadata';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
 import {
@@ -772,6 +773,12 @@ export default function AutoridadDigitalIas() {
             </div>
           </div>
         </section>
+
+        <SeoServiceChooser
+          current="autoridad"
+          title="Cómo encaja la autoridad para IAs con el resto"
+          subtitle="Es la capa más diferencial, pero no se construye aislada. Estos son los tres momentos del proceso: según en cuál estés, empezamos por uno u otro."
+        />
 
         <section id="faq" className="section" aria-labelledby="faq-title">
           <div className="container animate-on-scroll">

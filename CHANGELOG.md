@@ -2,6 +2,22 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [v4.1.0] - 2026-07-21
+### Añadido
+- **Embudo SEO/GEO:** Nuevo componente `SeoServiceChooser` («¿cuál necesito?») que presenta Auditoría, Posicionamiento y Autoridad para IAs como tres momentos de un mismo proceso; incrustado en las tres páginas de servicio y en `/pricing`.
+- **SEO estructurado:** JSON-LD completo (`WebPage`, `Service`, `Offer`, `BreadcrumbList`, `FAQPage`) en `/servicio-seo/auditoria-seo-geo` y `/servicio-seo/posicionamiento-seo-geo`, igualando el grafo de datos de la página de Autoridad.
+- **Enlazado interno:** Componente `OtrasZonasLinks` y bloque «Diseño web por zonas» que interconectan el hub `/diseno-web` con las páginas locales (Valencia, Castellón, Alicante).
+
+### Cambiado
+- **Mensaje del home:** Hero, `ServicesSection` y `QueResuelvoSection` reorientados para presentar la visibilidad en IA (GEO) como diferenciador, manteniendo el ancla comercial de captación de clientes. Metadata del home actualizada.
+- **Auditoría SEO + GEO:** Reescritura y ampliación (síntomas, entregables, «qué pasa después») con `constructMetadata` y enlaces hacia Posicionamiento y Autoridad; deja de terminar en `/contacto`.
+- **Posicionamiento SEO + GEO:** `constructMetadata`, FAQ y diferenciación explícita frente a Autoridad para IAs.
+- **Arquitectura interna:** Alta del hub `/diseno-web` en Navbar y Footer; interlinks recíprocos entre páginas locales; enlaces profundos desde `/pricing` a las páginas de servicio.
+- **Coherencia on-page:** H1 de `/pricing` («Precios y tarifas…») y `/proyectos` («Proyectos y casos de éxito») alineados con su keyword objetivo.
+
+### Control de versionado
+- Sincronización de `VERSION`, `CHANGELOG.md` y `next_app/package.json`.
+
 ## [v4.0.0] - 2026-06-13
 ### Añadido
 - **Sistema de diseño:** Nuevo sistema visual «minimalismo cálido» con tipografía propia y modo claro único, sustituyendo por completo al glassmorphism anterior.

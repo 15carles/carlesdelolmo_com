@@ -5,6 +5,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import GenerativeCanvas from '@/components/GenerativeCanvas';
 import { Code, MapPin, Zap, Search, Layout, MousePointer2, Check, Shield, Gauge, Settings } from 'lucide-react';
 import Link from 'next/link';
+import OtrasZonasLinks from '@/components/OtrasZonasLinks';
 import { SITE_URL, generateLocalPageSchema } from '@/lib/seo/schemas';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
 import { constructMetadata } from '@/lib/seo/metadata';
@@ -372,6 +373,8 @@ export default function DisenoWebCastellon() {
           <FaqAccordion title="Preguntas frecuentes sobre diseño web en Castellón" items={faqs} />
         </div>
       </section>
+
+      <OtrasZonasLinks current="castellon" />
     </main>
   );
 }

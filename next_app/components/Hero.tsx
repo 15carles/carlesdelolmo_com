@@ -19,12 +19,12 @@ export default function Hero() {
             </p>
 
             <h1 id="hero-title" className="mb-md helper-center-mobile">
-              Diseño web estratégico<br />
-              <span className="gradient-text">para empresas</span>
+              Webs que hacen que te encuentren<br />
+              <span className="gradient-text">en Google y en las IAs</span>
             </h1>
 
             <p className="text-secondary mb-xl helper-center-mobile hero-subtitle">
-              Diseño páginas web claras, rápidas y preparadas para posicionar en buscadores y en IA.
+              Diseño y estructuro páginas web claras y rápidas para empresas: captas clientes hoy en buscadores y preparas tu marca para que los sistemas de IA la entiendan y te citen.
             </p>
 
             <div className="hero-actions mb-xl helper-flex-center-mobile" role="group" aria-label="Acciones principales">
@@ -53,7 +53,7 @@ export default function Hero() {
                 <span className="hero-features__icon-wrapper">
                   <Check size={20} strokeWidth={3} />
                 </span>
-                <span>Preparado para IA</span>
+                <span>Visibilidad en IA (GEO)</span>
               </li>
             </ul>
 

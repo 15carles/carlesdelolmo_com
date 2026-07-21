@@ -122,9 +122,9 @@ export default async function ProyectosIndex() {
       <header className="page-header animate-on-scroll">
         <div className="container">
           <Breadcrumbs items={breadcrumbs} />
-          <h1 className="page-header__title mt-xl">Proyectos</h1>
+          <h1 className="page-header__title mt-xl">Proyectos y casos de éxito</h1>
           <p className="page-header__subtitle">
-            Casos de éxito reales: webs planteadas como sistemas de visibilidad, no como escaparates.
+            Casos reales: webs planteadas como sistemas de visibilidad en buscadores y en IA, no como escaparates.
           </p>
         </div>
       </header>

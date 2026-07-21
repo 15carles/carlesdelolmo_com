@@ -17,16 +17,16 @@ const servicios: ServicioItem[] = [
     featured: true,
   },
   {
+    title: 'Visibilidad en IA y GEO',
+    description:
+      'Estructuro tu web y sus señales para que ChatGPT, Gemini o Perplexity entiendan y puedan citar tu marca. No solo para posicionar en Google: para que también te encuentren donde cada vez más gente pregunta.',
+    label: 'Tu diferencial',
+  },
+  {
     title: 'SEO y estructura para posicionar',
     description:
       'Trabajo la arquitectura, los contenidos y la organización de la web para facilitar una mejor comprensión por parte de buscadores y reforzar la visibilidad orgánica.',
     label: 'Visibilidad orgánica',
-  },
-  {
-    title: 'Preparación para IA y GEO',
-    description:
-      'Optimizo la base semántica y la claridad del sitio para que tu presencia digital esté mejor preparada para entornos de inteligencia artificial y sistemas de respuesta.',
-    label: 'Entornos IA',
   },
   {
     title: 'Automatización como apoyo',
@@ -55,7 +55,8 @@ export default function ServicesSection() {
 
             <div className="section-actions section-actions--left mt-xl" role="group" aria-label="Acciones de servicios">
               <Link href="/pricing" className="btn btn--primary">Ver servicios y precios</Link>
-              <Link href="/diseno-web/valencia" className="action-link">Diseño web en Valencia</Link>
+              <Link href="/diseno-web" className="action-link">Servicio de diseño web</Link>
+              <Link href="/servicio-seo/autoridad-digital-ias" className="action-link">Visibilidad en IA (GEO)</Link>
               <Link href="/proyectos/ledescaparate" className="action-link">Ver un caso real</Link>
               <Link href="/contacto" className="action-link">Cuéntame tu proyecto</Link>
             </div>

@@ -105,6 +105,7 @@ const NAV_LINKS: FooterLink[] = [
 ];
 
 const SERVICE_LINKS: FooterLink[] = [
+  { href: '/diseno-web', label: 'Diseño Web' },
   { href: '/desarrollo-web-a-medida', label: 'Desarrollo Web a Medida' },
   { href: '/diseno-web/valencia', label: 'Diseño Web Valencia' },
   { href: '/diseno-web/castellon', label: 'Diseño Web Castellón' },

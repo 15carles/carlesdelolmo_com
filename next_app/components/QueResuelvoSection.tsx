@@ -19,9 +19,9 @@ const problemas: ProblemaItem[] = [
       'No basta con que una web se vea bien. También debe ordenar la información, generar confianza y facilitar el siguiente paso.',
   },
   {
-    title: 'Estructura débil para posicionar',
+    title: 'Estructura que ni Google ni las IAs entienden',
     description:
-      'Si la base de la web no está bien planteada, es más difícil que ayude a mejorar la visibilidad en buscadores o que tenga sentido para sistemas de IA.',
+      'Si la base semántica no está bien planteada, cuesta posicionar en buscadores y, cada vez más, que los sistemas de IA entiendan y citen tu marca cuando alguien pregunta por lo que ofreces.',
   },
   {
     title: 'Poca utilidad comercial',

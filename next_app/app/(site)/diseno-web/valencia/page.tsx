@@ -6,6 +6,7 @@ import GenerativeCanvas from '@/components/GenerativeCanvas';
 import { Code, MapPin, Zap, Search, Layout, MousePointer2, Check, Shield, Gauge, Settings } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import OtrasZonasLinks from '@/components/OtrasZonasLinks';
 import { generateLocalPageSchema, SITE_URL } from '@/lib/seo/schemas';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
 import { constructMetadata } from '@/lib/seo/metadata';
@@ -499,6 +500,8 @@ export default function DisenoWebValencia() {
             <FaqAccordion title="Preguntas frecuentes de diseño web en Valencia" items={faqs} />
           </div>
         </section>
+
+        <OtrasZonasLinks current="valencia" />
       </main>
     </>
   );

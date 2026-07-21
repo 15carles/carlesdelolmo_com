@@ -12,8 +12,8 @@ import { PWARegister } from "@/components/PWARegister";
 import { constructMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Carles del Olmo | Diseño web estratégico, SEO y GEO",
-  description: "Diseño web estratégico para empresas que quieren una web clara, rápida y preparada para posicionar en buscadores y en IA.",
+  title: "Carles del Olmo | Diseño web, SEO y visibilidad en IA (GEO)",
+  description: "Diseño web estratégico para empresas: webs claras y rápidas para captar clientes en Google y preparadas para que las IAs (ChatGPT, Gemini) entiendan y citen tu marca.",
 });
 
 export const viewport: Viewport = {

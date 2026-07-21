@@ -1,0 +1,246 @@
+import React from 'react';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import FaqAccordion from '@/components/FaqAccordion';
+import VisibilityLab from '@/components/aiVisibilityLab/VisibilityLab';
+import { constructMetadata } from '@/lib/seo/metadata';
+import { safeJsonLd } from '@/lib/seo/jsonLd';
+import {
+  SITE_URL,
+  PERSON_SCHEMA,
+  BUSINESS_SCHEMA,
+  generateBreadcrumbSchema,
+  generateFaqPageNode,
+} from '@/lib/seo/schemas';
+import { LAB_PATH } from '@/lib/aiVisibilityLab/config';
+
+const PAGE_TITLE =
+  'Laboratorio de visibilidad en IA | Comprueba si tu empresa aparece';
+const PAGE_DESCRIPTION =
+  'Comprueba si ChatGPT, Gemini y Perplexity mencionan o recomiendan tu empresa cuando un cliente busca servicios como los tuyos. Herramienta guiada, sin conexión a APIs de IA.';
+
+export const metadata = constructMetadata({
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  exactUrl: `${SITE_URL}${LAB_PATH}`,
+});
+
+const FAQS = [
+  {
+    question: '¿El laboratorio se conecta a ChatGPT, Gemini o Perplexity?',
+    answer:
+      'No. El laboratorio no utiliza ninguna API de inteligencia artificial ni rastrea respuestas de terceros. Genera consultas con plantillas y te guía para que seas tú quien las pruebe manualmente en cada motor y registre lo que aparece.',
+  },
+  {
+    question: '¿Los resultados son definitivos?',
+    answer:
+      'No. Los resultados representan una muestra obtenida con unas consultas, motores, cuentas y fechas concretas. Las respuestas de los motores de IA varían según el momento, la cuenta, la ubicación y el modelo utilizado, por lo que conviene interpretarlos como patrones y no como una certificación.',
+  },
+  {
+    question: '¿Por qué una empresa puede aparecer en un motor y no en otro?',
+    answer:
+      'Cada motor utiliza modelos, fuentes y criterios de recuperación distintos, y actualiza su información en momentos diferentes. Por eso una misma consulta puede devolver empresas distintas en ChatGPT, Gemini o Perplexity.',
+  },
+  {
+    question: '¿Qué diferencia existe entre ser mencionada y ser citada?',
+    answer:
+      'Una mención es que el motor nombre tu empresa en la respuesta. Una cita es que la respuesta enlace o utilice tu web como fuente directa. Son señales distintas: puedes ser mencionada sin que tu dominio aparezca como fuente.',
+  },
+  {
+    question: '¿Se guardan los datos introducidos?',
+    answer:
+      'Los datos del análisis se guardan únicamente en tu dispositivo (almacenamiento local del navegador) mientras no decidas enviar una solicitud de contacto. No se envían a ningún servidor durante el uso normal y puedes borrarlos por completo cuando quieras.',
+  },
+  {
+    question: '¿Qué puedo hacer si mis competidores aparecen y mi empresa no?',
+    answer:
+      'El informe señala en qué consultas aparecieron competidores sin que apareciera tu empresa. Es una señal para investigar qué contenidos, servicios y fuentes externas respaldan a esos competidores. Confirmar la causa requiere una auditoría específica de SEO y GEO.',
+  },
+];
+
+function buildJsonLd() {
+  const url = `${SITE_URL}${LAB_PATH}`;
+  const breadcrumbs = [
+    { label: 'Inicio', href: '/' },
+    { label: 'Laboratorio de visibilidad en IA' },
+  ];
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      PERSON_SCHEMA,
+      BUSINESS_SCHEMA,
+      {
+        '@type': 'WebApplication',
+        '@id': `${url}#webapp`,
+        name: 'Laboratorio de visibilidad en IA',
+        url,
+        applicationCategory: 'BusinessApplication',
+        operatingSystem: 'Web',
+        description: PAGE_DESCRIPTION,
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${url}#webpage`,
+        url,
+        name: PAGE_TITLE,
+        description: PAGE_DESCRIPTION,
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        breadcrumb: { '@id': `${url}#breadcrumbs` },
+      },
+      generateBreadcrumbSchema(breadcrumbs, `${url}#breadcrumbs`),
+      generateFaqPageNode(FAQS, `${url}#faq`),
+    ],
+  };
+}
+
+const WHAT_IT_MEASURES = [
+  {
+    title: 'Presencia',
+    text: 'En cuántas pruebas evaluables aparece tu empresa, mencionada o recomendada.',
+  },
+  {
+    title: 'Recomendación',
+    text: 'En cuántas pruebas el motor destaca o recomienda tu empresa de forma preferente.',
+  },
+  {
+    title: 'Citación',
+    text: 'En cuántas respuestas tu dominio aparece como fuente o enlace directo.',
+  },
+  {
+    title: 'Exactitud',
+    text: 'Si la información mostrada sobre tu empresa es correcta, parcialmente incorrecta o incorrecta.',
+  },
+  {
+    title: 'Competencia',
+    text: 'Con qué frecuencia aparecen competidores y en qué consultas aparecen ellos y no tu empresa.',
+  },
+];
+
+const WHAT_IT_CANNOT_MEASURE = [
+  'Todas las posibles consultas que puede hacer un usuario.',
+  'Todos los modelos o configuraciones existentes.',
+  'La causa exacta de una ausencia.',
+  'La visibilidad futura.',
+  'El impacto comercial directo.',
+];
+
+const WHY_RESULTS_CHANGE = [
+  'Actualización de los modelos.',
+  'Fuentes recuperadas en cada respuesta.',
+  'Momento en el que se hace la consulta.',
+  'Cuenta y contexto de la sesión.',
+  'Ubicación desde la que se pregunta.',
+  'Variabilidad natural de las respuestas.',
+];
+
+const METHODOLOGY_STEPS = [
+  'Describe tu empresa: nombre, web, servicio principal, ubicación, tipo de cliente y necesidad.',
+  'El laboratorio genera tres consultas con plantillas: descubrimiento, recomendación y necesidad concreta.',
+  'Realizas cada consulta en ChatGPT, Gemini y Perplexity, en una conversación nueva y sin añadir contexto.',
+  'Registras manualmente si apareces, si te recomiendan, si citan tu web y si aparecen competidores.',
+  'Obtienes un informe con presencia, recomendación, citación, exactitud y competencia, más prioridades sugeridas.',
+];
+
+export default function LaboratorioVisibilidadIaPage() {
+  const breadcrumbs = [
+    { label: 'Inicio', href: '/' },
+    { label: 'Laboratorio de visibilidad en IA' },
+  ];
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(buildJsonLd()) }}
+      />
+
+      <main className="page__content">
+        <header className="page-header animate-on-scroll">
+          <div className="container">
+            <Breadcrumbs items={breadcrumbs} />
+            <h1 className="page-header__title mt-xl">
+              Laboratorio de visibilidad en IA
+            </h1>
+            <p className="page-header__subtitle max-w-narrow mx-auto">
+              Comprueba si ChatGPT, Gemini y Perplexity mencionan tu negocio
+              cuando una persona busca servicios como los tuyos.
+            </p>
+          </div>
+        </header>
+
+        {/* Herramienta interactiva (cliente, datos solo en el navegador) */}
+        <section className="section pt-md pb-xl">
+          <div className="container">
+            <VisibilityLab />
+          </div>
+        </section>
+
+        {/* Contenido estático indexable (§19) */}
+        <section id="metodologia" className="section bg-glass py-xl animate-on-scroll">
+          <div className="container">
+            <header className="section-header">
+              <h2 className="section-header__title">Cómo funciona la metodología</h2>
+              <p className="section-header__subtitle">
+                Un método manual y comparable para observar tu visibilidad en los
+                motores de IA, sin conectarse a ninguna API.
+              </p>
+            </header>
+            <ol className="editorial-list max-w-narrow mx-auto">
+              {METHODOLOGY_STEPS.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section className="section py-xl animate-on-scroll">
+          <div className="container">
+            <header className="section-header">
+              <h2 className="section-header__title">Qué mide el laboratorio</h2>
+            </header>
+            <div className="grid grid-cols-2 gap-md">
+              {WHAT_IT_MEASURES.map((item) => (
+                <div key={item.title} className="card card--no-hover">
+                  <h3 className="card__title text-left mb-sm">{item.title}</h3>
+                  <p className="card__content mb-0">{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section bg-glass py-xl animate-on-scroll">
+          <div className="container">
+            <div className="grid grid-cols-2 gap-lg">
+              <div className="card card--no-hover">
+                <h2 className="card__title text-left mb-sm">Qué no puede medir</h2>
+                <ul className="editorial-list">
+                  {WHAT_IT_CANNOT_MEASURE.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="card card--no-hover">
+                <h2 className="card__title text-left mb-sm">
+                  Por qué los resultados pueden cambiar
+                </h2>
+                <ul className="editorial-list">
+                  {WHY_RESULTS_CHANGE.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section py-xl animate-on-scroll">
+          <div className="container max-w-narrow">
+            <FaqAccordion title="Preguntas frecuentes" items={FAQS} />
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}

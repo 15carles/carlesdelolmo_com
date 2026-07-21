@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { consumeContactPrefill } from '@/lib/aiVisibilityLab/contactPrefill';
 
 // All Supabase access now goes through /api/contact (server-side). This keeps
 // the Supabase URL + publishable key out of the public JS bundle and gives us
@@ -35,6 +36,22 @@ export default function ContactForm({
     donde_conocido: '',
     acepta_privacidad: false
   });
+
+  // Prellenado opcional desde el Laboratorio de visibilidad en IA (§14). Solo
+  // actúa si el usuario llega desde el CTA del informe: lee un resumen guardado
+  // en sessionStorage (nunca notas privadas), preselecciona la auditoría SEO/GEO
+  // y rellena el mensaje visible. No se envía nada automáticamente.
+  useEffect(() => {
+    const prefill = consumeContactPrefill();
+    if (!prefill) return;
+    setFormData((prev) => ({
+      ...prev,
+      mensaje: prefill.message || prev.mensaje,
+      servicios_interes: Array.from(
+        new Set([...prev.servicios_interes, ...prefill.servicios]),
+      ),
+    }));
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>

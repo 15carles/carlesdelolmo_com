@@ -1,0 +1,408 @@
+/*
+ * Estilos de disposición del Laboratorio de visibilidad en IA.
+ *
+ * Ámbito local (CSS Module). No modifica el sistema visual global ni introduce
+ * colores nuevos: usa exclusivamente los tokens de diseño existentes
+ * (var(--color-*), var(--spacing-*), var(--radius-*), var(--shadow-*)).
+ */
+
+.lab {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+/* ── Indicador de progreso (§4) ── */
+.progress {
+  margin-bottom: var(--spacing-lg);
+}
+
+.progressSteps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-sm);
+}
+
+.progressStep {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+}
+
+.progressStepCurrent {
+  color: var(--color-text-on-accent);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  font-weight: 600;
+}
+
+.progressStepDone {
+  color: var(--color-green-900);
+  background: var(--color-green-50);
+  border-color: var(--color-green-100);
+}
+
+.progressBarTrack {
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-inset);
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  transition: width var(--transition-normal);
+}
+
+.progressMeta {
+  margin-top: var(--spacing-xs);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* ── Cuadrícula de recuento de pruebas ── */
+.tally {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.tally strong {
+  color: var(--color-text-primary);
+}
+
+/* ── Notas / avisos (no dependen solo del color, §18) ── */
+.notice {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-inset);
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.notice svg {
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+}
+
+.noticeWarning {
+  border-color: var(--color-amber-700);
+  background: var(--color-amber-50);
+  color: var(--color-amber-700);
+}
+
+.noticeInfo {
+  border-color: var(--color-green-100);
+  background: var(--color-green-50);
+  color: var(--color-green-900);
+}
+
+.noticeTitle {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+/* ── Listas de pasos ── */
+.stepsList {
+  margin: var(--spacing-sm) 0 0;
+  padding-left: 1.25rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.stepsList li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* ── Competidores (filas dinámicas) ── */
+.competitorRow {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
+  margin-bottom: var(--spacing-sm);
+}
+
+.competitorRow .grow {
+  flex: 1 1 auto;
+}
+
+/* ── Consultas (§7) ── */
+.queryCard {
+  margin-bottom: var(--spacing-md);
+}
+
+.queryHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-sm);
+}
+
+.queryActions {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.charCount {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* ── Ejecución de una prueba (§9) ── */
+.testHead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.queryBox {
+  background: var(--color-bg-inset);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.testActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+
+.copyStatus {
+  font-size: 0.9rem;
+  color: var(--color-green-800);
+  margin-top: var(--spacing-xs);
+}
+
+.copyStatusError {
+  color: var(--color-amber-700);
+}
+
+/* ── Grupos de opciones (radios / checkboxes) ── */
+.optionGroup {
+  border: 0;
+  padding: 0;
+  margin: 0 0 var(--spacing-md);
+}
+
+.optionLegend {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+  padding: 0;
+}
+
+.optionList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.option {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.option:hover {
+  border-color: var(--color-border-strong);
+}
+
+.optionChecked {
+  border-color: var(--color-accent);
+  background: var(--color-green-50);
+}
+
+.option input {
+  margin-top: 0.2rem;
+  flex: 0 0 auto;
+}
+
+.optionText {
+  color: var(--color-text-secondary);
+}
+
+.optionHint {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 0.15rem;
+}
+
+/* ── Navegación entre pruebas ── */
+.navRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  justify-content: space-between;
+  margin-top: var(--spacing-md);
+}
+
+.navGroup {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+/* ── Informe (§10) ── */
+.metricGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+@media (min-width: 640px) {
+  .metricGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.metricCard {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  background: var(--color-bg-card);
+  text-align: center;
+}
+
+.metricValue {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+}
+
+.metricLabel {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-xs);
+}
+
+.metricDetail {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-xs);
+}
+
+.reportHeaderGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xs) var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+@media (min-width: 640px) {
+  .reportHeaderGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.reportHeaderItem {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.reportHeaderItem strong {
+  color: var(--color-text-primary);
+}
+
+.tableWrap {
+  overflow-x: auto;
+  margin-top: var(--spacing-sm);
+}
+
+.statusPending {
+  color: var(--color-amber-700);
+  font-weight: 600;
+}
+
+.statusNa {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.diagnosisList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.priorityItem {
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  background: var(--color-bg-card);
+}
+
+.priorityItem h4 {
+  margin: 0 0 var(--spacing-xs);
+  color: var(--color-text-primary);
+}
+
+.priorityItem dl {
+  margin: 0;
+}
+
+.priorityItem dt {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-size: 0.85rem;
+  margin-top: var(--spacing-xs);
+}
+
+.priorityItem dd {
+  margin: 0 0 var(--spacing-xs);
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.reportActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+}
+
+/* ── Impresión: solo el informe (§14) ── */
+@media print {
+  .noPrint {
+    display: none !important;
+  }
+}

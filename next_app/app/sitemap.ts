@@ -23,6 +23,7 @@ const STATIC_ROUTES: Array<{
   { path: '/mantenimiento-web-valencia', changeFrequency: 'monthly', priority: 0.85 },
   { path: '/migraciones-web', changeFrequency: 'monthly', priority: 0.85 },
   { path: '/pricing', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/laboratorio-visibilidad-ia', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/demos-interactivas', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/proyectos', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/blog', changeFrequency: 'weekly', priority: 0.7 },

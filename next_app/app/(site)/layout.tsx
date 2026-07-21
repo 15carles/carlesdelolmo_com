@@ -61,6 +61,26 @@ export default function RootLayout({
             window.dataLayer.push({
               'event': 'default_consent'
             });
+            // Aplica el consentimiento ya guardado antes de que cargue gtag.js. Sin
+            // esto, el "update" solo se emite tras la hidratación de React, que puede
+            // superar el wait_for_update (500 ms) y hacer que el primer page_view de
+            // un visitante recurrente se mida como denegado.
+            try {
+              var stored = localStorage.getItem('cookie_consent_settings');
+              if (stored) {
+                var consent = JSON.parse(stored);
+                var maxAge = 1000 * 60 * 60 * 24 * 365 * 2;
+                var age = Date.now() - new Date(consent.timestamp).getTime();
+                if (consent && consent.analytics_storage === 'granted' && age >= 0 && age <= maxAge) {
+                  gtag('consent', 'update', {
+                    'analytics_storage': 'granted',
+                    'ad_storage': consent.ad_storage === 'granted' ? 'granted' : 'denied',
+                    'ad_user_data': consent.ad_user_data === 'granted' ? 'granted' : 'denied',
+                    'ad_personalization': consent.ad_personalization === 'granted' ? 'granted' : 'denied'
+                  });
+                }
+              }
+            } catch (e) {}
           `}
         </Script>
         {/* Google Analytics 4 */}
@@ -70,7 +90,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag() { dataLayer.push(arguments); }
             gtag('js', new Date());
-            gtag('config', 'G-196PEE2941', { 'anonymize_ip': true });
+            gtag('config', 'G-196PEE2941');
           `}
         </Script>
       </head>

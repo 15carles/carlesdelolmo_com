@@ -5,46 +5,15 @@ import Link from 'next/link';
 interface OrbitaItem {
   letter: string;
   title: string;
-  description: string;
 }
 
 const orbitaItems: OrbitaItem[] = [
-  {
-    letter: 'O',
-    title: 'Optimización técnica',
-    description:
-      'Rendimiento, código limpio, estructura semántica y una base sólida para que la web pueda funcionar y escalar bien.',
-  },
-  {
-    letter: 'R',
-    title: 'Relevancia semántica',
-    description:
-      'Claridad para explicar qué hace la empresa, qué ofrece y a quién se dirige.',
-  },
-  {
-    letter: 'B',
-    title: 'Base de autoridad',
-    description:
-      'Casos, contenidos e interlinks que refuerzan especialización y confianza.',
-  },
-  {
-    letter: 'I',
-    title: 'Interpretación por IA',
-    description:
-      'Estructura y claridad para que el contenido pueda ser entendido mejor por motores generativos y sistemas de respuesta.',
-  },
-  {
-    letter: 'T',
-    title: 'Tráfico cualificado',
-    description:
-      'El objetivo no es atraer visitas vacías, sino personas con una intención real.',
-  },
-  {
-    letter: 'A',
-    title: 'Actualización continua',
-    description:
-      'Una web útil no se abandona: mejora, se adapta y evoluciona con el negocio.',
-  },
+  { letter: 'O', title: 'Optimización técnica' },
+  { letter: 'R', title: 'Relevancia semántica' },
+  { letter: 'B', title: 'Base de autoridad' },
+  { letter: 'I', title: 'Interpretación por IA' },
+  { letter: 'T', title: 'Tráfico cualificado' },
+  { letter: 'A', title: 'Actualización continua' },
 ];
 
 export default function MetodoOrbitaSection() {
@@ -57,26 +26,19 @@ export default function MetodoOrbitaSection() {
             Trabajo con un enfoque estructurado: método ORBITA
           </h2>
           <p className="section-header__subtitle">
-            No planteo una web solo como una pieza visual. La trabajo como una base digital
-            que debe comunicar bien, posicionar con criterio y evolucionar con el tiempo.
+            Un sistema para plantear la web como base digital: comunicar bien, posicionar con criterio
+            y evolucionar con el tiempo.
           </p>
         </header>
 
         <div className="orbita-home-layout">
           <div className="orbita-home-content animate-on-scroll">
-            <p className="orbita-home-intro">
-              ORBITA es mi forma de entender el desarrollo web como un sistema completo de
-              visibilidad digital. El objetivo no es solo tener presencia online, sino construir
-              una web útil, clara y preparada para buscadores, inteligencia artificial y crecimiento.
-            </p>
-
-            <ul className="editorial-list editorial-list--two-col">
+            <ul className="editorial-list editorial-list--two-col orbita-home-letters">
               {orbitaItems.map((item) => (
                 <li key={item.letter} className="editorial-item">
                   <span className="editorial-item__num" aria-hidden="true">{item.letter}</span>
                   <div>
                     <h3 className="editorial-item__title">{item.title}</h3>
-                    <p className="editorial-item__description">{item.description}</p>
                   </div>
                 </li>
               ))}

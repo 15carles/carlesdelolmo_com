@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 interface ServicioItem {
@@ -12,27 +13,51 @@ const servicios: ServicioItem[] = [
   {
     title: 'Diseño y desarrollo web',
     description:
-      'Creo páginas web profesionales, claras y bien estructuradas para que tu negocio transmita mejor, gane solidez y tenga una base técnica preparada para crecer.',
+      'Webs profesionales, claras y bien estructuradas para que tu negocio transmita mejor y crezca.',
     label: 'Servicio principal',
     featured: true,
   },
   {
     title: 'Visibilidad en IA y GEO',
     description:
-      'Estructuro tu web y sus señales para que ChatGPT, Gemini o Perplexity entiendan y puedan citar tu marca. No solo para posicionar en Google: para que también te encuentren donde cada vez más gente pregunta.',
+      'Estructuro tu web para que ChatGPT, Gemini o Perplexity entiendan y puedan citar tu marca.',
     label: 'Tu diferencial',
   },
   {
     title: 'SEO y estructura para posicionar',
     description:
-      'Trabajo la arquitectura, los contenidos y la organización de la web para facilitar una mejor comprensión por parte de buscadores y reforzar la visibilidad orgánica.',
+      'Arquitectura, contenidos y organización pensados para mejorar tu visibilidad orgánica.',
     label: 'Visibilidad orgánica',
   },
   {
     title: 'Automatización como apoyo',
     description:
-      'Cuando el proyecto lo necesita, también puedo integrar automatizaciones para mejorar captación, seguimiento de leads o eficiencia operativa.',
+      'Cuando el proyecto lo pide, integro automatizaciones para captar y hacer seguimiento de leads.',
     label: 'Eficiencia operativa',
+  },
+];
+
+interface MosaicoItem {
+  src: string;
+  alt: string;
+}
+
+const mosaico: MosaicoItem[] = [
+  {
+    src: '/assets/images/mockups/mockup_colorvibe.webp',
+    alt: 'Mockup de web de marca creativa diseñada por Carles del Olmo',
+  },
+  {
+    src: '/assets/images/mockups/mockup_synapse_ops.webp',
+    alt: 'Mockup de plataforma web B2B con estructura orientada a negocio',
+  },
+  {
+    src: '/assets/images/mockups/mockup_ecohoagr.webp',
+    alt: 'Mockup de web de producto con enfoque claro y orientado a conversión',
+  },
+  {
+    src: '/assets/images/mockups/mockup_multi.webp',
+    alt: 'Mockup de web corporativa multidispositivo con jerarquía visual clara',
   },
 ];
 
@@ -48,8 +73,8 @@ export default function ServicesSection() {
                 Servicios pensados para construir una presencia digital sólida
               </h2>
               <p className="section-header__subtitle">
-                No trabajo la web como una pieza aislada. La planteo como una base digital
-                que debe comunicar bien, posicionar con criterio y ayudarte a generar oportunidades.
+                No trabajo la web como una pieza aislada, sino como una base digital que comunica,
+                posiciona y genera oportunidades.
               </p>
             </header>
 
@@ -57,8 +82,6 @@ export default function ServicesSection() {
               <Link href="/pricing" className="btn btn--primary">Ver servicios y precios</Link>
               <Link href="/diseno-web" className="action-link">Servicio de diseño web</Link>
               <Link href="/servicio-seo/autoridad-digital-ias" className="action-link">Visibilidad en IA (GEO)</Link>
-              <Link href="/proyectos/ledescaparate" className="action-link">Ver un caso real</Link>
-              <Link href="/contacto" className="action-link">Cuéntame tu proyecto</Link>
             </div>
           </div>
 
@@ -77,6 +100,21 @@ export default function ServicesSection() {
             ))}
           </ol>
         </div>
+
+        <ul className="services-mosaic animate-on-scroll" aria-label="Muestras de proyectos web">
+          {mosaico.map((item) => (
+            <li key={item.src} className="services-mosaic__item">
+              <Image
+                src={item.src}
+                alt={item.alt}
+                width={800}
+                height={600}
+                loading="lazy"
+                className="services-mosaic__image"
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

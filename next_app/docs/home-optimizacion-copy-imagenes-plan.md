@@ -158,7 +158,12 @@ Reducción de CTAs totales: de ~25 a ~12 (1–2 por sección) → mejor reparto 
 - `components/CredibilidadSection.tsx`
 - `components/DiferenciadoresSection.tsx`
 - `components/ParaQuienSection.tsx`
-- `components/CtaFinalSection.tsx`
+
+> ⚠️ **`components/CtaFinalSection.tsx` NO se borra:** lo sigue usando `/proyectos` (`app/(site)/proyectos/page.tsx`). Solo se retira de la home.
+>
+> Nota de implementación: para el ancla `#opiniones` sin duplicar ids en las otras
+> páginas que reutilizan reseñas (`/diseno-web`, `/sobre-carles-del-olmo`), se añadió
+> un prop opcional `sectionId` a `GoogleReviewsSection`, pasado solo desde la home.
 
 **Nuevas ids de sección para el schema:** `hero`, `que-resuelvo`, `servicios`, `caso-destacado`, `opiniones`, `metodo-orbita`, `por-que-conmigo`, `insights`, `contacto`.
 

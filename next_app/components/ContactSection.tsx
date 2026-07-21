@@ -9,9 +9,9 @@ export default function ContactSection() {
         {/* Section Header */}
         <header className="section-header animate-on-scroll">
           <p className="section-header__eyebrow">Contacto</p>
-          <h2 className="section-header__title">¿Listo para dominar el GEO?</h2>
+          <h2 className="section-header__title">Hablemos de tu proyecto web</h2>
           <p className="section-header__subtitle">
-            Hablemos sobre cómo puedo ayudar a tu empresa a destacar en las respuestas de inteligencia artificial.
+            Si tu web no está ayudando a tu negocio, conviene revisarla. Cuéntame tu caso y te propongo un plan claro para mejorarla.
           </p>
         </header>
 
@@ -45,9 +45,8 @@ export default function ContactSection() {
             </h3>
 
             <p className="text-secondary leading-relaxed text-left">
-              Este breve formulario me permite entender tu punto de partida y tus objetivos. Con esa información
-              diseñaré una propuesta adaptada a tu caso: estrategia digital, desarrollo web, optimización avanzada para
-              buscadores e IA...
+              Con tu punto de partida y tus objetivos te preparo una propuesta adaptada: estrategia,
+              desarrollo web y optimización para buscadores e IA.
             </p>
 
             <div className="text-secondary leading-relaxed text-left">

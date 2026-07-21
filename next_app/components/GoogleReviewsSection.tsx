@@ -9,6 +9,7 @@ interface GoogleReviewsSectionProps {
   showHeader?: boolean;
   variant?: 'default' | 'compact';
   className?: string;
+  sectionId?: string;
 }
 
 // Icono G multicolor de Google
@@ -41,7 +42,8 @@ export default function GoogleReviewsSection({
   maxReviews,
   showHeader = true,
   variant = 'default',
-  className = ''
+  className = '',
+  sectionId
 }: GoogleReviewsSectionProps) {
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const rafRef = useRef<number | null>(null);
@@ -185,7 +187,7 @@ export default function GoogleReviewsSection({
   };
 
   return (
-    <section className={`section ${className}`} aria-labelledby="google-reviews-title">
+    <section id={sectionId} className={`section ${className}`} aria-labelledby="google-reviews-title">
       <div className="container">
         {showHeader && (
           <header className="mb-xl text-center animate-on-scroll">

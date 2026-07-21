@@ -221,11 +221,6 @@ const HOME_SECTION_DEFINITIONS: HomeSectionDefinition[] = [
     description: 'Presentación del servicio de diseño web optimizado para buscadores e inteligencia artificial.',
   },
   {
-    id: 'credibilidad',
-    name: 'Diseño web con enfoque estratégico',
-    description: 'Bloque de credibilidad sobre enfoque de trabajo, desarrollo a medida y base SEO/GEO.',
-  },
-  {
     id: 'que-resuelvo',
     name: 'Problemas que resuelve una web bien planteada',
     description: 'Errores habituales en webs corporativas y cómo corregir claridad, estructura y utilidad comercial.',
@@ -238,7 +233,12 @@ const HOME_SECTION_DEFINITIONS: HomeSectionDefinition[] = [
   {
     id: 'caso-destacado',
     name: 'Caso de estudio destacado',
-    description: 'Prueba real de trabajo aplicado con enfoque estratégico y resultados de claridad y estructura.',
+    description: 'Prueba real de trabajo aplicado con enfoque estratégico y resultados de visibilidad y rendimiento.',
+  },
+  {
+    id: 'opiniones',
+    name: 'Opiniones en Google',
+    description: 'Reseñas verificadas de clientes en el Perfil de Empresa de Google.',
   },
   {
     id: 'metodo-orbita',
@@ -246,24 +246,14 @@ const HOME_SECTION_DEFINITIONS: HomeSectionDefinition[] = [
     description: 'Marco de trabajo para optimización técnica, relevancia semántica, autoridad e iteración continua.',
   },
   {
-    id: 'diferenciadores',
-    name: 'Diferenciadores',
+    id: 'por-que-conmigo',
+    name: 'Por qué conmigo',
     description: 'Factores que hacen que una web esté mejor construida y más preparada para crecer.',
   },
   {
     id: 'insights',
     name: 'Insights',
     description: 'Selección de contenidos expertos sobre desarrollo web, SEO, GEO y preparación para IA.',
-  },
-  {
-    id: 'para-quien',
-    name: 'Encaje de proyecto',
-    description: 'Tipo de proyectos y empresas con los que este enfoque aporta más valor.',
-  },
-  {
-    id: 'cta-final',
-    name: 'Llamada a la acción final',
-    description: 'Bloque final para iniciar contacto o revisar servicios y precios.',
   },
   {
     id: 'contacto',

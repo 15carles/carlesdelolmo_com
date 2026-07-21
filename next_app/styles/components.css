@@ -5607,3 +5607,112 @@ body.has-promo-banner .navbar {
     color: var(--color-text-muted);
     max-width: 52rem;
 }
+
+/* ============================================
+   HOME - OPTIMIZACIÓN DE COPY E IMÁGENES
+   Imagen lateral de "Qué resuelvo", mosaico de
+   Servicios, panel de métricas del caso y lista
+   compacta del método ORBITA.
+   ============================================ */
+
+/* "Qué resuelvo": imagen dentro de la columna lateral */
+.que-resuelvo-figure--aside {
+    margin: var(--spacing-xl) 0 0;
+}
+
+.que-resuelvo-figure--aside .que-resuelvo-figure__caption {
+    text-align: left;
+}
+
+/* Servicios: mosaico de mockups */
+.services-mosaic {
+    list-style: none;
+    margin: var(--spacing-2xl) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+    .services-mosaic {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: var(--spacing-lg);
+    }
+}
+
+.services-mosaic__item {
+    margin: 0;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.services-mosaic__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform var(--transition-normal);
+}
+
+.services-mosaic__item:hover .services-mosaic__image {
+    transform: scale(1.03);
+}
+
+/* Caso destacado: panel de métricas reales */
+.case-metrics {
+    list-style: none;
+    margin: var(--spacing-xs) 0 var(--spacing-sm);
+    padding: 0;
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+@media (min-width: 480px) {
+    .case-metrics {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.case-metric {
+    background: var(--color-bg-inset);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.case-metric__value {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--color-accent);
+    font-variant-numeric: tabular-nums;
+}
+
+.case-metric__label {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+}
+
+/* Método ORBITA: lista compacta (solo titulares) */
+.orbita-home-letters {
+    margin-bottom: var(--spacing-lg);
+}
+
+.orbita-home-letters .editorial-item {
+    padding: var(--spacing-md) 0;
+    align-items: center;
+}
+
+.orbita-home-letters .editorial-item__title {
+    margin-bottom: 0;
+}

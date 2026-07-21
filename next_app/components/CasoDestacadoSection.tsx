@@ -2,11 +2,24 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const intervencionItems = [
-  'Replanteamiento de la estructura y jerarquía del sitio.',
-  'Mejora de la presentación visual y del recorrido del usuario.',
-  'Trabajo de base en arquitectura, contenido y enfoque SEO/GEO.',
-  'Preparación del sitio como activo digital más sólido y escalable.',
+interface CaseMetric {
+  value: string;
+  label: string;
+}
+
+const metrics: CaseMetric[] = [
+  {
+    value: '+250%',
+    label: 'Tráfico orgánico desde IA en los primeros 30 días',
+  },
+  {
+    value: '1 y 2',
+    label: 'Puestos en Google para sus keywords principales, en varias ciudades',
+  },
+  {
+    value: '100/100/98/97',
+    label: 'Lighthouse: SEO, rendimiento, buenas prácticas y accesibilidad',
+  },
 ];
 
 export default function CasoDestacadoSection() {
@@ -17,8 +30,8 @@ export default function CasoDestacadoSection() {
           <p className="section-header__eyebrow">Caso real</p>
           <h2 id="caso-destacado-title" className="section-header__title">Caso de estudio destacado</h2>
           <p className="section-header__subtitle">
-            Una muestra real de cómo planteo un proyecto web con enfoque estratégico,
-            estructura clara y una base preparada para posicionamiento y crecimiento.
+            Una muestra real de cómo planteo un proyecto web con enfoque estratégico y una base
+            preparada para posicionar y crecer.
           </p>
         </header>
 
@@ -36,8 +49,8 @@ export default function CasoDestacadoSection() {
                 />
               </div>
               <figcaption className="case-study-figure__caption">
-                Proyecto destacado: LEDescaparate, una web planteada para presentar mejor la propuesta,
-                ordenar la información y reforzar la presencia digital del negocio.
+                LEDescaparate: una web planteada para presentar mejor la propuesta, ordenar la
+                información y reforzar la presencia digital del negocio.
               </figcaption>
             </figure>
           </div>
@@ -48,34 +61,19 @@ export default function CasoDestacadoSection() {
             <h3 className="case-study-title">LEDescaparate</h3>
 
             <p className="case-study-intro">
-              Un proyecto trabajado con foco en claridad, estructura, presentación profesional
-              del producto y una base digital más sólida para buscadores y entornos de IA.
+              LEDescaparate partía de un dominio nuevo en un sector muy competitivo. En unos 30 días
+              construimos un ecosistema digital que lo convirtió en referencia, tanto en Google como
+              en las respuestas de IA.
             </p>
 
-            <section className="case-study-block" aria-labelledby="case-study-inicial-title">
-              <h4 id="case-study-inicial-title" className="case-study-block__title">Situación inicial</h4>
-              <p className="case-study-block__text">
-                El proyecto necesitaba una presencia web más clara, mejor organizada y alineada
-                con una propuesta comercial que debía entenderse rápido.
-              </p>
-            </section>
-
-            <section className="case-study-block" aria-labelledby="case-study-intervencion-title">
-              <h4 id="case-study-intervencion-title" className="case-study-block__title">Intervención realizada</h4>
-              <ul className="case-study-list">
-                {intervencionItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </section>
-
-            <section className="case-study-block" aria-labelledby="case-study-resultado-title">
-              <h4 id="case-study-resultado-title" className="case-study-block__title">Resultado</h4>
-              <p className="case-study-block__text">
-                El proyecto ganó claridad, coherencia y una base técnica y semántica mucho más útil
-                para comunicar mejor, posicionar con más criterio y sostener futuras mejoras.
-              </p>
-            </section>
+            <ul className="case-metrics" aria-label="Resultados del proyecto LEDescaparate">
+              {metrics.map((metric) => (
+                <li key={metric.value} className="case-metric">
+                  <span className="case-metric__value">{metric.value}</span>
+                  <span className="case-metric__label">{metric.label}</span>
+                </li>
+              ))}
+            </ul>
 
             <div className="case-study-actions" role="group" aria-label="Acciones del caso de estudio">
               <Link href="/proyectos/ledescaparate" className="btn btn--primary">Ver caso completo</Link>

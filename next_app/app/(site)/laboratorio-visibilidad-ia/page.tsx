@@ -156,7 +156,7 @@ export default function LaboratorioVisibilidadIaPage() {
       />
 
       <main className="page__content">
-        <header className="page-header animate-on-scroll">
+        <header className="page-header animate-on-scroll no-print">
           <div className="container">
             <Breadcrumbs items={breadcrumbs} />
             <h1 className="page-header__title mt-xl">
@@ -177,7 +177,7 @@ export default function LaboratorioVisibilidadIaPage() {
         </section>
 
         {/* Contenido estático indexable (§19) */}
-        <section id="metodologia" className="section bg-glass py-xl animate-on-scroll">
+        <section id="metodologia" className="section bg-glass py-xl animate-on-scroll no-print">
           <div className="container">
             <header className="section-header">
               <h2 className="section-header__title">Cómo funciona la metodología</h2>
@@ -194,7 +194,7 @@ export default function LaboratorioVisibilidadIaPage() {
           </div>
         </section>
 
-        <section className="section py-xl animate-on-scroll">
+        <section className="section py-xl animate-on-scroll no-print">
           <div className="container">
             <header className="section-header">
               <h2 className="section-header__title">Qué mide el laboratorio</h2>
@@ -210,7 +210,7 @@ export default function LaboratorioVisibilidadIaPage() {
           </div>
         </section>
 
-        <section className="section bg-glass py-xl animate-on-scroll">
+        <section className="section bg-glass py-xl animate-on-scroll no-print">
           <div className="container">
             <div className="grid grid-cols-2 gap-lg">
               <div className="card card--no-hover">
@@ -235,7 +235,7 @@ export default function LaboratorioVisibilidadIaPage() {
           </div>
         </section>
 
-        <section className="section py-xl animate-on-scroll">
+        <section className="section py-xl animate-on-scroll no-print">
           <div className="container max-w-narrow">
             <FaqAccordion title="Preguntas frecuentes" items={FAQS} />
           </div>

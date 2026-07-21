@@ -1,9 +1,10 @@
-import React from 'react';
-import { AlertTriangle, Info, Printer } from 'lucide-react';
+import React, { useState } from 'react';
+import { AlertTriangle, Check, Copy, Info, Printer, Send } from 'lucide-react';
 import Link from 'next/link';
 import styles from './VisibilityLab.module.css';
 import type { LabSession, TestResult } from '@/lib/aiVisibilityLab/types';
 import { computeReport } from '@/lib/aiVisibilityLab/report';
+import { buildResultsSummaryText } from '@/lib/aiVisibilityLab/contactPrefill';
 import {
   ENGINES,
   QUERY_TYPE_LABELS,
@@ -61,6 +62,19 @@ export default function StageReport({
   const { metrics } = report;
   const { business, queries, results } = session;
 
+  const [copyState, setCopyState] = useState<'idle' | 'ok' | 'error'>('idle');
+
+  const handleCopySummary = async () => {
+    try {
+      await navigator.clipboard.writeText(
+        buildResultsSummaryText(session, metrics),
+      );
+      setCopyState('ok');
+    } catch {
+      setCopyState('error');
+    }
+  };
+
   const lastSaved = results
     .filter((r) => r.status === 'guardada' && r.fechaISO)
     .map((r) => r.fechaISO as string)
@@ -111,6 +125,14 @@ export default function StageReport({
     </div>
   );
 
+  // Cabecera del documento impreso (solo visible al exportar a PDF).
+  const printHeader = (
+    <div className={`${styles.printOnly} ${styles.printDocHeader}`}>
+      <h2>Laboratorio de visibilidad en IA</h2>
+      <p>carlesdelolmo.com · {METHODOLOGY_VERSION}</p>
+    </div>
+  );
+
   // Sin datos suficientes para comparar (§9, §17).
   if (metrics.evaluables < 3) {
     const onlyNotEvaluable =
@@ -139,7 +161,8 @@ export default function StageReport({
   }
 
   return (
-    <div>
+    <div className={styles.reportRoot}>
+      {printHeader}
       {header}
 
       {report.isPartial && (
@@ -218,7 +241,8 @@ export default function StageReport({
         )}
       </div>
 
-      {/* Tabla completa (§10) */}
+      {/* Tabla completa (§10) — nueva hoja en el PDF */}
+      <section className={styles.pageBreak}>
       <h3 className="mt-lg">Tabla de comprobaciones</h3>
       <div className={styles.tableWrap}>
         <table className="article-table">
@@ -263,7 +287,10 @@ export default function StageReport({
           </tbody>
         </table>
       </div>
+      </section>
 
+      {/* Diagnóstico, prioridades y conclusión (§11-§13) — nueva hoja en el PDF */}
+      <section className={styles.pageBreak}>
       {/* Diagnóstico (§11) */}
       {report.diagnoses.length > 0 && (
         <>
@@ -318,13 +345,52 @@ export default function StageReport({
         <Info size={20} aria-hidden="true" />
         <p className="mb-0">{LIMITATION_TEXTS.reportConclusion}</p>
       </div>
+      </section>
 
-      {/* Acciones (§14) */}
-      <div className={`${styles.reportActions} ${styles.noPrint}`}>
-        <button type="button" className="btn btn--primary btn--large" onClick={onContact}>
-          {report.ctaLabel}
-        </button>
+      {/* Acciones (§14) — enviar el resultado a Carles de forma cómoda */}
+      <div className={`card card--no-hover mt-lg ${styles.noPrint}`}>
+        <h3 className="mb-sm">¿Quieres que revisemos juntos estos resultados?</h3>
+        <p className="text-secondary mb-md">
+          Adjuntaremos automáticamente un resumen de tus resultados a la consulta.
+          Podrás revisarlo y editarlo antes de enviarlo, y no incluye tus notas
+          privadas.
+        </p>
+        <div className={styles.reportActions}>
+          <button
+            type="button"
+            className="btn btn--primary btn--large"
+            onClick={onContact}
+          >
+            <Send size={18} aria-hidden="true" /> {report.ctaLabel}
+          </button>
+          <button
+            type="button"
+            className="btn btn--secondary"
+            onClick={handleCopySummary}
+          >
+            {copyState === 'ok' ? (
+              <>
+                <Check size={18} aria-hidden="true" /> Resumen copiado
+              </>
+            ) : (
+              <>
+                <Copy size={18} aria-hidden="true" /> Copiar resumen de resultados
+              </>
+            )}
+          </button>
+        </div>
+        <p className={styles.copyStatus} aria-live="polite">
+          {copyState === 'ok' &&
+            'Resumen copiado. Puedes pegarlo en un email o WhatsApp para enviármelo.'}
+          {copyState === 'error' && (
+            <span className={styles.copyStatusError}>
+              No se ha podido copiar automáticamente. Usa el botón de enviar la
+              consulta o imprime el informe.
+            </span>
+          )}
+        </p>
       </div>
+
       <div className={`${styles.reportActions} ${styles.noPrint}`}>
         <button type="button" className="btn btn--secondary" onClick={onPrint}>
           <Printer size={18} aria-hidden="true" /> Imprimir o guardar como PDF

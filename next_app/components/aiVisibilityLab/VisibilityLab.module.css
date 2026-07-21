@@ -400,9 +400,117 @@
   margin-top: var(--spacing-lg);
 }
 
-/* ── Impresión: solo el informe (§14) ── */
+/* Solo visible al imprimir (cabecera del documento PDF). */
+.printOnly {
+  display: none;
+}
+
+.printDocHeader {
+  margin-bottom: var(--spacing-md);
+}
+
+.printDocHeader h2 {
+  margin: 0;
+}
+
+.printDocHeader p {
+  margin: 0.25rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+/*
+ * ── Impresión / Exportar a PDF (§14) ──
+ * Estas reglas solo se cargan en la página del laboratorio (el CSS Module se
+ * incluye únicamente donde se importa el componente), así que no afectan a la
+ * impresión del resto del sitio. Se aísla el informe ocultando la interfaz del
+ * sitio y las secciones no relacionadas, y se estructura el PDF por hojas.
+ */
 @media print {
+  /* Márgenes de página del PDF. */
+  @page {
+    margin: 16mm;
+  }
+
+  /* Oculta la interfaz global del sitio y todo lo marcado como no imprimible. */
+  :global(.navbar),
+  :global(.contextual-lead-banner),
+  :global(#cookie-banner),
+  :global(.cookie-modal),
+  :global(.no-print),
   .noPrint {
     display: none !important;
+  }
+
+  /* Neutraliza el espaciado del contenedor para aprovechar la página. */
+  :global(.section),
+  :global(.page__content),
+  :global(main) {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  :global(.container) {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .lab {
+    max-width: none;
+  }
+
+  /* Cabecera del documento (solo impresión). */
+  .printOnly {
+    display: block;
+  }
+
+  /* Colores legibles y sin fondos que gasten tinta. */
+  .metricCard,
+  .priorityItem {
+    box-shadow: none;
+    background: transparent !important;
+  }
+
+  /* Bloques atómicos que no deben partirse entre páginas. */
+  .metricCard,
+  .priorityItem,
+  .notice,
+  .diagnosisList > *,
+  .reportHeaderGrid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Nueva hoja antes de bloques largos para un PDF bien estructurado. */
+  .pageBreak {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  /* La tabla repite su encabezado en cada página y no parte filas. */
+  .tableWrap {
+    overflow: visible !important;
+  }
+
+  :global(.article-table) {
+    font-size: 0.8rem;
+  }
+
+  :global(.article-table thead) {
+    display: table-header-group;
+  }
+
+  :global(.article-table tr) {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Evita títulos huérfanos al final de una página. */
+  .reportRoot h2,
+  .reportRoot h3,
+  .reportRoot h4 {
+    break-after: avoid;
+    page-break-after: avoid;
   }
 }

@@ -2,6 +2,25 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [v4.2.0] - 2026-07-21
+### Cambiado
+- **Home (copy y ritmo):** Reducción del volumen de texto de la portada y reordenación de 12 a 9 secciones para romper la linealidad. La prueba social (`GoogleReviewsSection`) sube justo tras el caso destacado, el método ORBITA se muestra solo con titulares y se recortan subtítulos e ítems.
+- **Home (caso destacado):** `CasoDestacadoSection` abandona el formato Situación/Intervención/Resultado por un panel de métricas reales de LEDescaparate (+250 % de tráfico orgánico desde IA en 30 días, puestos 1 y 2 en Google en varias ciudades y Lighthouse 100/100/98/97).
+- **Home (imágenes):** Nueva imagen lateral de comparativa en «Qué resuelvo» y mosaico de mockups en `ServicesSection`, reutilizando assets ya presentes en el repositorio.
+- **Contacto:** Fusión del CTA final dentro de `ContactSection` y corrección del H2 heredado «¿Listo para dominar el GEO?» por «Hablemos de tu proyecto web».
+- **SEO técnico (Home):** `HOME_SECTION_DEFINITIONS` de `generateHomeSchema()` actualizado a las 9 secciones (nuevas anclas `#opiniones` y `#por-que-conmigo`); nuevo prop `sectionId` en `GoogleReviewsSection` para anclar las reseñas sin duplicar `id` en las páginas que reutilizan el componente.
+- **Estilo editorial:** Retirada de guiones largos del copy visible de la Home.
+
+### Añadido
+- **Home (Arquitectura):** Nueva sección `PorQueConmigoSection` que fusiona Credibilidad, Diferenciadores y Para quién sobre banda tintada.
+- **Documentación:** `next_app/docs/home-optimizacion-copy-imagenes-plan.md` con el plan de optimización de la portada.
+
+### Eliminado
+- **Componentes de Home:** `CredibilidadSection`, `DiferenciadoresSection` y `ParaQuienSection`, fusionados en `PorQueConmigoSection`. Se conserva `CtaFinalSection` porque lo sigue usando `/proyectos`.
+
+### Control de versionado
+- Sincronización de `VERSION`, `CHANGELOG.md`, `README.md`, `next_app/package.json`, `next_app/public/llms.txt` y `next_app/public/humans.txt`.
+
 ## [v4.1.0] - 2026-07-21
 ### Añadido
 - **Embudo SEO/GEO:** Nuevo componente `SeoServiceChooser` («¿cuál necesito?») que presenta Auditoría, Posicionamiento y Autoridad para IAs como tres momentos de un mismo proceso; incrustado en las tres páginas de servicio y en `/pricing`.

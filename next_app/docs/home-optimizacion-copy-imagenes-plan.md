@@ -1,11 +1,11 @@
 # Plan: optimización de copy e imágenes de la Home
 
 > Objetivo: reducir el volumen de texto de la portada (~1.600 → ~750 palabras, −53 %),
-> romper la linealidad visual (28 bloques numerados clónicos → variedad), y pasar de
-> 3 a 7–8 imágenes de contenido, **sin perder entidad SEO ni enlazado interno**.
+> romper la linealidad visual (28 bloques numerados clónicos → variedad) y aumentar las
+> imágenes de contenido, **sin perder entidad SEO ni enlazado interno**.
 >
-> Estado: propuesta pendiente de aprobación. **No implementar hasta validar copy y
-> resolver las 2 dependencias de la sección 6.**
+> Estado: propuesta pendiente de aprobación. **No implementar hasta validar el copy (§3).**
+> **El hero NO se toca en este plan** (ver §3.1).
 
 ---
 
@@ -13,21 +13,21 @@
 
 | Actual (12) | Nueva (9) | Acción |
 |---|---|---|
-| 1. Hero | 1. Hero **+ franja de logos** | Editar (añadir tira de logos) |
+| 1. Hero | 1. Hero | **Sin cambios** (la foto es tarea futura de Carles; logos = opcional aparte) |
 | 2. Credibilidad | — | **Fusionar** en (7) |
 | 3. Qué resuelvo | 2. Qué resuelvo | Recortar + mejor imagen |
 | 4. Servicios | 3. Servicios **+ mosaico mockups** | Recortar + añadir visual |
-| 5. Caso destacado | 4. Caso destacado | Recortar + añadir métrica |
+| 5. Caso destacado | 4. Caso destacado | Recortar + **métricas reales** |
 | 10. Reseñas | 5. Reseñas | **Subir** (prueba social temprana) |
 | 6. Método ORBITA | 6. Método ORBITA | Recortar (solo titulares + diagrama) |
 | 7. Diferenciadores | 7. Por qué conmigo | **Fusión** de Credibilidad + Diferenciadores + Para quién |
 | 9. Para quién | — | **Fusionar** en (7) |
 | 8. Insights | 8. Insights | Sin cambios |
 | 11. CTA final | — | **Fusionar** en (9) |
-| 12. Contacto | 9. Contacto | Fusión con CTA final + arreglar H2 + añadir foto |
+| 12. Contacto | 9. Contacto | Fusión con CTA final + arreglar H2 |
 
-**Flujo resultante:** hook → prueba visual → problema → solución → prueba (caso + reseñas) →
-método → por qué yo → autoridad (blog) → cierre. Patrón estándar de conversión
+**Flujo resultante:** hook → problema → solución → prueba (caso + reseñas) → método →
+por qué yo → autoridad (blog) → cierre. Patrón estándar de conversión
 problema → solución → prueba → oferta → CTA.
 
 ---
@@ -46,11 +46,10 @@ problema → solución → prueba → oferta → CTA.
 
 ## 3. Cambios sección por sección (copy definitivo)
 
-### 3.1 Hero — editar (añadir franja de logos)
-- H1, subtítulo, CTAs y checklist: **se mantienen** (ya son concisos).
-- **Añadir bajo el hero** una franja horizontal de logos (cero texto de argumentario, credibilidad visual instantánea). Assets ya disponibles en `public/assets/images/logos-herramientas/` (versión color + blanca): Google, Search Console, GA4, Ahrefs, Semrush, ChatGPT, Claude, Gemini, Looker, Rank Math.
-- Eyebrow mínimo: `Trabajo con` (o sin texto).
-- Mantener `id="inicio"`. Franja `loading="lazy"` salvo que quede above-the-fold en desktop.
+### 3.1 Hero — SIN CAMBIOS en este plan
+- El hero **no se toca**: H1, subtítulo, CTAs, checklist y el canvas de la columna derecha se mantienen. Conserva `id="inicio"`.
+- 📌 **Futuro (fuera de este alcance):** cuando Carles tenga una foto profesional que le convenza, sustituirá él mismo el canvas de la columna derecha por la foto. Ese cambio queda fuera de este plan.
+- **(Opcional) Franja de confianza de logos** — como elemento independiente *después* del hero, **sin modificar `Hero.tsx`**: banda horizontal de logos de `public/assets/images/logos-herramientas/` (Google, Search Console, GA4, Ahrefs, Semrush, ChatGPT, Claude, Gemini, Looker, Rank Math), cero texto de argumentario, credibilidad visual instantánea. Sujeto a tu visto bueno; si prefieres dejar toda la zona superior intacta, se omite sin afectar al resto del plan.
 
 ### 3.2 Qué resuelvo — recortar + mejor imagen
 - **Subtítulo** (de 3 frases → 1):
@@ -69,10 +68,17 @@ problema → solución → prueba → oferta → CTA.
 - **Visual nuevo:** mosaico de 3–4 mockups reales (sin uso hoy en la home): `mockups/mockup_colorvibe.webp`, `mockups/mockup_ecohoagr.webp`, `mockups/mockup_synapse_ops.webp` y/o `demos/demo-*.webp`. Convierte la sección más textual en prueba visual.
 - **Enlaces:** consolidar de 5 a 2–3. Conservar `/pricing`, `/diseno-web`, `/servicio-seo/autoridad-digital-ias`. Quitar duplicados de `/contacto` y `/proyectos/ledescaparate` (ya están en Caso).
 
-### 3.4 Caso destacado — recortar + métrica
+### 3.4 Caso destacado — recortar + métricas reales
 - **Eliminar** el formato Situación / Intervención / Resultado (es estructura de página de detalle; `/proyectos/ledescaparate` ya existe para eso).
-- Dejar: imagen `muestras/ledescaparate_muestra.webp` + intro de 2 frases + **1 dato duro** + CTA «Ver caso completo» (`/proyectos/ledescaparate`) + «Ver más proyectos» (`/proyectos`).
-- ⚠️ **Dependencia:** necesito una métrica real del proyecto (p. ej. mejora de velocidad, % más leads/consultas, posiciones ganadas). **No inventar.** Si no hay dato disponible, mantener frase cualitativa pero más corta.
+- Dejar: imagen `muestras/ledescaparate_muestra.webp` + intro de 2 frases + **panel de métricas reales** + CTA «Ver caso completo» (`/proyectos/ledescaparate`) + «Ver más proyectos» (`/proyectos`).
+- **Intro (2 frases):**
+  > «LEDescaparate partía de un dominio nuevo en un sector muy competitivo. En unos 30 días construimos un ecosistema digital que lo convirtió en referencia, tanto en Google como en las respuestas de IA.»
+- **Métricas reales** (documentadas en `content/projects/ledescaparate.mdoc` + captura aportada) — mostrar 3:
+  1. **+250 %** tráfico orgánico desde IA (primeros 30 días).
+  2. **Top 1–2 en Google** para sus keywords principales (escaparates LED, digital signage) en varias ciudades (Valencia, Madrid, Barcelona, Alicante, Castellón).
+  3. **100 / 100 / 98 / 97** en Lighthouse (SEO · Rendimiento · Buenas prácticas · Accesibilidad).
+- Refuerzo opcional (4.ª métrica): **+32 %** leads cualificados.
+- Nota: son cifras del caso de estudio publicado; se muestran **atribuidas a LEDescaparate**, no como promesa genérica. El componente `metricsPanel` del `.mdoc` sirve de referencia visual.
 
 ### 3.5 Reseñas — subir de posición (sin cambio de contenido)
 - Mover el componente `GoogleReviewsSection` justo detrás del Caso destacado.
@@ -96,12 +102,11 @@ problema → solución → prueba → oferta → CTA.
 ### 3.8 Insights — sin cambios
 - Se mantiene tal cual (3 miniaturas de blog, ya equilibrada texto/imagen). Conserva `/blog` + los 3 posts enlazados.
 
-### 3.9 Contacto — FUSIÓN con CTA final + arreglar H2 + foto
+### 3.9 Contacto — FUSIÓN con CTA final + arreglar H2
 - **Fusionar** `CtaFinalSection` dentro de `ContactSection`: hoy el CTA final («Si tu web no está ayudando…») va inmediatamente antes del formulario con mensaje duplicado.
 - **Arreglar H2 legacy:** «¿Listo para dominar el GEO?» → propuesta: **«Hablemos de tu proyecto web»** (coherente con el hero «…sea la respuesta»; el actual es copy huérfano de la etapa GEO-first).
 - **Recortar** el párrafo introductorio del formulario a 1–2 frases.
 - Mantener `id="contacto"`, el bloque NAP (ubicación, email, teléfono, WhatsApp) y el formulario.
-- ⚠️ **Dependencia / mayor ROI:** insertar **una foto profesional de Carles** junto al formulario (o en «Por qué conmigo»). No existe ninguna en el sitio. Es la imagen más rentable para una marca personal: sube conversión, humaniza, refuerza la entidad `Person` (hoy el schema usa el logo como `image`) y sirve para el Perfil de Empresa de Google. **Requiere que Carles aporte la foto.**
 
 ---
 
@@ -130,20 +135,21 @@ Reducción de CTAs totales: de ~25 a ~12 (1–2 por sección) → mejor reparto 
 ## 5. Cambios de archivos
 
 **Editar:**
-- `app/(site)/page.tsx` — nuevo orden de imports/render (9 secciones).
-- `components/Hero.tsx` — franja de logos (o nuevo subcomponente `HeroLogos`).
+- `app/(site)/page.tsx` — nuevo orden de imports/render (9 secciones) + (opcional) franja de logos.
 - `components/QueResuelvoSection.tsx` — copy + imagen.
 - `components/ServicesSection.tsx` — copy + mosaico + enlaces.
-- `components/CasoDestacadoSection.tsx` — quitar 3 bloques + métrica.
+- `components/CasoDestacadoSection.tsx` — quitar 3 bloques + métricas reales.
 - `components/MetodoOrbitaSection.tsx` — solo titulares.
 - `components/GoogleReviewsSection.tsx` — añadir `id="opiniones"`.
-- `components/ContactSection.tsx` — fusión CTA final + H2 + foto + recorte.
+- `components/ContactSection.tsx` — fusión CTA final + H2 + recorte.
 - `lib/seo/schemas.ts` — `HOME_SECTION_DEFINITIONS` (11 → 9 con nuevas ids).
+
+> **`components/Hero.tsx` NO se toca.**
 
 **Crear:**
 - `components/PorQueConmigoSection.tsx` — sección fusionada.
-- (Opcional) `components/HeroLogos.tsx` y componente/patrón de mosaico de Servicios.
-- CSS nuevo en `styles/components.css` (o `shared.css`): franja de logos, mosaico, foto de contacto.
+- (Opcional) componente/patrón de mosaico de Servicios y franja de logos (independiente del hero).
+- CSS nuevo en `styles/components.css` (o `shared.css`): mosaico, panel de métricas del caso, (opcional) franja de logos.
 
 **Eliminar (tras fusionar):**
 - `components/CredibilidadSection.tsx`
@@ -155,19 +161,20 @@ Reducción de CTAs totales: de ~25 a ~12 (1–2 por sección) → mejor reparto 
 
 ---
 
-## 6. Dependencias / bloqueadores (requieren a Carles)
+## 6. Dependencias / decisiones pendientes
 
-1. **Foto profesional** de Carles (§3.9) — la aporta él. Mayor impacto en conversión y entidad.
-2. **Métrica real** del caso LEDescaparate (§3.4) — dato concreto o se deja cualitativo.
-3. **Validación del copy** propuesto (§3) antes de tocar componentes.
+1. **Validación del copy** propuesto (§3) — único requisito para arrancar la implementación.
+2. **(Decisión) Franja de logos opcional** (§3.1): ¿se añade como banda independiente tras el hero, o se deja toda la zona superior intacta?
+- ✅ **Resuelto — métricas del caso:** cifras reales ya disponibles (§3.4).
+- 📌 **Fuera de alcance — foto del hero:** cambio futuro que hará Carles cuando tenga la foto. El hero no se toca aquí.
 
 ---
 
-## 7. Fases de implementación (una vez aprobado)
+## 7. Implementación (una vez aprobado)
 
-- **Fase A — Copy y estructura (sin assets nuevos):** recortes de texto, fusiones (Por qué conmigo, Contacto), reorden, `schemas.ts`. Reutiliza imágenes ya existentes (comparativa, mockups, logos, diagrama). Es el 80 % del efecto «respira».
-- **Fase B — Imágenes que faltan:** foto de Carles + métrica del caso. Se despliega cuando estén disponibles.
-- **QA:** anclas `#inicio` / `#servicios` / `#contacto` funcionando; JSON-LD válido (Rich Results Test); LCP móvil (si entra imagen al hero, `priority` + peso controlado); `npm run build` y `lint` OK; revisar `alt` con entidad y nombres de archivo semánticos.
+- **Todo en una sola fase** (ya no hay dependencia de assets externos): recortes de copy, fusiones (Por qué conmigo, Contacto), reorden, métricas reales del caso, mejor imagen en Qué resuelvo, mosaico de Servicios, `schemas.ts` y (opcional) franja de logos. Reutiliza solo imágenes ya presentes en el repo.
+- **Fuera de esta fase:** foto del hero (tarea futura de Carles).
+- **QA:** anclas `#inicio` / `#servicios` / `#contacto` funcionando; JSON-LD válido (Rich Results Test); `npm run build` y `lint` OK; `alt` con entidad y nombres de archivo semánticos; verificar que las landings que usan `HeroCanvas`/`GenerativeCanvas` siguen intactas.
 
 ---
 

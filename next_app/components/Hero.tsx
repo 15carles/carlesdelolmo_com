@@ -19,12 +19,12 @@ export default function Hero() {
             </p>
 
             <h1 id="hero-title" className="mb-md helper-center-mobile">
-              Webs que hacen que te encuentren<br />
-              <span className="gradient-text">en Google y en las IAs</span>
+              Diseño web para que tu empresa<br />
+              <span className="gradient-text">sea la respuesta</span>
             </h1>
 
             <p className="text-secondary mb-xl helper-center-mobile hero-subtitle">
-              Diseño y estructuro páginas web claras y rápidas para empresas: captas clientes hoy en buscadores y preparas tu marca para que los sistemas de IA la entiendan y te citen.
+              Estructuro tu web para que, cuando busquen en Google o pregunten a una IA, tu empresa sea la que encuentran, entienden y eligen.
             </p>
 
             <div className="hero-actions mb-xl helper-flex-center-mobile" role="group" aria-label="Acciones principales">

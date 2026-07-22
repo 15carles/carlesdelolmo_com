@@ -214,7 +214,9 @@ export default function LaboratorioVisibilidadIaPage() {
                   </span>
                   <div>
                     <h3 className="editorial-item__title">{step.title}</h3>
-                    <p className="editorial-item__description">{step.description}</p>
+                    {/* En móvil se muestran solo los títulos; la descripción
+                        sigue en el HTML (display:none) para no perder SEO. */}
+                    <p className="editorial-item__description hidden-mobile">{step.description}</p>
                   </div>
                 </li>
               ))}

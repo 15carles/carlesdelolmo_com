@@ -206,7 +206,7 @@ export default function LaboratorioVisibilidadIaPage() {
                 motores de IA, sin conectarse a ninguna API.
               </p>
             </header>
-            <ol className="editorial-list max-w-2xl mx-auto mt-xl">
+            <ol className="editorial-list editorial-list--two-col max-w-4xl mx-auto mt-xl">
               {METHODOLOGY_STEPS.map((step, index) => (
                 <li key={step.title} className="editorial-item">
                   <span className="editorial-item__num" aria-hidden="true">

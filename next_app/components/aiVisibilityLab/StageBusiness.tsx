@@ -281,7 +281,8 @@ export default function StageBusiness({
       </h2>
       <p className="text-secondary mb-md">
         Recogemos la información mínima para construir consultas realistas. Estos
-        datos se guardan solo en este dispositivo.
+        datos se guardan solo en este dispositivo; al estudio únicamente viajan
+        los resultados estadísticos descritos al comenzar.
       </p>
 
       {renderTextField('nombre', 'Nombre de la empresa', {

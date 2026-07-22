@@ -181,16 +181,63 @@ export const ACCURACY_SHORT: Record<AccuracyStatus, string> = {
   no_seguro: 'No seguro',
 };
 
-/** Textos de limitación reutilizables (§3, §5, §8, §13). */
+/** Textos de limitación y privacidad reutilizables (§3, §5, §8, §13). */
 export const LIMITATION_TEXTS = {
   initialMethodology:
     'Este laboratorio no garantiza ni certifica la visibilidad general de una empresa. Los resultados representan una muestra obtenida con unas consultas, motores, cuentas y fechas concretas.',
   privacyNotice:
-    'Los datos del análisis se guardan únicamente en este dispositivo mientras no decidas enviarnos una solicitud. No introduzcas información confidencial.',
+    'Los datos privados del análisis (nombre, web, consultas, notas y competidores) se guardan en este dispositivo. Al usar el laboratorio, los resultados estadísticos descritos más abajo se incorporan de forma seudonimizada a la base de investigación del estudio. No introduzcas información confidencial.',
+  duringLabNotice:
+    'Los datos privados del análisis permanecen en este dispositivo. Solo se envían los resultados estadísticos indicados al comenzar.',
+  reportResearchSynced:
+    'Los resultados estadísticos de este análisis ya forman parte de la base de investigación del Laboratorio de Visibilidad en IA.',
+  reportResearchPending:
+    'Los resultados estadísticos de este análisis se incorporan automáticamente a la base de investigación del Laboratorio de Visibilidad en IA; el envío se completará en cuanto haya conexión.',
   variabilityNotice:
     'Las respuestas pueden variar según la fecha, la ubicación, el historial, la cuenta, el modelo utilizado y otros factores propios de cada plataforma.',
   reportConclusion:
     'Este informe representa una muestra de visibilidad generativa obtenida con consultas y condiciones concretas. No certifica cómo aparecerá la empresa en todas las respuestas ni permite atribuir automáticamente las causas. Su utilidad consiste en detectar patrones: ausencia, reconocimiento, recomendación, citación, exactitud y ventaja competitiva. Estos patrones permiten decidir qué aspectos merece la pena analizar con mayor profundidad.',
+} as const;
+
+/**
+ * Bloque de transparencia de la portada (§10 del prompt de investigación).
+ * El desglose de datos compartidos / no compartidos debe mantenerse coherente
+ * con research/snapshot.ts y con la política de privacidad.
+ */
+export const RESEARCH_INTRO = {
+  title: 'Un laboratorio que también construye conocimiento',
+  paragraphs: [
+    'Este laboratorio forma parte de un estudio independiente sobre cómo aparecen las empresas en ChatGPT, Gemini y Perplexity.',
+    'Al utilizarlo, los resultados estadísticos de tu análisis se incorporarán automáticamente a nuestra base de investigación. Así podemos detectar patrones por sectores, territorios, tipos de consulta y motores de IA.',
+    'No guardaremos el nombre de tu empresa, su dominio en texto plano, los nombres de tus competidores, las consultas completas, las respuestas de las IA ni tus notas privadas.',
+    'Los datos se utilizarán para elaborar análisis agregados y mejorar la metodología del laboratorio, nunca para publicar o evaluar individualmente a una empresa.',
+  ],
+  detailsSummary: 'Ver qué datos se comparten',
+  shared: [
+    'Sector',
+    'Categoría de servicio',
+    'Provincia o ámbito',
+    'Tipo de consulta',
+    'Motor analizado',
+    'Si la empresa aparece',
+    'Si es recomendada',
+    'Si la web aparece como fuente',
+    'Si la información es correcta',
+    'Si aparecen competidores (solo cuántos, nunca cuáles)',
+    'Fecha y estado del análisis',
+    'Identificador irreversible del dominio (hash)',
+  ],
+  notShared: [
+    'Nombre de empresa',
+    'Dominio en texto plano',
+    'Nombre de competidores',
+    'Consulta completa',
+    'Respuesta de las IA',
+    'Notas privadas',
+    'Datos de contacto',
+  ],
+  ctaNote:
+    'Al iniciar el laboratorio aceptas su funcionamiento, incluida la contribución estadística descrita. Puedes consultar los detalles en la política de privacidad.',
 } as const;
 
 /** Nombres de eventos de analítica (§16). Solo se envían con consentimiento. */

@@ -1,7 +1,12 @@
 import React from 'react';
-import { Info, ShieldCheck } from 'lucide-react';
+import Link from 'next/link';
+import { FlaskConical, Info, ShieldCheck } from 'lucide-react';
 import styles from './VisibilityLab.module.css';
-import { ENGINES, LIMITATION_TEXTS } from '@/lib/aiVisibilityLab/config';
+import {
+  ENGINES,
+  LIMITATION_TEXTS,
+  RESEARCH_INTRO,
+} from '@/lib/aiVisibilityLab/config';
 
 interface StageIntroProps {
   onStart: () => void;
@@ -62,10 +67,52 @@ export default function StageIntro({
         </ul>
       </div>
 
+      {/* Transparencia del estudio: debe leerse ANTES del botón de inicio (§10). */}
+      <div className="card card--no-hover mt-md" aria-labelledby="lab-research-title">
+        <h3 id="lab-research-title" className="card__title text-left mb-sm">
+          <FlaskConical
+            size={18}
+            aria-hidden="true"
+            style={{ verticalAlign: 'text-bottom', marginRight: '0.4rem' }}
+          />
+          {RESEARCH_INTRO.title}
+        </h3>
+        {RESEARCH_INTRO.paragraphs.map((paragraph) => (
+          <p key={paragraph} className="text-secondary mb-sm">
+            {paragraph}
+          </p>
+        ))}
+        <details className={styles.sharedDataDetails}>
+          <summary>{RESEARCH_INTRO.detailsSummary}</summary>
+          <div className="grid grid-cols-2 gap-md mt-sm">
+            <div>
+              <h4 className="text-left mb-sm">Se comparte</h4>
+              <ul className={styles.stepsList} style={{ marginTop: 0 }}>
+                {RESEARCH_INTRO.shared.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-left mb-sm">No se comparte</h4>
+              <ul className={styles.stepsList} style={{ marginTop: 0 }}>
+                {RESEARCH_INTRO.notShared.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </details>
+      </div>
+
       <div className="mt-lg flex flex-col gap-sm items-center">
         <button type="button" className="btn btn--primary btn--large" onClick={onStart}>
           Iniciar el laboratorio
         </button>
+        <p className="text-muted text-sm mb-0 text-center" style={{ maxWidth: '38rem' }}>
+          {RESEARCH_INTRO.ctaNote}{' '}
+          <Link href="/politica-privacidad">Política de privacidad</Link>.
+        </p>
         <button type="button" className="btn btn--secondary" onClick={onShowMethodology}>
           Ver cómo funciona la metodología
         </button>

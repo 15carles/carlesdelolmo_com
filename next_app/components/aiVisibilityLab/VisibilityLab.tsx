@@ -18,7 +18,7 @@ import type {
   ResearchSelection,
   TestResult,
 } from '@/lib/aiVisibilityLab/types';
-import { ANALYTICS_EVENTS } from '@/lib/aiVisibilityLab/config';
+import { ANALYTICS_EVENTS, LIMITATION_TEXTS } from '@/lib/aiVisibilityLab/config';
 import {
   loadSession,
   saveSession,
@@ -381,6 +381,7 @@ export default function VisibilityLab() {
         </div>
         {showResetConfirm && (
           <ResetConfirm
+            remoteCreated={session.research?.remoteCreated ?? false}
             onCancel={() => setShowResetConfirm(false)}
             onConfirm={confirmReset}
           />
@@ -396,13 +397,19 @@ export default function VisibilityLab() {
 
       {showResetConfirm && (
         <ResetConfirm
+          remoteCreated={session.research?.remoteCreated ?? false}
           onCancel={() => setShowResetConfirm(false)}
           onConfirm={confirmReset}
         />
       )}
 
       {session.stage >= 2 && session.stage <= 4 && (
-        <LabProgress stage={session.stage} />
+        <>
+          <LabProgress stage={session.stage} />
+          <p className={`text-muted text-sm mb-md ${styles.noPrint}`}>
+            {LIMITATION_TEXTS.duringLabNotice}
+          </p>
+        </>
       )}
 
       {session.stage === 1 && (
@@ -472,9 +479,12 @@ export default function VisibilityLab() {
 }
 
 function ResetConfirm({
+  remoteCreated,
   onCancel,
   onConfirm,
 }: {
+  /** La sesión ya envió resultados estadísticos al estudio (§17). */
+  remoteCreated: boolean;
   onCancel: () => void;
   onConfirm: () => void;
 }) {
@@ -493,8 +503,10 @@ function ResetConfirm({
       <p className="mb-md">
         <strong>¿Seguro que quieres borrar todos los datos del laboratorio?</strong>
         <br />
-        Se eliminará el análisis guardado en este dispositivo. Esta acción no se
-        puede deshacer.
+        Esto borrará el análisis guardado en este dispositivo.{' '}
+        {remoteCreated &&
+          'Los resultados estadísticos ya incorporados al estudio se conservarán de acuerdo con la política de privacidad. '}
+        Esta acción no se puede deshacer.
       </p>
       <div className={styles.navRow}>
         <button type="button" className="btn btn--secondary" onClick={onCancel}>

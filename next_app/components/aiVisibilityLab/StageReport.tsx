@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AlertTriangle, Check, Copy, Info, Printer, Send } from 'lucide-react';
+import { AlertTriangle, Check, Copy, FlaskConical, Info, Printer, Send } from 'lucide-react';
 import Link from 'next/link';
 import styles from './VisibilityLab.module.css';
 import type { LabSession, TestResult } from '@/lib/aiVisibilityLab/types';
@@ -125,6 +125,19 @@ export default function StageReport({
     </div>
   );
 
+  // Contribución al estudio (§10): sin botones adicionales, solo información.
+  // Solo aplica a sesiones con capa de investigación (las legacy no envían).
+  const researchNotice = session.research ? (
+    <div className={`${styles.notice} ${styles.noticeInfo} mb-md`} role="status">
+      <FlaskConical size={20} aria-hidden="true" />
+      <p className="mb-0">
+        {session.research.remoteCreated && !session.research.pendingSync
+          ? LIMITATION_TEXTS.reportResearchSynced
+          : LIMITATION_TEXTS.reportResearchPending}
+      </p>
+    </div>
+  ) : null;
+
   // Cabecera del documento impreso (solo visible al exportar a PDF).
   const printHeader = (
     <div className={`${styles.printOnly} ${styles.printDocHeader}`}>
@@ -140,7 +153,7 @@ export default function StageReport({
     return (
       <div>
         {header}
-        <div className={`${styles.notice} ${styles.noticeWarning}`} role="status">
+        <div className={`${styles.notice} ${styles.noticeWarning} mb-md`} role="status">
           <AlertTriangle size={20} aria-hidden="true" />
           <p className="mb-0">
             {onlyNotEvaluable
@@ -148,6 +161,7 @@ export default function StageReport({
               : 'Todavía no hay resultados suficientes para generar una comparación útil. Completa al menos tres pruebas evaluables.'}
           </p>
         </div>
+        {researchNotice}
         <div className={`${styles.navRow} ${styles.noPrint}`}>
           <button type="button" className="btn btn--secondary" onClick={onReset}>
             Borrar todos los datos
@@ -164,6 +178,7 @@ export default function StageReport({
     <div className={styles.reportRoot}>
       {printHeader}
       {header}
+      {researchNotice}
 
       {report.isPartial && (
         <div className={`${styles.notice} ${styles.noticeWarning} mb-md`} role="status">

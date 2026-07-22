@@ -61,9 +61,9 @@ export default function CasoDestacadoSection() {
             <h3 className="case-study-title">LEDescaparate</h3>
 
             <p className="case-study-intro">
-              LEDescaparate partía de un dominio nuevo en un sector muy competitivo. En unos 30 días
-              construimos un ecosistema digital que lo convirtió en referencia, tanto en Google como
-              en las respuestas de IA.
+              LEDescaparate partía de un dominio nuevo en un sector muy competitivo. En sus primeros
+              30 días ganó visibilidad orgánica, alcanzó posiciones destacadas en Google y empezó a
+              aparecer en respuestas generadas por IA.
             </p>
 
             <ul className="case-metrics" aria-label="Resultados del proyecto LEDescaparate">

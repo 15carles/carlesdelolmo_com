@@ -248,7 +248,7 @@ const HOME_SECTION_DEFINITIONS: HomeSectionDefinition[] = [
   {
     id: 'por-que-conmigo',
     name: 'Por qué conmigo',
-    description: 'Factores que hacen que una web esté mejor construida y más preparada para crecer.',
+    description: 'Criterio profesional y forma de plantear los proyectos: diagnóstico, decisiones explicables y un único criterio de principio a fin.',
   },
   {
     id: 'insights',

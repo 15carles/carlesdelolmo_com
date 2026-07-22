@@ -2,6 +2,16 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [v4.3.0] - 2026-07-21
+### Cambiado
+- **Home (Por qué conmigo):** Reescritura de la sección hacia el criterio profesional (diagnóstico antes que herramientas, decisiones explicables, SEO/GEO y negocio alineados, un único criterio de principio a fin), manteniendo distribución, numeración 01–04, botones y enlaces. Descripción de la sección sincronizada en `HOME_SECTION_DEFINITIONS`.
+- **Home (caso destacado):** Matizada la intro de LEDescaparate: se sustituye la afirmación de que el proyecto «se convirtió en referencia» por resultados verificables (visibilidad orgánica, posiciones destacadas en Google y aparición en respuestas de IA). Métricas, imagen y botones intactos.
+- **Home (formulario):** `ContactForm` admite la prop opcional `collapsibleExtras` (activa solo en la home vía `ContactSection`): visibles al cargar nombre, email, empresa, servicios de interés y mensaje; teléfono, identidad visual, servicios adicionales, fecha límite y procedencia quedan en un bloque plegable «Ampliar información» (accesible, con estado persistente y envío posible sin abrirlo). El resto de páginas que usan el formulario no cambian.
+- **Home (contacto):** Copy lateral del formulario alineado con la versión breve («Cuéntame lo esencial y te responderé con una primera valoración clara»), manteniendo etiqueta y datos de contacto.
+
+### Control de versionado
+- Sincronización de `VERSION`, `CHANGELOG.md`, `README.md`, `next_app/package.json`, `next_app/public/llms.txt` y `next_app/public/humans.txt`.
+
 ## [v4.2.0] - 2026-07-21
 ### Cambiado
 - **Home (copy y ritmo):** Reducción del volumen de texto de la portada y reordenación de 12 a 9 secciones para romper la linealidad. La prueba social (`GoogleReviewsSection`) sube justo tras el caso destacado, el método ORBITA se muestra solo con titulares y se recortan subtítulos e ítems.

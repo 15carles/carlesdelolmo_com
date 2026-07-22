@@ -41,12 +41,12 @@ export default function ContactSection() {
             </div>
 
             <h3 className="text-2xl font-bold leading-tight text-left">
-              Rellena el formulario y te responderé con una propuesta clara para tu caso
+              Cuéntame lo esencial y te responderé con una primera valoración clara
             </h3>
 
             <p className="text-secondary leading-relaxed text-left">
-              Con tu punto de partida y tus objetivos te preparo una propuesta adaptada: estrategia,
-              desarrollo web y optimización para buscadores e IA.
+              Con el punto de partida y el objetivo del proyecto puedo valorar el caso. Los datos
+              adicionales son opcionales y solo tienes que completarlos si ya los tienes claros.
             </p>
 
             <div className="text-secondary leading-relaxed text-left">
@@ -66,9 +66,9 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Columna Derecha: El Formulario */}
+          {/* Columna Derecha: El Formulario (versión breve con bloque plegable, solo home) */}
           <div className="col-span-2">
-            <ContactForm />
+            <ContactForm collapsibleExtras />
           </div>
         </div>
       </div>

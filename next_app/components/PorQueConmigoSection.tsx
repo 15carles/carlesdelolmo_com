@@ -8,20 +8,20 @@ interface PorQueItem {
 
 const items: PorQueItem[] = [
   {
-    title: 'Claridad desde el primer vistazo',
-    description: 'Se entiende qué haces, para quién y por qué elegirte.',
+    title: 'Diagnóstico antes que herramientas',
+    description: 'Primero identifico qué está fallando y qué debe resolver la web. La solución viene después.',
   },
   {
-    title: 'SEO y GEO desde la base, no como parche',
-    description: 'Estructura pensada para Google y para que la IA te cite.',
+    title: 'Decisiones explicadas con claridad',
+    description: 'Cada elección tiene una razón comprensible, desde la estructura hasta el enfoque de cada página.',
   },
   {
-    title: 'Base técnica preparada para crecer',
-    description: 'Rápida, ordenada y fácil de mantener y ampliar.',
+    title: 'SEO, GEO y negocio en la misma dirección',
+    description: 'La visibilidad y la conversión no se añaden al final. Forman parte del planteamiento desde el inicio.',
   },
   {
-    title: 'Enfoque estratégico, no solo estético',
-    description: 'Diseño, contenido y negocio empujando en la misma dirección.',
+    title: 'Un único criterio de principio a fin',
+    description: 'Estrategia, contenido, diseño y evolución se trabajan como partes de un mismo sistema.',
   },
 ];
 
@@ -34,11 +34,12 @@ export default function PorQueConmigoSection() {
             <header className="section-header section-header--left">
               <p className="section-header__eyebrow">Por qué conmigo</p>
               <h2 id="por-que-conmigo-title" className="section-header__title">
-                Qué hace que una web esté mejor planteada
+                Primero entiendo el problema. Después planteo la web.
               </h2>
               <p className="section-header__subtitle">
-                No se trata solo de que una web se vea bien. Una base digital sólida ayuda a entender
-                el negocio, transmitir confianza y ganar visibilidad.
+                No parto de una solución cerrada. Primero entiendo el negocio, el problema y el
+                objetivo. A partir de ahí, planteo una web con una función clara y decisiones que
+                se puedan explicar.
               </p>
             </header>
 

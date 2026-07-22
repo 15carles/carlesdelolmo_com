@@ -5703,6 +5703,16 @@ body.has-promo-banner .navbar {
     color: var(--color-text-secondary);
 }
 
+/* Formulario home: toggle del bloque "Ampliar información".
+   Reutiliza la apariencia de .action-link sobre un <button>. */
+.form__toggle-extra {
+    background: none;
+    border: 0;
+    padding-left: 0;
+    padding-right: 0;
+    cursor: pointer;
+}
+
 /* Método ORBITA: lista compacta (solo titulares) */
 .orbita-home-letters {
     margin-bottom: var(--spacing-lg);

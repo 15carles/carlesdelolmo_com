@@ -12,15 +12,24 @@ type ContactFormProps = {
   className?: string;
   defaultServiciosInteres?: string[];
   defaultServiciosAdicionales?: string[];
+  /**
+   * Muestra solo los campos esenciales y agrupa el resto en un bloque
+   * plegable ("Ampliar información"). Se usa únicamente en la home; con el
+   * valor por defecto (false) el formulario se comporta exactamente como
+   * siempre en el resto de páginas.
+   */
+  collapsibleExtras?: boolean;
 };
 
 export default function ContactForm({
   className,
   defaultServiciosInteres = [],
   defaultServiciosAdicionales = [],
+  collapsibleExtras = false,
 }: ContactFormProps) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [showExtras, setShowExtras] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
     nombre: '',
@@ -105,6 +114,12 @@ export default function ContactForm({
       newErrors.acepta_privacidad = 'Debes aceptar la política de privacidad';
     }
 
+    // Si el único campo con validación dentro del bloque plegable (teléfono)
+    // tiene un error mientras está oculto, lo desplegamos para que se vea.
+    if (collapsibleExtras && newErrors.telefono) {
+      setShowExtras(true);
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -155,6 +170,125 @@ export default function ContactForm({
     }
   };
 
+  // Bloques compartidos entre la disposición completa (resto de páginas) y la
+  // plegable de la home (collapsibleExtras), para no duplicar markup. Los
+  // valores viven en formData, así que plegar el bloque nunca pierde lo escrito.
+  const telefonoField = (
+    <div className="form__group">
+      <label htmlFor="telefono" className="form__label text-left">Teléfono</label>
+      <input
+        type="tel"
+        id="telefono"
+        name="telefono"
+        className={`form__input ${errors.telefono ? 'form__input--error' : ''}`}
+        placeholder="Ej. +34 600 000 000"
+        autoComplete="tel"
+        value={formData.telefono}
+        onChange={handleChange}
+      />
+      {errors.telefono && <div className="form__error">{errors.telefono}</div>}
+    </div>
+  );
+
+  const identidadVisualField = (
+    <div className="form__group mt-md">
+      <label htmlFor="identidad_visual" className="form__label text-left">¿Tienes ya una identidad visual?</label>
+      <select
+        id="identidad_visual"
+        name="identidad_visual"
+        className="form__input cursor-pointer w-full"
+        value={formData.identidad_visual}
+        onChange={handleChange}
+      >
+        <option value="">Selecciona una opción</option>
+        <option value="Si, completa">Sí, tengo logotipo y manual de marca</option>
+        <option value="Tengo algo base">Tengo algo básico (logo solo)</option>
+        <option value="No, necesito una">No, necesito crearla desde cero</option>
+        <option value="Quiero rediseñar">Tengo pero quiero un rediseño</option>
+      </select>
+    </div>
+  );
+
+  const contextoBlock = (
+    <>
+      <hr className="border-t mb-md" aria-hidden="true" />
+
+      <div className="mb-md">
+        <h3 className="form__section-title">Contexto y planificación</h3>
+      </div>
+
+      {/* Servicios Adicionales */}
+      <div className="form__group">
+        <label className="form__label text-left">¿Necesitas añadir algo más?</label>
+        <p className="text-muted text-sm mb-sm">Opcional, por si quieres incluir soporte adicional desde el inicio.</p>
+        <div className="grid grid-cols-2 gap-sm mt-sm">
+          <label className="flex items-center gap-sm cursor-pointer justify-start">
+            <input
+              type="checkbox"
+              name="servicios_adicionales"
+              value="Formación"
+              checked={formData.servicios_adicionales.includes('Formación')}
+              onChange={handleChange}
+            />
+            <span className="text-secondary">Formación en Herramientas</span>
+          </label>
+          <label className="flex items-center gap-sm cursor-pointer justify-start">
+            <input
+              type="checkbox"
+              name="servicios_adicionales"
+              value="Automatización"
+              checked={formData.servicios_adicionales.includes('Automatización')}
+              onChange={handleChange}
+            />
+            <span className="text-secondary">Automatizaciones de procesos</span>
+          </label>
+          <label className="flex items-center gap-sm cursor-pointer justify-start">
+            <input
+              type="checkbox"
+              name="servicios_adicionales"
+              value="Mantenimiento"
+              checked={formData.servicios_adicionales.includes('Mantenimiento')}
+              onChange={handleChange}
+            />
+            <span className="text-secondary">Mantenimiento Web Proactivo</span>
+          </label>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-md mt-md">
+        {/* Planificación */}
+        <div className="form__group">
+          <label htmlFor="fecha_limite" className="form__label text-left">Fecha límite deseada</label>
+          <input
+            type="date"
+            id="fecha_limite"
+            name="fecha_limite"
+            className="form__input"
+            value={formData.fecha_limite}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="form__group">
+          <label htmlFor="donde_conocido" className="form__label text-left">¿Cómo has llegado hasta aquí?</label>
+          <select
+            id="donde_conocido"
+            name="donde_conocido"
+            className="form__input cursor-pointer w-full"
+            value={formData.donde_conocido}
+            onChange={handleChange}
+          >
+            <option value="">Selecciona una opción</option>
+            <option value="Google">Buscador Google</option>
+            <option value="Redes Sociales">Redes Sociales (LinkedIn/X)</option>
+            <option value="Recomendación">Recomendación de un conocido</option>
+            <option value="Otros">Otros canales</option>
+          </select>
+        </div>
+      </div>
+    </>
+  );
+
   return (
     <form
       id="budget-form"
@@ -200,20 +334,7 @@ export default function ContactForm({
         </div>
       </div>
 
-      <div className="form__group">
-        <label htmlFor="telefono" className="form__label text-left">Teléfono</label>
-        <input
-          type="tel"
-          id="telefono"
-          name="telefono"
-          className={`form__input ${errors.telefono ? 'form__input--error' : ''}`}
-          placeholder="Ej. +34 600 000 000"
-          autoComplete="tel"
-          value={formData.telefono}
-          onChange={handleChange}
-        />
-        {errors.telefono && <div className="form__error">{errors.telefono}</div>}
-      </div>
+      {!collapsibleExtras && telefonoField}
 
       <div className="form__group">
         <label htmlFor="empresa" className="form__label text-left">Empresa o proyecto</label>
@@ -321,99 +442,37 @@ export default function ContactForm({
         {errors.mensaje && <div className="form__error">{errors.mensaje}</div>}
       </div>
 
-      {/* Identidad Visual */}
-      <div className="form__group mt-md">
-        <label htmlFor="identidad_visual" className="form__label text-left">¿Tienes ya una identidad visual?</label>
-        <select
-          id="identidad_visual"
-          name="identidad_visual"
-          className="form__input cursor-pointer w-full"
-          value={formData.identidad_visual}
-          onChange={handleChange}
-        >
-          <option value="">Selecciona una opción</option>
-          <option value="Si, completa">Sí, tengo logotipo y manual de marca</option>
-          <option value="Tengo algo base">Tengo algo básico (logo solo)</option>
-          <option value="No, necesito una">No, necesito crearla desde cero</option>
-          <option value="Quiero rediseñar">Tengo pero quiero un rediseño</option>
-        </select>
-      </div>
+      {/* Identidad Visual (en la home se muestra dentro del bloque plegable) */}
+      {!collapsibleExtras && identidadVisualField}
 
-      <hr className="border-t mb-md" aria-hidden="true" />
+      {/* Contexto y planificación (en la home, dentro del bloque plegable) */}
+      {!collapsibleExtras && contextoBlock}
 
-      <div className="mb-md">
-        <h3 className="form__section-title">Contexto y planificación</h3>
-      </div>
+      {collapsibleExtras && (
+        <>
+          <div className="form__group mt-md">
+            <button
+              type="button"
+              className="action-link form__toggle-extra"
+              aria-expanded={showExtras}
+              aria-controls="form-info-adicional"
+              onClick={() => setShowExtras(prev => !prev)}
+            >
+              {showExtras ? 'Ocultar información adicional' : 'Ampliar información'}
+            </button>
+            <p className="text-muted text-sm mt-xs mb-0">
+              Opcional. Añade más contexto si ya tienes claros estos detalles.
+            </p>
+          </div>
 
-      {/* Servicios Adicionales */}
-      <div className="form__group">
-        <label className="form__label text-left">¿Necesitas añadir algo más?</label>
-        <p className="text-muted text-sm mb-sm">Opcional, por si quieres incluir soporte adicional desde el inicio.</p>
-        <div className="grid grid-cols-2 gap-sm mt-sm">
-          <label className="flex items-center gap-sm cursor-pointer justify-start">
-            <input
-              type="checkbox"
-              name="servicios_adicionales"
-              value="Formación"
-              checked={formData.servicios_adicionales.includes('Formación')}
-              onChange={handleChange}
-            />
-            <span className="text-secondary">Formación en Herramientas</span>
-          </label>
-          <label className="flex items-center gap-sm cursor-pointer justify-start">
-            <input
-              type="checkbox"
-              name="servicios_adicionales"
-              value="Automatización"
-              checked={formData.servicios_adicionales.includes('Automatización')}
-              onChange={handleChange}
-            />
-            <span className="text-secondary">Automatizaciones de procesos</span>
-          </label>
-          <label className="flex items-center gap-sm cursor-pointer justify-start">
-            <input
-              type="checkbox"
-              name="servicios_adicionales"
-              value="Mantenimiento"
-              checked={formData.servicios_adicionales.includes('Mantenimiento')}
-              onChange={handleChange}
-            />
-            <span className="text-secondary">Mantenimiento Web Proactivo</span>
-          </label>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-2 gap-md mt-md">
-        {/* Planificación */}
-        <div className="form__group">
-          <label htmlFor="fecha_limite" className="form__label text-left">Fecha límite deseada</label>
-          <input
-            type="date"
-            id="fecha_limite"
-            name="fecha_limite"
-            className="form__input"
-            value={formData.fecha_limite}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="form__group">
-          <label htmlFor="donde_conocido" className="form__label text-left">¿Cómo has llegado hasta aquí?</label>
-          <select
-            id="donde_conocido"
-            name="donde_conocido"
-            className="form__input cursor-pointer w-full"
-            value={formData.donde_conocido}
-            onChange={handleChange}
-          >
-            <option value="">Selecciona una opción</option>
-            <option value="Google">Buscador Google</option>
-            <option value="Redes Sociales">Redes Sociales (LinkedIn/X)</option>
-            <option value="Recomendación">Recomendación de un conocido</option>
-            <option value="Otros">Otros canales</option>
-          </select>
-        </div>
-      </div>
+          {/* Los campos permanecen montados: plegar no borra lo escrito */}
+          <div id="form-info-adicional" className="mt-md" hidden={!showExtras}>
+            {telefonoField}
+            {identidadVisualField}
+            {contextoBlock}
+          </div>
+        </>
+      )}
 
       {/* Consentimiento */}
       <div className="form__group mt-lg">

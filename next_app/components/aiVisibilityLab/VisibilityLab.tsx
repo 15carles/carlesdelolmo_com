@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { AlertTriangle } from 'lucide-react';
+import { AlertTriangle, Info } from 'lucide-react';
 import styles from './VisibilityLab.module.css';
 import LabProgress from './LabProgress';
 import StageIntro from './StageIntro';
@@ -10,8 +10,15 @@ import StageBusiness from './StageBusiness';
 import StageQueries from './StageQueries';
 import StageFieldwork from './StageFieldwork';
 import StageReport from './StageReport';
-import type { Business, LabQuery, LabSession, TestResult } from '@/lib/aiVisibilityLab/types';
-import { ANALYTICS_EVENTS } from '@/lib/aiVisibilityLab/config';
+import type {
+  Business,
+  LabQuery,
+  LabSession,
+  ResearchInfo,
+  ResearchSelection,
+  TestResult,
+} from '@/lib/aiVisibilityLab/types';
+import { ANALYTICS_EVENTS, LIMITATION_TEXTS } from '@/lib/aiVisibilityLab/config';
 import {
   loadSession,
   saveSession,
@@ -28,6 +35,9 @@ import {
   buildContactPrefill,
   storeContactPrefill,
 } from '@/lib/aiVisibilityLab/contactPrefill';
+import { createLocalId } from '@/lib/aiVisibilityLab/utils';
+import { useResearchSync } from '@/lib/aiVisibilityLab/research/sync';
+import { hashDomainForResearch } from '@/lib/aiVisibilityLab/research/hash';
 
 /** ¿La sesión guardada tiene progreso real que justifique recuperarla? (§17) */
 function hasProgress(session: LabSession): boolean {
@@ -96,6 +106,11 @@ export default function VisibilityLab() {
     );
   }, []);
 
+  // Sincronización con la base de investigación (research/sync.ts). Inactiva
+  // hasta que la sesión tiene clasificación completa y un resultado guardado;
+  // en pausa mientras se muestra la pantalla de recuperación.
+  useResearchSync(hydrated && !showRecovery ? session : null, mutate);
+
   const goStage = useCallback(
     (stage: number) => {
       mutate((s) => ({ ...s, stage }));
@@ -118,7 +133,12 @@ export default function VisibilityLab() {
   }, []);
 
   const handleBusinessContinue = useCallback(
-    (business: Business) => {
+    async (business: Business, selection: ResearchSelection) => {
+      // Hash irreversible del dominio, calculado SIEMPRE en el navegador: el
+      // dominio en claro nunca sale del dispositivo. Si no puede calcularse
+      // (dominio no interpretable o sin Web Crypto), queda vacío y la sesión
+      // simplemente no sincroniza con el estudio.
+      const domainHash = await hashDomainForResearch(business.dominio);
       mutate((s) => {
         const newBase = buildBaseQueries(business);
         const existingBase = s.queries.filter((q) => !q.personalizada);
@@ -128,7 +148,18 @@ export default function VisibilityLab() {
         const base = sameOriginals ? existingBase : newBase;
         const custom = s.queries.find((q) => q.personalizada);
         const queries = custom ? [...base, custom] : base;
-        return { ...s, business, queries, stage: 3 };
+        const research: ResearchInfo = {
+          publicSessionId: s.research?.publicSessionId ?? createLocalId(),
+          domainHash,
+          sectorSlug: selection.sectorSlug,
+          serviceCategorySlug: selection.serviceCategorySlug,
+          provinceSlug: selection.provinceSlug,
+          completedAtISO: s.research?.completedAtISO ?? null,
+          remoteCreated: s.research?.remoteCreated ?? false,
+          pendingSync: s.research?.pendingSync ?? false,
+          lastSyncedISO: s.research?.lastSyncedISO ?? null,
+        };
+        return { ...s, business, queries, research, stage: 3 };
       });
       trackLabEvent(ANALYTICS_EVENTS.businessCompleted);
       bumpFocus();
@@ -203,8 +234,22 @@ export default function VisibilityLab() {
         });
       }
     }
-    goStage(5);
-  }, [session, goStage]);
+    // Sella la primera finalización para la base de investigación (§7): la
+    // fecha se conserva aunque después se editen resultados.
+    mutate((s) => {
+      const allSaved =
+        s.results.length > 0 && s.results.every((r) => r.status === 'guardada');
+      if (!s.research || !allSaved || s.research.completedAtISO) {
+        return { ...s, stage: 5 };
+      }
+      return {
+        ...s,
+        stage: 5,
+        research: { ...s.research, completedAtISO: new Date().toISOString() },
+      };
+    });
+    bumpFocus();
+  }, [session, mutate, bumpFocus]);
 
   const handleEditResults = useCallback(() => {
     mutate((s) => ({ ...s, stage: 4, fieldworkIntroSeen: true }));
@@ -237,6 +282,19 @@ export default function VisibilityLab() {
       fieldworkIntroSeen: false,
       currentTestIndex: 0,
       stage: 4,
+      // Repetir el análisis es una medición nueva: identificador de
+      // sincronización nuevo para no sobrescribir la sesión remota anterior
+      // (estudio longitudinal, decisión D5 del plan).
+      research: s.research
+        ? {
+            ...s.research,
+            publicSessionId: createLocalId(),
+            completedAtISO: null,
+            remoteCreated: false,
+            pendingSync: false,
+            lastSyncedISO: null,
+          }
+        : s.research,
     }));
     bumpFocus();
   }, [mutate, bumpFocus]);
@@ -267,6 +325,22 @@ export default function VisibilityLab() {
       <p className="mb-0">
         No se ha podido guardar el progreso en este dispositivo. Mantén esta
         página abierta hasta completar el análisis.
+      </p>
+    </div>
+  ) : null;
+
+  // Aviso discreto y no alarmista (§7): el fallo de envío nunca bloquea el
+  // laboratorio; los datos siguen en local y se reintenta automáticamente.
+  const syncPendingBanner = session?.research?.pendingSync ? (
+    <div
+      className={`${styles.notice} ${styles.noticeInfo} mb-md ${styles.noPrint}`}
+      role="status"
+    >
+      <Info size={20} aria-hidden="true" />
+      <p className="mb-0">
+        Los resultados estadísticos del estudio están pendientes de envío. El
+        laboratorio funciona con normalidad y el envío se reintentará
+        automáticamente.
       </p>
     </div>
   ) : null;
@@ -307,6 +381,7 @@ export default function VisibilityLab() {
         </div>
         {showResetConfirm && (
           <ResetConfirm
+            remoteCreated={session.research?.remoteCreated ?? false}
             onCancel={() => setShowResetConfirm(false)}
             onConfirm={confirmReset}
           />
@@ -318,16 +393,23 @@ export default function VisibilityLab() {
   return (
     <div className={styles.lab}>
       {storageBanner}
+      {syncPendingBanner}
 
       {showResetConfirm && (
         <ResetConfirm
+          remoteCreated={session.research?.remoteCreated ?? false}
           onCancel={() => setShowResetConfirm(false)}
           onConfirm={confirmReset}
         />
       )}
 
       {session.stage >= 2 && session.stage <= 4 && (
-        <LabProgress stage={session.stage} />
+        <>
+          <LabProgress stage={session.stage} />
+          <p className={`text-muted text-sm mb-md ${styles.noPrint}`}>
+            {LIMITATION_TEXTS.duringLabNotice}
+          </p>
+        </>
       )}
 
       {session.stage === 1 && (
@@ -341,6 +423,7 @@ export default function VisibilityLab() {
       {session.stage === 2 && (
         <StageBusiness
           business={session.business}
+          research={session.research ?? null}
           onContinue={handleBusinessContinue}
           onBack={handleBackToIntro}
           onClear={requestReset}
@@ -396,9 +479,12 @@ export default function VisibilityLab() {
 }
 
 function ResetConfirm({
+  remoteCreated,
   onCancel,
   onConfirm,
 }: {
+  /** La sesión ya envió resultados estadísticos al estudio (§17). */
+  remoteCreated: boolean;
   onCancel: () => void;
   onConfirm: () => void;
 }) {
@@ -417,8 +503,10 @@ function ResetConfirm({
       <p className="mb-md">
         <strong>¿Seguro que quieres borrar todos los datos del laboratorio?</strong>
         <br />
-        Se eliminará el análisis guardado en este dispositivo. Esta acción no se
-        puede deshacer.
+        Esto borrará el análisis guardado en este dispositivo.{' '}
+        {remoteCreated &&
+          'Los resultados estadísticos ya incorporados al estudio se conservarán de acuerdo con la política de privacidad. '}
+        Esta acción no se puede deshacer.
       </p>
       <div className={styles.navRow}>
         <button type="button" className="btn btn--secondary" onClick={onCancel}>

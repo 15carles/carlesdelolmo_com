@@ -48,7 +48,12 @@ const FAQS = [
   {
     question: '¿Se guardan los datos introducidos?',
     answer:
-      'Los datos del análisis se guardan únicamente en tu dispositivo (almacenamiento local del navegador) mientras no decidas enviar una solicitud de contacto. No se envían a ningún servidor durante el uso normal y puedes borrarlos por completo cuando quieras.',
+      'Los datos privados del análisis (nombre de la empresa, web, consultas completas, notas y competidores) se guardan únicamente en tu dispositivo y puedes borrarlos cuando quieras. Al usar el laboratorio, los resultados estadísticos indicados antes de empezar —sector, categoría de servicio, provincia, tipo de consulta, motor, valoraciones normalizadas y un identificador irreversible del dominio— se incorporan automáticamente y de forma seudonimizada a la base de investigación del estudio. Nunca se envían el dominio en texto plano, los nombres de competidores, las consultas, las respuestas de las IA ni las notas.',
+  },
+  {
+    question: '¿Qué es la base de investigación del laboratorio?',
+    answer:
+      'Es un estudio independiente sobre visibilidad empresarial en motores de IA. Los resultados estadísticos de cada análisis se agregan para detectar patrones por sectores, territorios, tipos de consulta y motores. Los datos se utilizan solo de forma agregada: nunca para publicar o evaluar individualmente a una empresa ni para contactar con quien usa la herramienta. El detalle del tratamiento está en la política de privacidad.',
   },
   {
     question: '¿Qué puedo hacer si mis competidores aparecen y mi empresa no?',
@@ -189,7 +194,8 @@ export default function LaboratorioVisibilidadIaPage() {
           </div>
         </header>
 
-        {/* Herramienta interactiva (cliente, datos solo en el navegador) */}
+        {/* Herramienta interactiva (cliente): datos privados en el navegador;
+            solo los resultados estadísticos se suman al estudio. */}
         <section className="section pt-md pb-xl">
           <div className="container">
             <VisibilityLab />

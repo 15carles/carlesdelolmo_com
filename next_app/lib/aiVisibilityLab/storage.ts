@@ -1,10 +1,14 @@
 /**
  * Persistencia local del laboratorio (spec §15).
  *
- * Todos los datos permanecen en el navegador (localStorage). Nada se envía al
- * servidor durante el uso normal. Las operaciones son tolerantes a fallos: si
- * el almacenamiento no está disponible (modo privado, cuota, etc.) la
- * herramienta debe seguir siendo utilizable durante la sesión (§17).
+ * Los datos privados del análisis permanecen en el navegador (localStorage).
+ * La capa de investigación (session.research + research/snapshot.ts) sincroniza
+ * aparte los resultados estadísticos seudonimizados con Supabase; borrar la
+ * sesión local NO borra los datos ya incorporados al estudio (ver política de
+ * privacidad). Las operaciones son tolerantes a fallos: si el almacenamiento no
+ * está disponible (modo privado, cuota, etc.) la herramienta debe seguir siendo
+ * utilizable durante la sesión (§17). Las sesiones guardadas por versiones
+ * anteriores (sin `research`) siguen cargando y simplemente no sincronizan.
  */
 
 import type { LabSession } from './types';
@@ -92,5 +96,6 @@ export function createSession(): LabSession {
     results: [],
     currentTestIndex: 0,
     fieldworkIntroSeen: false,
+    research: null,
   };
 }

@@ -10,7 +10,14 @@ import StageBusiness from './StageBusiness';
 import StageQueries from './StageQueries';
 import StageFieldwork from './StageFieldwork';
 import StageReport from './StageReport';
-import type { Business, LabQuery, LabSession, TestResult } from '@/lib/aiVisibilityLab/types';
+import type {
+  Business,
+  LabQuery,
+  LabSession,
+  ResearchInfo,
+  ResearchSelection,
+  TestResult,
+} from '@/lib/aiVisibilityLab/types';
 import { ANALYTICS_EVENTS } from '@/lib/aiVisibilityLab/config';
 import {
   loadSession,
@@ -30,6 +37,7 @@ import {
 } from '@/lib/aiVisibilityLab/contactPrefill';
 import { createLocalId } from '@/lib/aiVisibilityLab/utils';
 import { useResearchSync } from '@/lib/aiVisibilityLab/research/sync';
+import { hashDomainForResearch } from '@/lib/aiVisibilityLab/research/hash';
 
 /** ¿La sesión guardada tiene progreso real que justifique recuperarla? (§17) */
 function hasProgress(session: LabSession): boolean {
@@ -125,7 +133,12 @@ export default function VisibilityLab() {
   }, []);
 
   const handleBusinessContinue = useCallback(
-    (business: Business) => {
+    async (business: Business, selection: ResearchSelection) => {
+      // Hash irreversible del dominio, calculado SIEMPRE en el navegador: el
+      // dominio en claro nunca sale del dispositivo. Si no puede calcularse
+      // (dominio no interpretable o sin Web Crypto), queda vacío y la sesión
+      // simplemente no sincroniza con el estudio.
+      const domainHash = await hashDomainForResearch(business.dominio);
       mutate((s) => {
         const newBase = buildBaseQueries(business);
         const existingBase = s.queries.filter((q) => !q.personalizada);
@@ -135,7 +148,18 @@ export default function VisibilityLab() {
         const base = sameOriginals ? existingBase : newBase;
         const custom = s.queries.find((q) => q.personalizada);
         const queries = custom ? [...base, custom] : base;
-        return { ...s, business, queries, stage: 3 };
+        const research: ResearchInfo = {
+          publicSessionId: s.research?.publicSessionId ?? createLocalId(),
+          domainHash,
+          sectorSlug: selection.sectorSlug,
+          serviceCategorySlug: selection.serviceCategorySlug,
+          provinceSlug: selection.provinceSlug,
+          completedAtISO: s.research?.completedAtISO ?? null,
+          remoteCreated: s.research?.remoteCreated ?? false,
+          pendingSync: s.research?.pendingSync ?? false,
+          lastSyncedISO: s.research?.lastSyncedISO ?? null,
+        };
+        return { ...s, business, queries, research, stage: 3 };
       });
       trackLabEvent(ANALYTICS_EVENTS.businessCompleted);
       bumpFocus();
@@ -392,6 +416,7 @@ export default function VisibilityLab() {
       {session.stage === 2 && (
         <StageBusiness
           business={session.business}
+          research={session.research ?? null}
           onContinue={handleBusinessContinue}
           onBack={handleBackToIntro}
           onClear={requestReset}

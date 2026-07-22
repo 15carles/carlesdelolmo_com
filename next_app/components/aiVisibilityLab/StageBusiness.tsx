@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
 import { Plus, Trash2 } from 'lucide-react';
 import styles from './VisibilityLab.module.css';
-import type { Business } from '@/lib/aiVisibilityLab/types';
+import type { Business, ResearchSelection } from '@/lib/aiVisibilityLab/types';
 import { LIMITS } from '@/lib/aiVisibilityLab/config';
 import { normalizeDomain } from '@/lib/aiVisibilityLab/utils';
+import {
+  RESEARCH_SECTORS,
+  RESEARCH_SERVICE_CATEGORIES,
+  RESEARCH_PROVINCE_SCOPES,
+  RESEARCH_PROVINCES,
+  isValidSectorSlug,
+  isValidServiceCategorySlug,
+  isValidProvinceSlug,
+} from '@/lib/aiVisibilityLab/research/catalogs';
 
 interface StageBusinessProps {
   business: Business;
-  onContinue: (business: Business) => void;
+  /** Clasificación para el estudio previamente elegida (null en sesiones nuevas). */
+  research: ResearchSelection | null;
+  onContinue: (business: Business, research: ResearchSelection) => void;
   onBack: () => void;
   onClear: () => void;
   headingRef: React.RefObject<HTMLHeadingElement | null>;
@@ -25,6 +36,7 @@ function lenError(value: string, min: number, max: number): string | null {
 
 export default function StageBusiness({
   business,
+  research,
   onContinue,
   onBack,
   onClear,
@@ -34,7 +46,21 @@ export default function StageBusiness({
     ...business,
     competidores: [...business.competidores],
   });
+  const [classification, setClassification] = useState<ResearchSelection>({
+    sectorSlug: research?.sectorSlug ?? '',
+    serviceCategorySlug: research?.serviceCategorySlug ?? '',
+    provinceSlug: research?.provinceSlug ?? '',
+  });
   const [errors, setErrors] = useState<Errors>({});
+
+  const setClassificationField = (key: keyof ResearchSelection, value: string) => {
+    setClassification((prev) => ({ ...prev, [key]: value }));
+    setErrors((prev) => {
+      const next = { ...prev };
+      delete next[key];
+      return next;
+    });
+  };
 
   const setField = (key: keyof Business, value: string) => {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -97,6 +123,17 @@ export default function StageBusiness({
     const necesidadErr = lenError(form.necesidad, LIMITS.necesidadMin, LIMITS.necesidadMax);
     if (necesidadErr) next.necesidad = necesidadErr;
 
+    // Clasificación para el estudio (§9): obligatoria y de lista cerrada.
+    if (!isValidSectorSlug(classification.sectorSlug)) {
+      next.sectorSlug = 'Selecciona un sector.';
+    }
+    if (!isValidServiceCategorySlug(classification.serviceCategorySlug)) {
+      next.serviceCategorySlug = 'Selecciona una categoría de servicio.';
+    }
+    if (!isValidProvinceSlug(classification.provinceSlug)) {
+      next.provinceSlug = 'Selecciona una provincia o ámbito.';
+    }
+
     // Competidores: opcionales, pero si hay texto deben ser válidos.
     const seen = new Set<string>();
     form.competidores.forEach((raw, index) => {
@@ -140,7 +177,39 @@ export default function StageBusiness({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const { ok, normalized } = validate();
-    if (ok) onContinue(normalized);
+    if (ok) onContinue(normalized, { ...classification });
+  };
+
+  const renderSelect = (
+    key: keyof ResearchSelection,
+    label: string,
+    children: React.ReactNode,
+  ) => {
+    const id = `lab-${key}`;
+    const errId = `${id}-error`;
+    const error = errors[key];
+    return (
+      <div className="form__group">
+        <label htmlFor={id} className="form__label text-left">
+          {label} *
+        </label>
+        <select
+          id={id}
+          className={`form__input cursor-pointer w-full ${error ? 'form__input--error' : ''}`}
+          value={classification[key]}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={error ? errId : undefined}
+          onChange={(e) => setClassificationField(key, e.target.value)}
+        >
+          {children}
+        </select>
+        {error && (
+          <div id={errId} className="form__error">
+            {error}
+          </div>
+        )}
+      </div>
+    );
   };
 
   const renderTextField = (
@@ -251,6 +320,63 @@ export default function StageBusiness({
           'Ej. diseñar e instalar una cocina a medida aprovechando un espacio pequeño',
         help: 'Describe una necesidad que una persona real podría explicar al pedir una recomendación.',
       })}
+
+      <fieldset className={styles.optionGroup}>
+        <legend className={styles.optionLegend}>Clasificación para el estudio</legend>
+        <p className="text-muted text-sm mb-sm">
+          Estos tres campos sirven para clasificar los resultados del estudio por
+          sectores y territorios. Son categorías generales: no identifican a tu
+          empresa.
+        </p>
+
+        {renderSelect(
+          'sectorSlug',
+          'Sector',
+          <>
+            <option value="">Selecciona un sector</option>
+            {RESEARCH_SECTORS.map((option) => (
+              <option key={option.slug} value={option.slug}>
+                {option.label}
+              </option>
+            ))}
+          </>,
+        )}
+
+        {renderSelect(
+          'serviceCategorySlug',
+          'Categoría de servicio',
+          <>
+            <option value="">Selecciona una categoría</option>
+            {RESEARCH_SERVICE_CATEGORIES.map((option) => (
+              <option key={option.slug} value={option.slug}>
+                {option.label}
+              </option>
+            ))}
+          </>,
+        )}
+
+        {renderSelect(
+          'provinceSlug',
+          'Provincia o ámbito geográfico',
+          <>
+            <option value="">Selecciona una provincia o ámbito</option>
+            <optgroup label="Ámbito">
+              {RESEARCH_PROVINCE_SCOPES.map((option) => (
+                <option key={option.slug} value={option.slug}>
+                  {option.label}
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label="Provincias">
+              {RESEARCH_PROVINCES.map((option) => (
+                <option key={option.slug} value={option.slug}>
+                  {option.label}
+                </option>
+              ))}
+            </optgroup>
+          </>,
+        )}
+      </fieldset>
 
       <fieldset className={styles.optionGroup}>
         <legend className={styles.optionLegend}>

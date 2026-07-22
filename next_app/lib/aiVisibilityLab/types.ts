@@ -115,6 +115,12 @@ export interface ResearchInfo {
   lastSyncedISO: string | null;
 }
 
+/** Clasificación elegida en el formulario (subconjunto editable de ResearchInfo). */
+export type ResearchSelection = Pick<
+  ResearchInfo,
+  'sectorSlug' | 'serviceCategorySlug' | 'provinceSlug'
+>;
+
 /** Sesión completa del laboratorio (§20). */
 export interface LabSession {
   localId: string;

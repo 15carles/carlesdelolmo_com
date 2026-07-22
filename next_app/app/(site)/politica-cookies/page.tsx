@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import LegalLayout from '@/components/LegalLayout';
 
 // Nota: metadata debe ir en un archivo separado o usar un Client Component que lo maneje si necesitamos interactividad.
@@ -14,9 +15,9 @@ export default function PoliticaCookies() {
   };
 
   return (
-    <LegalLayout 
-      title="Política de Cookies" 
-      lastUpdate="8 de marzo de 2026"
+    <LegalLayout
+      title="Política de Cookies"
+      lastUpdate="22 de julio de 2026"
       metadataText="En esta página se explica qué cookies utiliza este sitio web, con qué finalidad, quién puede tratarlas y cómo puedes gestionar tu consentimiento."
     >
       <section aria-labelledby="que-son-las-cookies">
@@ -59,6 +60,17 @@ export default function PoliticaCookies() {
           </ul>
           <p>La información recopilada se utiliza únicamente con fines estadísticos.</p>
           <p>Estas cookies solo se instalan cuando el usuario acepta las cookies analíticas en el banner de consentimiento.</p>
+        </section>
+
+        <section aria-labelledby="almacenamiento-local">
+          <h3 id="almacenamiento-local">2.3 Almacenamiento local del navegador (no cookies)</h3>
+          <p>Algunas funcionalidades del sitio utilizan el almacenamiento local del navegador (localStorage), un mecanismo técnico distinto de las cookies que no se envía automáticamente al servidor:</p>
+          <ul>
+            <li>guardar la configuración de consentimiento de cookies</li>
+            <li>guardar el progreso y los datos privados del Laboratorio de visibilidad en IA en el propio dispositivo</li>
+          </ul>
+          <p>Este almacenamiento es técnico y necesario para dichas funcionalidades; el usuario puede borrarlo desde la propia herramienta o desde la configuración del navegador.</p>
+          <p>El envío de resultados estadísticos del Laboratorio de visibilidad en IA a la base de investigación no utiliza cookies ni depende del consentimiento de cookies analíticas; se describe en la <Link href="/politica-privacidad#laboratorio-visibilidad-ia">Política de Privacidad</Link>.</p>
         </section>
       </section>
 

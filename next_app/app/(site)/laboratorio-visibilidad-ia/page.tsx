@@ -135,11 +135,31 @@ const WHY_RESULTS_CHANGE = [
 ];
 
 const METHODOLOGY_STEPS = [
-  'Describe tu empresa: nombre, web, servicio principal, ubicación, tipo de cliente y necesidad.',
-  'El laboratorio genera tres consultas con plantillas: descubrimiento, recomendación y necesidad concreta.',
-  'Realizas cada consulta en ChatGPT, Gemini y Perplexity, en una conversación nueva y sin añadir contexto.',
-  'Registras manualmente si apareces, si te recomiendan, si citan tu web y si aparecen competidores.',
-  'Obtienes un informe con presencia, recomendación, citación, exactitud y competencia, más prioridades sugeridas.',
+  {
+    title: 'Describe tu empresa',
+    description:
+      'Nombre, web, servicio principal, ubicación, tipo de cliente y necesidad. Solo lo mínimo para construir consultas realistas.',
+  },
+  {
+    title: 'Se generan tres consultas',
+    description:
+      'El laboratorio las crea con plantillas deterministas: descubrimiento, recomendación y necesidad concreta. Sin usar IA para generarlas.',
+  },
+  {
+    title: 'Pruébalas en cada motor',
+    description:
+      'Realizas cada consulta en ChatGPT, Gemini y Perplexity, en una conversación nueva y sin añadir contexto, para que sean comparables.',
+  },
+  {
+    title: 'Registra lo que aparece',
+    description:
+      'Anotas manualmente si apareces, si te recomiendan, si citan tu web y si aparecen competidores.',
+  },
+  {
+    title: 'Consulta el informe',
+    description:
+      'Obtienes presencia, recomendación, citación, exactitud y competencia, con hasta tres prioridades sugeridas.',
+  },
 ];
 
 export default function LaboratorioVisibilidadIaPage() {
@@ -186,9 +206,17 @@ export default function LaboratorioVisibilidadIaPage() {
                 motores de IA, sin conectarse a ninguna API.
               </p>
             </header>
-            <ol className="editorial-list max-w-narrow mx-auto">
-              {METHODOLOGY_STEPS.map((step) => (
-                <li key={step}>{step}</li>
+            <ol className="editorial-list max-w-2xl mx-auto mt-xl">
+              {METHODOLOGY_STEPS.map((step, index) => (
+                <li key={step.title} className="editorial-item">
+                  <span className="editorial-item__num" aria-hidden="true">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h3 className="editorial-item__title">{step.title}</h3>
+                    <p className="editorial-item__description">{step.description}</p>
+                  </div>
+                </li>
               ))}
             </ol>
           </div>

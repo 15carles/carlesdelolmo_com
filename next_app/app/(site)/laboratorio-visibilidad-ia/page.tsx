@@ -194,7 +194,8 @@ export default function LaboratorioVisibilidadIaPage() {
           </div>
         </header>
 
-        {/* Herramienta interactiva (cliente, datos solo en el navegador) */}
+        {/* Herramienta interactiva (cliente): datos privados en el navegador;
+            solo los resultados estadísticos se suman al estudio. */}
         <section className="section pt-md pb-xl">
           <div className="container">
             <VisibilityLab />

@@ -2,6 +2,25 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [v4.2.0] - 2026-07-22
+### Añadido
+- **Laboratorio de visibilidad en IA — base de investigación:** Además de generar el informe local, el laboratorio incorpora automáticamente los resultados estadísticos de cada análisis a una base de investigación en Supabase (región UE), como contraprestación del uso gratuito de la herramienta. El funcionamiento se explica de forma visible antes de empezar, con desglose de qué datos se comparten y cuáles no.
+- **Esquema en Supabase:** Siete tablas normalizadas (`ai_visibility_lab_*`: motores, sectores, categorías de servicio, provincias, sesiones, consultas y resultados) con catálogos sembrados, restricciones de calidad, RLS con denegación total y función RPC `ai_visibility_lab_submit_snapshot` como única vía de escritura. Cinco vistas de estadísticas agregadas y de comprobación interna. Migraciones reproducibles en `next_app/supabase/migrations/`.
+- **Clasificación para el estudio:** El formulario inicial solicita sector, categoría de servicio y provincia o ámbito mediante selectores normalizados obligatorios. La descripción libre del servicio y la ubicación se siguen usando solo en el navegador para generar las consultas.
+- **Seudonimización del dominio:** Hash SHA-256 del dominio normalizado, calculado en el navegador; el dominio en texto plano nunca se transmite ni se almacena, y no puede reconstruirse desde la base.
+- **Endpoint `/api/lab-research`:** Ruta edge con validación estricta, límite de tamaño y rate limit por IP, que reenvía el snapshot a la RPC con la clave publishable únicamente en servidor.
+- **Sincronización idempotente:** Creación de la sesión remota al guardar el primer resultado, envío del snapshot completo con reintentos no bloqueantes y reconciliación en servidor (contadores derivados, sin duplicados). Repetir un análisis genera una nueva sesión remota para preservar el estudio longitudinal.
+- **Documentación:** Fichas de fase (`next_app/docs/lab-investigacion-phase*`) y evaluación de interés legítimo (`next_app/docs/lab-investigacion-lia.md`), esta última marcada como borrador pendiente de revisión profesional antes del despliegue definitivo.
+
+### Cambiado
+- **Copy de transparencia del laboratorio:** Portada, formulario, aviso durante el uso, informe final y diálogo de borrado local reescritos para explicar la contribución estadística; se retira toda afirmación de que ningún dato sale del dispositivo. El borrado local aclara que los resultados ya incorporados al estudio se conservan.
+- **Política de privacidad:** Nueva sección del laboratorio (datos recogidos y no recogidos, hash del dominio, base jurídica de interés legítimo, conservación con revisión bienal, infraestructura, derechos y separación de tratamientos) y renumeración del resto.
+- **Política de cookies:** Aclaración del almacenamiento local del navegador y de que el envío de investigación no utiliza cookies ni depende del consentimiento analítico.
+- **Metodología:** Versión `mvp-1.1`, que añade la clasificación obligatoria y la contribución estadística.
+
+### Control de versionado
+- Sincronización de `VERSION`, `CHANGELOG.md`, `README.md`, `next_app/package.json`, `next_app/public/llms.txt` y `next_app/public/humans.txt`.
+
 ## [v4.1.0] - 2026-07-21
 ### Añadido
 - **Embudo SEO/GEO:** Nuevo componente `SeoServiceChooser` («¿cuál necesito?») que presenta Auditoría, Posicionamiento y Autoridad para IAs como tres momentos de un mismo proceso; incrustado en las tres páginas de servicio y en `/pricing`.

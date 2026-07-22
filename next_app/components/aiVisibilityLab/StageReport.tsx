@@ -126,17 +126,23 @@ export default function StageReport({
   );
 
   // Contribución al estudio (§10): sin botones adicionales, solo información.
-  // Solo aplica a sesiones con capa de investigación (las legacy no envían).
-  const researchNotice = session.research ? (
-    <div className={`${styles.notice} ${styles.noticeInfo} mb-md`} role="status">
-      <FlaskConical size={20} aria-hidden="true" />
-      <p className="mb-0">
-        {session.research.remoteCreated && !session.research.pendingSync
-          ? LIMITATION_TEXTS.reportResearchSynced
-          : LIMITATION_TEXTS.reportResearchPending}
-      </p>
-    </div>
-  ) : null;
+  // Solo aplica a sesiones con capa de investigación (las legacy no envían) y
+  // únicamente cuando hay algo que contribuir: si ya se confirmó el envío o si
+  // existe al menos un resultado guardado pendiente de enviar. Sin resultados
+  // guardados el snapshot es null, así que no se anuncia ninguna contribución.
+  const hasSavedResult = results.some((r) => r.status === 'guardada');
+  const research = session.research;
+  const researchNotice =
+    research && (research.remoteCreated || hasSavedResult) ? (
+      <div className={`${styles.notice} ${styles.noticeInfo} mb-md`} role="status">
+        <FlaskConical size={20} aria-hidden="true" />
+        <p className="mb-0">
+          {research.remoteCreated && !research.pendingSync
+            ? LIMITATION_TEXTS.reportResearchSynced
+            : LIMITATION_TEXTS.reportResearchPending}
+        </p>
+      </div>
+    ) : null;
 
   // Cabecera del documento impreso (solo visible al exportar a PDF).
   const printHeader = (

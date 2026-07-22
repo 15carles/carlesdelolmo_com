@@ -186,7 +186,7 @@ export const LIMITATION_TEXTS = {
   initialMethodology:
     'Este laboratorio no garantiza ni certifica la visibilidad general de una empresa. Los resultados representan una muestra obtenida con unas consultas, motores, cuentas y fechas concretas.',
   privacyNotice:
-    'Los datos privados del análisis (nombre, web, consultas, notas y competidores) se guardan en este dispositivo. Al usar el laboratorio, los resultados estadísticos descritos más abajo se incorporan de forma seudonimizada a la base de investigación del estudio. No introduzcas información confidencial.',
+    'Los datos privados de tu análisis —nombre, web, consultas, notas y competidores— se guardan solo en este dispositivo. Más abajo te explicamos qué resultados estadísticos se suman al estudio. No introduzcas información confidencial.',
   duringLabNotice:
     'Los datos privados del análisis permanecen en este dispositivo. Solo se envían los resultados estadísticos indicados al comenzar.',
   reportResearchSynced:
@@ -225,6 +225,8 @@ export const RESEARCH_INTRO = {
     'Si la información es correcta',
     'Si aparecen competidores (solo cuántos, nunca cuáles)',
     'Fecha y estado del análisis',
+    'Versión de la metodología',
+    'Identificador técnico de la sesión',
     'Identificador irreversible del dominio (hash)',
   ],
   notShared: [

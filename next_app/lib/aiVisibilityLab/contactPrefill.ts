@@ -49,7 +49,7 @@ function competitorText(r: TestResult): string {
   if (parts.length > 0) return parts.join(', ');
   if (r.ningunCompetidor) return 'ninguno';
   if (r.competidorNoSeguro) return 'no seguro';
-  return '—';
+  return 'n/d';
 }
 
 function formatDate(iso: string | null): string {
@@ -85,10 +85,10 @@ export function buildResultsSummaryText(
     .map((r) => {
       const base = `- ${queryLabel(session, r.queryId)} · ${engineName(
         r.engineId,
-      )} · ${r.aparicion ? APPEARANCE_SHORT[r.aparicion] : '—'}`;
+      )} · ${r.aparicion ? APPEARANCE_SHORT[r.aparicion] : 'n/d'}`;
       const extra = appears(r.aparicion)
-        ? ` · Fuente: ${r.fuente ? SOURCE_SHORT[r.fuente] : '—'} · Exactitud: ${
-            r.exactitud ? ACCURACY_SHORT[r.exactitud] : '—'
+        ? ` · Fuente: ${r.fuente ? SOURCE_SHORT[r.fuente] : 'n/d'} · Exactitud: ${
+            r.exactitud ? ACCURACY_SHORT[r.exactitud] : 'n/d'
           }`
         : '';
       return `${base}${extra} · Competidores: ${competitorText(r)}`;
@@ -99,13 +99,13 @@ export function buildResultsSummaryText(
     `Metodología: ${METHODOLOGY_VERSION}`,
     `Fecha: ${formatDate(session.updatedISO)}`,
     '',
-    '— Datos del negocio —',
+    'DATOS DEL NEGOCIO',
     `Empresa: ${business.nombre}`,
     `Dominio: ${domainHost(business.dominio)}`,
     `Servicio analizado: ${business.servicio}`,
     `Ubicación: ${business.ubicacion}`,
     '',
-    '— Resultados globales —',
+    'RESULTADOS GLOBALES',
     `Pruebas evaluables: ${metrics.evaluables}`,
     `Menciones (presencia): ${metrics.presencia}`,
     `Recomendaciones destacadas: ${metrics.recomendaciones}`,
@@ -118,7 +118,7 @@ export function buildResultsSummaryText(
   ];
 
   if (detalle.length) {
-    lines.push('', '— Detalle por comprobación —', ...detalle);
+    lines.push('', 'DETALLE POR COMPROBACIÓN', ...detalle);
   }
 
   return lines.join('\n');

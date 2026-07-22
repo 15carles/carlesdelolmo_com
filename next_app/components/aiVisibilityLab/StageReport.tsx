@@ -28,7 +28,7 @@ interface StageReportProps {
 }
 
 function formatDate(iso: string | null): string {
-  if (!iso) return '—';
+  if (!iso) return 'n/d';
   try {
     return new Date(iso).toLocaleDateString('es-ES', {
       day: '2-digit',
@@ -36,7 +36,7 @@ function formatDate(iso: string | null): string {
       year: 'numeric',
     });
   } catch {
-    return '—';
+    return 'n/d';
   }
 }
 
@@ -46,7 +46,7 @@ function competitorCell(r: TestResult): string {
   if (parts.length > 0) return parts.join(', ');
   if (r.ningunCompetidor) return 'Ninguno';
   if (r.competidorNoSeguro) return 'No seguro';
-  return '—';
+  return 'n/d';
 }
 
 export default function StageReport({
@@ -262,7 +262,7 @@ export default function StageReport({
         )}
       </div>
 
-      {/* Tabla completa (§10) — nueva hoja en el PDF */}
+      {/* Tabla completa (§10): nueva hoja en el PDF */}
       <section className={styles.pageBreak}>
       <h3 className="mt-lg">Tabla de comprobaciones</h3>
       <div className={styles.tableWrap}>
@@ -298,9 +298,9 @@ export default function StageReport({
                       r.aparicion && APPEARANCE_SHORT[r.aparicion]
                     )}
                   </td>
-                  <td>{r.fuente ? SOURCE_SHORT[r.fuente] : '—'}</td>
-                  <td>{r.exactitud ? ACCURACY_SHORT[r.exactitud] : '—'}</td>
-                  <td>{pending ? '—' : competitorCell(r)}</td>
+                  <td>{r.fuente ? SOURCE_SHORT[r.fuente] : 'n/d'}</td>
+                  <td>{r.exactitud ? ACCURACY_SHORT[r.exactitud] : 'n/d'}</td>
+                  <td>{pending ? 'n/d' : competitorCell(r)}</td>
                   <td>{formatDate(r.fechaISO)}</td>
                 </tr>
               );
@@ -310,7 +310,7 @@ export default function StageReport({
       </div>
       </section>
 
-      {/* Diagnóstico, prioridades y conclusión (§11-§13) — nueva hoja en el PDF */}
+      {/* Diagnóstico, prioridades y conclusión (§11-§13): nueva hoja en el PDF */}
       <section className={styles.pageBreak}>
       {/* Diagnóstico (§11) */}
       {report.diagnoses.length > 0 && (
@@ -368,7 +368,7 @@ export default function StageReport({
       </div>
       </section>
 
-      {/* Acciones (§14) — enviar el resultado a Carles de forma cómoda */}
+      {/* Acciones (§14): enviar el resultado a Carles de forma cómoda */}
       <div className={`card card--no-hover mt-lg ${styles.noPrint}`}>
         <h3 className="mb-sm">¿Quieres que revisemos juntos estos resultados?</h3>
         <p className="text-secondary mb-md">

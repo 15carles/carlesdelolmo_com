@@ -48,7 +48,7 @@ const FAQS = [
   {
     question: '¿Se guardan los datos introducidos?',
     answer:
-      'Los datos privados del análisis (nombre de la empresa, web, consultas completas, notas y competidores) se guardan únicamente en tu dispositivo y puedes borrarlos cuando quieras. Al usar el laboratorio, los resultados estadísticos indicados antes de empezar —sector, categoría de servicio, provincia, tipo de consulta, motor, valoraciones normalizadas y un identificador irreversible del dominio— se incorporan automáticamente y de forma seudonimizada a la base de investigación del estudio. Nunca se envían el dominio en texto plano, los nombres de competidores, las consultas, las respuestas de las IA ni las notas.',
+      'Los datos privados del análisis (nombre de la empresa, web, consultas completas, notas y competidores) se guardan únicamente en tu dispositivo y puedes borrarlos cuando quieras. Al usar el laboratorio, los resultados estadísticos indicados antes de empezar (sector, categoría de servicio, provincia, tipo de consulta, motor, valoraciones normalizadas y un identificador irreversible del dominio) se incorporan automáticamente y de forma seudonimizada a la base de investigación del estudio. Nunca se envían el dominio en texto plano, los nombres de competidores, las consultas, las respuestas de las IA ni las notas.',
   },
   {
     question: '¿Qué es la base de investigación del laboratorio?',

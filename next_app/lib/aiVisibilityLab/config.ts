@@ -198,4 +198,4 @@ export const ANALYTICS_EVENTS = {
 export const CONTACT_PRESELECTED_SERVICES = ['Auditoría', 'SEO/GEO'] as const;
 
 /** Enlace al artículo relacionado sobre por qué las webs no aparecen en IA (§14). */
-export const RELATED_ARTICLE_HREF = '/servicio-seo/autoridad-digital-ias';
+export const RELATED_ARTICLE_HREF = '/blog/por-que-webs-no-aparecen-respuestas-ia';

@@ -100,6 +100,7 @@ const NAV_LINKS: FooterLink[] = [
   { href: '/#servicios', label: 'Servicios' },
   { href: '/blog', label: 'Blog' },
   { href: '/demos-interactivas', label: 'Demos' },
+  { href: '/laboratorio-visibilidad-ia', label: 'Laboratorio de visibilidad en IA' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/contacto', label: 'Contacto' },
 ];

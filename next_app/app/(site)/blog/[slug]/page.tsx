@@ -353,6 +353,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                   <Link href="/auditoria-gratuita" className="btn btn--primary">
                     Auditoría gratuita
                   </Link>
+                  <p className="article-aside__cta-text mt-sm">
+                    ¿Prefieres empezar tú?{' '}
+                    <Link href="/laboratorio-visibilidad-ia">
+                      Comprueba gratis si apareces en la IA
+                    </Link>
+                    .
+                  </p>
                 </div>
               </div>
             </aside>

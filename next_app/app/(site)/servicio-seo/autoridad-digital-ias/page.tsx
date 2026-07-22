@@ -413,13 +413,19 @@ export default function AutoridadDigitalIas() {
                 dispersas y datos de marca inconsistentes. A ojos de una persona pueden parecer correctas. A ojos de un
                 sistema de IA, pueden resultar ambiguas.
               </p>
-              <p className="text-secondary mb-0">
+              <p className="text-secondary mb-md">
                 Y cuando una web es ambigua, pierde fuerza. Si quieres ver ese problema explicado con detalle, aquí tienes
                 el análisis sobre{' '}
                 <Link href="/blog/por-que-webs-no-aparecen-respuestas-ia">
                   por qué muchas webs no aparecen en respuestas de IA
                 </Link>
                 .
+              </p>
+              <p className="text-secondary mb-0">
+                ¿Quieres comprobarlo con tu propio negocio? Con el{' '}
+                <Link href="/laboratorio-visibilidad-ia">Laboratorio de visibilidad en IA</Link>{' '}
+                puedes ver, gratis y en pocos minutos, si ChatGPT, Gemini o Perplexity te mencionan cuando alguien busca
+                servicios como los tuyos.
               </p>
             </div>
           </div>

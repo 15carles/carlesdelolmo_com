@@ -240,6 +240,9 @@ export default function AuditoriaGratuitaPage() {
               <Link href="/servicio-seo/auditoria-seo-geo" className="btn btn--glass btn--large">
                 Ver qué incluye el servicio
               </Link>
+              <Link href="/laboratorio-visibilidad-ia" className="btn btn--glass btn--large">
+                Compruébalo tú mismo gratis
+              </Link>
             </div>
 
             <div className="mt-xl flex items-center gap-sm" style={{ justifyContent: 'center', color: 'var(--color-text-muted)' }}>

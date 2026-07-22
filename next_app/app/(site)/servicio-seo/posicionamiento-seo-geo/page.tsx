@@ -172,6 +172,12 @@ export default function PosicionamientoSeoGeo() {
                   todos estos canales de forma simultánea.
                 </p>
 
+                <p className="text-secondary mb-xl">
+                  ¿Aún no sabes cómo apareces hoy? Empieza por el{' '}
+                  <Link href="/laboratorio-visibilidad-ia">Laboratorio de visibilidad en IA</Link>{' '}
+                  y comprueba, gratis, si los motores de IA ya te mencionan y recomiendan.
+                </p>
+
                 <div className="card card--no-hover p-lg">
                   <div className="flex items-center gap-4 mb-md">
                     <span className="text-2xl font-bold gradient-text">600€/mes</span>

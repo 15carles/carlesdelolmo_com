@@ -50,6 +50,7 @@ export default function QueResuelvoSection() {
               <Link href="/diseno-web/valencia" className="btn btn--primary">Ver servicio principal</Link>
               <Link href="/pricing" className="action-link">Ver servicios y precios</Link>
               <Link href="/blog/estructura-ideal-pagina-web-empresas" className="action-link">Ver guía de estructura</Link>
+              <Link href="/laboratorio-visibilidad-ia" className="action-link">Comprueba si te entienden las IAs</Link>
             </div>
           </div>
 

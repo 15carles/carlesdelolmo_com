@@ -24,6 +24,7 @@ const SERVICES_DATA = [
       { title: 'Auditoría SEO + GEO', href: '/servicio-seo/auditoria-seo-geo' },
       { title: 'Posicionamiento SEO + GEO', href: '/servicio-seo/posicionamiento-seo-geo' },
       { title: 'Autoridad Digital para IAs', href: '/servicio-seo/autoridad-digital-ias' },
+      { title: 'Laboratorio de visibilidad en IA', href: '/laboratorio-visibilidad-ia' },
     ]
   },
   { title: 'Desarrollo web a medida', href: '/desarrollo-web-a-medida' },

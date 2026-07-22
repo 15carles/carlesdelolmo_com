@@ -211,6 +211,12 @@ export default function AuditoriaSeoGeo() {
                   Recibirás un documento accionable con prioridades claras: qué arreglar hoy para ver resultados mañana.
                 </p>
 
+                <p className="text-secondary mb-xl">
+                  ¿Quieres una primera señal antes de reservar? Con el{' '}
+                  <Link href="/laboratorio-visibilidad-ia">Laboratorio de visibilidad en IA</Link>{' '}
+                  puedes comprobar tú mismo, gratis, si ChatGPT, Gemini o Perplexity ya mencionan tu empresa.
+                </p>
+
                 <div className="card card--no-hover p-lg">
                   <div className="flex items-center gap-4 mb-md">
                     <span className="text-2xl font-bold gradient-text">750€</span>

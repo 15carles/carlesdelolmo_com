@@ -56,6 +56,7 @@ export default function InsightsSection() {
 
             <div className="section-actions section-actions--left mt-xl insights-actions" role="group" aria-label="Acciones de insights">
               <Link href="/blog" className="btn btn--primary">Ver todos los insights</Link>
+              <Link href="/laboratorio-visibilidad-ia" className="action-link">Comprueba tu visibilidad en IA</Link>
               <Link href="/contacto" className="action-link">Hablemos de tu proyecto</Link>
             </div>
           </div>

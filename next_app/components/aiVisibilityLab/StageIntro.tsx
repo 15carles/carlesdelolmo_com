@@ -101,17 +101,17 @@ export default function StageIntro({
           <summary>{RESEARCH_INTRO.detailsSummary}</summary>
           <div className="grid grid-cols-2 gap-md mt-sm">
             <div>
-              <h4 className="text-left mb-sm">Se comparte</h4>
+              <h4 className="text-left mb-sm"><strong>No</strong> se comparte</h4>
               <ul className={styles.stepsList} style={{ marginTop: 0 }}>
-                {RESEARCH_INTRO.shared.map((item) => (
+                {RESEARCH_INTRO.notShared.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
             </div>
             <div>
-              <h4 className="text-left mb-sm">No se comparte</h4>
+              <h4 className="text-left mb-sm">Se comparte</h4>
               <ul className={styles.stepsList} style={{ marginTop: 0 }}>
-                {RESEARCH_INTRO.notShared.map((item) => (
+                {RESEARCH_INTRO.shared.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>

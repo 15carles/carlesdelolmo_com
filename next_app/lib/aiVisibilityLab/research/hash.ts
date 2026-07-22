@@ -3,7 +3,7 @@
  *
  * El dominio en claro NUNCA sale del navegador: aquí se normaliza al hostname
  * y se calcula su SHA-256 en el cliente (Web Crypto). A Supabase solo viaja el
- * hash. Es un identificador seudonimizado —no anónimo—: un tercero con acceso
+ * hash. Es un identificador seudonimizado (no anónimo): un tercero con acceso
  * a la base podría verificar por diccionario si un dominio concreto está
  * presente. El copy y la política de privacidad lo describen así.
  *

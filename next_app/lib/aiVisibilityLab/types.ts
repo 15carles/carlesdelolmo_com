@@ -1,9 +1,18 @@
 /**
  * Modelo de datos del Laboratorio de visibilidad en IA.
  *
- * Toda la información vive exclusivamente en el navegador del usuario
- * (localStorage). Ningún dato de este modelo se envía al servidor ni a
- * analítica de forma automática (ver spec §15 y §16).
+ * Existen dos capas separadas (docs/lab-investigacion-phase0-plan.md):
+ *
+ *  - Capa privada: todo el contenido de `Business`, consultas completas,
+ *    notas, otras empresas y el informe viven exclusivamente en el navegador
+ *    (localStorage) y NUNCA se envían a ningún servidor.
+ *  - Capa de investigación: un subconjunto estrictamente estadístico y
+ *    seudonimizado (`ResearchInfo` + el mapeo de research/snapshot.ts) se
+ *    sincroniza con la base de investigación de Supabase, tal y como se
+ *    explica al usuario antes de empezar.
+ *
+ * A analítica (GA4) no se envía ningún dato identificativo ni de investigación
+ * (ver analytics.ts).
  */
 
 export type QueryType =
@@ -81,6 +90,31 @@ export interface TestResult {
   notas: string;
 }
 
+/**
+ * Clasificación para el estudio y estado de sincronización con la base de
+ * investigación. Solo contiene datos que pueden viajar a Supabase (slugs de
+ * catálogo y el hash irreversible del dominio) más los marcadores locales de
+ * sincronización. Ausente en sesiones creadas antes de esta funcionalidad
+ * (legacy), que no sincronizan.
+ */
+export interface ResearchInfo {
+  /** Identificador de sincronización (UUID aleatorio, sin información personal). */
+  publicSessionId: string;
+  /** SHA-256 del hostname normalizado (ver research/hash.ts). Vacío = sin sync. */
+  domainHash: string;
+  sectorSlug: string;
+  serviceCategorySlug: string;
+  provinceSlug: string;
+  /** Primera vez que el análisis quedó completo (ISO), o null. */
+  completedAtISO: string | null;
+  /** La sesión remota ya existe (algún envío fue confirmado). */
+  remoteCreated: boolean;
+  /** Hay un snapshot pendiente de enviar (último intento fallido). */
+  pendingSync: boolean;
+  /** Último envío confirmado (ISO), o null. */
+  lastSyncedISO: string | null;
+}
+
 /** Sesión completa del laboratorio (§20). */
 export interface LabSession {
   localId: string;
@@ -96,4 +130,9 @@ export interface LabSession {
   currentTestIndex: number;
   /** Si el usuario ya vio la pantalla de instrucciones del trabajo de campo. */
   fieldworkIntroSeen: boolean;
+  /**
+   * Capa de investigación (opcional: las sesiones legacy no la tienen y las
+   * nuevas la reciben al completar los datos del negocio).
+   */
+  research?: ResearchInfo | null;
 }

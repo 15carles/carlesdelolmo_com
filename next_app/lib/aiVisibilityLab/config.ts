@@ -15,8 +15,23 @@ import type {
   QueryType,
 } from './types';
 
-/** Versión de la metodología mostrada en el informe (§10). */
-export const METHODOLOGY_VERSION = 'Laboratorio MVP 1.0';
+/**
+ * Versión de la metodología mostrada en el informe (§10). La 1.1 añade la
+ * clasificación obligatoria (sector, categoría de servicio y provincia) y la
+ * contribución estadística a la base de investigación (decisión D8).
+ */
+export const METHODOLOGY_VERSION = 'Laboratorio MVP 1.1';
+
+/**
+ * Identificador de la versión metodológica almacenado en la base de
+ * investigación (columna methodology_version). Cambiarlo permite distinguir
+ * datasets si el protocolo de medición evoluciona; no borrar datos históricos
+ * al hacerlo.
+ */
+export const RESEARCH_METHODOLOGY_VERSION = 'mvp-1.1';
+
+/** Endpoint propio que recibe el snapshot estadístico (ver app/api/lab-research). */
+export const LAB_RESEARCH_ENDPOINT = '/api/lab-research';
 
 /** Ruta pública de la herramienta. */
 export const LAB_PATH = '/laboratorio-visibilidad-ia';

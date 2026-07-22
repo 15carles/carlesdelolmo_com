@@ -5,13 +5,16 @@
   de carlesdelolmo.com, como parte del diseño y de las condiciones transparentes
   de acceso al laboratorio.
 - **Responsable:** Carles del Olmo (ver política de privacidad, sección 1).
-- **Estado:** **BORRADOR INTERNO PENDIENTE DE REVISIÓN PROFESIONAL.** Este
-  documento estructura el análisis con criterio prudente, pero no constituye
-  asesoramiento jurídico ni acredita por sí mismo el cumplimiento del RGPD.
-  No debe considerarse una decisión cerrada: su función es ordenar el análisis
-  y, sobre todo, señalar las cuestiones que requieren validación profesional
-  **antes del despliegue definitivo** (condición fijada por el responsable el
-  2026-07-22).
+- **Estado:** **DOCUMENTO INTERNO — REVISADO Y APROBADO POR EL RESPONSABLE
+  (2026-07-22).** El responsable del tratamiento ha revisado este análisis y
+  aprobado el despliegue de la funcionalidad, **asumiendo** las consideraciones
+  y cuestiones abiertas recogidas en la §8 (en particular, la obligatoriedad de
+  la aportación). No existe DPO (ver política de privacidad, sección 1). La
+  aprobación corresponde al responsable; este documento no constituye
+  asesoramiento jurídico ni sustituye, en su caso, una revisión jurídica externa,
+  y se conserva como registro del análisis y de la decisión. Debe **reevaluarse**
+  si cambia el alcance (mayor escala, cruces de datos, elaboración de perfiles o
+  publicación de resultados individualizados).
 - **Documentos relacionados:** `lab-investigacion-phase0-plan.md` (diseño),
   política de privacidad (sección «Laboratorio de visibilidad en IA»).
 
@@ -280,11 +283,16 @@ Con carácter **provisional e interno**, el tratamiento podría ampararse en el
 interés legítimo del responsable (art. 6.1.f RGPD), atendiendo a la finalidad
 (§1), a la necesidad respecto del estudio (§2) y a una ponderación
 orientativamente favorable (§3) **siempre que** se mantengan las garantías de la
-§4 y el derecho de oposición de la §5. Esta conclusión **no está cerrada** y no
-puede considerarse validada por el mero hecho de haberse implementado las
-medidas descritas.
+§4 y el derecho de oposición de la §5.
 
-**Principal cuestión pendiente de validación profesional:** la
+**Decisión del responsable (2026-07-22):** revisadas estas consideraciones, el
+responsable **aprueba el despliegue** sobre la base del interés legítimo,
+asumiendo expresamente las cuestiones que se enumeran a continuación y
+comprometiéndose a reevaluarlas si cambia el alcance. La conclusión no se apoya
+en el mero hecho de haberse implementado las medidas, sino en la ponderación
+documentada; la aportación obligatoria queda como punto de mayor atención.
+
+**Principal cuestión asumida por el responsable (a vigilar):** la
 **obligatoriedad de la aportación** (recogida integrada, no voluntaria) **cuando
 el informe individual puede generarse sin ella**. Es el punto de mayor tensión
 de la ponderación: dado que el tratamiento no es necesario para el servicio
@@ -309,4 +317,5 @@ si condicionar el uso de la herramienta a la contribución resulta proporcionado
 | Fecha | Autor | Cambio |
 |---|---|---|
 | 2026-07-22 | Redacción inicial (asistida, pendiente de revisión profesional) | Versión 1 — borrador |
-| 2026-07-22 | Revisión de prudencia (asistida, pendiente de revisión profesional) | Versión 2 — borrador: retira el argumento de «contraprestación»; reconoce la alternativa voluntaria y sus límites metodológicos; separa «no usar la herramienta» del derecho de oposición; desarrolla el art. 21; matiza expectativas e impacto (bajo, no inexistente) e identificación indirecta; concreta umbrales de agregación; refuerza conservación y abandono; matiza IP e infraestructura; añade garantía de encargados/DPA; añade comprobación preliminar de EIPD; suaviza el análisis del consentimiento; fija como cuestión principal la obligatoriedad de la aportación |
+| 2026-07-22 | Revisión de prudencia (asistida) | Versión 2 — borrador: retira el argumento de «contraprestación»; reconoce la alternativa voluntaria y sus límites metodológicos; separa «no usar la herramienta» del derecho de oposición; desarrolla el art. 21; matiza expectativas e impacto (bajo, no inexistente) e identificación indirecta; concreta umbrales de agregación; refuerza conservación y abandono; matiza IP e infraestructura; añade garantía de encargados/DPA; añade comprobación preliminar de EIPD; suaviza el análisis del consentimiento; fija como cuestión principal la obligatoriedad de la aportación |
+| 2026-07-22 | Responsable del tratamiento | Versión 3 — revisada y aprobada por el responsable para el despliegue, asumiendo las consideraciones de la §8; sin cambios en el análisis. Reevaluable si cambia el alcance |

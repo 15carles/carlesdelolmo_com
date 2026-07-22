@@ -1,6 +1,6 @@
 # Laboratorio de visibilidad en IA — Fase 0: plan de evolución a base de investigación
 
-- **Estado:** propuesta de plan (pendiente de validación por Carles)
+- **Estado:** aprobado por Carles (2026-07-22). Fases 1-9 en ejecución. Decisiones D5, D6, D7, D8, D9 y las de arquitectura confirmadas; **D10 condicionada a documentar una LIA** (interés legítimo, necesidad, ponderación, garantías, oposición y comparación con consentimiento/contrato) marcada para revisión profesional antes del despliegue definitivo. El copy no debe afirmar que el envío es estrictamente necesario para generar el informe individual.
 - **Rama de trabajo:** `claude/ia-visibility-lab-plan-yml5i3`
 - **Fecha:** 2026-07-22
 - **Referencia:** prompt original de requisitos (documento PROMPT adjunto a la sesión)

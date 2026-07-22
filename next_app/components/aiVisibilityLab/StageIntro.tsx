@@ -27,6 +27,19 @@ export default function StageIntro({
 }: StageIntroProps) {
   return (
     <div>
+      <div className="mb-lg flex flex-col gap-sm items-center">
+        <button type="button" className="btn btn--primary btn--large" onClick={onStart}>
+          Iniciar el laboratorio
+        </button>
+        <p className="text-muted text-sm mb-0 text-center" style={{ maxWidth: '38rem' }}>
+          {RESEARCH_INTRO.ctaNote}{' '}
+          <Link href="/politica-privacidad">Política de privacidad</Link>.
+        </p>
+        <button type="button" className="btn btn--secondary" onClick={onShowMethodology}>
+          Ver cómo funciona la metodología
+        </button>
+      </div>
+
       <div className={`${styles.notice} ${styles.noticeInfo} mb-md`}>
         <ShieldCheck size={20} aria-hidden="true" />
         <p className="mb-0">{LIMITATION_TEXTS.privacyNotice}</p>
@@ -67,7 +80,9 @@ export default function StageIntro({
         </ul>
       </div>
 
-      {/* Transparencia del estudio: debe leerse ANTES del botón de inicio (§10). */}
+      {/* Transparencia del estudio: qué datos estadísticos se comparten y
+          cuáles no (§10). La recogida real no ocurre aquí, sino al guardar el
+          primer resultado (etapa 4), con aviso durante todo el flujo. */}
       <div className="card card--no-hover mt-md" aria-labelledby="lab-research-title">
         <h3 id="lab-research-title" className="card__title text-left mb-sm">
           <FlaskConical
@@ -105,18 +120,6 @@ export default function StageIntro({
         </details>
       </div>
 
-      <div className="mt-lg flex flex-col gap-sm items-center">
-        <button type="button" className="btn btn--primary btn--large" onClick={onStart}>
-          Iniciar el laboratorio
-        </button>
-        <p className="text-muted text-sm mb-0 text-center" style={{ maxWidth: '38rem' }}>
-          {RESEARCH_INTRO.ctaNote}{' '}
-          <Link href="/politica-privacidad">Política de privacidad</Link>.
-        </p>
-        <button type="button" className="btn btn--secondary" onClick={onShowMethodology}>
-          Ver cómo funciona la metodología
-        </button>
-      </div>
     </div>
   );
 }

@@ -54,7 +54,9 @@ export default function PoliticaPrivacidad() {
 
         <section aria-labelledby="datos-recogidos-automaticamente">
           <h3 id="datos-recogidos-automaticamente">2.3 Datos recogidos automáticamente</h3>
-          <p>Cuando el usuario acepte el uso de cookies analíticas mediante el banner correspondiente, se podrán tratar datos de navegación a través de Google Analytics 4, tales como:</p>
+          <p>Este sitio web utiliza Google Analytics 4 (Google LLC) en modo de consentimiento (Consent Mode v2) avanzado.</p>
+          <p><strong>Antes de que el usuario preste su consentimiento, o si lo rechaza,</strong> no se instalan cookies ni se almacena información en su dispositivo. Google puede recibir datos técnicos limitados, sin cookies ni identificadores persistentes (señales anonimizadas), que no permiten identificar ni hacer seguimiento individual del usuario.</p>
+          <p><strong>Cuando el usuario acepta el uso de cookies analíticas</strong> mediante el banner correspondiente, se podrán tratar datos de navegación a través de Google Analytics 4, tales como:</p>
           <ul>
             <li>Identificadores online</li>
             <li>Eventos de navegación</li>
@@ -173,7 +175,7 @@ export default function PoliticaPrivacidad() {
       <section aria-labelledby="cookies">
         <h2 id="cookies">11. Cookies</h2>
         <p>Este sitio web utiliza cookies técnicas necesarias para su funcionamiento y, cuando el usuario lo acepta, cookies analíticas de Google Analytics.</p>
-        <p>Las cookies analíticas solo se activarán tras el consentimiento del usuario mediante el banner de configuración de cookies.</p>
+        <p>Las cookies analíticas solo se instalarán tras el consentimiento del usuario mediante el banner de configuración de cookies. Con carácter previo, y en modo de consentimiento avanzado, Google puede recibir señales anonimizadas sin cookies que no identifican al usuario.</p>
         <p>La información detallada se incluye en la <Link href="/politica-cookies">Política de Cookies</Link> del sitio web.</p>
       </section>
 

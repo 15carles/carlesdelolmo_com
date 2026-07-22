@@ -92,22 +92,6 @@
                     }
                 }
 
-                // 3. Lógica para Footer
-                if (componentName === 'footer') {
-                    if (window.CookieManager) {
-                        window.CookieManager.setupFooterListener();
-                    }
-                }
-
-                // 4. Lógica para Cookie Banner
-                if (componentName === 'cookie-banner') {
-                    if (window.CookieManager) {
-                        window.CookieManager.init();
-                    } else {
-                        console.warn('CookieManager logic not found.');
-                    }
-                }
-
             } else {
                 console.warn(`Target element not found: ${targetSelector}`);
             }

@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { X } from 'lucide-react';
 
 const STORAGE_KEY = 'cookie_consent_settings';
+// El consentimiento caduca a los ~24 meses (recomendación de la AEPD): pasado ese
+// plazo se vuelve a solicitar mostrando de nuevo el banner.
+const CONSENT_TTL_MS = 1000 * 60 * 60 * 24 * 365 * 2;
 const COOKIE_MODAL_ID = 'cookie-modal';
 const COOKIE_MODAL_TITLE_ID = 'cookie-modal-title';
 const COOKIE_MODAL_DESCRIPTION_ID = 'cookie-modal-description';
@@ -73,7 +76,11 @@ function readStoredConsent(): CookieSettings | null {
   try {
     const parsedConsent = JSON.parse(savedConsent);
     if (isValidConsent(parsedConsent)) {
-      return parsedConsent;
+      const consentAge = Date.now() - new Date(parsedConsent.timestamp).getTime();
+      if (Number.isFinite(consentAge) && consentAge >= 0 && consentAge <= CONSENT_TTL_MS) {
+        return parsedConsent;
+      }
+      // Consentimiento caducado: se limpia para volver a solicitarlo.
     }
   } catch {
     // Invalid payloads are cleared to prevent repeated parse attempts.
@@ -91,6 +98,34 @@ function updateGCM(consent: CookieSettings): void {
       ad_user_data: consent.ad_user_data,
       ad_personalization: consent.ad_personalization,
     });
+  }
+}
+
+// Borra las cookies de Google Analytics del navegador para que la retirada del
+// consentimiento sea tan efectiva como el otorgamiento (RGPD art. 7.3). GA fija
+// las cookies con dominio de registro y punto inicial, así que se intenta el
+// borrado sobre todos los sufijos del host.
+function clearAnalyticsCookies(): void {
+  const past = 'Thu, 01 Jan 1970 00:00:00 GMT';
+  const hostParts = window.location.hostname.split('.');
+  const domainCandidates = [''];
+  for (let i = 0; i < hostParts.length - 1; i += 1) {
+    const domain = hostParts.slice(i).join('.');
+    domainCandidates.push(domain, `.${domain}`);
+  }
+
+  const isAnalyticsCookie = (name: string): boolean =>
+    name === '_ga' || name.startsWith('_ga_') || name === '_gid' || name.startsWith('_gat');
+
+  for (const rawCookie of document.cookie.split(';')) {
+    const name = rawCookie.split('=')[0].trim();
+    if (!name || !isAnalyticsCookie(name)) {
+      continue;
+    }
+    for (const domain of domainCandidates) {
+      const domainPart = domain ? `; domain=${domain}` : '';
+      document.cookie = `${name}=; path=/; expires=${past}${domainPart}`;
+    }
   }
 }
 
@@ -119,17 +154,19 @@ export default function CookieBanner() {
   const saveAndApply = useCallback((consent: CookieSettings) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
     updateGCM(consent);
+    if (consent.analytics_storage === 'denied') {
+      clearAnalyticsCookies();
+    }
     setIsBannerVisible(false);
     setIsModalOpen(false);
   }, []);
 
   const acceptAll = useCallback(() => {
+    // El sitio solo usa analítica: no se conceden señales publicitarias que no se
+    // utilizan ni se informan en el banner, el modal o las políticas.
     saveAndApply(
       createConsent({
         analytics_storage: 'granted',
-        ad_storage: 'granted',
-        ad_user_data: 'granted',
-        ad_personalization: 'granted',
       }),
     );
   }, [saveAndApply]);

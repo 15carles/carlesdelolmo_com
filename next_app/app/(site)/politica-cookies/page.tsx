@@ -16,7 +16,7 @@ export default function PoliticaCookies() {
   return (
     <LegalLayout 
       title="Política de Cookies" 
-      lastUpdate="8 de marzo de 2026"
+      lastUpdate="21 de julio de 2026"
       metadataText="En esta página se explica qué cookies utiliza este sitio web, con qué finalidad, quién puede tratarlas y cómo puedes gestionar tu consentimiento."
     >
       <section aria-labelledby="que-son-las-cookies">
@@ -58,16 +58,21 @@ export default function PoliticaCookies() {
             <li>país aproximado desde el que se accede</li>
           </ul>
           <p>La información recopilada se utiliza únicamente con fines estadísticos.</p>
-          <p>Estas cookies solo se instalan cuando el usuario acepta las cookies analíticas en el banner de consentimiento.</p>
+          <p>Google Analytics funciona en este sitio web mediante el <strong>modo de consentimiento (Consent Mode v2) avanzado</strong>. Esto significa que la biblioteca de Google Analytics se carga en todas las visitas, pero su comportamiento depende del consentimiento del usuario:</p>
+          <ul>
+            <li><strong>Sin consentimiento o si se rechaza:</strong> no se instalan cookies ni se almacena información en el dispositivo. Google puede recibir datos técnicos limitados, sin cookies ni identificadores persistentes (señales anonimizadas), que no permiten identificar ni hacer seguimiento individual del usuario.</li>
+            <li><strong>Con consentimiento:</strong> se instalan las cookies analíticas (por ejemplo, _ga y _ga_*) y se realiza la medición completa descrita anteriormente.</li>
+          </ul>
+          <p>Las cookies analíticas solo se instalan cuando el usuario acepta las cookies analíticas en el banner de consentimiento.</p>
         </section>
       </section>
 
       <section aria-labelledby="cookies-utilizadas">
         <h2>3. Cookies utilizadas</h2>
-        <p>A continuación se muestran las cookies analíticas que puede utilizar Google Analytics 4:</p>
+        <p>A continuación se detallan las principales cookies que puede utilizar el sitio web. Las cookies analíticas solo se instalan tras el consentimiento del usuario.</p>
         <div className="article-box article-box--overflow">
           <table className="article-table">
-            <caption>Relación de cookies analíticas utilizadas en el sitio web</caption>
+            <caption>Relación de cookies utilizadas en el sitio web</caption>
             <thead>
               <tr>
                 <th scope="col">Cookie</th>
@@ -86,16 +91,23 @@ export default function PoliticaCookies() {
                 <td>2 años</td>
               </tr>
               <tr>
-                <td>ga*</td>
+                <td>_ga_*</td>
                 <td>Google Analytics</td>
                 <td>Analítica</td>
                 <td>Mantener el estado de sesión</td>
                 <td>2 años</td>
               </tr>
+              <tr>
+                <td>__cf_bm</td>
+                <td>Cloudflare</td>
+                <td>Técnica</td>
+                <td>Distinguir tráfico legítimo de bots y proteger el sitio</td>
+                <td>30 minutos</td>
+              </tr>
             </tbody>
           </table>
         </div>
-        <p>La duración puede variar según la configuración del navegador o del servicio de analítica.</p>
+        <p>La duración puede variar según la configuración del navegador o del servicio correspondiente.</p>
       </section>
 
       <section aria-labelledby="quien-utiliza-la-informacion">
@@ -133,6 +145,7 @@ export default function PoliticaCookies() {
         <p>Las cookies analíticas no se instalarán hasta que el usuario haya dado su consentimiento.</p>
         <p>El usuario puede cambiar sus preferencias en cualquier momento.</p>
         <p>Asimismo, el usuario podrá retirar el consentimiento previamente otorgado de forma sencilla a través del mecanismo de configuración de cookies disponible en el sitio web.</p>
+        <p>Cuando el usuario rechace o retire el consentimiento, las cookies analíticas que se hubieran instalado se eliminarán del navegador.</p>
       </section>
 
       <section aria-labelledby="desactivar-eliminar-cookies">

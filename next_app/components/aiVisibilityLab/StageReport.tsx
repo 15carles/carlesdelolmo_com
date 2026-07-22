@@ -262,55 +262,7 @@ export default function StageReport({
         )}
       </div>
 
-      {/* Tabla completa (§10): nueva hoja en el PDF */}
-      <section className={styles.pageBreak}>
-      <h3 className="mt-lg">Tabla de comprobaciones</h3>
-      <div className={styles.tableWrap}>
-        <table className="article-table">
-          <caption className="sr-only">
-            Resultado de cada comprobación por consulta y motor
-          </caption>
-          <thead>
-            <tr>
-              <th scope="col">Consulta</th>
-              <th scope="col">Motor</th>
-              <th scope="col">Resultado</th>
-              <th scope="col">Fuente</th>
-              <th scope="col">Exactitud</th>
-              <th scope="col">Competidores</th>
-              <th scope="col">Fecha</th>
-            </tr>
-          </thead>
-          <tbody>
-            {results.map((r) => {
-              const pending = r.status === 'pendiente';
-              const noEval = r.aparicion === 'no_evaluable';
-              return (
-                <tr key={r.id}>
-                  <th scope="row">{queryLabel(r.queryId)}</th>
-                  <td>{engineName(r.engineId)}</td>
-                  <td>
-                    {pending ? (
-                      <span className={styles.statusPending}>Pendiente</span>
-                    ) : noEval ? (
-                      <span className={styles.statusNa}>No evaluable</span>
-                    ) : (
-                      r.aparicion && APPEARANCE_SHORT[r.aparicion]
-                    )}
-                  </td>
-                  <td>{r.fuente ? SOURCE_SHORT[r.fuente] : 'n/d'}</td>
-                  <td>{r.exactitud ? ACCURACY_SHORT[r.exactitud] : 'n/d'}</td>
-                  <td>{pending ? 'n/d' : competitorCell(r)}</td>
-                  <td>{formatDate(r.fechaISO)}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-      </section>
-
-      {/* Diagnóstico, prioridades y conclusión (§11-§13): nueva hoja en el PDF */}
+      {/* Diagnóstico y prioridades (§11-§12): nueva hoja en el PDF */}
       <section className={styles.pageBreak}>
       {/* Diagnóstico (§11) */}
       {report.diagnoses.length > 0 && (
@@ -360,15 +312,9 @@ export default function StageReport({
           </div>
         </>
       )}
-
-      {/* Conclusión (§13) */}
-      <div className={`${styles.notice} ${styles.noticeInfo} mt-lg`}>
-        <Info size={20} aria-hidden="true" />
-        <p className="mb-0">{LIMITATION_TEXTS.reportConclusion}</p>
-      </div>
       </section>
 
-      {/* Acciones (§14): enviar el resultado a Carles de forma cómoda */}
+      {/* Acciones (§14): CTA tras las prioridades, antes de la conclusión */}
       <div className={`card card--no-hover mt-lg ${styles.noPrint}`}>
         <h3 className="mb-sm">¿Quieres que revisemos juntos estos resultados?</h3>
         <p className="text-secondary mb-md">
@@ -411,6 +357,60 @@ export default function StageReport({
           )}
         </p>
       </div>
+
+      {/* Conclusión (§13): cierre del documento, tras el CTA */}
+      <div className={`${styles.notice} ${styles.noticeInfo} mt-lg`}>
+        <Info size={20} aria-hidden="true" />
+        <p className="mb-0">{LIMITATION_TEXTS.reportConclusion}</p>
+      </div>
+
+      {/* Anexo: tabla completa de comprobaciones (§10). Nueva hoja en el PDF. */}
+      <section className={styles.pageBreak}>
+      <h3 className="mt-lg">Anexo: tabla de comprobaciones</h3>
+      <div className={styles.tableWrap}>
+        <table className="article-table">
+          <caption className="sr-only">
+            Resultado de cada comprobación por consulta y motor
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Consulta</th>
+              <th scope="col">Motor</th>
+              <th scope="col">Resultado</th>
+              <th scope="col">Fuente</th>
+              <th scope="col">Exactitud</th>
+              <th scope="col">Competidores</th>
+              <th scope="col">Fecha</th>
+            </tr>
+          </thead>
+          <tbody>
+            {results.map((r) => {
+              const pending = r.status === 'pendiente';
+              const noEval = r.aparicion === 'no_evaluable';
+              return (
+                <tr key={r.id}>
+                  <th scope="row">{queryLabel(r.queryId)}</th>
+                  <td>{engineName(r.engineId)}</td>
+                  <td>
+                    {pending ? (
+                      <span className={styles.statusPending}>Pendiente</span>
+                    ) : noEval ? (
+                      <span className={styles.statusNa}>No evaluable</span>
+                    ) : (
+                      r.aparicion && APPEARANCE_SHORT[r.aparicion]
+                    )}
+                  </td>
+                  <td>{r.fuente ? SOURCE_SHORT[r.fuente] : 'n/d'}</td>
+                  <td>{r.exactitud ? ACCURACY_SHORT[r.exactitud] : 'n/d'}</td>
+                  <td>{pending ? 'n/d' : competitorCell(r)}</td>
+                  <td>{formatDate(r.fechaISO)}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      </section>
 
       <div className={`${styles.reportActions} ${styles.noPrint}`}>
         <button type="button" className="btn btn--secondary" onClick={onPrint}>

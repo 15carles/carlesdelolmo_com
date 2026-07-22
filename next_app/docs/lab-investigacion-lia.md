@@ -122,9 +122,10 @@ fase 0) y no especulativo (la herramienta ya existe y el estudio está diseñado
   efectos jurídicos sobre el interesado, ni contacto comercial derivado, ni
   publicación individual, ni evaluación pública de su empresa, ni cruce con
   otros ficheros. El impacto no es, sin embargo, inexistente (ver riesgos).
-- **Transparencia previa:** la contribución se explica antes del botón de inicio
-  (bloque específico + desglose «qué se comparte / qué no»), durante el uso y en
-  el informe. La transparencia **reduce el riesgo de sorpresa**, pero por sí sola
+- **Transparencia previa:** la contribución se explica en la pantalla de inicio
+  (bloque específico + desglose «qué se comparte / qué no») y con aviso durante
+  todo el flujo, siempre **antes de que se recoja ningún dato** (la recogida solo
+  empieza al guardar el primer resultado, en la etapa 4). La transparencia **reduce el riesgo de sorpresa**, pero por sí sola
   **no determina las expectativas razonables** del interesado: si el tratamiento
   entra dentro de lo razonablemente esperable es una valoración que corresponde
   a la revisión profesional y no queda resuelta solo por informar.

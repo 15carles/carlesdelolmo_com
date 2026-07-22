@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { AlertTriangle } from 'lucide-react';
+import { AlertTriangle, Info } from 'lucide-react';
 import styles from './VisibilityLab.module.css';
 import LabProgress from './LabProgress';
 import StageIntro from './StageIntro';
@@ -28,6 +28,8 @@ import {
   buildContactPrefill,
   storeContactPrefill,
 } from '@/lib/aiVisibilityLab/contactPrefill';
+import { createLocalId } from '@/lib/aiVisibilityLab/utils';
+import { useResearchSync } from '@/lib/aiVisibilityLab/research/sync';
 
 /** ¿La sesión guardada tiene progreso real que justifique recuperarla? (§17) */
 function hasProgress(session: LabSession): boolean {
@@ -95,6 +97,11 @@ export default function VisibilityLab() {
       prev ? { ...fn(prev), updatedISO: new Date().toISOString() } : prev,
     );
   }, []);
+
+  // Sincronización con la base de investigación (research/sync.ts). Inactiva
+  // hasta que la sesión tiene clasificación completa y un resultado guardado;
+  // en pausa mientras se muestra la pantalla de recuperación.
+  useResearchSync(hydrated && !showRecovery ? session : null, mutate);
 
   const goStage = useCallback(
     (stage: number) => {
@@ -203,8 +210,22 @@ export default function VisibilityLab() {
         });
       }
     }
-    goStage(5);
-  }, [session, goStage]);
+    // Sella la primera finalización para la base de investigación (§7): la
+    // fecha se conserva aunque después se editen resultados.
+    mutate((s) => {
+      const allSaved =
+        s.results.length > 0 && s.results.every((r) => r.status === 'guardada');
+      if (!s.research || !allSaved || s.research.completedAtISO) {
+        return { ...s, stage: 5 };
+      }
+      return {
+        ...s,
+        stage: 5,
+        research: { ...s.research, completedAtISO: new Date().toISOString() },
+      };
+    });
+    bumpFocus();
+  }, [session, mutate, bumpFocus]);
 
   const handleEditResults = useCallback(() => {
     mutate((s) => ({ ...s, stage: 4, fieldworkIntroSeen: true }));
@@ -237,6 +258,19 @@ export default function VisibilityLab() {
       fieldworkIntroSeen: false,
       currentTestIndex: 0,
       stage: 4,
+      // Repetir el análisis es una medición nueva: identificador de
+      // sincronización nuevo para no sobrescribir la sesión remota anterior
+      // (estudio longitudinal, decisión D5 del plan).
+      research: s.research
+        ? {
+            ...s.research,
+            publicSessionId: createLocalId(),
+            completedAtISO: null,
+            remoteCreated: false,
+            pendingSync: false,
+            lastSyncedISO: null,
+          }
+        : s.research,
     }));
     bumpFocus();
   }, [mutate, bumpFocus]);
@@ -267,6 +301,22 @@ export default function VisibilityLab() {
       <p className="mb-0">
         No se ha podido guardar el progreso en este dispositivo. Mantén esta
         página abierta hasta completar el análisis.
+      </p>
+    </div>
+  ) : null;
+
+  // Aviso discreto y no alarmista (§7): el fallo de envío nunca bloquea el
+  // laboratorio; los datos siguen en local y se reintenta automáticamente.
+  const syncPendingBanner = session?.research?.pendingSync ? (
+    <div
+      className={`${styles.notice} ${styles.noticeInfo} mb-md ${styles.noPrint}`}
+      role="status"
+    >
+      <Info size={20} aria-hidden="true" />
+      <p className="mb-0">
+        Los resultados estadísticos del estudio están pendientes de envío. El
+        laboratorio funciona con normalidad y el envío se reintentará
+        automáticamente.
       </p>
     </div>
   ) : null;
@@ -318,6 +368,7 @@ export default function VisibilityLab() {
   return (
     <div className={styles.lab}>
       {storageBanner}
+      {syncPendingBanner}
 
       {showResetConfirm && (
         <ResetConfirm

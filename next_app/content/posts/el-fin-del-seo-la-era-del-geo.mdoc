@@ -26,7 +26,41 @@ metaDescription: >-
   El SEO ha evolucionado. Descubre qué es el GEO (Generative Engine
   Optimization) y cómo adaptar tu web para aparecer en las respuestas de IA
   (ChatGPT, Gemini).
-faqs: []
+faqs:
+  - question: ¿Qué es el GEO (Generative Engine Optimization)?
+    answer: >-
+      Es la disciplina que busca que el contenido de una web sea seleccionado,
+      interpretado y citado como fuente dentro de respuestas generadas por
+      sistemas de inteligencia artificial. A diferencia del SEO, que persigue una
+      posición en una lista de resultados, el GEO persigue formar parte de la
+      respuesta que el motor construye.
+  - question: ¿El SEO ha dejado de funcionar?
+    answer: >-
+      No. Los buscadores siguen generando tráfico y muchos motores generativos se
+      apoyan en resultados de búsqueda e índices existentes para recuperar
+      información. El GEO no sustituye al SEO, lo amplía, porque añade una capa
+      centrada en la claridad, la estructura y la citabilidad del contenido.
+  - question: ¿Qué se mide en GEO y en qué se diferencia de las métricas SEO?
+    answer: >-
+      El SEO mide rankings, CTR y tráfico orgánico. El GEO se fija en la
+      visibilidad dentro de respuestas de IA, las menciones de marca y el tráfico
+      derivado de motores generativos. Son señales menos estables que una
+      posición en Google, por lo que conviene interpretarlas como patrones
+      observados en el tiempo y no como una cifra exacta.
+  - question: ¿Qué señales aumentan la probabilidad de que una IA cite una web?
+    answer: >-
+      Suelen influir el contenido específico y bien definido, una estructura
+      semántica sólida con datos estructurados, la existencia de información
+      original, una arquitectura técnica limpia sin bloqueos para bots y una
+      autoridad temática sostenida. Ninguna de ellas garantiza por sí sola una
+      mención, pero su ausencia reduce las opciones.
+  - question: ¿En qué motores generativos conviene centrarse?
+    answer: >-
+      Los más habituales hoy son ChatGPT, Perplexity, Gemini y Copilot. No
+      funcionan igual ni actualizan su información al mismo ritmo, así que una
+      misma consulta puede devolver empresas distintas en cada uno. Por eso
+      conviene comprobar varios motores antes de sacar conclusiones sobre la
+      visibilidad de una web.
 ---
 ## El cambio ya ha empezado
 
@@ -57,11 +91,17 @@ Eso implica algo diferente:
 - Hay que aportar información clara, verificable y bien organizada.
 
 > El GEO no sustituye al SEO. Lo amplía.
+
+Para evaluar si un contenido cumple esas condiciones utilizo el [modelo DELTA de visibilidad generativa](/blog/modelo-delta-visibilidad-generativa), que ordena cinco dimensiones: definiciones, estructura semántica, criterio propio, profundidad temática y atomicidad del conocimiento.
 {% /articleBox %}
 
 ## Diferencias clave entre SEO tradicional y GEO
 
-{% articleBox overflow=true /%}
+| Característica | SEO Tradicional | GEO (Generative Engine Optimization) |
+|---|---|---|
+| **Objetivo** | Posicionamiento en SERPs. | Citabilidad en respuestas generativas. |
+| **Métricas** | Mide rankings, CTR y tráfico orgánico. | Mide visibilidad en respuestas de IA, menciones de marca y tráfico derivado de motores generativos. |
+| **Señales prioritarias** | Backlinks y optimización on-page. | Arquitectura semántica, Autoridad temática, Datos estructurados. |
 
 ## Por qué esto importa para tu negocio
 
@@ -74,32 +114,10 @@ Si tu potencial cliente pregunta:
 
 Y tu marca no aparece en esa respuesta… **Estás fuera de la conversación antes incluso de empezar.**
 
+Cuando eso ocurre, la causa rara vez es una sola. Repaso los motivos más habituales en [por qué muchas webs no aparecen en respuestas de IA](/blog/por-que-webs-no-aparecen-respuestas-ia).
+
 El cambio no es solo técnico. Es estratégico. Las empresas que adapten su web a motores generativos ganarán visibilidad cualificada antes que su competencia.
 {% /articleBox %}
-
-Característica
-
-SEO Tradicional
-
-GEO (Generative Engine Optimization)
-
-**Objetivo**
-
-Posicionamiento en SERPs.
-
-Citabilidad en respuestas generativas.
-
-**Métricas**
-
-Mide rankings, CTR y tráfico orgánico.
-
-Mide visibilidad en respuestas de IA, menciones de marca y tráfico derivado de motores generativos.
-
-**Señales prioritarias**
-
-Backlinks y optimización on-page.
-
-Arquitectura semántica, Autoridad temática, Datos estructurados.
 
 ## Cómo funcionan los motores generativos al elegir fuentes
 
@@ -121,43 +139,35 @@ Arquitectura semántica, Autoridad temática, Datos estructurados.
 - Datos que puedan ser citados.
 
 Ese enfoque cambia completamente la forma de construir una web.
+
+Cómo se traduce eso en entidades, relaciones y datos estructurados lo desarrollo en [cómo la semántica avanzada está cambiando el tráfico desde Perplexity y otros motores de IA](/blog/semantica-avanzada-motores-ia).
 {% /articleBox %}
 
 ## Señales que aumentan la probabilidad de ser citado por IA
 
-{% articleBox overflow=true /%}
+| Señal GEO | Descripción y Requisitos |
+|---|---|
+| **Contenido profundo y específico** | Las IAs no buscan textos genéricos. Buscan respuestas claras. |
+| **Estructura semántica sólida** | Uso marcado Schema, organización de encabezados. |
+| **Datos originales** | Estudios propios, benchmarks, casos reales. |
+| **Arquitectura limpia y técnica** | Core Web Vitals optimizados. Sin bloqueos para bots. |
+| **Autoridad temática consistente** | No basta con un artículo aislado. |
 
 ## Cómo aplico GEO en mis proyectos
 
-{% articleBox overflow=false %}
 Cuando desarrollo una web o rediseño una existente, sigo un proceso claro:
 
+| Medida | Descripción |
+|---|---|
+| **Auditoría de citabilidad** | Analizo si el contenido es extraíble, comprensible, estructurado y citable. |
+| **Arquitectura orientada a entidades** | Diseño la estructura pensando en servicios, procesos, categorías. |
+| **Implementación de SEO técnico avanzado** | Optimización de Schema JSON-LD, Core Web Vitals. |
+| **Integración con automatizaciones** | Integro automatizaciones de captación y sistemas de lead scoring. |
+| **Seguimiento y análisis** | Informes detallados para saber si funciona la estrategia. |
+
+Es el mismo trabajo que planteo como servicio de [autoridad digital para IAs](/servicio-seo/autoridad-digital-ias): entidad reconocible, arquitectura orientada a servicios y contenidos que sostengan una especialización.
+
 El objetivo no es solo visibilidad. **Es negocio.**
-{% /articleBox %}
-
-Señal GEO
-
-Descripción y Requisitos
-
-**Contenido profundo y específico**
-
-Las IAs no buscan textos genéricos. Buscan respuestas claras.
-
-**Estructura semántica sólida**
-
-Uso marcado Schema, organización de encabezados.
-
-**Datos originales**
-
-Estudios propios, benchmarks, casos reales.
-
-**Arquitectura limpia y técnica**
-
-Core Web Vitals optimizados. Sin bloqueos para bots.
-
-**Autoridad temática consistente**
-
-No basta con un artículo aislado.
 
 {% ctaSection
    title="¿Tu web está preparada para aparecer en respuestas IA?"
@@ -165,27 +175,3 @@ No basta con un artículo aislado.
    buttonText="Agenda una auditoría estratégica"
    buttonLink="/contacto"
    buttonVariant="primary" /%}
-
-Medida
-
-Descripción
-
-**Auditoría de citabilidad**
-
-Analizo si el contenido es extraíble, comprensible, estructurado y citable.
-
-**Arquitectura orientada a entidades**
-
-Diseño la estructura pensando en servicios, procesos, categorías.
-
-**Implementación de SEO técnico avanzado**
-
-Optimización de Schema JSON-LD, Core Web Vitals.
-
-**Integración con automatizaciones**
-
-Integro automatizaciones de captación y sistemas de lead scoring.
-
-**Seguimiento y análisis**
-
-Informes detallados para saber si funciona la estrategia.

@@ -1,11 +1,14 @@
 import React from 'react';
 import LegalLayout from '@/components/LegalLayout';
 import Link from 'next/link';
+import { constructMetadata } from '@/lib/seo/metadata';
+import { SITE_URL } from '@/lib/seo/entity';
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: 'Política de Privacidad | Carles del Olmo',
-  description: 'Información sobre el tratamiento de datos personales en carlesdelolmo.com: responsable, finalidades, base jurídica, conservación, derechos del usuario y proveedores utilizados.'
-};
+  description: 'Información sobre el tratamiento de datos personales en carlesdelolmo.com: responsable, finalidades, base jurídica, conservación, derechos del usuario y proveedores utilizados.',
+  exactUrl: `${SITE_URL}/politica-privacidad`,
+});
 
 export default function PoliticaPrivacidad() {
   return (

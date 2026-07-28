@@ -7,13 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "pages:build": "npx @cloudflare/next-on-pages",
+    "pages:build": "npx @cloudflare/next-on-pages && node scripts/generate-og.mjs",
     "keystatic:diagnose:projects": "node scripts/diagnose-keystatic-projects.mjs",
     "keystatic:migrate:projects:strict": "node scripts/migrate-projects-to-strict.mjs",
     "keystatic:migrate:posts:status": "node scripts/migrate-posts-status.mjs",
     "keystatic:migrate:posts:status:check": "node scripts/migrate-posts-status.mjs --check",
     "keystatic:strict:check": "node scripts/migrate-projects-to-strict.mjs --check && node scripts/diagnose-keystatic-projects.mjs",
-    "keystatic:phase2:gate": "npm run keystatic:strict:check && npm run build"
+    "keystatic:phase2:gate": "npm run keystatic:strict:check && npm run build",
+    "og": "node scripts/generate-og.mjs"
   },
   "dependencies": {
     "@keystatic/core": "^0.5.48",
@@ -25,11 +26,13 @@
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.16",
+    "@resvg/resvg-js": "^2.6.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "satori": "^0.29.0",
     "typescript": "^5"
   }
 }

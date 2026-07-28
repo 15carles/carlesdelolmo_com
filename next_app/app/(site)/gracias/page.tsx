@@ -1,12 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { CheckCircle } from 'lucide-react';
+import { constructMetadata } from '@/lib/seo/metadata';
+import { SITE_URL } from '@/lib/seo/entity';
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: 'Gracias por contactar | Carles del Olmo',
   description: 'Mensaje recibido correctamente. Me pondré en contacto contigo lo antes posible.',
-  robots: 'noindex, nofollow'
-};
+  exactUrl: `${SITE_URL}/gracias`,
+  noIndex: true,
+});
 
 export default function GraciasPage() {
   return (

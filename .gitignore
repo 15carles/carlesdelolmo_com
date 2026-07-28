@@ -81,3 +81,6 @@ next_app/lib/* [0-9].ts
 
 # accidental nested workspace artifacts
 next_app/Documents/
+
+# Imagenes Open Graph generadas en el build (next_app/scripts/generate-og.mjs)
+next_app/public/og/

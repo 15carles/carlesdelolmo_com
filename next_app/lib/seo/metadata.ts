@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { SITE_URL } from './schemas';
+import { ogImageUrl } from './ogImage';
 
 const APPLE_SPLASH_SCREENS = [
   {
@@ -28,7 +29,10 @@ export function constructMetadata({
   title,
   description,
   exactUrl,
-  openGraphImage = `${SITE_URL}/assets/images/og-cover.png`,
+  // Por defecto, la tarjeta generada para esta misma URL. Un `openGraphImage`
+  // explicito sigue teniendo prioridad, que es como los posts conservan sus
+  // imagenes hechas a mano (ver resolvePostOpenGraphImage).
+  openGraphImage = ogImageUrl(exactUrl),
   noIndex = false,
   type = 'website',
   publishedTime,

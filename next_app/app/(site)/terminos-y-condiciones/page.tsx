@@ -1,11 +1,14 @@
 import React from 'react';
 import LegalLayout from '@/components/LegalLayout';
 import Link from 'next/link';
+import { constructMetadata } from '@/lib/seo/metadata';
+import { SITE_URL } from '@/lib/seo/entity';
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: 'Términos y Condiciones | Carles del Olmo',
-  description: 'Términos y condiciones de uso de carlesdelolmo.com. Información sobre el uso del sitio web, propiedad intelectual, responsabilidad, enlaces externos, formularios y legislación aplicable.'
-};
+  description: 'Términos y condiciones de uso de carlesdelolmo.com. Información sobre el uso del sitio web, propiedad intelectual, responsabilidad, enlaces externos, formularios y legislación aplicable.',
+  exactUrl: `${SITE_URL}/terminos-y-condiciones`,
+});
 
 export default function TerminosCondiciones() {
   return (

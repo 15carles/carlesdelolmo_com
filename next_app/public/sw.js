@@ -1,5 +1,8 @@
-const STATIC_CACHE = "carles-static-v1";
-const RUNTIME_CACHE = "carles-runtime-v1";
+// v2: renovacion del isotipo de marca. isStaticAsset() cachea .ico/.png/.svg/.webp,
+// asi que sin subir la version los visitantes recurrentes seguirian viendo los
+// iconos anteriores servidos desde el cache.
+const STATIC_CACHE = "carles-static-v2";
+const RUNTIME_CACHE = "carles-runtime-v2";
 const OFFLINE_URL = "/offline.html";
 const PRECACHE_URLS = [OFFLINE_URL, "/site.webmanifest"];
 const EXCLUDED_PATH_PREFIXES = [

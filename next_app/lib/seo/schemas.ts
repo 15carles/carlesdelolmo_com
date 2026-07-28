@@ -40,6 +40,9 @@ export const BUSINESS_SCHEMA = {
   "telephone": ENTITY.phoneE164,
   "email": ENTITY.email,
   "image": `${SITE_URL}/assets/images/carles-del-olmo-logo.webp`,
+  // Google espera `logo` en entidades de organización; `image` por sí solo no
+  // cubre ese rol en los resultados enriquecidos.
+  "logo": `${SITE_URL}/assets/images/carles-del-olmo-logo.webp`,
   "priceRange": "€€",
   "description": "Servicios profesionales de diseño web en Valencia especializados en SEO técnico y Generative Engine Optimization (GEO).",
   "slogan": "Webs optimizadas para buscadores y motores de inteligencia artificial",

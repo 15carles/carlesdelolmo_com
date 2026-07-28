@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "pages:build": "npx @cloudflare/next-on-pages",
     "keystatic:diagnose:projects": "node scripts/diagnose-keystatic-projects.mjs",
     "keystatic:migrate:projects:strict": "node scripts/migrate-projects-to-strict.mjs",
     "keystatic:migrate:posts:status": "node scripts/migrate-posts-status.mjs",
@@ -23,6 +24,7 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.16",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

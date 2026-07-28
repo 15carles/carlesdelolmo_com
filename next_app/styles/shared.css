@@ -139,6 +139,23 @@
     color: var(--color-text-primary);
 }
 
+/* Enlaces del cuerpo del post: verde de acento + subrayado, para que se
+   distingan del texto corrido sin depender solo del color (WCAG 1.4.1).
+   Se excluyen los .btn de los bloques de componente (button y ctaSection),
+   que ya tienen su propio estilo. */
+.article-content--post a:not(.btn) {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    transition: color var(--transition-fast), text-decoration-thickness var(--transition-fast);
+}
+
+.article-content--post a:not(.btn):hover {
+    color: var(--color-accent-hover);
+    text-decoration-thickness: 2px;
+}
+
 .article-box {
     margin-bottom: var(--spacing-xl);
     padding: var(--spacing-lg);

@@ -133,7 +133,7 @@ export default function GoogleReviewsSection({
 
   const renderStars = (rating: number, size: number = 14) => {
     return (
-      <div className="flex gap-[2px]" aria-label={`Valoración de ${rating} sobre 5 estrellas`}>
+      <div className="flex gap-[2px]" role="img" aria-label={`Valoración de ${rating} sobre 5 estrellas`}>
         {[...Array(5)].map((_, i) => (
           <GoogleStar key={i} size={size} filled={i < rating} />
         ))}

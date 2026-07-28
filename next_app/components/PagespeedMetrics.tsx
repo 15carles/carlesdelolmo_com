@@ -25,7 +25,7 @@ function calculateOffset(value: number): number {
 function PageSpeedCircle({ label, value, animatedValue, animatedOffset }: MetricProps) {
   return (
     <div className="pagespeed-item">
-      <div className="pagespeed-circle" aria-label={`${label}: ${value}`}>
+      <div className="pagespeed-circle" role="img" aria-label={`${label}: ${value}`}>
         <svg viewBox="0 0 80 80">
           <circle className="bg" cx="40" cy="40" r="34" />
           <circle 

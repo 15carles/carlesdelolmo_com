@@ -254,7 +254,7 @@ export default function CookieBanner() {
                 type="button"
                 onClick={(event) => openModal(event.currentTarget)}
                 className="cookie-banner__settings-btn"
-                aria-controls={COOKIE_MODAL_ID}
+                aria-haspopup="dialog"
               >
                 Configurar
               </button>

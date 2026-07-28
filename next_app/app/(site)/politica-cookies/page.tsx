@@ -180,7 +180,7 @@ export default function PoliticaCookies() {
             onClick={openSettings}
             className="cookie-banner__settings-btn cookie-banner__settings-btn--inline"
             aria-label="Abrir panel de configuración de cookies"
-            aria-controls="cookie-modal"
+            aria-haspopup="dialog"
           >
             Configurar cookies
           </button>

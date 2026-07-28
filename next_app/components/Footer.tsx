@@ -230,7 +230,7 @@ export default function Footer() {
                   id="open-cookie-settings"
                   className="footer__link footer__link--button"
                   aria-label="Abrir configuración de cookies"
-                  aria-controls="cookie-modal"
+                  aria-haspopup="dialog"
                   onClick={handleOpenCookieSettings}
                 >
                   Configurar cookies

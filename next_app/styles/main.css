@@ -19,7 +19,7 @@
     /* Texto - escala tinta cálida */
     --color-text-primary: #1D1B16;
     --color-text-secondary: #57534A;
-    --color-text-muted: #837D70;
+    --color-text-muted: #6F6A5F;
     --color-text-on-accent: #FDFCFA;
     --color-text-on-ink: #F1EBDF;
 
@@ -494,6 +494,10 @@ a {
 
 .text-muted {
     color: var(--color-text-muted);
+}
+
+.text-accent {
+    color: var(--color-accent);
 }
 
 .text-secondary {

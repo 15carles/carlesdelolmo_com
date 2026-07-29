@@ -174,7 +174,9 @@ export default function PosicionamientoSeoGeo() {
 
                 <p className="text-secondary mb-xl">
                   ¿Aún no sabes cómo apareces hoy? Empieza por el{' '}
-                  <Link href="/laboratorio-visibilidad-ia">Laboratorio de visibilidad en IA</Link>{' '}
+                  <Link href="/laboratorio-visibilidad-ia" className="link-inline">
+                    Laboratorio de visibilidad en IA
+                  </Link>{' '}
                   y comprueba, gratis, si los motores de IA ya te mencionan y recomiendan.
                 </p>
 
@@ -253,7 +255,7 @@ export default function PosicionamientoSeoGeo() {
 
             <p className="text-center text-secondary mt-2xl max-w-2xl mx-auto">
               ¿Buscas que las IAs te reconozcan como referente, no solo aparecer? Esa es la capa de entidad y citabilidad:{' '}
-              <Link href="/servicio-seo/autoridad-digital-ias" className="underline">
+              <Link href="/servicio-seo/autoridad-digital-ias" className="link-inline">
                 Autoridad Digital para IAs
               </Link>
               .

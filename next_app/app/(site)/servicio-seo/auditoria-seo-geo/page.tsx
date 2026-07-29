@@ -213,7 +213,9 @@ export default function AuditoriaSeoGeo() {
 
                 <p className="text-secondary mb-xl">
                   ¿Quieres una primera señal antes de reservar? Con el{' '}
-                  <Link href="/laboratorio-visibilidad-ia">Laboratorio de visibilidad en IA</Link>{' '}
+                  <Link href="/laboratorio-visibilidad-ia" className="link-inline">
+                    Laboratorio de visibilidad en IA
+                  </Link>{' '}
                   puedes comprobar tú mismo, gratis, si ChatGPT, Gemini o Perplexity ya mencionan tu empresa.
                 </p>
 
@@ -294,9 +296,18 @@ export default function AuditoriaSeoGeo() {
               <p className="section-header__subtitle">
                 Con el diagnóstico en la mano, el camino natural es implementar. Según lo que necesites, seguimos por el
                 trabajo mensual de{' '}
-                <Link href="/servicio-seo/posicionamiento-seo-geo">Posicionamiento SEO + GEO</Link> o por la capa de{' '}
-                <Link href="/servicio-seo/autoridad-digital-ias">Autoridad Digital para IAs</Link>. Y si lo que falla es
-                la base, quizás toque revisar el <Link href="/diseno-web">diseño de la web</Link>.
+                <Link href="/servicio-seo/posicionamiento-seo-geo" className="link-inline">
+                  Posicionamiento SEO + GEO
+                </Link>{' '}
+                o por la capa de{' '}
+                <Link href="/servicio-seo/autoridad-digital-ias" className="link-inline">
+                  Autoridad Digital para IAs
+                </Link>
+                . Y si lo que falla es la base, quizás toque revisar el{' '}
+                <Link href="/diseno-web" className="link-inline">
+                  diseño de la web
+                </Link>
+                .
               </p>
             </div>
           </div>

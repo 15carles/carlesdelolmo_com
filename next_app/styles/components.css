@@ -1303,13 +1303,15 @@
     color: var(--color-text-primary);
 }
 
-.section-fit .fit-note a {
+/* Los interlinks marcados con .link-inline conservan el verde de acento del
+   sistema; el resto de enlaces del bloque mantienen el estilo de la sección. */
+.section-fit .fit-note a:not(.link-inline) {
     color: var(--color-text-primary);
     text-decoration: underline;
     text-underline-offset: 0.2em;
 }
 
-.section-fit .fit-note a:hover {
+.section-fit .fit-note a:not(.link-inline):hover {
     color: var(--color-accent-cyan);
 }
 
@@ -1376,14 +1378,15 @@
     padding-left: var(--spacing-xs);
 }
 
-.section-scope .scope-card a {
+/* Igual que en .fit-note: .link-inline prevalece sobre el estilo de sección. */
+.section-scope .scope-card a:not(.link-inline) {
     color: var(--color-text-primary);
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.2em;
 }
 
-.section-scope .scope-card a:hover {
+.section-scope .scope-card a:not(.link-inline):hover {
     color: var(--color-accent-cyan);
 }
 

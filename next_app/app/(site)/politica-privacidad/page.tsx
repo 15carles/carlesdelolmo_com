@@ -255,7 +255,7 @@ export default function PoliticaPrivacidad() {
         <p>Este sitio web utiliza cookies técnicas necesarias para su funcionamiento y, cuando el usuario lo acepta, cookies analíticas de Google Analytics.</p>
         <p>El envío de datos de investigación del Laboratorio de visibilidad en IA (sección 3) no utiliza cookies ni depende del consentimiento de cookies analíticas.</p>
         <p>Las cookies analíticas solo se activarán tras el consentimiento del usuario mediante el banner de configuración de cookies.</p>
-        <p>La información detallada se incluye en la <Link href="/politica-cookies">Política de Cookies</Link> del sitio web.</p>
+        <p>La información detallada se incluye en la <Link href="/politica-cookies" className="link-inline">Política de Cookies</Link> del sitio web.</p>
       </section>
 
       <section aria-labelledby="menores-de-edad">

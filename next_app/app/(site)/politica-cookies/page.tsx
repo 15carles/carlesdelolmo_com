@@ -70,7 +70,7 @@ export default function PoliticaCookies() {
             <li>guardar el progreso y los datos privados del Laboratorio de visibilidad en IA en el propio dispositivo</li>
           </ul>
           <p>Este almacenamiento es técnico y necesario para dichas funcionalidades; el usuario puede borrarlo desde la propia herramienta o desde la configuración del navegador.</p>
-          <p>El envío de resultados estadísticos del Laboratorio de visibilidad en IA a la base de investigación no utiliza cookies ni depende del consentimiento de cookies analíticas; se describe en la <Link href="/politica-privacidad#laboratorio-visibilidad-ia">Política de Privacidad</Link>.</p>
+          <p>El envío de resultados estadísticos del Laboratorio de visibilidad en IA a la base de investigación no utiliza cookies ni depende del consentimiento de cookies analíticas; se describe en la <Link href="/politica-privacidad#laboratorio-visibilidad-ia" className="link-inline">Política de Privacidad</Link>.</p>
         </section>
       </section>
 

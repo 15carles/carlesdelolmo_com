@@ -33,7 +33,7 @@ export default function StageIntro({
         </button>
         <p className="text-muted text-sm mb-0 text-center" style={{ maxWidth: '38rem' }}>
           {RESEARCH_INTRO.ctaNote}{' '}
-          <Link href="/politica-privacidad">Política de privacidad</Link>.
+          <Link href="/politica-privacidad" className="link-inline">Política de privacidad</Link>.
         </p>
         <button type="button" className="btn btn--secondary" onClick={onShowMethodology}>
           Ver cómo funciona la metodología

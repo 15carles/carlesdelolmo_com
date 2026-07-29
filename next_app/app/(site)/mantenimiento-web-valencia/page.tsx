@@ -432,7 +432,10 @@ export default function MantenimientoWebValenciaPage() {
           <div className="section-note fit-note card card--no-hover animate-on-scroll mt-xl">
             <p className="text-secondary mb-0">
               Si tu caso requiere algo más que mantenimiento, también puedo ayudarte desde un enfoque más amplio de{' '}
-              <Link href="/diseno-web/valencia">diseño web en Valencia</Link>.
+              <Link href="/diseno-web/valencia" className="link-inline">
+                diseño web en Valencia
+              </Link>
+              .
             </p>
           </div>
         </div>
@@ -486,7 +489,10 @@ export default function MantenimientoWebValenciaPage() {
                 <p className="scope-card__description text-secondary">{item.description}</p>
                 <p className="scope-card__description text-secondary mb-0">
                   {item.leadIn}{' '}
-                  <Link href={item.href}>{item.linkText}</Link>.
+                  <Link href={item.href} className="link-inline">
+                    {item.linkText}
+                  </Link>
+                  .
                 </p>
               </article>
             ))}

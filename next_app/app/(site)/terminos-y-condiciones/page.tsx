@@ -89,7 +89,7 @@ export default function TerminosCondiciones() {
         <h2 id="formularios-y-comunicaciones">7. Formularios y comunicaciones</h2>
         <p>El usuario puede ponerse en contacto con el titular mediante formularios o correo electrónico.</p>
         <p>El usuario garantiza veracidad y no suplantación de identidad.</p>
-        <p>El tratamiento de datos personales se regula en la <Link href="/politica-privacidad">Política de Privacidad</Link> del sitio web.</p>
+        <p>El tratamiento de datos personales se regula en la <Link href="/politica-privacidad" className="link-inline">Política de Privacidad</Link> del sitio web.</p>
       </section>
 
       <section aria-labelledby="seguridad-del-sitio-web">

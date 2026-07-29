@@ -137,8 +137,18 @@ export default function DemosInteractivasPage() {
                   </ul>
                   <p className="mt-sm">
                     Esto es especialmente importante cuando se trabaja con{' '}
-                    <strong><Link href="/servicio-seo/posicionamiento-seo-geo">SEO técnico</Link></strong> y{' '}
-                    <strong><Link href="/servicio-seo/autoridad-digital-ias">GEO</Link></strong>.
+                    <strong>
+                      <Link href="/servicio-seo/posicionamiento-seo-geo" className="link-inline">
+                        SEO técnico
+                      </Link>
+                    </strong>{' '}
+                    y{' '}
+                    <strong>
+                      <Link href="/servicio-seo/autoridad-digital-ias" className="link-inline">
+                        GEO
+                      </Link>
+                    </strong>
+                    .
                     Porque lo que se optimiza no es solo contenido. Es la forma en la que ese contenido existe dentro de la arquitectura.
                   </p>
                 </div>
@@ -189,7 +199,12 @@ export default function DemosInteractivasPage() {
                     <li>Evolucionar con el tiempo</li>
                   </ul>
                   <p className="mt-md">
-                    Mi trabajo real consiste en construir estos sistemas completos. Si quieres ver cómo se aplica en un proyecto real, revisa el <Link href="/proyectos/ledescaparate">caso LEDescaparate</Link>.
+                    Mi trabajo real consiste en construir estos sistemas completos. Si quieres ver cómo se aplica en un
+                    proyecto real, revisa el{' '}
+                    <Link href="/proyectos/ledescaparate" className="link-inline">
+                      caso LEDescaparate
+                    </Link>
+                    .
                   </p>
                 </div>
               </div>

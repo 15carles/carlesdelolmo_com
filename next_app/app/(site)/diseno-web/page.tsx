@@ -71,7 +71,7 @@ export default function DisenoWebPage() {
               <p className="text-secondary mb-xl helper-center-mobile text-lg">
                 Diseño y desarrollo web para empresas que quieren una web clara, rápida y bien estructurada.
                 Si tu objetivo principal es la captación local, te conviene revisar también
-                {' '}<Link href="/diseno-web/valencia" className="underline font-medium hover:text-primary transition-colors">diseño web en Valencia</Link>.
+                {' '}<Link href="/diseno-web/valencia" className="link-inline">diseño web en Valencia</Link>.
               </p>
 
               <div className="flex flex-wrap gap-md mb-md helper-flex-center-mobile">
@@ -153,11 +153,11 @@ export default function DisenoWebPage() {
               </Link>
               <p className="text-sm text-secondary mt-md leading-relaxed">
                 Si buscas una captacion local mas enfocada, revisa {' '}
-                <Link href="/diseno-web/valencia" className="underline hover:text-primary transition-colors">
+                <Link href="/diseno-web/valencia" className="link-inline">
                   diseno web en Valencia
                 </Link>{' '}
                 o consulta {' '}
-                <Link href="/pricing" className="underline hover:text-primary transition-colors">
+                <Link href="/pricing" className="link-inline">
                   servicios y precios
                 </Link>.
               </p>
@@ -383,11 +383,11 @@ export default function DisenoWebPage() {
               <aside className="editorial-note">
                 <p>
                   Si quieres entender esta base con mas detalle, te recomiendo leer {' '}
-                  <Link href="/blog/metodo-orbita" className="underline hover:text-primary transition-colors">
+                  <Link href="/blog/metodo-orbita" className="link-inline">
                     el metodo ORBITA
                   </Link>{' '}
                   y esta guia sobre {' '}
-                  <Link href="/blog/estructura-ideal-pagina-web-empresas" className="underline hover:text-primary transition-colors">
+                  <Link href="/blog/estructura-ideal-pagina-web-empresas" className="link-inline">
                     estructura web para empresas
                   </Link>.
                 </p>
@@ -423,7 +423,7 @@ export default function DisenoWebPage() {
             </Link>
             <p className="text-sm text-secondary mt-md max-w-2xl mx-auto leading-relaxed">
               Si quieres aterrizar este enfoque en un proyecto real, puedes ver el {' '}
-              <Link href="/diseno-web/valencia" className="underline hover:text-primary transition-colors">
+              <Link href="/diseno-web/valencia" className="link-inline">
                 servicio en Valencia
               </Link>{' '}
               o {' '}
@@ -448,7 +448,7 @@ export default function DisenoWebPage() {
             </p>
             <p className="text-secondary text-lg mt-sm">
               ¿Curioso por el detalle técnico? Puedes ver{' '}
-              <Link href="/colofon" className="underline">cómo está hecha esta misma web</Link>.
+              <Link href="/colofon" className="link-inline">cómo está hecha esta misma web</Link>.
             </p>
           </div>
 
@@ -628,11 +628,11 @@ export default function DisenoWebPage() {
               </Link>
               <div className="text-sm text-secondary mt-xs leading-relaxed">
                 Tambien puedes revisar {' '}
-                <Link href="/pricing" className="underline hover:text-primary transition-colors">
+                <Link href="/pricing" className="link-inline">
                   servicios y precios
                 </Link>{' '}
                 o ver un {' '}
-                <Link href="/proyectos/ledescaparate" className="underline hover:text-primary transition-colors">
+                <Link href="/proyectos/ledescaparate" className="link-inline">
                   caso de estudio real
                 </Link>.
               </div>

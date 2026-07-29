@@ -88,7 +88,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           href={href}
           target={target}
           rel={target === '_blank' ? 'noopener noreferrer' : undefined}
-          className="link"
+          className="link-inline"
         >
           {linkText}
         </a>

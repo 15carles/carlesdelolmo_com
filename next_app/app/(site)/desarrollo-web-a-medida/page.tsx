@@ -402,7 +402,11 @@ export default function DesarrolloWebAMedidaPage() {
               </p>
               <p className="text-secondary mb-0">
                 Si hoy necesitas una base más estándar antes de una solución personalizada, puede encajar mejor empezar por
-                <Link href="/diseno-web/valencia"> diseño web en Valencia</Link>.
+                {' '}
+                <Link href="/diseno-web/valencia" className="link-inline">
+                  diseño web en Valencia
+                </Link>
+                .
               </p>
             </div>
           </div>
@@ -487,8 +491,14 @@ export default function DesarrolloWebAMedidaPage() {
             <div className="section-note card card--no-hover animate-on-scroll mt-xl">
               <p className="text-secondary mb-0">
                 Si quieres profundizar en la capa generativa, aquí puedes ver el servicio de{' '}
-                <Link href="/servicio-seo/autoridad-digital-ias">autoridad digital para IAs</Link>. Y para la capa de
-                visibilidad, este enfoque se complementa con <Link href="/servicio-seo/posicionamiento-seo-geo">posicionamiento SEO y GEO</Link>.
+                <Link href="/servicio-seo/autoridad-digital-ias" className="link-inline">
+                  autoridad digital para IAs
+                </Link>
+                . Y para la capa de visibilidad, este enfoque se complementa con{' '}
+                <Link href="/servicio-seo/posicionamiento-seo-geo" className="link-inline">
+                  posicionamiento SEO y GEO
+                </Link>
+                .
               </p>
             </div>
           </div>
@@ -558,7 +568,10 @@ export default function DesarrolloWebAMedidaPage() {
               <p className="text-secondary mb-0">
                 Una buena solución a medida no debe impresionar durante cinco segundos: debe ahorrar tiempo, ordenar
                 información y facilitar decisiones. Si quieres ver un ejemplo real, revisa el{' '}
-                <Link href="/proyectos/ledescaparate">caso de estudio de LEDescaparate</Link>.
+                <Link href="/proyectos/ledescaparate" className="link-inline">
+                  caso de estudio de LEDescaparate
+                </Link>
+                .
               </p>
             </div>
           </div>
@@ -584,7 +597,10 @@ export default function DesarrolloWebAMedidaPage() {
             <div className="section-note scope-note card card--no-hover animate-on-scroll mt-xl">
               <p className="text-secondary mb-0">
                 Si quieres ver enfoque aplicado en experiencias funcionales, puedes revisar también las{' '}
-                <Link href="/demos-interactivas">demos interactivas</Link>.
+                <Link href="/demos-interactivas" className="link-inline">
+                  demos interactivas
+                </Link>
+                .
               </p>
             </div>
           </div>

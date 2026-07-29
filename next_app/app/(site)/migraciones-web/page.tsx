@@ -468,8 +468,15 @@ export default function MigracionesWebPage() {
           <div className="section-note card card--no-hover animate-on-scroll mt-xl">
             <p className="text-secondary mb-0">
               Si antes de migrar necesitas revisar riesgos, estructura o señales de visibilidad, puede tener sentido empezar
-              por una <Link href="/servicio-seo/auditoria-seo-geo">auditoría SEO + GEO</Link>. Y si después del cambio la
-              nueva base necesita continuidad, también puedo ayudarte con <Link href="/mantenimiento-web-valencia">mantenimiento web</Link>.
+              por una{' '}
+              <Link href="/servicio-seo/auditoria-seo-geo" className="link-inline">
+                auditoría SEO + GEO
+              </Link>
+              . Y si después del cambio la nueva base necesita continuidad, también puedo ayudarte con{' '}
+              <Link href="/mantenimiento-web-valencia" className="link-inline">
+                mantenimiento web
+              </Link>
+              .
             </p>
           </div>
         </div>
@@ -532,7 +539,11 @@ export default function MigracionesWebPage() {
             </p>
             <p className="text-secondary mb-0">
               Si quieres ver un proyecto donde la claridad estructural y el criterio técnico importan de verdad, puedes
-              revisar el caso de <Link href="/proyectos/ledescaparate">LEDescaparate</Link>.
+              revisar el caso de{' '}
+              <Link href="/proyectos/ledescaparate" className="link-inline">
+                LEDescaparate
+              </Link>
+              .
             </p>
           </div>
         </div>

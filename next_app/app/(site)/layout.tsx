@@ -63,9 +63,13 @@ export default function RootLayout({
             });
           `}
         </Script>
-        {/* Google Analytics 4 */}
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-196PEE2941" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
+        {/* Google Analytics 4.
+            lazyOnload en lugar de afterInteractive: gtag.js son ~181 KiB, el recurso
+            mas pesado de la pagina. Cargarlo en tiempo ocioso lo saca de la competencia
+            por el ancho de banda durante el pintado inicial. El Consent Mode de arriba
+            sigue en beforeInteractive, que es lo que debe ejecutarse primero. */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-196PEE2941" strategy="lazyOnload" />
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag() { dataLayer.push(arguments); }

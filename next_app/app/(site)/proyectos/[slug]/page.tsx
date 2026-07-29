@@ -218,7 +218,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         {/* El Hero ahora se puede añadir como un bloque 'projectHero' en la parte superior 
             para mayor flexibilidad, o se renderiza por defecto si no hay contenido complejo */}
         {!content || content.length === 0 ? (
-          <header className="page-header animate-on-scroll">
+          <header className="page-header">
             <div className="container">
               {/* Breadcrumbs */}
               <nav className="breadcrumbs" aria-label="Breadcrumb">
@@ -344,7 +344,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           }}
           componentBlocks={{
             projectHero: (props: any) => (
-              <header className="page-header animate-on-scroll">
+              <header className="page-header">
                 <div className="container">
                   <nav className="breadcrumbs" aria-label="Breadcrumb">
                     <ul className="breadcrumbs__list">

@@ -181,7 +181,7 @@ export default function AuditoriaSeoGeo() {
 
         <section className="section">
           <div className="container">
-            <header className="section-header animate-on-scroll">
+            <header className="section-header">
               <div className="badge badge--purple mb-lg">
                 <span>Diagnóstico · Punto de partida</span>
               </div>

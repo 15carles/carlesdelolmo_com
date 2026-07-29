@@ -58,7 +58,7 @@ export default function DemosInteractivasPage() {
 
       <main className="page__content">
         {/* ── Hero / Header ── */}
-        <header className="page-header animate-on-scroll">
+        <header className="page-header">
           <div className="container">
             <Breadcrumbs items={breadcrumbs} />
 

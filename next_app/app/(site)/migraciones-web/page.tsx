@@ -325,7 +325,7 @@ export default function MigracionesWebPage() {
 
       <section id="inicio" className="section hero hero-service hero-migraciones" aria-labelledby="hero-title">
         <div className="container hero-migraciones__container">
-          <div className="hero-migraciones__inner animate-on-scroll">
+          <div className="hero-migraciones__inner">
             <div className="badge badge--status mb-lg hero-migraciones__badge">
                 <span>Servicio estratégico</span>
             </div>

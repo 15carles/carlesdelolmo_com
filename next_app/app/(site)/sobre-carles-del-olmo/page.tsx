@@ -62,7 +62,7 @@ export default function SobreCarlesDelOlmoPage() {
           <div className="container max-w-4xl mx-auto">
             <Breadcrumbs items={breadcrumbs} />
             
-            <div className="animate-on-scroll mt-xl">
+            <div className="mt-xl">
               <div className="badge badge--status mb-md inline-block">Sobre mí</div>
               <h1 className="page-header__title mb-md">
                 Diseño web con criterio técnico, estructura y una <span className="gradient-text">decisión muy clara de fondo</span>

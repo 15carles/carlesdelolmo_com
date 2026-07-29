@@ -136,7 +136,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
       <main className="page__content">
-        <header className="page-header animate-on-scroll">
+        <header className="page-header">
           <div className="container">
             <Breadcrumbs items={breadcrumbs} />
 

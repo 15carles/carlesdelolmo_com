@@ -142,7 +142,7 @@ export default function ColofonPage() {
         dangerouslySetInnerHTML={{ __html: safeJsonLd(jsonLd) }}
       />
       <main className="page__content">
-        <header className="page-header animate-on-scroll">
+        <header className="page-header">
           <div className="container">
             <Breadcrumbs items={breadcrumbs} />
             <h1 className="page-header__title mt-xl">Cómo está hecha esta web</h1>

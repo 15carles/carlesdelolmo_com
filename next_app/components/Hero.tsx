@@ -12,7 +12,11 @@ export default function Hero() {
     <section id="inicio" className="section" aria-labelledby="hero-title">
       <div className="container">
         <div className="grid grid-cols-2">
-          <div className="animate-on-scroll hero-content-wrapper">
+          {/* Sin animate-on-scroll: este bloque ya esta en pantalla al cargar y
+              contiene el h1, que es el elemento LCP. Envolverlo en una animacion
+              que arranca en opacity:0 retrasa su pintado, y en los navegadores sin
+              scroll-driven animations lo deja invisible hasta que hidrata React. */}
+          <div className="hero-content-wrapper">
             <p className="badge badge--status mb-lg helper-center-mobile hero-eyebrow">
               <span className="badge__dot badge__dot--pulse" aria-hidden="true"></span>
               <span>Disponible para proyectos</span>

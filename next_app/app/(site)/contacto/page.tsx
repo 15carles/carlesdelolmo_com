@@ -14,7 +14,7 @@ export default function ContactPage() {
     <main className="page__content">
       <section id="contacto" className="pricing-contact">
         <div className="container">
-          <header className="section-header animate-on-scroll mb-lg">
+          <header className="section-header mb-lg">
             <h1 className="section-header__title">Contacto</h1>
             <p className="section-header__subtitle">
               Sitio web oficial de {ENTITY.name}, diseñador web en Valencia especializado en SEO técnico, GEO y automatizaciones.

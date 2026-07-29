@@ -181,7 +181,7 @@ export default function LaboratorioVisibilidadIaPage() {
       />
 
       <main className="page__content">
-        <header className="page-header animate-on-scroll no-print">
+        <header className="page-header no-print">
           <div className="container">
             <Breadcrumbs items={breadcrumbs} />
             <h1 className="page-header__title mt-xl">

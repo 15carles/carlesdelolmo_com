@@ -62,7 +62,7 @@ export default function DisenoWebPage() {
         <div className="container">
           <div className="grid grid-cols-2">
             {/* Left Column: Content */}
-            <div className="animate-on-scroll hero-content-wrapper">
+            <div className="hero-content-wrapper">
               <h1 className="mb-md helper-center-mobile">
                 Diseño web para empresas <br />
                 <span className="gradient-text">con enfoque estratégico</span>

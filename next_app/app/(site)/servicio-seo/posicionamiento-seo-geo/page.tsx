@@ -141,7 +141,7 @@ export default function PosicionamientoSeoGeo() {
 
         <section className="section">
           <div className="container">
-            <header className="section-header animate-on-scroll">
+            <header className="section-header">
               <div className="badge badge--blue mb-lg">
                 <span>Servicio de continuidad</span>
               </div>

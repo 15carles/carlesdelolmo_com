@@ -416,14 +416,16 @@ export default function AutoridadDigitalIas() {
               <p className="text-secondary mb-md">
                 Y cuando una web es ambigua, pierde fuerza. Si quieres ver ese problema explicado con detalle, aquí tienes
                 el análisis sobre{' '}
-                <Link href="/blog/por-que-webs-no-aparecen-respuestas-ia">
+                <Link href="/blog/por-que-webs-no-aparecen-respuestas-ia" className="link-inline">
                   por qué muchas webs no aparecen en respuestas de IA
                 </Link>
                 .
               </p>
               <p className="text-secondary mb-0">
                 ¿Quieres comprobarlo con tu propio negocio? Con el{' '}
-                <Link href="/laboratorio-visibilidad-ia">Laboratorio de visibilidad en IA</Link>{' '}
+                <Link href="/laboratorio-visibilidad-ia" className="link-inline">
+                  Laboratorio de visibilidad en IA
+                </Link>{' '}
                 puedes ver, gratis y en pocos minutos, si ChatGPT, Gemini o Perplexity te mencionan cuando alguien busca
                 servicios como los tuyos.
               </p>
@@ -519,7 +521,10 @@ export default function AutoridadDigitalIas() {
               <p className="section-header__subtitle">
                 Este servicio combina estrategia SEO, arquitectura semántica, contenido estructurado y optimización GEO.
                 Si antes de esta capa conviene diagnóstico, puedes empezar por una{' '}
-                <Link href="/servicio-seo/auditoria-seo-geo">auditoría SEO + GEO</Link>.
+                <Link href="/servicio-seo/auditoria-seo-geo" className="link-inline">
+                  auditoría SEO + GEO
+                </Link>
+                .
               </p>
             </div>
 
@@ -540,7 +545,10 @@ export default function AutoridadDigitalIas() {
             <div className="section-note card card--no-hover animate-on-scroll mt-xl">
               <p className="text-secondary mb-0">
                 Si quieres profundizar en estas líneas, puedes revisar también mis{' '}
-                <Link href="/blog">contenidos sobre SEO técnico y GEO</Link>.
+                <Link href="/blog" className="link-inline">
+                  contenidos sobre SEO técnico y GEO
+                </Link>
+                .
               </p>
             </div>
           </div>
@@ -583,7 +591,7 @@ export default function AutoridadDigitalIas() {
             <p className="text-center text-secondary mt-2xl max-w-2xl mx-auto">
               ¿Necesitas trabajo mensual de posicionamiento y ranking, no la capa de entidad?
               Ese es mi servicio de continuidad:{' '}
-              <Link href="/servicio-seo/posicionamiento-seo-geo" className="underline">
+              <Link href="/servicio-seo/posicionamiento-seo-geo" className="link-inline">
                 Posicionamiento SEO + GEO
               </Link>
               .
@@ -631,8 +639,14 @@ export default function AutoridadDigitalIas() {
               </p>
               <p className="text-secondary mb-0">
                 En esos casos, normalmente tiene más sentido arrancar por{' '}
-                <Link href="/servicio-seo/auditoria-seo-geo">auditoría SEO + GEO</Link> o por una revisión de{' '}
-                <Link href="/diseno-web/valencia">diseño web en Valencia</Link> antes de añadir una capa avanzada.
+                <Link href="/servicio-seo/auditoria-seo-geo" className="link-inline">
+                  auditoría SEO + GEO
+                </Link>{' '}
+                o por una revisión de{' '}
+                <Link href="/diseno-web/valencia" className="link-inline">
+                  diseño web en Valencia
+                </Link>{' '}
+                antes de añadir una capa avanzada.
               </p>
             </div>
           </div>

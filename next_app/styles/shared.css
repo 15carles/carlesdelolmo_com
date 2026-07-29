@@ -142,8 +142,13 @@
 /* Enlaces del cuerpo del post: verde de acento + subrayado, para que se
    distingan del texto corrido sin depender solo del color (WCAG 1.4.1).
    Se excluyen los .btn de los bloques de componente (button y ctaSection),
-   que ya tienen su propio estilo. */
-.article-content--post a:not(.btn) {
+   que ya tienen su propio estilo.
+
+   .link-inline aplica ese mismo tratamiento a los interlinks contextuales de
+   las landings, que no viven dentro de .article-content--post y hasta ahora
+   heredaban la regla base de <a> (sin color ni subrayado). */
+.article-content--post a:not(.btn),
+.link-inline {
     color: var(--color-accent);
     text-decoration: underline;
     text-decoration-thickness: 1px;
@@ -151,7 +156,8 @@
     transition: color var(--transition-fast), text-decoration-thickness var(--transition-fast);
 }
 
-.article-content--post a:not(.btn):hover {
+.article-content--post a:not(.btn):hover,
+.link-inline:hover {
     color: var(--color-accent-hover);
     text-decoration-thickness: 2px;
 }

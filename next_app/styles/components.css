@@ -1401,13 +1401,15 @@
     margin-right: auto;
 }
 
-.section-scope .scope-note a {
+/* Los interlinks marcados con .link-inline conservan el verde de acento del
+   sistema; el resto de enlaces del bloque mantienen el estilo de la sección. */
+.section-scope .scope-note a:not(.link-inline) {
     color: var(--color-text-primary);
     text-decoration: underline;
     text-underline-offset: 0.2em;
 }
 
-.section-scope .scope-note a:hover {
+.section-scope .scope-note a:not(.link-inline):hover {
     color: var(--color-accent-cyan);
 }
 

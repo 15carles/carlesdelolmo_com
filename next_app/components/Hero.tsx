@@ -1,13 +1,33 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { Check } from 'lucide-react';
 import Link from 'next/link';
 
 const HeroCanvas = dynamic(() => import('./HeroCanvas'));
 
+// El canvas es decorativo y .hidden-mobile ya lo ocultaba por debajo de 768px,
+// pero ocultarlo con CSS no evita que su chunk se descargue. Montarlo solo en
+// escritorio ahorra esos bytes justo en el dispositivo donde más cuestan.
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+    const sync = () => setIsDesktop(mediaQuery.matches);
+
+    sync();
+    mediaQuery.addEventListener('change', sync);
+    return () => mediaQuery.removeEventListener('change', sync);
+  }, []);
+
+  return isDesktop;
+}
+
 export default function Hero() {
+  const isDesktop = useIsDesktop();
+
   return (
     <section id="inicio" className="section" aria-labelledby="hero-title">
       <div className="container">
@@ -65,7 +85,7 @@ export default function Hero() {
 
           <div className="animate-on-scroll flex flex-col justify-center pb-3xl hero-right-col hidden-mobile">
             <div className="hero-canvas-frame">
-              <HeroCanvas className="hero-canvas" />
+              {isDesktop && <HeroCanvas className="hero-canvas" />}
             </div>
           </div>
         </div>

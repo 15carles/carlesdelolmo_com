@@ -77,7 +77,7 @@ export default function OrbitaMethod() {
       </div>
 
       {/* VERSIÓN MÓVIL (Panel de Control) */}
-      <div className="orbita-mobile-container">
+      <div>
         <div className="orbita-mobile-grid">
           {steps.map((step, index) => (
             <button

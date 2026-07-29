@@ -41,10 +41,10 @@ export default function WorkflowTimeline() {
   const [hoveredPhase, setHoveredPhase] = useState<number | null>(null);
 
   return (
-    <div className="mt-8 md:mt-12 lg:mt-16 relative">
+    <div>
 
       {/* DISEÑO BASADO EN CSS NATIVO (Control total de proximidad) */}
-      <div className="workflow-timeline workflow-timeline--vertical relative">
+      <div className="workflow-timeline workflow-timeline--vertical">
         
         {/* Línea Vertical Sincronizada (24px vía CSS) */}
         <div className="workflow-timeline__line"></div>
@@ -56,13 +56,13 @@ export default function WorkflowTimeline() {
           return (
             <div 
               key={`row-${phase.id}`} 
-              className={`workflow-timeline__item group py-6 md:py-10 transition-all duration-500 ${isDimmed ? 'workflow-timeline__item--dimmed' : ''}`}
+              className={`workflow-timeline__item ${isDimmed ? 'workflow-timeline__item--dimmed' : ''}`}
               onMouseEnter={() => setHoveredPhase(index)}
               onMouseLeave={() => setHoveredPhase(null)}
             >
               {/* Nodo de la línea temporal (Estructura fija vía CSS) */}
               <div className="workflow-timeline__node-container">
-                <div className={`workflow-timeline__node workflow-timeline__node--${phase.colorTag} ${isActive ? 'workflow-timeline__node--active' : ''} border-2 transition-all duration-300`}>
+                <div className={`workflow-timeline__node workflow-timeline__node--${phase.colorTag} ${isActive ? 'workflow-timeline__node--active' : ''}`}>
                   {phase.id}
                 </div>
               </div>
@@ -80,10 +80,10 @@ export default function WorkflowTimeline() {
                   Fase {phase.id}
                 </span>
 
-                <h3 className={`text-lg md:text-xl font-bold mb-2 transition-colors duration-500 ${isActive ? phase.titleClass : 'text-neutral-200'}`}>
+                <h3 className={`text-lg mb-2 ${isActive ? phase.titleClass : 'text-neutral-200'}`}>
                   {phase.title}
                 </h3>
-                <p className={`text-secondary text-sm md:text-base leading-relaxed transition-all duration-500 ${isActive ? 'text-neutral-200' : 'text-neutral-500 font-normal'}`}>
+                <p className={`text-secondary text-sm leading-relaxed ${isActive ? 'text-neutral-200' : 'text-neutral-500 font-normal'}`}>
                   {phase.desc}
                 </p>
               </article>

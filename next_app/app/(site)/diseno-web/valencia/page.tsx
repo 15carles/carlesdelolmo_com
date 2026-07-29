@@ -220,7 +220,7 @@ export default function DisenoWebValencia() {
                   <Link href="#info" className="btn btn--primary btn--large">Diseño web Valencia</Link>
                 </div>
 
-                <div id="hero-checklist" className="hero-features grid grid-cols-2 gap-md mb-xl animate-on-scroll">
+                <div id="hero-checklist" className="grid grid-cols-2 gap-md mb-xl animate-on-scroll">
                   <div className="hero-features__item">
                     <span className="hero-features__icon-wrapper">
                       <Check size={20} strokeWidth={3} />
@@ -306,12 +306,12 @@ export default function DisenoWebValencia() {
 
             <div className="grid grid-cols-3 gap-xl items-center">
               <div className="animate-on-scroll flex justify-center">
-                <div className="relative w-full aspect-[3/2] max-w-[300px]">
+                <div className="w-full aspect-[3/2] max-w-[300px]">
                   <Image
                     src="/assets/images/stock/bandera-valencia.webp"
                     alt="Bandera de la Comunitat Valenciana"
                     fill
-                    className="img--responsive img--glass object-cover rounded-lg"
+                    className="img--responsive img--glass"
                   />
                 </div>
               </div>
@@ -479,14 +479,14 @@ export default function DisenoWebValencia() {
                     alt={`logo de ${tool.name}`}
                     width={120}
                     height={40}
-                    className="tools-logo show-in-light object-contain"
+                    className="tools-logo show-in-light"
                   />
                   <Image
                     src={tool.dark}
                     alt={`logo de ${tool.name}`}
                     width={120}
                     height={40}
-                    className="tools-logo show-in-dark object-contain"
+                    className="tools-logo show-in-dark"
                   />
                 </div>
               ))}

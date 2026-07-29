@@ -63,8 +63,8 @@ export default function SeoServiceChooser({
   return (
     <section className="section section-services" aria-labelledby="seo-chooser-title">
       <div className="container">
-        <div className="section-heading section-header animate-on-scroll">
-          <span className="section-eyebrow badge badge--blue mb-lg">Cómo encajan</span>
+        <div className="section-header animate-on-scroll">
+          <span className="badge badge--blue mb-lg">Cómo encajan</span>
           <h2 id="seo-chooser-title" className="section-header__title">
             {title}
           </h2>

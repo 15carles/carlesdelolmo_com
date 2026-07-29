@@ -128,7 +128,7 @@ function NavbarContent({ pathname }: NavbarContentProps) {
                 service.submenu ? (
                   <div
                     key={index}
-                    className={`dropdown__item has-submenu ${activeSubDropdown === service.id ? 'is-active' : ''}`}
+                    className={`dropdown__item ${activeSubDropdown === service.id ? 'is-active' : ''}`}
                     onMouseEnter={() => setActiveSubDropdown(service.id)}
                   >
                     <button

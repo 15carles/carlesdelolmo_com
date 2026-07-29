@@ -75,21 +75,21 @@ export default function DisenoWebPage() {
               </p>
 
               <div className="flex flex-wrap gap-md mb-md helper-flex-center-mobile">
-                <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large w-full sm:w-auto">
+                <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large w-full">
                   Cuéntame tu proyecto
                 </Link>
-                <Link href="/diseno-web/valencia" className="btn btn--secondary btn--large w-full sm:w-auto">
+                <Link href="/diseno-web/valencia" className="btn btn--secondary btn--large w-full">
                   Ver servicio en Valencia
                 </Link>
               </div>
 
               <div className="mb-xl helper-center-mobile">
-                <Link href="/pricing" className="text-secondary underline hover:text-primary transition-colors">
+                <Link href="/pricing" className="text-secondary underline">
                   Ver servicios y precios
                 </Link>
               </div>
 
-              <div id="hero-checklist" className="hero-features flex gap-lg mb-xl helper-flex-center-mobile">
+              <div id="hero-checklist" className="flex gap-lg mb-xl helper-flex-center-mobile">
                 <div className="hero-features__item">
                   <span className="hero-features__icon-wrapper">
                     <Check size={20} strokeWidth={3} />
@@ -164,7 +164,7 @@ export default function DisenoWebPage() {
             </div>
 
             {/* Columna Derecha: 1/3 (Ocupa la columna restante) */}
-            <div className="col-span-1 flex justify-center items-center w-full">
+            <div className="flex justify-center items-center w-full">
               <div className="diseno-web__mockup-scale">
                 <Image
                   src="/assets/images/mockups/mockup_ecohoagr.webp"
@@ -411,15 +411,15 @@ export default function DisenoWebPage() {
           <OrbitaMethod />
 
           <div className="max-w-4xl mx-auto mt-lg text-center animate-on-scroll">
-            <p className="text-lg text-primary font-semibold mb-lg">
+            <p className="text-lg text-primary mb-lg">
               El objetivo es que la web no sea solo una presencia online, sino una herramienta real para generar oportunidades de negocio.
             </p>
             <Link
               href="/blog/metodo-orbita"
-              className="btn btn--secondary inline-flex items-center gap-2 group"
+              className="btn btn--secondary items-center gap-2"
             >
               Saber más sobre el método ORBITA
-              <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" />
+              <ArrowRight size={17}/>
             </Link>
             <p className="text-sm text-secondary mt-md max-w-2xl mx-auto leading-relaxed">
               Si quieres aterrizar este enfoque en un proyecto real, puedes ver el {' '}
@@ -427,7 +427,7 @@ export default function DisenoWebPage() {
                 servicio en Valencia
               </Link>{' '}
               o {' '}
-              <Link href="/contacto" className="underline hover:text-primary transition-colors">
+              <Link href="/contacto" className="underline">
                 contarme tu caso
               </Link>.
             </p>
@@ -439,7 +439,7 @@ export default function DisenoWebPage() {
         <div className="container">
           {/* Cabecera de la sección a ancho completo */}
           <div className="animate-on-scroll mb-2xl text-center max-w-4xl mx-auto">
-            <h2 className="mb-md">Tecnología orientada a rendimiento, <br className="hidden lg:block" /><span className="gradient-text">SEO y visibilidad</span></h2>
+            <h2 className="mb-md">Tecnología orientada a rendimiento, <br/><span className="gradient-text">SEO y visibilidad</span></h2>
             <p className="text-secondary text-lg mb-sm">
               La tecnología no es un simple detalle técnico. Es uno de los factores que más influyen en el rendimiento y la capacidad de crecimiento de tu web.
             </p>
@@ -535,8 +535,8 @@ export default function DisenoWebPage() {
               <div className="keyword-card flex items-center justify-center p-md text-sm">LLM Ready</div>
             </div>
 
-            <div className="bg-gradient-to-r from-purple-500/10 to-transparent border-l-2 border-purple-500 p-md rounded-r-lg max-w-2xl">
-              <p className="text-primary font-semibold m-0 flex items-center gap-sm">
+            <div className="p-md max-w-2xl">
+              <p className="text-primary m-0 flex items-center gap-sm">
                 <CheckCircle className="text-purple-400 shrink-0" size={20} />
                 El resultado es una web premium que posiciona y convierte mejor.
               </p>

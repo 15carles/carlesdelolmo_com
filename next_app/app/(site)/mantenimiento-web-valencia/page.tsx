@@ -203,7 +203,7 @@ export default function MantenimientoWebValenciaPage() {
       <main className="page__content">
         <Breadcrumbs items={breadcrumbs} />
 
-        <section id="inicio" className="section hero hero-service hero-maintenance" aria-labelledby="hero-title">
+        <section id="inicio" className="section hero-maintenance" aria-labelledby="hero-title">
           <div className="container hero-maintenance__container">
             <div className="hero-maintenance__inner">
               <div className="badge badge--status mb-lg hero-maintenance__badge">
@@ -214,7 +214,7 @@ export default function MantenimientoWebValenciaPage() {
                 Mantenimiento Web <span className="gradient-text">Valencia</span>
               </h1>
 
-              <p className="hero-description text-secondary mb-xl hero-maintenance__subtitle">
+              <p className="text-secondary mb-xl hero-maintenance__subtitle">
                 Mantengo webs ya publicadas para que sigan funcionando bien, transmitan profesionalidad y no se deterioren
                 con el tiempo. Tanto si la web la he desarrollado yo como si viene de otro profesional o agencia.
               </p>
@@ -227,7 +227,7 @@ export default function MantenimientoWebValenciaPage() {
 
               <ul
                 id="hero-checklist"
-                className="hero-highlights hero-features hero-maintenance__highlights grid grid-cols-2 gap-md mb-0"
+                className="hero-maintenance__highlights grid grid-cols-2 gap-md mb-0"
                 aria-label="Puntos clave del servicio"
               >
                 {HERO_HIGHLIGHTS.map((highlight) => (
@@ -249,21 +249,21 @@ export default function MantenimientoWebValenciaPage() {
           </div>
         </section>
 
-      <section className="section section-problem" aria-labelledby="problem-title">
+      <section className="section" aria-labelledby="problem-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--teal mb-lg">Por qué importa</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--teal mb-lg">Por qué importa</span>
             <h2 id="problem-title" className="section-header__title">
               Una web puede seguir online y aun así estar fallando
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               Muchas empresas creen que una web solo necesita atención cuando deja de funcionar. El problema es que la
               mayoría no se rompe de golpe: se va deteriorando poco a poco, acumulando pequeños fallos, tareas pendientes y
               señales de abandono que terminan afectando a la imagen del negocio.
             </p>
           </div>
 
-          <div className="problem-grid grid grid-cols-3 gap-lg">
+          <div className="grid grid-cols-3 gap-lg">
             <article className="problem-card card animate-on-scroll">
               <h3>Errores que pasan desapercibidos</h3>
               <p className="text-secondary mb-0">
@@ -300,12 +300,12 @@ export default function MantenimientoWebValenciaPage() {
 
       <section className="section section-services" aria-labelledby="services-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--blue mb-lg">Qué incluye</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--blue mb-lg">Qué incluye</span>
             <h2 id="services-title" className="section-header__title">
               Un mantenimiento pensado para que la web siga bien atendida
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               No se trata solo de intervenir cuando aparece un problema. El mantenimiento web también implica revisar,
               corregir, ajustar y acompañar la evolución de la web para que siga siendo estable, clara y útil con el paso
               del tiempo.
@@ -357,12 +357,12 @@ export default function MantenimientoWebValenciaPage() {
 
       <section className="section section-plans" aria-labelledby="plans-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--purple mb-lg">Modalidad de servicio</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--purple mb-lg">Modalidad de servicio</span>
             <h2 id="plans-title" className="section-header__title">
               No todas las webs necesitan el mismo nivel de mantenimiento
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               Hay proyectos que solo necesitan continuidad, seguimiento y pequeños ajustes de forma recurrente. Otros
               requieren una atención más personalizada, más carga de trabajo o una intervención más flexible. Por eso trabajo
               con una base estándar y con opciones adaptadas según cada caso.
@@ -404,12 +404,12 @@ export default function MantenimientoWebValenciaPage() {
 
       <section className="section section-fit" aria-labelledby="fit-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--status mb-lg">Encaje del servicio</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--status mb-lg">Encaje del servicio</span>
             <h2 id="fit-title" className="section-header__title">
               Un servicio pensado para webs que necesitan continuidad real
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               El mantenimiento web no siempre es para todo el mundo. Encaja especialmente bien en proyectos donde la web ya
               forma parte de la imagen, la operativa o la captación del negocio y necesita seguir bien atendida con el paso
               del tiempo.
@@ -443,12 +443,12 @@ export default function MantenimientoWebValenciaPage() {
 
       <section className="section section-process" aria-labelledby="process-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--status mb-lg">Cómo trabajo</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--status mb-lg">Cómo trabajo</span>
             <h2 id="process-title" className="section-header__title">
               Una forma de trabajo clara, sin mantenimiento improvisado
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               El objetivo no es intervenir de forma reactiva cada vez que aparece algo. La idea es entender el estado de la
               web, detectar lo importante y dar continuidad con criterio.
             </p>
@@ -470,12 +470,12 @@ export default function MantenimientoWebValenciaPage() {
 
       <section className="section section-scope" aria-labelledby="scope-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--status mb-lg">Importante</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--status mb-lg">Importante</span>
             <h2 id="scope-title" className="section-header__title">
               No todas las webs necesitan mantenimiento
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               Hay casos en los que el problema no está en la falta de seguimiento, sino en la base de la propia web.
               Cuando la estructura, el enfoque o el estado general del proyecto ya no son adecuados, lo más honesto no es
               plantear mantenimiento, sino otro tipo de intervención.
@@ -509,12 +509,12 @@ export default function MantenimientoWebValenciaPage() {
 
       <section className="section section-contact" aria-labelledby="contact-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--teal mb-lg">Siguiente paso</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--teal mb-lg">Siguiente paso</span>
             <h2 id="contact-title" className="section-header__title">
               Cuéntame tu caso y vemos qué tipo de mantenimiento encaja
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               Si tu web necesita continuidad, soporte o pequeñas mejoras, podemos valorar qué modalidad tiene más sentido.
               Y si el problema no es mantenimiento, también te lo diré con claridad.
             </p>

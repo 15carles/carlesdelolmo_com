@@ -221,7 +221,7 @@ export default function AuditoriaSeoGeo() {
 
                 <div className="card card--no-hover p-lg">
                   <div className="flex items-center gap-4 mb-md">
-                    <span className="text-2xl font-bold gradient-text">750€</span>
+                    <span className="text-2xl gradient-text">750€</span>
                     <span className="text-muted text-sm">(Pago único, precios sin IVA)</span>
                   </div>
                   <Link href="/contacto" className="btn btn--primary btn--block" data-primary-cta="true">
@@ -248,16 +248,16 @@ export default function AuditoriaSeoGeo() {
         </section>
 
         {/* Síntomas: para quién es */}
-        <section className="section section-problem" aria-labelledby="sintomas-title">
+        <section className="section" aria-labelledby="sintomas-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--teal mb-lg">Cuándo tiene sentido</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--teal mb-lg">Cuándo tiene sentido</span>
               <h2 id="sintomas-title" className="section-header__title">
                 Empieza por aquí si te reconoces en esto
               </h2>
             </div>
 
-            <div className="problem-grid grid grid-cols-3 gap-lg">
+            <div className="grid grid-cols-3 gap-lg">
               {SYMPTOMS.map((item) => (
                 <article key={item.title} className="problem-card card animate-on-scroll">
                   <h3>{item.title}</h3>
@@ -288,8 +288,8 @@ export default function AuditoriaSeoGeo() {
         {/* Qué pasa después: enlaza hacia adelante */}
         <section className="section" aria-labelledby="despues-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--blue mb-lg">Qué pasa después</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--blue mb-lg">Qué pasa después</span>
               <h2 id="despues-title" className="section-header__title">
                 La auditoría es el primer paso, no el último
               </h2>
@@ -322,7 +322,7 @@ export default function AuditoriaSeoGeo() {
         {/* FAQ */}
         <section id="faq" className="section" aria-labelledby="faq-title">
           <div className="container animate-on-scroll">
-            <div className="section-heading section-header">
+            <div className="section-header">
               <h2 id="faq-title" className="section-header__title">
                 Preguntas frecuentes sobre la auditoría SEO + GEO
               </h2>

@@ -194,7 +194,7 @@ export default function DisenoWebCastellon() {
                 <Link href="#info" className="btn btn--primary btn--large">Diseño web Castellón</Link>
               </div>
 
-              <div id="hero-checklist" className="hero-features grid grid-cols-2 gap-md mb-xl animate-on-scroll">
+              <div id="hero-checklist" className="grid grid-cols-2 gap-md mb-xl animate-on-scroll">
                 <div className="hero-features__item">
                   <span className="hero-features__icon-wrapper">
                     <Check size={20} strokeWidth={3} />

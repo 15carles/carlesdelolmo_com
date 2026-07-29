@@ -285,7 +285,7 @@ export default function PricingPage() {
                 <p className="pricing-section__subtitle">Tu web siempre actualizada, segura y funcionando</p>
               </div>
 
-              <div className="pricing-grid pricing-grid--2col">
+              <div className="pricing-grid">
                 <PricingCard
                   title="Mantenimiento Web Proactivo"
                   description="Servicio continuo para mantener tu web segura, estable y actualizada. Evita fallos, vulnerabilidades y pérdidas de rendimiento antes de que se conviertan en un problema."

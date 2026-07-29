@@ -63,7 +63,7 @@ export default function SobreCarlesDelOlmoPage() {
             <Breadcrumbs items={breadcrumbs} />
             
             <div className="mt-xl">
-              <div className="badge badge--status mb-md inline-block">Sobre mí</div>
+              <div className="badge badge--status mb-md">Sobre mí</div>
               <h1 className="page-header__title mb-md">
                 Diseño web con criterio técnico, estructura y una <span className="gradient-text">decisión muy clara de fondo</span>
               </h1>
@@ -71,10 +71,10 @@ export default function SobreCarlesDelOlmoPage() {
                 Soy Carles del Olmo, diseñador web en Valencia con foco en rendimiento, estructura semántica, SEO técnico y GEO.
               </p>
               <div className="flex flex-wrap gap-md justify-center mt-xl">
-                <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large w-full sm:w-auto">
+                <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large w-full">
                   Hablemos de tu proyecto
                 </Link>
-                <Link href="/proyectos/ledescaparate" className="btn btn--secondary btn--large w-full sm:w-auto">
+                <Link href="/proyectos/ledescaparate" className="btn btn--secondary btn--large w-full">
                   Ver proyectos
                 </Link>
               </div>
@@ -107,13 +107,13 @@ export default function SobreCarlesDelOlmoPage() {
 
             <div className="editorial-highlight animate-on-scroll text-center max-w-4xl mx-auto">
               <p className="section-header__eyebrow">Punto de inflexión</p>
-              <h2 className="text-2xl md:text-3xl mb-md">La DANA no fue solo un golpe. Fue una llamada de atención</h2>
-              <div className="text-secondary text-lg text-left md:text-center max-w-3xl mx-auto">
+              <h2 className="text-2xl mb-md">La DANA no fue solo un golpe. Fue una llamada de atención</h2>
+              <div className="text-secondary text-lg text-left max-w-3xl mx-auto">
                 <p className="mb-sm">Hay momentos que te obligan a revisar muchas cosas de golpe.</p>
                 <p className="mb-sm">En mi caso, la catástrofe natural de la DANA en València me hizo ver con más claridad algo que llevaba tiempo rondándome por dentro: no podía dejar mi futuro completamente en manos de una estructura ajena. Necesitaba construir algo más propio, más preparado y con más recorrido.</p>
                 <p className="mb-sm">Ese punto de inflexión no se tradujo en una decisión impulsiva. Se tradujo en acción. Empecé a estudiar programación con más seriedad, a dedicar tiempo real a aprender, a probar, a equivocarme y a construir pequeños proyectos personales. Poco a poco fui ganando base, criterio y dirección.</p>
                 <p className="mb-sm">También cambió mi relación con el tiempo. Empecé a notar con más fuerza que muchas ideas no sirven de nada si no se aterrizan. Desde entonces intento hacer algo muy simple, aunque no siempre fácil:</p>
-                <p className="font-semibold text-primary mt-md mb-0 text-xl">Tomar acción sobre lo que de verdad merece construirse.</p>
+                <p className="text-primary mt-md mb-0 text-xl">Tomar acción sobre lo que de verdad merece construirse.</p>
               </div>
             </div>
           </div>
@@ -123,19 +123,19 @@ export default function SobreCarlesDelOlmoPage() {
         <section className="section bg-dark-soft">
           <div className="container">
             <div className="grid grid-cols-2 gap-xl items-center animate-on-scroll">
-              <div className="col-span-2 lg:col-span-1 text-left">
+              <div className="col-span-2 text-left">
                 <h2 className="mb-md">Qué hago hoy y <span className="gradient-text">cómo entiendo este trabajo</span></h2>
                 <div className="text-secondary text-lg">
                   <p className="mb-sm">Hoy desarrollo webs con una visión que mezcla diseño, estructura, rendimiento y estrategia de visibilidad.</p>
                   <p className="mb-sm">Me interesa que una web se vea bien, por supuesto. Pero me interesa todavía más que esté bien pensada.</p>
                   <p className="mb-sm">Para mí, una web no debería ser solo una presencia online. Debería ser un activo digital estructurado. Uno que represente bien a la empresa, que explique con claridad lo que hace, que facilite el posicionamiento y que esté preparado para un entorno donde ya no solo buscan las personas, sino también los sistemas de inteligencia artificial.</p>
-                  <p className="mt-md font-semibold text-primary mb-0">No me interesa crear webs que solo aparenten. Me interesa crear webs que aguanten bien una mirada técnica y también una mirada de negocio.</p>
+                  <p className="mt-md text-primary mb-0">No me interesa crear webs que solo aparenten. Me interesa crear webs que aguanten bien una mirada técnica y también una mirada de negocio.</p>
                   <p className="mt-md mb-0">Si quieres ver ese criterio aplicado, puedes revisar{' '}
                     <Link href="/colofon" className="link-inline">cómo está hecha esta web</Link>.
                   </p>
                 </div>
               </div>
-              <div className="col-span-2 lg:col-span-1">
+              <div className="col-span-2">
                 <div className="terminal">
                   <div className="terminal__header">
                     <div className="terminal__dot terminal__dot--red"></div>
@@ -236,7 +236,7 @@ export default function SobreCarlesDelOlmoPage() {
         <section className="section animate-on-scroll py-2xl">
           <div className="container">
             <div className="cta-section">
-              <h2 className="cta-section__title text-2xl md:text-3xl lg:text-4xl">
+              <h2 className="cta-section__title text-2xl">
                 Si has llegado hasta aquí, probablemente <span className="gradient-text">no buscas una web cualquiera</span>
               </h2>
               
@@ -247,10 +247,10 @@ export default function SobreCarlesDelOlmoPage() {
               </div>
 
               <div className="flex flex-col items-center justify-center gap-md">
-                <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large w-full sm:w-auto">
+                <Link href="/contacto" data-primary-cta="true" className="btn btn--primary btn--large w-full">
                   Cuéntame tu proyecto
                 </Link>
-                <p className="text-sm text-secondary mt-xs max-w-lg mx-auto italic">
+                <p className="text-sm text-secondary mt-xs max-w-lg mx-auto">
                   &quot;No hace falta que tengas todo claro para escribirme. A veces el primer paso útil es simplemente poner el problema en orden.&quot;
                 </p>
               </div>

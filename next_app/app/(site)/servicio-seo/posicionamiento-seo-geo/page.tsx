@@ -182,7 +182,7 @@ export default function PosicionamientoSeoGeo() {
 
                 <div className="card card--no-hover p-lg">
                   <div className="flex items-center gap-4 mb-md">
-                    <span className="text-2xl font-bold gradient-text">600€/mes</span>
+                    <span className="text-2xl gradient-text">600€/mes</span>
                     <span className="text-muted text-sm">(Compromiso sugerido de 6 meses)</span>
                   </div>
                   <Link href="/contacto" className="btn btn--primary btn--block" data-primary-cta="true">
@@ -272,7 +272,7 @@ export default function PosicionamientoSeoGeo() {
         {/* FAQ */}
         <section id="faq" className="section" aria-labelledby="faq-title">
           <div className="container animate-on-scroll">
-            <div className="section-heading section-header">
+            <div className="section-header">
               <h2 id="faq-title" className="section-header__title">
                 Preguntas frecuentes sobre el posicionamiento SEO + GEO
               </h2>

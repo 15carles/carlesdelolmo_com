@@ -320,7 +320,7 @@ export default function AutoridadDigitalIas() {
       <main className="page__content">
         <Breadcrumbs items={breadcrumbs} />
 
-        <section id="inicio" className="section hero hero-service" aria-labelledby="hero-title">
+        <section id="inicio" className="section" aria-labelledby="hero-title">
           <div className="container">
             <div className="grid grid-cols-2">
               <div className="hero-content-wrapper">
@@ -332,7 +332,7 @@ export default function AutoridadDigitalIas() {
                   Autoridad Digital para <span className="gradient-text">IAs</span>
                 </h1>
 
-                <p className="hero-description text-secondary mb-lg helper-center-mobile">
+                <p className="text-secondary mb-lg helper-center-mobile">
                   Preparo la estructura, el contenido y las señales de confianza de tu web para que buscadores y sistemas de
                   inteligencia artificial entiendan mejor tu marca, tus servicios y tu especialización.
                 </p>
@@ -363,7 +363,7 @@ export default function AutoridadDigitalIas() {
 
                 <ul
                   id="hero-checklist"
-                  className="hero-highlights hero-features grid grid-cols-2 gap-md mb-0 animate-on-scroll"
+                  className="grid grid-cols-2 gap-md mb-0 animate-on-scroll"
                   aria-label="Puntos clave del servicio"
                 >
                   {HERO_HIGHLIGHTS.map((highlight) => (
@@ -386,10 +386,10 @@ export default function AutoridadDigitalIas() {
           </div>
         </section>
 
-        <section className="section section-problem" aria-labelledby="problema-ia-title">
+        <section className="section" aria-labelledby="problema-ia-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--teal mb-lg">Cambio de escenario</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--teal mb-lg">Cambio de escenario</span>
               <h2 id="problema-ia-title" className="section-header__title">
                 Tu web puede existir, posicionar y aun así no ser entendida por la IA
               </h2>
@@ -435,8 +435,8 @@ export default function AutoridadDigitalIas() {
 
         <section className="section section-services" aria-labelledby="definicion-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--blue mb-lg">Definición</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--blue mb-lg">Definición</span>
               <h2 id="definicion-title" className="section-header__title">
                 Qué es la autoridad digital para IAs
               </h2>
@@ -475,10 +475,10 @@ export default function AutoridadDigitalIas() {
           </div>
         </section>
 
-        <section className="section section-problem" aria-labelledby="importa-ahora-title">
+        <section className="section" aria-labelledby="importa-ahora-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--cyan mb-lg">Por qué ahora</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--cyan mb-lg">Por qué ahora</span>
               <h2 id="importa-ahora-title" className="section-header__title">
                 Por qué este servicio importa ahora
               </h2>
@@ -488,7 +488,7 @@ export default function AutoridadDigitalIas() {
               </p>
             </div>
 
-            <div className="problem-grid grid grid-cols-3 gap-lg">
+            <div className="grid grid-cols-3 gap-lg">
               <article className="problem-card card animate-on-scroll">
                 <h3>Mensajes genéricos</h3>
                 <p className="text-secondary mb-0">
@@ -513,8 +513,8 @@ export default function AutoridadDigitalIas() {
 
         <section id="incluye-servicio" className="section section-services" aria-labelledby="incluye-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--purple mb-lg">Qué incluye</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--purple mb-lg">Qué incluye</span>
               <h2 id="incluye-title" className="section-header__title">
                 Qué trabajo dentro del servicio de Autoridad Digital para IAs
               </h2>
@@ -556,8 +556,8 @@ export default function AutoridadDigitalIas() {
 
         <section className="section section-fit" aria-labelledby="seo-vs-geo-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--status mb-lg">Enfoque</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--status mb-lg">Enfoque</span>
               <h2 id="seo-vs-geo-title" className="section-header__title">
                 Autoridad digital para IAs no es lo mismo que SEO tradicional
               </h2>
@@ -601,8 +601,8 @@ export default function AutoridadDigitalIas() {
 
         <section className="section section-scope" aria-labelledby="cuando-si-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--teal mb-lg">Cuándo encaja</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--teal mb-lg">Cuándo encaja</span>
               <h2 id="cuando-si-title" className="section-header__title">
                 Cuándo tiene sentido trabajar la autoridad digital para IAs
               </h2>
@@ -621,8 +621,8 @@ export default function AutoridadDigitalIas() {
 
         <section className="section section-scope" aria-labelledby="cuando-no-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--status mb-lg">Importante</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--status mb-lg">Importante</span>
               <h2 id="cuando-no-title" className="section-header__title">
                 Cuándo no empezaría por este servicio
               </h2>
@@ -654,8 +654,8 @@ export default function AutoridadDigitalIas() {
 
         <section className="section section-process" aria-labelledby="proceso-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--status mb-lg">Cómo trabajo</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--status mb-lg">Cómo trabajo</span>
               <h2 id="proceso-title" className="section-header__title">
                 Cómo trabajo la autoridad digital para IAs
               </h2>
@@ -677,8 +677,8 @@ export default function AutoridadDigitalIas() {
 
         <section className="section section-services" aria-labelledby="esperar-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--blue mb-lg">Resultados esperables</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--blue mb-lg">Resultados esperables</span>
               <h2 id="esperar-title" className="section-header__title">
                 Qué puedes esperar de este servicio
               </h2>
@@ -700,8 +700,8 @@ export default function AutoridadDigitalIas() {
 
         <section id="servicio-mensual" className="section section-plans" aria-labelledby="mensual-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--purple mb-lg">Servicio mensual</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--purple mb-lg">Servicio mensual</span>
               <h2 id="mensual-title" className="section-header__title">
                 Qué incluye el servicio mensual
               </h2>
@@ -748,8 +748,8 @@ export default function AutoridadDigitalIas() {
 
         <section className="section section-plans" aria-labelledby="precio-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--teal mb-lg">Precio</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--teal mb-lg">Precio</span>
               <h2 id="precio-title" className="section-header__title">
                 Precio del servicio
               </h2>
@@ -802,7 +802,7 @@ export default function AutoridadDigitalIas() {
 
         <section id="faq" className="section" aria-labelledby="faq-title">
           <div className="container animate-on-scroll">
-            <div className="section-heading section-header">
+            <div className="section-header">
               <h2 id="faq-title" className="section-header__title">
                 Preguntas frecuentes sobre autoridad digital para IAs
               </h2>
@@ -813,8 +813,8 @@ export default function AutoridadDigitalIas() {
 
         <section className="section section-contact" aria-labelledby="cierre-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--teal mb-lg">Cierre</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--teal mb-lg">Cierre</span>
               <h2 id="cierre-title" className="section-header__title">
                 Construye una marca que pueda ser entendida, no solo encontrada
               </h2>

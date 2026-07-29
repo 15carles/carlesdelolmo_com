@@ -246,7 +246,7 @@ export default function AuditoriaGratuitaPage() {
             </div>
 
             <div className="mt-xl flex items-center gap-sm" style={{ justifyContent: 'center', color: 'var(--color-text-muted)' }}>
-              <ArrowDown size={16} className="animate-bounce" />
+              <ArrowDown size={16}/>
               <span className="text-sm">Descubre qué recibirás</span>
             </div>
           </div>
@@ -283,7 +283,7 @@ export default function AuditoriaGratuitaPage() {
               <div className="audit-checklist-item">
                 <CheckCircle2 size={24} style={{ color: 'var(--color-accent-purple)' }} className="shrink-0" />
                 <div>
-                  <h4 className="font-bold mb-1">Errores priorizados</h4>
+                  <h4 className="mb-1">Errores priorizados</h4>
                   <p className="text-sm text-secondary">
                     Lista ordenada por impacto de los problemas técnicos que debes corregir.
                   </p>
@@ -292,7 +292,7 @@ export default function AuditoriaGratuitaPage() {
               <div className="audit-checklist-item">
                 <CheckCircle2 size={24} style={{ color: 'var(--color-accent-purple)' }} className="shrink-0" />
                 <div>
-                  <h4 className="font-bold mb-1">Estrategia GEO</h4>
+                  <h4 className="mb-1">Estrategia GEO</h4>
                   <p className="text-sm text-secondary">
                     Qué necesita tu web para aparecer en las respuestas de ChatGPT, Gemini y Perplexity.
                   </p>
@@ -301,7 +301,7 @@ export default function AuditoriaGratuitaPage() {
               <div className="audit-checklist-item">
                 <CheckCircle2 size={24} style={{ color: 'var(--color-accent-purple)' }} className="shrink-0" />
                 <div>
-                  <h4 className="font-bold mb-1">Benchmarking competitivo</h4>
+                  <h4 className="mb-1">Benchmarking competitivo</h4>
                   <p className="text-sm text-secondary">
                     Qué está haciendo bien tu competencia y cómo puedes superarla.
                   </p>

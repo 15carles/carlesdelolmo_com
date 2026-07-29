@@ -157,7 +157,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         <article className="section animate-on-scroll">
           <div className="container">
             <div className="article-layout">
-            <div className="article-main">
+            <div>
             <div className="article-content article-content--post">
               <DocumentRenderer
                 document={content}
@@ -315,7 +315,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             <aside className="article-aside" aria-label="Contenido relacionado">
               <div className="article-aside__inner">
                 {showToc && (
-                  <nav aria-labelledby="toc-title" className="article-aside__toc">
+                  <nav aria-labelledby="toc-title">
                     <p id="toc-title" className="article-aside__title">En este artículo</p>
                     <ol className="article-aside__toc-list">
                       {tocItems.map((item) => (

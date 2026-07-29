@@ -328,7 +328,7 @@ export default function DesarrolloWebAMedidaPage() {
       <main className="page__content">
         <Breadcrumbs items={breadcrumbs} />
 
-        <section id="inicio" className="section hero hero-service" aria-labelledby="hero-title">
+        <section id="inicio" className="section" aria-labelledby="hero-title">
           <div className="container">
             <div className="grid grid-cols-2">
               <div className="hero-content-wrapper">
@@ -340,7 +340,7 @@ export default function DesarrolloWebAMedidaPage() {
                   Desarrollo web a medida para empresas que necesitan algo más que una web estándar
                 </h1>
 
-                <p className="hero-description text-secondary mb-xl helper-center-mobile">
+                <p className="text-secondary mb-xl helper-center-mobile">
                   Diseño y desarrollo soluciones web adaptadas a procesos reales de negocio: plataformas, herramientas
                   internas, áreas privadas, calculadoras, sistemas de captación, integraciones y funcionalidades que una
                   plantilla no puede resolver bien.
@@ -357,7 +357,7 @@ export default function DesarrolloWebAMedidaPage() {
 
                 <ul
                   id="hero-checklist"
-                  className="hero-highlights hero-features grid grid-cols-2 gap-md mb-0 animate-on-scroll"
+                  className="grid grid-cols-2 gap-md mb-0 animate-on-scroll"
                   aria-label="Puntos clave del servicio"
                 >
                   {HERO_HIGHLIGHTS.map((highlight) => (
@@ -380,10 +380,10 @@ export default function DesarrolloWebAMedidaPage() {
           </div>
         </section>
 
-        <section className="section section-problem" aria-labelledby="problema-title">
+        <section className="section" aria-labelledby="problema-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--teal mb-lg">Cuándo pasa</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--teal mb-lg">Cuándo pasa</span>
               <h2 id="problema-title" className="section-header__title">
                 Cuando una web estándar se queda corta
               </h2>
@@ -414,12 +414,12 @@ export default function DesarrolloWebAMedidaPage() {
 
         <section className="section section-services" aria-labelledby="que-es-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--blue mb-lg">Definición</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--blue mb-lg">Definición</span>
               <h2 id="que-es-title" className="section-header__title">
                 Qué es el desarrollo web a medida
               </h2>
-              <p className="section-intro section-header__subtitle">
+              <p className="section-header__subtitle">
                 Es la creación de una solución digital diseñada según objetivos y procesos concretos de una empresa. Puede
                 ser una plataforma, una herramienta interna, una calculadora, un área privada o una integración entre servicios.
               </p>
@@ -452,8 +452,8 @@ export default function DesarrolloWebAMedidaPage() {
 
         <section className="section section-scope" aria-labelledby="casos-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--cyan mb-lg">Casos de uso</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--cyan mb-lg">Casos de uso</span>
                 <h2 id="casos-title" className="section-header__title">
                   Para qué tipo de proyectos tiene sentido
                 </h2>
@@ -472,8 +472,8 @@ export default function DesarrolloWebAMedidaPage() {
 
         <section id="incluye-servicio" className="section section-services" aria-labelledby="incluye-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--purple mb-lg">Qué incluye</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--purple mb-lg">Qué incluye</span>
               <h2 id="incluye-title" className="section-header__title">
                 Qué incluye el servicio de desarrollo web a medida
               </h2>
@@ -506,8 +506,8 @@ export default function DesarrolloWebAMedidaPage() {
 
         <section className="section section-fit" aria-labelledby="orbita-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--status mb-lg">Método ORBITA</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--status mb-lg">Método ORBITA</span>
               <h2 id="orbita-title" className="section-header__title">
                 Mi enfoque: desarrollo web con método ORBITA
               </h2>
@@ -526,8 +526,8 @@ export default function DesarrolloWebAMedidaPage() {
 
         <section id="proceso" className="section section-process" aria-labelledby="proceso-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--status mb-lg">Proceso</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--status mb-lg">Proceso</span>
               <h2 id="proceso-title" className="section-header__title">
                 Cómo es el proceso de trabajo
               </h2>
@@ -549,8 +549,8 @@ export default function DesarrolloWebAMedidaPage() {
 
         <section className="section section-services" aria-labelledby="beneficios-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--blue mb-lg">Beneficios</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--blue mb-lg">Beneficios</span>
               <h2 id="beneficios-title" className="section-header__title">
                 Qué puedes conseguir con una solución web a medida
               </h2>
@@ -579,8 +579,8 @@ export default function DesarrolloWebAMedidaPage() {
 
         <section className="section section-scope" aria-labelledby="ejemplos-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--teal mb-lg">Ejemplos</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--teal mb-lg">Ejemplos</span>
               <h2 id="ejemplos-title" className="section-header__title">
                 Ejemplos de soluciones que puedo desarrollar
               </h2>
@@ -608,8 +608,8 @@ export default function DesarrolloWebAMedidaPage() {
 
         <section className="section section-fit" aria-labelledby="encaje-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--cyan mb-lg">Para quién es</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--cyan mb-lg">Para quién es</span>
               <h2 id="encaje-title" className="section-header__title">
                 Para quién es este servicio
               </h2>
@@ -630,10 +630,10 @@ export default function DesarrolloWebAMedidaPage() {
           </div>
         </section>
 
-        <section className="section section-problem" aria-labelledby="valencia-title">
+        <section className="section" aria-labelledby="valencia-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--status mb-lg">Valencia y remoto</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--status mb-lg">Valencia y remoto</span>
               <h2 id="valencia-title" className="section-header__title">
                 Desarrollo web a medida en Valencia y remoto para empresas
               </h2>
@@ -654,8 +654,8 @@ export default function DesarrolloWebAMedidaPage() {
 
         <section className="section section-services" aria-labelledby="porque-conmigo-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--purple mb-lg">Por qué conmigo</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--purple mb-lg">Por qué conmigo</span>
               <h2 id="porque-conmigo-title" className="section-header__title">
                 Por qué trabajar conmigo
               </h2>
@@ -673,7 +673,7 @@ export default function DesarrolloWebAMedidaPage() {
 
         <section id="faq" className="section" aria-labelledby="faq-title">
           <div className="container animate-on-scroll">
-            <div className="section-heading section-header">
+            <div className="section-header">
               <h2 id="faq-title" className="section-header__title">
                 Preguntas frecuentes sobre desarrollo web a medida
               </h2>
@@ -684,8 +684,8 @@ export default function DesarrolloWebAMedidaPage() {
 
         <section className="section section-contact" aria-labelledby="cta-final-title">
           <div className="container">
-            <div className="section-heading section-header animate-on-scroll">
-              <span className="section-eyebrow badge badge--teal mb-lg">Siguiente paso</span>
+            <div className="section-header animate-on-scroll">
+              <span className="badge badge--teal mb-lg">Siguiente paso</span>
               <h2 id="cta-final-title" className="section-header__title">
                 Hablemos de tu proyecto
               </h2>

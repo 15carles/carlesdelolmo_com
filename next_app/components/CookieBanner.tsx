@@ -302,8 +302,8 @@ export default function CookieBanner() {
                 <div className="cookie-modal__list">
                   {/* Cookies Técnicas (Obligatorias) */}
                   <div className="cookie-modal__item">
-                    <div className="cookie-modal__info">
-                      <h4 className="cookie-modal__item-title">Cookies técnicas y de seguridad</h4>
+                    <div>
+                      <h4>Cookies técnicas y de seguridad</h4>
                       <p className="text-muted cookie-modal__item-desc">
                         Estas cookies son necesarias para el funcionamiento del sitio web y no pueden desactivarse.
                         <br />
@@ -321,8 +321,8 @@ export default function CookieBanner() {
 
                   {/* Cookies Analíticas (GA4) */}
                   <div className="cookie-modal__item">
-                    <div className="cookie-modal__info">
-                      <h4 className="cookie-modal__item-title">Cookies analíticas (Google Analytics)</h4>
+                    <div>
+                      <h4>Cookies analíticas (Google Analytics)</h4>
                       <p className="text-muted cookie-modal__item-desc">
                         Estas cookies permiten analizar cómo los usuarios interactúan con el sitio web para mejorar su funcionamiento y la experiencia de navegación.
                         <br />

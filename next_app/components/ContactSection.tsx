@@ -19,7 +19,7 @@ export default function ContactSection() {
           {/* Columna Izquierda: Información y Contexto */}
           <div className="flex flex-col gap-md pr-lg animate-fade-in-up">
             <div className="badge badge--status self-start">
-              <span className="text-accent-purple font-semibold tracking-wide text-xs">
+              <span className="text-accent-purple tracking-wide text-xs">
                 RÁPIDO Y SENCILLO
               </span>
             </div>
@@ -40,7 +40,7 @@ export default function ContactSection() {
               </svg>
             </div>
 
-            <h3 className="text-2xl font-bold leading-tight text-left">
+            <h3 className="text-2xl text-left">
               Rellena el formulario y te responderé con una propuesta clara para tu caso
             </h3>
 

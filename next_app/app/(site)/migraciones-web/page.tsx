@@ -323,7 +323,7 @@ export default function MigracionesWebPage() {
       <main className="page__content">
         <Breadcrumbs items={breadcrumbs} />
 
-      <section id="inicio" className="section hero hero-service hero-migraciones" aria-labelledby="hero-title">
+      <section id="inicio" className="section hero-migraciones" aria-labelledby="hero-title">
         <div className="container hero-migraciones__container">
           <div className="hero-migraciones__inner">
             <div className="badge badge--status mb-lg hero-migraciones__badge">
@@ -334,7 +334,7 @@ export default function MigracionesWebPage() {
               <span className="gradient-text">Migraciones Web Seguras</span> para no perder visibilidad ni negocio
             </h1>
 
-            <p className="hero-description text-secondary mb-xl hero-migraciones__subtitle">
+            <p className="text-secondary mb-xl hero-migraciones__subtitle">
               Si tu web necesita cambiar de CMS, hosting, estructura o tecnología, la migración no debería convertirse en
               una caída de tráfico, errores 404 o pérdida de leads. Planifico migraciones web con foco en continuidad
               técnica, SEO, GEO, rendimiento y control de riesgos.
@@ -355,7 +355,7 @@ export default function MigracionesWebPage() {
 
             <ul
               id="hero-checklist"
-              className="hero-highlights hero-features hero-migraciones__highlights grid grid-cols-2 gap-md mb-0"
+              className="hero-migraciones__highlights grid grid-cols-2 gap-md mb-0"
               aria-label="Puntos clave del servicio"
             >
               {HERO_HIGHLIGHTS.map((highlight) => (
@@ -368,7 +368,7 @@ export default function MigracionesWebPage() {
               ))}
             </ul>
 
-            <div className="generative-band hero-migraciones__figure animate-on-scroll mt-2xl">
+            <div className="generative-band animate-on-scroll mt-2xl">
               <div className="hero-canvas-frame">
                 <GenerativeCanvas variant="migrate" className="hero-canvas" />
               </div>
@@ -377,20 +377,20 @@ export default function MigracionesWebPage() {
         </div>
       </section>
 
-      <section className="section section-problem" aria-labelledby="problem-title">
+      <section className="section" aria-labelledby="problem-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--teal mb-lg">Riesgo real</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--teal mb-lg">Riesgo real</span>
             <h2 id="problem-title" className="section-header__title">
               Una migración web mal hecha puede salir muy cara
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               Cambiar una web no es solo mover archivos o publicar un rediseño. Cuando una migración se improvisa, suelen
               romperse elementos que afectan directamente al negocio, a la visibilidad y a la confianza en el proyecto.
             </p>
           </div>
 
-          <div className="problem-grid grid grid-cols-3 gap-lg">
+          <div className="grid grid-cols-3 gap-lg">
             {RISK_ITEMS.map((item) => (
               <article key={item.title} className="problem-card card animate-on-scroll">
                 <h3>{item.title}</h3>
@@ -414,12 +414,12 @@ export default function MigracionesWebPage() {
 
       <section className="section section-services" aria-labelledby="proposal-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--blue mb-lg">Enfoque</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--blue mb-lg">Enfoque</span>
             <h2 id="proposal-title" className="section-header__title">
               No planteo la migración como un simple traslado
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               Una migración web bien hecha no consiste en mover una web de un sitio a otro y cruzar los dedos. Consiste en
               proteger lo que aporta valor, detectar lo que debe corregirse y preparar una base más sólida para seguir creciendo.
             </p>
@@ -445,12 +445,12 @@ export default function MigracionesWebPage() {
 
       <section className="section section-services" aria-labelledby="services-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--purple mb-lg">Qué incluye</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--purple mb-lg">Qué incluye</span>
             <h2 id="services-title" className="section-header__title">
               Qué incluye mi servicio de migración web
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               Cada proyecto cambia, pero una migración seria necesita análisis previo, planificación y revisión posterior.
               No trabajo desde la improvisación ni desde una checklist vacía.
             </p>
@@ -484,12 +484,12 @@ export default function MigracionesWebPage() {
 
       <section className="section section-fit" aria-labelledby="fit-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--cyan mb-lg">Cuándo encaja</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--cyan mb-lg">Cuándo encaja</span>
             <h2 id="fit-title" className="section-header__title">
               Cuándo tiene sentido plantear una migración web con criterio
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               No todas las webs necesitan una migración, pero hay escenarios donde cambiar de base sin una planificación
               seria es asumir un riesgo innecesario.
             </p>
@@ -512,12 +512,12 @@ export default function MigracionesWebPage() {
 
       <section className="section section-services" aria-labelledby="visibility-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--status mb-lg">Diferenciador</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--status mb-lg">Diferenciador</span>
             <h2 id="visibility-title" className="section-header__title">
               Migrar una web también afecta a su visibilidad
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               Cuando una web cambia de estructura, tecnología o contenidos, no solo cambia por fuera. También cambian
               señales que buscadores y sistemas de IA utilizan para interpretar el sitio.
             </p>
@@ -551,12 +551,12 @@ export default function MigracionesWebPage() {
 
       <section id="proceso" className="section section-process" aria-labelledby="process-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--status mb-lg">Proceso</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--status mb-lg">Proceso</span>
             <h2 id="process-title" className="section-header__title">
               Cómo trabajo una migración web
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               El objetivo no es solo ejecutar el cambio. Es dejar preparado el terreno para que la transición sea estable,
               comprensible y útil para el negocio.
             </p>
@@ -578,12 +578,12 @@ export default function MigracionesWebPage() {
 
       <section className="section section-scope" aria-labelledby="types-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--teal mb-lg">Tipos de migración</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--teal mb-lg">Tipos de migración</span>
             <h2 id="types-title" className="section-header__title">
               Tipos de migración en los que puedo ayudarte
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               Si el proyecto requiere desarrollo adicional, revisión estratégica o apoyo posterior, la migración puede
               plantearse dentro de una intervención más amplia.
             </p>
@@ -604,8 +604,8 @@ export default function MigracionesWebPage() {
 
       <section className="section section-services" aria-labelledby="benefits-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--blue mb-lg">Beneficios</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--blue mb-lg">Beneficios</span>
             <h2 id="benefits-title" className="section-header__title">
               Qué gana una empresa cuando migra su web con control
             </h2>
@@ -633,12 +633,12 @@ export default function MigracionesWebPage() {
 
       <section className="section section-scope" aria-labelledby="orbita-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--purple mb-lg">ORBITA</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--purple mb-lg">ORBITA</span>
             <h2 id="orbita-title" className="section-header__title">
               Una migración bien hecha también sigue una lógica ORBITA
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               En una migración, el reto real es conservar una base técnica sólida, mantener la relevancia semántica,
               proteger la autoridad acumulada y evitar que el cambio rompa la interpretación del sitio.
             </p>
@@ -655,14 +655,14 @@ export default function MigracionesWebPage() {
         </div>
       </section>
 
-      <section className="section section-problem" aria-labelledby="trust-title">
+      <section className="section" aria-labelledby="trust-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--status mb-lg">Confianza</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--status mb-lg">Confianza</span>
             <h2 id="trust-title" className="section-header__title">
               Una web no debería cambiar a ciegas
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               Hay proyectos donde una migración puede hacerse con relativa facilidad. Y hay otros donde tocar la web sin
               una estrategia previa es una forma bastante directa de crear problemas nuevos.
             </p>
@@ -683,8 +683,8 @@ export default function MigracionesWebPage() {
 
       <section className="section" aria-labelledby="faq-title">
         <div className="container animate-on-scroll">
-          <div className="section-heading section-header">
-            <span className="section-eyebrow badge badge--cyan mb-lg">FAQ</span>
+          <div className="section-header">
+            <span className="badge badge--cyan mb-lg">FAQ</span>
             <h2 id="faq-title" className="section-header__title">
               Preguntas frecuentes sobre migraciones web
             </h2>
@@ -696,12 +696,12 @@ export default function MigracionesWebPage() {
 
         <section className="section section-contact" aria-labelledby="contact-title">
         <div className="container">
-          <div className="section-heading section-header animate-on-scroll">
-            <span className="section-eyebrow badge badge--teal mb-lg">Siguiente paso</span>
+          <div className="section-header animate-on-scroll">
+            <span className="badge badge--teal mb-lg">Siguiente paso</span>
             <h2 id="contact-title" className="section-header__title">
               Si tu web necesita cambiar, mejor hacerlo con control
             </h2>
-            <p className="section-intro section-header__subtitle">
+            <p className="section-header__subtitle">
               Una migración web no debería obligarte a elegir entre modernizar el proyecto o proteger lo que ya habías
               construido. Ambas cosas pueden ir juntas cuando el cambio se plantea con criterio técnico y visión estructural.
             </p>

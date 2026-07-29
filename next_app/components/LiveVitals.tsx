@@ -122,7 +122,7 @@ export default function LiveVitals() {
   const available = METRICS.filter((m) => vitals[m.key] !== undefined);
 
   return (
-    <div className="vitals" role="group" aria-label="Métricas de rendimiento medidas en tu navegador">
+    <div role="group" aria-label="Métricas de rendimiento medidas en tu navegador">
       <div className="vitals__grid">
         {METRICS.map((metric) => {
           const value = vitals[metric.key];

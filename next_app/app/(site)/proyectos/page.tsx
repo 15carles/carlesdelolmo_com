@@ -164,7 +164,7 @@ export default async function ProyectosIndex() {
             {/* Tarjeta CTA: siguiente caso de éxito */}
             <article className="project-card animate-on-scroll">
               <div className="project-card__image project-card__image--blue">
-                <div className="project-card__icon-container">
+                <div>
                   <Rocket className="project-card__icon" size={48} />
                 </div>
               </div>

@@ -204,7 +204,7 @@ export default function GoogleReviewsSection({
                   href={googleMapsUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-sm text-secondary hover:underline flex items-center mt-1"
+                  className="text-sm text-secondary flex items-center mt-1"
                   style={{ gap: '0.5rem' }}
                 >
                   Basado en {totalReviews} reseñas
@@ -238,7 +238,7 @@ export default function GoogleReviewsSection({
                           alt={`Avatar de ${review.author}`} 
                           width={48} 
                           height={48} 
-                          className="object-cover w-full h-full"
+                          className="w-full h-full"
                         />
                       </div>
                     ) : (

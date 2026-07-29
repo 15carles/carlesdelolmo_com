@@ -37,7 +37,7 @@ export default function Hero() {
               que arranca en opacity:0 retrasa su pintado, y en los navegadores sin
               scroll-driven animations lo deja invisible hasta que hidrata React. */}
           <div className="hero-content-wrapper">
-            <p className="badge badge--status mb-lg helper-center-mobile hero-eyebrow">
+            <p className="badge badge--status mb-lg helper-center-mobile">
               <span className="badge__dot badge__dot--pulse" aria-hidden="true"></span>
               <span>Disponible para proyectos</span>
             </p>
@@ -47,7 +47,7 @@ export default function Hero() {
               <span className="gradient-text">sea la respuesta</span>
             </h1>
 
-            <p className="text-secondary mb-xl helper-center-mobile hero-subtitle">
+            <p className="text-secondary mb-xl helper-center-mobile">
               Estructuro tu web para que, cuando busquen en Google o pregunten a una IA, tu empresa sea la que encuentran, entienden y eligen.
             </p>
 
@@ -60,7 +60,7 @@ export default function Hero() {
               </Link>
             </div>
 
-            <ul id="hero-checklist" className="hero-features mb-xl helper-flex-center-mobile" aria-label="Servicios destacados">
+            <ul id="hero-checklist" className="mb-xl helper-flex-center-mobile" aria-label="Servicios destacados">
               <li className="hero-features__item">
                 <span className="hero-features__icon-wrapper">
                   <Check size={20} strokeWidth={3} />

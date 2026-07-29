@@ -301,13 +301,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               ),
               divider: () => (
                 <div className="article-content mx-auto">
-                  <hr className="my-xl border-t opacity-20" />
+                  <hr className="my-xl border-t"/>
                 </div>
               ),
               image: (props) => (
                 <div className={`article-content my-lg mx-auto ${props.title ? 'text-center' : ''}`}>
-                  <img src={props.src} alt={props.alt} className="img--responsive rounded-xl shadow-md mx-auto" loading="lazy" />
-                  {props.title && <p className="text-sm text-secondary mt-sm italic">{props.title}</p>}
+                  <img src={props.src} alt={props.alt} className="img--responsive mx-auto" loading="lazy"/>
+                  {props.title && <p className="text-sm text-secondary mt-sm">{props.title}</p>}
                 </div>
               ),
               table: (props) => (
@@ -490,7 +490,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     <strong>SIR: {project.sirScore}%</strong> | Autoridad Primaria en IA
                   </div>
                 </div>
-                <p className="text-center text-secondary mt-md italic text-sm">
+                <p className="text-center text-secondary mt-md text-sm">
                   * La arquitectura semántica del sitio permite que los modelos de lenguaje (LLMs) identifiquen a la
                   marca como la autoridad de referencia.
                 </p>

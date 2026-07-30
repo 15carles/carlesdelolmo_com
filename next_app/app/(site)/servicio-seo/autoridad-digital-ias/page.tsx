@@ -13,6 +13,7 @@ import {
 } from '@/lib/seo/schemas';
 import { Check } from 'lucide-react';
 import Link from 'next/link';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata = constructMetadata({
   title: 'Autoridad Digital para IAs | Que ChatGPT y Gemini citen tu marca',
@@ -849,6 +850,8 @@ export default function AutoridadDigitalIas() {
             </div>
           </div>
         </section>
+
+        <RelatedGuides cluster="geo-ia" title="Guías sobre visibilidad en IA (GEO)" />
       </main>
     </>
   );

@@ -7,6 +7,7 @@ import { Code, MapPin, Zap, Search, Layout, MousePointer2, Check, Shield, Gauge,
 import Image from 'next/image';
 import Link from 'next/link';
 import OtrasZonasLinks from '@/components/OtrasZonasLinks';
+import RelatedGuides from '@/components/RelatedGuides';
 import { generateLocalPageSchema, SITE_URL } from '@/lib/seo/schemas';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
 import { constructMetadata } from '@/lib/seo/metadata';
@@ -501,6 +502,7 @@ export default function DisenoWebValencia() {
           </div>
         </section>
 
+        <RelatedGuides cluster="diseno-web-local" title="Guías de diseño web local" limit={6} />
         <OtrasZonasLinks current="valencia" />
       </main>
     </>

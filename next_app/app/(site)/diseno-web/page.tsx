@@ -11,6 +11,7 @@ import WorkflowTimeline from './WorkflowTimeline';
 import { constructMetadata } from '@/lib/seo/metadata';
 import { SITE_URL, generateFaqPageSchema } from '@/lib/seo/schemas';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
+import RelatedGuides from '@/components/RelatedGuides';
 
 const disenoWebFaqs = [
   {
@@ -641,6 +642,8 @@ export default function DisenoWebPage() {
           </div>
         </div>
       </section>
+
+      <RelatedGuides cluster="diseno-desarrollo" title="Guías de diseño y desarrollo web" />
 
     </main>
   );

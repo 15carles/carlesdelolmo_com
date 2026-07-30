@@ -6,6 +6,7 @@ import { BUSINESS_SCHEMA, PERSON_SCHEMA, SITE_URL, generateBreadcrumbSchema } fr
 import { safeJsonLd } from '@/lib/seo/jsonLd';
 import { Check } from 'lucide-react';
 import Link from 'next/link';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata = constructMetadata({
   title: 'Mantenimiento Web Valencia | Carles del Olmo',
@@ -552,6 +553,8 @@ export default function MantenimientoWebValenciaPage() {
           </div>
         </div>
         </section>
+
+        <RelatedGuides cluster="mantenimiento-mejora" title="Guías de mantenimiento y mejora web" />
       </main>
     </>
   );

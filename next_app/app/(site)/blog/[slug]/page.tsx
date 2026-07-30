@@ -10,6 +10,7 @@ import { constructMetadata } from '@/lib/seo/metadata';
 import { resolvePostOpenGraphImage } from '@/lib/seo/openGraph';
 import { reader } from '@/lib/keystatic';
 import { isPostVisible } from '@/lib/contentVisibility';
+import { clusterByValue, topicLabel } from '@/lib/content/clusters';
 import { DocumentRenderer } from '@keystatic/core/renderer';
 import FaqAccordion from '@/components/FaqAccordion';
 
@@ -65,9 +66,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   const author = post.author ? await reader.collections.authors.read(post.author as string) : null;
 
+  const cdef = clusterByValue(post.cluster as string);
   const breadcrumbs = [
     { label: 'Inicio', href: '/' },
     { label: 'Blog', href: '/blog' },
+    ...(cdef ? [{ label: cdef.label, href: `/blog/categoria/${cdef.slug}` }] : []),
     { label: (post.title as any)?.name || post.title || 'Post' }
   ];
   const openGraphImage = await resolvePostOpenGraphImage(slug);
@@ -79,7 +82,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     isoDate: post.isoDate || '',
     image: openGraphImage,
     keywords: [...(post.keywords || [])],
-    categories: [...(post.categories || [])],
+    cluster: (post.cluster as string) || undefined,
+    topics: [...((post.topics as string[]) || [])],
     faqs: [...(post.faqs || [])],
     author: author ? {
       name: (author.name as any)?.name || author.name || '',
@@ -113,7 +117,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   // Posts relacionados para la barra lateral: misma categoría primero, luego recientes
   const allPosts = await reader.collections.posts.all();
-  const currentCategories = new Set(post.categories || []);
+  const currentCluster = post.cluster as string;
   const relatedPosts = allPosts
     .filter((p) => p.slug !== slug && isPostVisible({ status: p.entry.status, isoDate: p.entry.isoDate }))
     .map((p) => ({
@@ -124,7 +128,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           : String((p.entry.title as any)?.name ?? p.entry.title ?? ''),
       date: p.entry.date,
       isoDate: p.entry.isoDate ?? '',
-      shared: (p.entry.categories || []).some((c) => currentCategories.has(c)) ? 1 : 0,
+      shared: (p.entry.cluster as string) === currentCluster ? 1 : 0,
     }))
     .sort((a, b) => b.shared - a.shared || Date.parse(b.isoDate || '0') - Date.parse(a.isoDate || '0'))
     .slice(0, 4);
@@ -145,9 +149,14 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
             <div className="page-header__meta">
               <time dateTime={post.isoDate || undefined}>{post.date}</time>
-              {(post.categories || []).map((cat, i) => (
-                <span key={i} className={`badge badge--${i === 0 ? 'teal' : i === 1 ? 'blue' : 'purple'}`}>
-                  {cat}
+              {cdef && (
+                <Link href={`/blog/categoria/${cdef.slug}`} className="badge badge--teal">
+                  {cdef.label}
+                </Link>
+              )}
+              {((post.topics as string[]) || []).map((t, i) => (
+                <span key={t} className={`badge badge--${i % 2 === 0 ? 'blue' : 'purple'}`}>
+                  {topicLabel(t)}
                 </span>
               ))}
             </div>

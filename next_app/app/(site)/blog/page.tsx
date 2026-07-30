@@ -1,10 +1,12 @@
 import React from 'react';
+import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import BlogCard from '@/components/BlogCard';
 import { reader } from '@/lib/keystatic';
 import { constructMetadata } from '@/lib/seo/metadata';
 import { SITE_URL } from '@/lib/seo/schemas';
 import { isPostVisible } from '@/lib/contentVisibility';
+import { CLUSTERS, clusterByValue } from '@/lib/content/clusters';
 
 type BlogListItem = {
   title: string;
@@ -14,7 +16,17 @@ type BlogListItem = {
   isoDate?: string;
   category: string;
   categoryColor: 'blue' | 'cyan' | 'purple' | 'teal';
+  categoryHref: string;
 };
+
+function colorForCluster(cluster: string | undefined): 'blue' | 'cyan' | 'purple' | 'teal' {
+  switch (cluster) {
+    case 'geo-ia': return 'blue';
+    case 'diseno-web-local': return 'teal';
+    case 'mantenimiento-mejora': return 'cyan';
+    default: return 'purple';
+  }
+}
 
 function toTimestamp(isoDate: string | undefined, displayDate: string): number {
   if (isoDate) {
@@ -59,10 +71,12 @@ export default async function BlogIndex() {
       slug: post.slug,
       date: post.entry.date,
       isoDate: post.entry.isoDate ?? undefined,
-      category: post.entry.categories[0] || 'Blog',
-      // Mantenemos colores por categoría si es necesario, pero asignamos un default:
-      categoryColor: (post.entry.categories[0] === 'GEO' ? 'blue' :
-        post.entry.categories[0] === 'Análisis' ? 'cyan' : 'purple') as 'blue' | 'cyan' | 'purple' | 'teal'
+      category: clusterByValue(post.entry.cluster)?.label || 'Blog',
+      categoryHref: (() => {
+        const c = clusterByValue(post.entry.cluster);
+        return c ? `/blog/categoria/${c.slug}` : '/blog';
+      })(),
+      categoryColor: colorForCluster(post.entry.cluster),
     }))
     .sort((a, b) => toTimestamp(b.isoDate, b.date) - toTimestamp(a.isoDate, a.date));
 
@@ -75,6 +89,13 @@ export default async function BlogIndex() {
           <p className="page-header__subtitle">
             Análisis, aprendizajes y casos reales sobre webs, buscadores e inteligencia artificial.
           </p>
+          <div className="page-header__meta mt-lg">
+            {CLUSTERS.map((c) => (
+              <Link key={c.value} href={`/blog/categoria/${c.slug}`} className="badge badge--tag badge--teal">
+                {c.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </header>
 
@@ -87,12 +108,6 @@ export default async function BlogIndex() {
               ))}
             </div>
 
-            {/* Pagination Placeholder */}
-            <nav className="pagination mt-2xl" aria-label="Paginación de artículos">
-              <span className="pagination__link pagination__link--disabled" aria-disabled="true">Anterior</span>
-              <span className="pagination__link pagination__link--active" aria-current="page"><strong>1</strong></span>
-              <span className="pagination__link">Siguiente</span>
-            </nav>
           </div>
         </div>
       </section>

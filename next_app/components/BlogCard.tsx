@@ -9,15 +9,20 @@ interface BlogCardProps {
   isoDate?: string;
   category: string;
   categoryColor: 'purple' | 'blue' | 'cyan' | 'teal';
+  categoryHref?: string;
 }
 
-export default function BlogCard({ title, excerpt, slug, date, isoDate, category, categoryColor }: BlogCardProps) {
+export default function BlogCard({ title, excerpt, slug, date, isoDate, category, categoryColor, categoryHref }: BlogCardProps) {
   const badgeClass = `badge badge--tag badge--${categoryColor}`;
-  
+
   return (
     <article className="post-item">
       <div className="post-item__meta">
-        <span className={badgeClass}>{category}</span>
+        {categoryHref ? (
+          <Link href={categoryHref} className={badgeClass}>{category}</Link>
+        ) : (
+          <span className={badgeClass}>{category}</span>
+        )}
         <time dateTime={isoDate}>{date}</time>
       </div>
       <h2 className="post-item__title">

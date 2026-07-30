@@ -1,5 +1,6 @@
 import { googleReviewsData } from '../../data/google-reviews';
 import { BUSINESS_SAME_AS, ENTITY, PERSON_SAME_AS, SITE_URL } from './entity';
+import { clusterLabel, topicLabel } from '../content/clusters';
 
 export { SITE_URL };
 
@@ -451,7 +452,8 @@ export function generateBlogSchema(post: {
   isoDate: string;
   image?: string | string[];
   keywords?: string[];
-  categories?: string[];
+  cluster?: string;
+  topics?: string[];
   faqs?: { question: string; answer: string }[];
   author?: {
     name: string;
@@ -510,7 +512,15 @@ export function generateBlogSchema(post: {
     "publisher": { "@id": `${SITE_URL}/#business` },
     ...(imageList.length > 0 ? { "image": imageList } : {}),
     "keywords": post.keywords || [],
-    "articleSection": post.categories || []
+    "articleSection": [clusterLabel(post.cluster), ...(post.topics || []).map(topicLabel)].filter(Boolean),
+    ...(post.cluster === 'geo-ia'
+      ? {
+          "about": [
+            { "@type": "Thing", "name": "Generative Engine Optimization (GEO)" },
+            { "@id": `${SITE_URL}/#business` },
+          ],
+        }
+      : {})
   });
 
   if (post.faqs && post.faqs.length > 0) {

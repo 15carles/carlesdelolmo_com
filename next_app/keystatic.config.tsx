@@ -80,12 +80,6 @@ export default config({
           description: 'Temas secundarios transversales (vocabulario controlado).',
           options: TOPIC_OPTIONS,
         }),
-        // NOTA: `categories` queda temporalmente durante la migración a cluster/topics.
-        // Se eliminará al finalizar la migración de contenidos y consumidores.
-        categories: fields.array(
-          fields.text({ label: 'Categoría' }),
-          { label: 'Categorías', itemLabel: props => props.value || 'Nueva categoría' }
-        ),
         keywords: fields.array(
           fields.text({ label: 'Keyword' }),
           { label: 'Keywords SEO', itemLabel: props => props.value || 'Nueva keyword' }

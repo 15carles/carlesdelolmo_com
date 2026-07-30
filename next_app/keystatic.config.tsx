@@ -1,4 +1,5 @@
 import { config, fields, collection, component } from '@keystatic/core';
+import { CLUSTER_OPTIONS, TOPIC_OPTIONS } from './lib/content/clusters';
 
 // Modo de desarrollo escribe local. Producción (Cloudflare) exige GitHub puro.
 const isLocalDev = process.env.NODE_ENV === 'development';
@@ -68,6 +69,19 @@ export default config({
           ],
           defaultValue: 'scheduled',
         }),
+        cluster: fields.select({
+          label: 'Cluster',
+          description: 'Cluster temático principal (uno solo). Define el hub, el breadcrumb y los posts relacionados.',
+          options: CLUSTER_OPTIONS,
+          defaultValue: 'diseno-desarrollo',
+        }),
+        topics: fields.multiselect({
+          label: 'Temas',
+          description: 'Temas secundarios transversales (vocabulario controlado).',
+          options: TOPIC_OPTIONS,
+        }),
+        // NOTA: `categories` queda temporalmente durante la migración a cluster/topics.
+        // Se eliminará al finalizar la migración de contenidos y consumidores.
         categories: fields.array(
           fields.text({ label: 'Categoría' }),
           { label: 'Categorías', itemLabel: props => props.value || 'Nueva categoría' }

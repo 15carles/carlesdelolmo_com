@@ -13,6 +13,7 @@ import {
 } from '@/lib/seo/schemas';
 import { Check } from 'lucide-react';
 import Link from 'next/link';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata = constructMetadata({
   title: 'Migraciones Web seguras | Cambio de web, CMS o estructura sin perder visibilidad',
@@ -744,6 +745,8 @@ export default function MigracionesWebPage() {
           </div>
         </div>
         </section>
+
+        <RelatedGuides cluster="mantenimiento-mejora" title="Guías de mantenimiento y mejora web" />
       </main>
     </>
   );

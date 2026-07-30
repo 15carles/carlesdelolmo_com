@@ -14,6 +14,7 @@ import {
 } from '@/lib/seo/schemas';
 import { Globe, Sparkles, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata = constructMetadata({
   title: 'Posicionamiento SEO + GEO | Trabajo mensual en Google y en IA',
@@ -299,6 +300,8 @@ export default function PosicionamientoSeoGeo() {
             </div>
           </div>
         </section>
+
+        <RelatedGuides cluster="geo-ia" title="Guías sobre SEO y visibilidad en IA" />
       </main>
     </>
   );

@@ -14,6 +14,7 @@ import {
 } from '@/lib/seo/schemas';
 import { CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata = constructMetadata({
   title: 'Auditoría SEO + GEO | Por qué no apareces en Google ni en las IAs',
@@ -346,6 +347,8 @@ export default function AuditoriaSeoGeo() {
             </Link>
           </div>
         </section>
+
+        <RelatedGuides cluster="geo-ia" title="Guías sobre auditoría SEO y GEO" />
       </main>
     </>
   );

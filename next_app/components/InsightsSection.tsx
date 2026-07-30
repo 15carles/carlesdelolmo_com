@@ -20,20 +20,28 @@ const insights: InsightItem[] = [
     imageAlt: 'Ilustración sobre por qué muchas webs no aparecen en respuestas de inteligencia artificial',
   },
   {
-    title: 'Método ORBITA: mi enfoque para construir webs con más sentido',
+    title: 'La estructura ideal de una página web para empresas',
     description:
-      'Una explicación clara de cómo planteo estructura, relevancia, autoridad, preparación para IA y evolución continua.',
-    href: '/blog/metodo-orbita',
-    imageSrc: '/assets/blog/metodo-orbita/diagrama-metodo-ORBITA.webp',
-    imageAlt: 'Resumen visual del método ORBITA aplicado al desarrollo web, SEO y GEO',
+      'Qué páginas y jerarquía necesita una web corporativa para posicionar, convertir y crecer sin rehacerse cada dos años.',
+    href: '/blog/estructura-ideal-pagina-web-empresas',
+    imageSrc: '/assets/blog/estructura-ideal-pagina-web-empresas/estructura-ideal-pagina-web-empresas.webp',
+    imageAlt: 'Diagrama de la estructura ideal de una página web para empresas',
   },
   {
-    title: 'El fin del SEO tal y como lo conocemos: la era del GEO',
+    title: 'Una web bien diseñada puede multiplicar tus clientes en Valencia',
     description:
-      'Qué cambia en la visibilidad digital y por qué combinar estructura técnica, intención de búsqueda y contexto semántico marca la diferencia.',
-    href: '/blog/el-fin-del-seo-la-era-del-geo',
-    imageSrc: '/assets/images/blog/seo-ux-conversion-web-empresa.webp',
-    imageAlt: 'Visual sobre evolución de SEO hacia GEO y criterios modernos de visibilidad digital',
+      'Cómo el diseño y la estructura de una web local influyen directamente en la captación de clientes de una empresa de servicios.',
+    href: '/blog/web-bien-disenada-multiplicar-clientes-valencia',
+    imageSrc: '/assets/blog/web-bien-disenada-multiplicar-clientes-valencia/og-blog-web-bien-disenada-multiplicar-clientes-valencia.png',
+    imageAlt: 'Visual sobre cómo una web bien diseñada multiplica los clientes de una empresa en Valencia',
+  },
+  {
+    title: 'Cómo mejorar la web de tu empresa sin rehacerla desde cero',
+    description:
+      'Qué se puede optimizar en una web existente —rendimiento, estructura y conversión— antes de plantear una reconstrucción completa.',
+    href: '/blog/como-mejorar-web-empresa-sin-rehacerla',
+    imageSrc: '/assets/images/blog/comparativa-web-mala-vs-web-optimizada.webp',
+    imageAlt: 'Comparativa visual entre una web sin optimizar y una web optimizada',
   },
 ];
 

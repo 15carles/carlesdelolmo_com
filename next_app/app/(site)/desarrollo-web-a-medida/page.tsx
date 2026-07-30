@@ -12,6 +12,7 @@ import {
 } from '@/lib/seo/schemas';
 import { Check } from 'lucide-react';
 import Link from 'next/link';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata = constructMetadata({
   title: 'Desarrollo web a medida en Valencia | Carles del Olmo',
@@ -720,6 +721,8 @@ export default function DesarrolloWebAMedidaPage() {
             </div>
           </div>
         </section>
+
+        <RelatedGuides cluster="diseno-desarrollo" title="Guías de desarrollo web a medida" />
       </main>
     </>
   );

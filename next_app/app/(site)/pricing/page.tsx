@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import RelatedGuides from '@/components/RelatedGuides';
 import PricingTabs from '@/components/PricingTabs';
 import PricingCard from '@/components/PricingCard';
 import FaqAccordion from '@/components/FaqAccordion';
@@ -351,6 +352,12 @@ export default function PricingPage() {
               />
             </div>
           </section>
+
+          <RelatedGuides
+            cluster="diseno-desarrollo"
+            title="Guías para decidir tu web"
+            subtitle="Antes de elegir plan: estructura, tipos de proveedor y cuánto cuesta una web profesional."
+          />
 
           {/* CONTACTO */}
           <section id="contacto" className="pricing-contact">

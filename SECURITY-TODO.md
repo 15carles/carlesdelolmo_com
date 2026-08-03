@@ -1,6 +1,25 @@
 # SECURITY-TODO.md
 
-Pasos manuales pendientes tras la auditoría de 2026-04-18. Ninguno requiere tocar código; son acciones en plataformas externas o decisiones operativas.
+Pasos manuales pendientes tras la auditoría de 2026-04-18. Casi ninguno requiere tocar código: son acciones en plataformas externas o decisiones operativas.
+
+## Estado
+
+Última revisión del documento: **2026-08-03**.
+
+Ninguna de las acciones de plataforma externa (Supabase, Cloudflare, GitHub OAuth) es verificable desde el repositorio, así que su estado se marca como *sin verificar* hasta que alguien lo confirme manualmente. Cuando completes una, cámbiale el estado y añade la fecha.
+
+| # | Acción | Prioridad | Estado |
+|---|---|---|---|
+| 1 | Rotar la `SUPABASE_PUBLISHABLE_KEY` | ALTA | Sin verificar |
+| 2 | Rate-limit / WAF en Cloudflare | ALTA | Sin verificar |
+| 3 | Actualizar Next.js a `16.2.4` | MEDIA | **Pendiente** — el proyecto sigue en `16.1.6` |
+| 4 | Endurecer la CSP (Report-Only → Enforce) | MEDIA | **Pendiente** — `next.config.ts` sigue emitiendo `Content-Security-Policy-Report-Only` |
+| 5 | ERP: rotar `.env` antes de desplegar | MEDIA | Fuera del alcance de este repositorio |
+| 6 | ERP: separar de Supabase del sitio público | MEDIA | Fuera del alcance de este repositorio |
+| 7 | Monitorizar rotación del token de GitHub de Keystatic | BAJA | Sin verificar |
+| 8 | Revisión periódica | BAJA | Recurrente |
+
+Los puntos 5 y 6 se refieren a un proyecto ERP distinto que no vive en este repositorio; se conservan aquí como registro de la auditoría original.
 
 ---
 

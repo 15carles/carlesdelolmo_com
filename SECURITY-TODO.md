@@ -10,9 +10,10 @@ Ninguna de las acciones de plataforma externa (Supabase, Cloudflare, GitHub OAut
 
 | # | Acción | Prioridad | Estado |
 |---|---|---|---|
-| 1 | Rotar la `SUPABASE_PUBLISHABLE_KEY` | ALTA | Sin verificar |
+| 0 | Borrar `public/assets/js/form.js` | **ALTA** | **Pendiente y bloqueante del punto 1** — ver aviso abajo |
+| 1 | Rotar la `SUPABASE_PUBLISHABLE_KEY` | ALTA | Sin verificar; inútil hasta cerrar el punto 0 |
 | 2 | Rate-limit / WAF en Cloudflare | ALTA | Sin verificar |
-| 3 | Actualizar Next.js a `16.2.4` | MEDIA | **Pendiente** — el proyecto sigue en `16.1.6` |
+| 3 | Actualizar Next.js | MEDIA | **Pendiente** — el proyecto sigue en `16.1.6`; el objetivo `16.2.4` ya quedó atrás, la estable actual es `16.3.0` |
 | 4 | Endurecer la CSP (Report-Only → Enforce) | MEDIA | **Pendiente** — `next.config.ts` sigue emitiendo `Content-Security-Policy-Report-Only` |
 | 5 | ERP: rotar `.env` antes de desplegar | MEDIA | Fuera del alcance de este repositorio |
 | 6 | ERP: separar de Supabase del sitio público | MEDIA | Fuera del alcance de este repositorio |
@@ -20,6 +21,34 @@ Ninguna de las acciones de plataforma externa (Supabase, Cloudflare, GitHub OAut
 | 8 | Revisión periódica | BAJA | Recurrente |
 
 Los puntos 5 y 6 se refieren a un proyecto ERP distinto que no vive en este repositorio; se conservan aquí como registro de la auditoría original.
+
+---
+
+## 0. [ALTA] Borrar `next_app/public/assets/js/form.js`
+
+**Por qué:** el punto 1 describe la exposición de la clave en este fichero en pasado, pero **el fichero sigue en el repositorio y se sigue sirviendo** en `https://carlesdelolmo.com/assets/js/form.js`. Contiene en claro:
+
+```js
+const supabaseUrl = 'https://gzrgxkjvxaflteilmjuq.supabase.co';
+const supabaseKey = 'sb_publishable_-rNRG-bfifNaR--8DkvKvA_xXLh4eil';
+```
+
+Es la misma clave que usan como valor por defecto `app/api/contact/route.ts` y `app/api/lab-research/route.ts`.
+
+Es un resto de la web anterior a Next.js: usa `window.supabase.createClient`, inserta directamente en `leads_contacto` y redirige a `gracias.html`. **Ningún componente ni ruta de la aplicación lo referencia** — está huérfano, pero al vivir en `public/` Next.js lo publica igualmente.
+
+Consecuencias:
+
+- Anula el proxy `/api/contact`, construido precisamente para que la clave no llegara al navegador.
+- **Bloquea el punto 1:** rotar la clave sin borrar antes este fichero solo consigue publicar la clave nueva.
+
+Matiz de severidad: una publishable key de Supabase está diseñada para ser pública y la protección real la aporta RLS, que está activo con denegación total. No es una fuga de credenciales crítica, pero sí una contradicción entre la arquitectura declarada y lo que el sitio sirve.
+
+**Cómo:**
+1. `git rm next_app/public/assets/js/form.js`.
+2. Revisar los demás restos huérfanos del mismo directorio (`components.js`, `cookie-manager.js`, `main.js`, `pricing.js`, `theme-toggle.js`): ninguno contiene credenciales, pero tampoco los referencia la aplicación.
+3. Desplegar y confirmar que `/assets/js/form.js` devuelve 404.
+4. Solo entonces, ejecutar la rotación del punto 1.
 
 ---
 

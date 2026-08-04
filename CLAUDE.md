@@ -114,7 +114,9 @@ Todo post debe llevar `cluster` y `topics`. Las categorías libres antiguas se e
 
 Dos usos independientes, mismo proyecto:
 
-1. **Leads** — `/api/contact` escribe en `leads_contacto`. La clave nunca llega al cliente: el endpoint hace de proxy.
+1. **Leads** — `/api/contact` escribe en `leads_contacto`. El endpoint hace de proxy para que la clave no llegue al cliente.
+
+   **Salvedad viva:** `public/assets/js/form.js` es un resto huérfano de la web anterior a Next.js (nada lo importa) que sigue sirviéndose en `/assets/js/form.js` con la URL de Supabase y la publishable key en claro, la misma que usan como fallback `app/api/contact/route.ts` y `app/api/lab-research/route.ts`. Mientras exista, el proxy no cumple su propósito y rotar la clave no sirve de nada: el fichero publicaría la nueva. Borrarlo es requisito previo a la rotación (ver `SECURITY-TODO.md`).
 2. **Laboratorio de visibilidad en IA** — `/api/lab-research` reenvía snapshots estadísticos a la RPC `ai_visibility_lab_submit_snapshot`. Siete tablas `ai_visibility_lab_*` en región UE, RLS con denegación total, escritura solo vía RPC. El dominio se seudonimiza con SHA-256 **en el navegador**; el dominio en claro nunca se transmite. Migraciones en `next_app/supabase/migrations/`.
 
 Cualquier cambio en el laboratorio toca privacidad: revisa `next_app/docs/lab-investigacion-lia.md` (evaluación de interés legítimo, **en estado borrador pendiente de revisión profesional**) y mantén alineadas las políticas de privacidad y cookies.

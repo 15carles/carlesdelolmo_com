@@ -21,15 +21,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // Public env vars are intentionally read here (server-side) so that the
-// publishable key never has to ship inside the client JS bundle. We fall back
-// to the previously-hardcoded values to avoid breaking the contact form if
-// the env vars are not configured yet in Vercel; rotate the key and remove the
-// fallback once new env vars are deployed.
-const SUPABASE_URL =
-  process.env.SUPABASE_URL ?? 'https://gzrgxkjvxaflteilmjuq.supabase.co';
-const SUPABASE_PUBLISHABLE_KEY =
-  process.env.SUPABASE_PUBLISHABLE_KEY ??
-  'sb_publishable_-rNRG-bfifNaR--8DkvKvA_xXLh4eil';
+// publishable key never has to ship inside the client JS bundle.
+//
+// Both values come exclusively from the environment. They used to fall back to
+// hardcoded literals, which published the key in this public repository and
+// made rotating it require a code deploy. Rotating is now an env-var change.
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_PUBLISHABLE_KEY = process.env.SUPABASE_PUBLISHABLE_KEY;
 
 // Allowed enum values for the form. Kept narrow so the API rejects junk before
 // even calling Supabase.
@@ -237,6 +235,19 @@ function validate(body: RawBody): { ok: true; lead: LeadInsert } | { ok: false; 
 export const runtime = 'edge';
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
+  // Sin credenciales no se puede escribir el lead. Se falla aquí, en tiempo de
+  // petición, y no al cargar el módulo: así una configuración incompleta deja
+  // fuera de servicio este endpoint en lugar de tumbar el despliegue entero.
+  if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
+    console.error(
+      '[api/contact] Faltan SUPABASE_URL o SUPABASE_PUBLISHABLE_KEY en el entorno.'
+    );
+    return NextResponse.json(
+      { error: 'servicio no disponible temporalmente' },
+      { status: 503 }
+    );
+  }
+
   // Reject oversized bodies before parsing.
   const contentLength = Number(request.headers.get('content-length') ?? '0');
   if (Number.isFinite(contentLength) && contentLength > MAX_BODY_BYTES) {

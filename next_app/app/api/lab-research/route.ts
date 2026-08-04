@@ -28,15 +28,13 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 
-// Variables públicas leídas en servidor (mismo patrón y fallback que
-// /api/contact; retirar el fallback cuando se roten las claves).
-const SUPABASE_URL =
-  process.env.SUPABASE_URL ?? 'https://gzrgxkjvxaflteilmjuq.supabase.co';
-const SUPABASE_PUBLISHABLE_KEY =
-  process.env.SUPABASE_PUBLISHABLE_KEY ??
-  'sb_publishable_-rNRG-bfifNaR--8DkvKvA_xXLh4eil';
+// Variables públicas leídas en servidor (mismo patrón que /api/contact).
+// Sin fallback hardcodeado: este repositorio es público y el literal publicaba
+// la clave, además de obligar a un deploy de código para poder rotarla.
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_PUBLISHABLE_KEY = process.env.SUPABASE_PUBLISHABLE_KEY;
 
-const RPC_URL = `${SUPABASE_URL}/rest/v1/rpc/ai_visibility_lab_submit_snapshot`;
+const RPC_PATH = '/rest/v1/rpc/ai_visibility_lab_submit_snapshot';
 
 // Un snapshot completo (8 consultas × 3 motores) ocupa ~6 KB; 32 KB deja
 // margen sin permitir cuerpos arbitrariamente grandes.
@@ -404,6 +402,18 @@ function validate(body: unknown): Validation {
 export const runtime = 'edge';
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
+  // Igual que /api/contact: sin credenciales de entorno el endpoint queda fuera
+  // de servicio, en lugar de arrancar con una clave escrita en el repositorio.
+  if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
+    console.error(
+      '[api/lab-research] Faltan SUPABASE_URL o SUPABASE_PUBLISHABLE_KEY en el entorno.'
+    );
+    return NextResponse.json(
+      { error: 'servicio no disponible temporalmente' },
+      { status: 503 }
+    );
+  }
+
   const contentLength = Number(request.headers.get('content-length') ?? '0');
   if (Number.isFinite(contentLength) && contentLength > MAX_BODY_BYTES) {
     return NextResponse.json({ error: 'payload demasiado grande' }, { status: 413 });
@@ -429,7 +439,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ error: result.error }, { status: 400 });
   }
 
-  const supabaseResponse = await fetch(RPC_URL, {
+  const supabaseResponse = await fetch(`${SUPABASE_URL}${RPC_PATH}`, {
     method: 'POST',
     headers: {
       apikey: SUPABASE_PUBLISHABLE_KEY,

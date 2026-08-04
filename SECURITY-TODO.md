@@ -29,11 +29,11 @@ Los puntos 5 y 6 se refieren a un proyecto ERP distinto que no vive en este repo
 **Por qué:** el punto 1 describe la exposición de la clave en este fichero en pasado, pero **el fichero sigue en el repositorio y se sigue sirviendo** en `https://carlesdelolmo.com/assets/js/form.js`. Contiene en claro:
 
 ```js
-const supabaseUrl = 'https://gzrgxkjvxaflteilmjuq.supabase.co';
-const supabaseKey = 'sb_publishable_-rNRG-bfifNaR--8DkvKvA_xXLh4eil';
+const supabaseUrl = 'https://<proyecto>.supabase.co';
+const supabaseKey = 'sb_publishable_<clave en claro>';
 ```
 
-Es la misma clave que usan como valor por defecto `app/api/contact/route.ts` y `app/api/lab-research/route.ts`.
+Era la misma clave que usaban como valor por defecto `app/api/contact/route.ts` y `app/api/lab-research/route.ts`.
 
 Es un resto de la web anterior a Next.js: usa `window.supabase.createClient`, inserta directamente en `leads_contacto` y redirige a `gracias.html`. **Ningún componente ni ruta de la aplicación lo referencia** — está huérfano, pero al vivir en `public/` Next.js lo publica igualmente.
 

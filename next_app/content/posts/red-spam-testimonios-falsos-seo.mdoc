@@ -1,0 +1,142 @@
+---
+title: 'Me han usado como testimonio falso: anatomía de una red de spam de enlaces'
+author: carles-del-olmo
+subtitle: >-
+  430 dominios enlazan a mi web sin que yo haya movido un dedo, y uno de ellos
+  me presenta como cliente satisfecho de un servicio que nunca contraté
+date: 17 agosto 2026
+isoDate: 2026-08-17
+status: draft
+cluster: geo-ia
+topics:
+  - ia-generativa
+  - seo-tecnico
+  - autoridad-eeat
+keywords:
+  - testimonios falsos SEO
+  - red de spam de enlaces
+  - negative SEO
+  - disavow
+  - autoridad digital
+  - GEO
+  - visibilidad en IA
+metaTitle: 'Testimonios falsos y spam de enlaces: qué hacer si te pasa'
+metaDescription: >-
+  Una red de venta de enlaces me presenta como cliente satisfecho en webs que
+  nunca contraté. Qué es esta práctica, por qué el daño real está en la
+  visibilidad en IA y no en el ranking, y cómo responder paso a paso.
+faqs:
+  - question: ¿Los enlaces de spam pueden penalizar mi web en Google?
+    answer: >-
+      Es muy poco probable. Desde Penguin 4.0 (2016) Google devalúa los enlaces
+      de baja calidad en lugar de penalizar al sitio que los recibe, precisamente
+      porque cualquiera puede enlazar a cualquiera. Las acciones manuales por
+      enlaces entrantes existen, pero se reservan a patrones claros de
+      manipulación atribuibles al propio titular.
+  - question: ¿Debo usar la herramienta de disavow?
+    answer: >-
+      La postura oficial de Google es que la mayoría de sitios no la necesitan.
+      Tiene sentido cuando el volumen de spam es desproporcionado respecto al
+      perfil real, cuando hay una acción manual, o cuando trabajas en el sector y
+      el perfil de enlaces forma parte de tu escaparate. Desautoriza solo los
+      dominios que hayas verificado, a nivel de dominio completo, nunca en bloque.
+  - question: ¿Merece la pena pagar para que retiren esos enlaces?
+    answer: >-
+      No. Es habitual que quien genera el spam ofrezca después la retirada del
+      problema que ha creado. Pagar financia la práctica y no garantiza nada: las
+      páginas se regeneran en dominios nuevos. La desautorización mediante
+      disavow es gratuita y no depende de la buena voluntad de nadie.
+  - question: ¿Cómo sé si me está pasando a mí?
+    answer: >-
+      Verifica tu dominio en Ahrefs Webmaster Tools, que es gratuito, y revisa
+      los dominios de referencia. La señal más clara es un número de dominios muy
+      superior al que justificaría tu actividad real de captación de enlaces, con
+      un porcentaje de dofollow anormalmente bajo y dominios de extensiones
+      baratas con títulos kilométricos.
+  - question: ¿Por qué publicar un desmentido en mi propia web y no ignorarlo?
+    answer: >-
+      Porque los modelos de lenguaje y los buscadores necesitan una fuente
+      autorizada sobre tu marca, y la fuente con más peso al hablar de una marca
+      es su propio dominio. Si no publicas tu versión, la única versión
+      disponible es la de quien fabricó el testimonio.
+---
+
+Hace unos días comprobé el perfil de enlaces de esta web por rutina. El Domain Rating salía **0.1**, que es prácticamente el suelo de la escala. Lo esperaba bajo: nunca he hecho link building para mi propio dominio. Lo que no esperaba era el número que había justo debajo.
+
+**430 dominios de referencia.**
+
+Cuatrocientos treinta sitios distintos enlazando a carlesdelolmo.com. Sin haber pedido un solo enlace, sin haber escrito un guest post, sin haber pagado una sola inserción. Ese número no es un logro. Es una huella.
+
+## Lo que había detrás
+
+Al abrir el listado, la segunda entrada era una página con un título de cuarenta palabras, del estilo de los que genera un modelo de lenguaje al que le han pedido "escribe un testimonio entusiasta": *"Hubo un tiempo, antes de que SEOExpress entrara en mi vida, en que pensaba que el marketing online exitoso requería grandes presupuestos..."*.
+
+El texto estaba escrito en primera persona. Y la persona era yo.
+
+Un testimonio firmado a nombre de mi dominio explicando lo bien que me había ido tras contratar sus servicios de *niche edits*. Alojado en un `.store` de nombre imposible. Repetido en varias URLs casi idénticas. La operación se atribuye públicamente a una red que opera bajo el nombre `seoexpress.org`, sobre la que constan reclamaciones de otros titulares en la misma situación exacta: nunca contrataron nada y aparecen como caso de éxito.
+
+He publicado la [declaración formal de no afiliación](/no-afiliacion) con el registro de dominios detectados. Este artículo es la otra mitad: qué es esta práctica, dónde hace daño de verdad y qué hacer.
+
+## Cómo funciona el engaño
+
+El mecanismo es sencillo y por eso funciona.
+
+Vendes servicios de construcción de enlaces. Necesitas prueba social, pero no tienes clientes satisfechos que quieran aparecer. Así que generas páginas con reseñas inventadas y las atribuyes a dominios reales, elegidos casi al azar entre negocios pequeños del sector. Nadie va a comprobarlo. Y de paso, cada una de esas páginas enlaza al dominio citado, lo que le da a tu red un aspecto de tejido natural de enlaces salientes hacia sitios legítimos.
+
+El titular del dominio citado no se entera. Cuando se entera, ya hay decenas de páginas afirmando que es cliente.
+
+La segunda parte del negocio, según reportan varios afectados, es contactar después ofreciendo la retirada de esos enlaces. El problema y la solución, vendidos por la misma persona.
+
+## Dónde está el daño (y dónde no)
+
+Esta es la parte que más se confunde, y donde el pánico suele estar mal dirigido.
+
+### En el ranking de Google: casi nada
+
+Desde Penguin 4.0, en 2016, Google **devalúa** los enlaces de baja calidad en vez de penalizar al sitio que los recibe. La razón es evidente: si recibir enlaces malos penalizara, hundir a un competidor costaría cuarenta euros. En mi caso, además, el 98% del perfil es *nofollow*, así que no transmite absolutamente nada.
+
+Si te pasa esto, lo más probable es que tu posicionamiento no se haya movido un milímetro.
+
+### En el Domain Rating: sí, pero es una métrica de escaparate
+
+El DR es una métrica propietaria de Ahrefs que se calcula solo con enlaces *dofollow*. Google no la usa. No es un factor de posicionamiento y nunca lo ha sido.
+
+Ahora bien: si te dedicas a esto, un cliente potencial con la barra de Ahrefs instalada va a ver ese número en tu web antes que en ninguna otra. Es un problema comercial, no técnico. Conviene no confundir las dos cosas ni tratar el DR como si fuera salud real del sitio.
+
+### En la visibilidad en IA: aquí sí
+
+Este es el que importa, y casi nadie lo está mirando.
+
+Cuando alguien le pregunta a un modelo de lenguaje quién eres, el modelo compone una respuesta a partir de lo que encuentra sobre tu entidad. No distingue por sí solo entre una fuente legítima y una página fabricada: pondera, entre otras cosas, la coherencia y la repetición de lo que lee. Decenas de páginas afirmando que eres cliente satisfecho de una empresa de spam **son datos sobre ti** en ese proceso.
+
+El daño no es que Google te baje. Es que la respuesta generada sobre tu marca incorpore una asociación que tú no elegiste. Si te interesa el mecanismo completo, lo desarrollo en la página sobre [autoridad digital para IAs](/servicio-seo/autoridad-digital-ias).
+
+## Cómo comprobar si te está pasando
+
+1. **Verifica tu dominio en Ahrefs Webmaster Tools.** Es gratis. Te da los dominios de referencia completos, no las dos filas del comprobador público.
+2. **Compara el número con tu actividad real.** Si nunca has hecho captación de enlaces y tienes cientos de dominios, algo va mal. El volumen sin causa es la señal principal.
+3. **Mira el porcentaje de *dofollow*.** Un perfil natural tiene una proporción alta. Un 2% indica que casi todo son comentarios, perfiles y páginas generadas.
+4. **Busca tu dominio entre comillas** en Google, incluyendo `-site:tudominio.com` para excluir tus propias páginas. Los testimonios fabricados suelen aparecer así.
+5. **Fíjate en la forma de las páginas:** extensiones baratas, títulos de treinta palabras, texto en un idioma que no es el tuyo, estrellas de valoración en el título.
+
+## Qué hacer, por orden
+
+**Primero, documenta.** Estas páginas rotan y desaparecen. Captura las URLs en un archivo de terceros con fecha antes de tocar nada. La prueba no puede depender de que el infractor mantenga su web en pie.
+
+**Segundo, no pagues nada.** Ni la retirada, ni la "limpieza", ni la auditoría que te ofrezcan por correo a continuación. Financia la práctica y no resuelve: las páginas se regeneran en dominios nuevos al día siguiente.
+
+**Tercero, desautoriza con criterio.** La herramienta de disavow de Search Console es gratuita y no necesita permiso de nadie. Sube solo los dominios que hayas verificado, a nivel `domain:`. No barras en bloque: en la práctica revertirlo es lento y te puedes cargar enlaces buenos por el camino.
+
+**Cuarto —y esta es la jugada que casi nadie hace— publica tu versión en tu propio dominio.** Una página que diga con claridad que no existe relación, qué dominios lo afirman y desde cuándo. Indexable. Enlazada desde tu web. Porque la fuente con más peso al hablar de una marca es el dominio de esa marca, y si tú no publicas tu versión, la única disponible es la que fabricaron ellos.
+
+**Quinto, arregla la causa de fondo.** Un DR de 0.1 con nueve dominios *dofollow* reales no lo causó el spam: lo causa no tener enlaces legítimos. En la parte baja de una escala logarítmica cada enlace real mueve mucho. Diez buenos valen más que cuatrocientos inventados.
+
+## Lo que esto enseña sobre la autoridad
+
+Durante veinte años la autoridad en la web se midió contando enlaces. Ese modelo tenía un defecto conocido —se podía fabricar— y toda una industria vivió de fabricarlo.
+
+Lo que cambia con los motores generativos es que la unidad ya no es el enlace: es la **entidad**. Lo que se afirma sobre ti, dónde se afirma, con qué coherencia y desde qué fuente. Un enlace basura no te hunde el ranking, pero una afirmación falsa repetida sí puede colarse en cómo te describe un modelo.
+
+Por eso la respuesta correcta a esto no es defensiva. No basta con desautorizar y esperar. Hay que ocupar el hueco: publicar, con tu nombre y en tu dominio, la versión verificable de los hechos. Es exactamente el mismo trabajo que hago para los clientes, aplicado a mí mismo — que es, al final, la única forma honesta de demostrar que funciona.
+
+Si quieres ver cómo se mide esto sobre un dominio concreto, tienes el [laboratorio de visibilidad en IA](/laboratorio-visibilidad-ia) abierto.

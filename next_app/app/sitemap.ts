@@ -36,6 +36,7 @@ const STATIC_ROUTES: Array<{
   { path: '/politica-privacidad', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/politica-cookies', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/terminos-y-condiciones', changeFrequency: 'yearly', priority: 0.3 },
+  { path: '/no-afiliacion', changeFrequency: 'monthly', priority: 0.3 },
 ];
 
 function toDateOrNow(value: string | null | undefined, fallback: Date): Date {

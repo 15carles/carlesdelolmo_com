@@ -2,6 +2,15 @@
 
 Todos los cambios notables en este proyecto serán documentados en este archivo.
 
+## [No publicado]
+### Añadido
+- **Declaración de no afiliación (`/no-afiliacion`):** Página legal indexable que desmiente los testimonios fabricados que varias webs de venta de enlaces atribuyen a carlesdelolmo.com, con registro público de dominios detectados (fecha, tipo y captura archivada). Reutiliza `LegalLayout` y emite JSON-LD `WebPage` vinculado a la entidad `#person`. Enlazada desde el bloque legal del footer y desde `public/llms.txt`.
+- **Registro de enlaces no autorizados:** Nuevo `next_app/data/enlacesNoAutorizados.ts` como fuente única de los dominios infractores y de la instantánea del perfil de enlaces; lo consumen la página legal y el artículo del blog.
+- **Artículo (borrador):** `content/posts/red-spam-testimonios-falsos-seo.mdoc` en el cluster `geo-ia`, que analiza la red de spam como caso real y explica por qué el daño está en la visibilidad generativa y no en el ranking. Queda en `status: draft` a la espera de revisión.
+
+### Notas
+- Los dominios infractores se listan **siempre como texto sin enlazar**. `rel="nofollow"` es una pista desde 2019, no una directiva, y aun así declararía la asociación y enviaría tráfico de referencia.
+
 ## [v4.2.0] - 2026-07-22
 ### Añadido
 - **Laboratorio de visibilidad en IA — base de investigación:** Además de generar el informe local, el laboratorio incorpora automáticamente los resultados estadísticos de cada análisis a una base de investigación en Supabase (región UE), como contraprestación del uso gratuito de la herramienta. El funcionamiento se explica de forma visible antes de empezar, con desglose de qué datos se comparten y cuáles no.

@@ -246,9 +246,10 @@ export default function NoAfiliacion() {
               suele ocurrir con ellas.
             </li>
             <li>
-              <strong>Desautorizar.</strong> Los dominios confirmados se incorporan a la lista de
-              desautorización de enlaces (<em>disavow</em>) de Google Search Console conforme se
-              verifican.
+              <strong>Desautorizar.</strong> Los dominios confirmados se recopilan en un fichero
+              de desautorización (<em>disavow</em>) para Google Search Console. Es una medida de
+              higiene más que de defensa: con la práctica totalidad de estos enlaces marcados como{' '}
+              <code>nofollow</code>, no transmiten autoridad que haya que retirar.
             </li>
             <li>
               <strong>Publicar.</strong> Esta página existe para que exista una versión

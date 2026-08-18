@@ -5,6 +5,7 @@ import { constructMetadata } from '@/lib/seo/metadata';
 import { safeJsonLd } from '@/lib/seo/jsonLd';
 import { ENTITY, SITE_URL } from '@/lib/seo/entity';
 import {
+  DOMINIOS_LEGITIMOS,
   ENLACES_NO_AUTORIZADOS,
   PERFIL_BACKLINKS,
   RED_SEOEXPRESS,
@@ -121,10 +122,48 @@ export default function NoAfiliacion() {
             Nunca he hecho <em>link building</em>. Un perfil de cuatrocientos dominios sin haber
             movido un dedo para conseguirlos no es un logro: es la huella de una red automatizada.
           </p>
+          <p>
+            De ese perfil he identificado hasta ahora{' '}
+            <strong>{PERFIL_BACKLINKS.dominiosSpamIdentificados} dominios</strong> pertenecientes a
+            una misma operación, todos marcados como spam por {PERFIL_BACKLINKS.fuenteRegistro}. La
+            firma es difícil de disimular: nombres construidos con las mismas piezas
+            (<em>rank</em>, <em>link</em>, <em>seo</em>, <em>backlink</em>) sobre extensiones
+            baratas, y cada uno de ellos enlazando hacia cerca de mil dominios distintos. No son
+            treinta operadores independientes: es el mismo programa ejecutándose treinta veces.
+          </p>
+          <p>
+            Conviene deshacer un malentendido frecuente: estos dominios no son webs abandonadas.
+            Tienen Domain Rating de entre 33 y 70, por encima de muchas webs legítimas. Esa
+            autoridad fabricada es justamente el producto que venden, y es la mejor prueba de que
+            el Domain Rating no mide la calidad de un sitio.
+          </p>
+          {DOMINIOS_LEGITIMOS.map((legitimo) => (
+            <p key={legitimo.dominio}>
+              <strong>Salvedad:</strong> <code>{legitimo.dominio}</code> también aparece entre los
+              dominios que enlazan a este sitio y <strong>no forma parte de esto</strong>.{' '}
+              {legitimo.nota}
+            </p>
+          ))}
+        </section>
+
+        <section aria-labelledby="testimonio-fabricado">
+          <h2 id="testimonio-fabricado">3. El testimonio fabricado</h2>
+          <p>
+            Uno de los dominios detectados va más allá del enlace.{' '}
+            <code>master-digital-studio-seoexpress.store</code> publica un texto escrito en primera
+            persona y atribuido a carlesdelolmo.com, en el que se afirma haber triplicado el
+            alcance orgánico tras contratar servicios de <em>niche edits</em>.
+          </p>
+          <p>
+            Ese texto no lo he escrito yo, esa contratación nunca existió y el resultado que
+            describe es inventado. Es la única suplantación con palabras atribuidas que he
+            confirmado hasta la fecha; los demás dominios del registro enlazan sin ponerme frases
+            en la boca.
+          </p>
         </section>
 
         <section aria-labelledby="registro">
-          <h2 id="registro">3. Registro de dominios detectados</h2>
+          <h2 id="registro">4. Registro de dominios detectados</h2>
           <p>
             Este registro se amplía conforme se confirman nuevos dominios. Solo se incluye lo
             verificado. <strong>Los dominios se listan como texto sin enlazar</strong>, de forma
@@ -139,9 +178,10 @@ export default function NoAfiliacion() {
               <thead>
                 <tr>
                   <th scope="col">Dominio</th>
+                  <th scope="col">DR</th>
                   <th scope="col">Tipo</th>
                   <th scope="col">Detectado</th>
-                  <th scope="col">Detalle</th>
+                  <th scope="col">Prueba</th>
                 </tr>
               </thead>
               <tbody>
@@ -150,23 +190,21 @@ export default function NoAfiliacion() {
                     <td>
                       <code>{enlace.dominio}</code>
                     </td>
+                    <td>{enlace.dr ?? '\u2014'}</td>
                     <td>{TIPO_LABEL[enlace.tipo]}</td>
                     <td>{fechaLegible(enlace.detectado)}</td>
                     <td>
-                      {enlace.nota}
-                      {enlace.captura && (
-                        <>
-                          {' '}
-                          <a
-                            href={enlace.captura}
-                            rel="nofollow noopener"
-                            target="_blank"
-                            className="link-inline"
-                          >
-                            Ver captura archivada
-                          </a>
-                          .
-                        </>
+                      {enlace.captura ? (
+                        <a
+                          href={enlace.captura}
+                          rel="nofollow noopener"
+                          target="_blank"
+                          className="link-inline"
+                        >
+                          Captura archivada
+                        </a>
+                      ) : (
+                        'Pendiente de archivar'
                       )}
                     </td>
                   </tr>
@@ -177,7 +215,7 @@ export default function NoAfiliacion() {
         </section>
 
         <section aria-labelledby="medidas">
-          <h2 id="medidas">4. Qué hago al respecto</h2>
+          <h2 id="medidas">5. Qué hago al respecto</h2>
           <ul>
             <li>
               <strong>Documentar.</strong> Cada dominio detectado se registra con su fecha y,
@@ -203,7 +241,7 @@ export default function NoAfiliacion() {
         </section>
 
         <section aria-labelledby="si-vienes-de-una-de-esas-webs">
-          <h2 id="si-vienes-de-una-de-esas-webs">5. Si has llegado desde una de esas webs</h2>
+          <h2 id="si-vienes-de-una-de-esas-webs">6. Si has llegado desde una de esas webs</h2>
           <p>
             Si estás aquí porque has visto mi nombre o mi dominio presentado como cliente,
             testimonio o caso de éxito de un servicio SEO: <strong>ese contenido es falso</strong>.
@@ -223,7 +261,7 @@ export default function NoAfiliacion() {
         </section>
 
         <section aria-labelledby="reserva-de-acciones">
-          <h2 id="reserva-de-acciones">6. Reserva de acciones</h2>
+          <h2 id="reserva-de-acciones">7. Reserva de acciones</h2>
           <p>
             El uso de un nombre comercial ajeno como testimonio sin autorización puede constituir
             un acto de engaño y de explotación de la reputación ajena conforme a los artículos 5 y

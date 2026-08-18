@@ -75,7 +75,9 @@ El texto estaba escrito en primera persona. Y la persona era yo.
 
 Un testimonio firmado a nombre de mi dominio explicando lo bien que me había ido tras contratar sus servicios de *niche edits*. Alojado en un `.store` de nombre imposible. Repetido en varias URLs casi idénticas. La operación se atribuye públicamente a una red que opera bajo el nombre `seoexpress.org`, sobre la que constan reclamaciones de otros titulares en la misma situación exacta: nunca contrataron nada y aparecen como caso de éxito.
 
-He publicado la [declaración formal de no afiliación](/no-afiliacion) con el registro de dominios detectados. Este artículo es la otra mitad: qué es esta práctica, dónde hace daño de verdad y qué hacer.
+Verifiqué el dominio en Ahrefs Webmaster Tools, que es gratuito, para ver el listado completo. **32 dominios de una misma operación**, todos con la etiqueta de spam puesta por la propia herramienta.
+
+He publicado la [declaración formal de no afiliación](/no-afiliacion) con el registro completo de esos 32 dominios. Este artículo es la otra mitad: qué es esta práctica, dónde hace daño de verdad y qué hacer.
 
 ## Cómo funciona el engaño
 
@@ -86,6 +88,18 @@ Vendes servicios de construcción de enlaces. Necesitas prueba social, pero no t
 El titular del dominio citado no se entera. Cuando se entera, ya hay decenas de páginas afirmando que es cliente.
 
 La segunda parte del negocio, según reportan varios afectados, es contactar después ofreciendo la retirada de esos enlaces. El problema y la solución, vendidos por la misma persona.
+
+## Cómo se reconoce una granja
+
+Los 32 dominios comparten tres rasgos, y el tercero es el que no se puede disimular.
+
+**Los nombres salen de una coctelera de cuatro palabras.** `rank`, `link`, `seo`, `backlink`, combinadas con prefijos y sufijos intercambiables: buybacklinks, rankgrowth, linkrankpro, ranklinkerpro, seolinkpro, linkseopro, ranklinkpro. Cuando ves seis variantes de la misma permutación, no estás mirando seis empresas.
+
+**Las extensiones son las baratas.** `.shop`, `.agency`, `.site`, `.click`, `.icu`, `.website`, `.xyz`. Registrar un dominio así cuesta un par de euros el primer año, que es exactamente lo que vale un activo pensado para durar seis meses.
+
+**Y cada uno enlaza a unos mil dominios.** Este es el dato definitivo. No 300, no 2.400: casi todos rondaban los 998 dominios enlazados. Ese número idéntico repetido treinta veces es una cuota de configuración, no una decisión editorial. Ningún sitio real enlaza a mil dominios distintos y se detiene ahí.
+
+Un detalle que rompe el patrón y confirma la lectura: entre ellos aparecen `kawaiishop.shop` y `byteshort.xyz`, nombres que no tienen nada que ver con SEO. Son dominios reciclados o caducados absorbidos por la misma red, que mantienen la firma de los mil enlaces salientes.
 
 ## Dónde está el daño (y dónde no)
 
@@ -101,6 +115,8 @@ Si te pasa esto, lo más probable es que tu posicionamiento no se haya movido un
 
 El DR es una métrica propietaria de Ahrefs que se calcula solo con enlaces *dofollow*. Google no la usa. No es un factor de posicionamiento y nunca lo ha sido.
 
+Hay aquí una ironía que conviene señalar. Esos 32 dominios de spam tienen DR de entre 33 y 70. El que más, un `buybacklinks.agency` con **DR 70**, se sitúa sobre el papel al nivel de medios digitales consolidados. Y como la escala es logarítmica, la distancia real entre ese 70 y mi 0.1 es mucho mayor de lo que sugiere la diferencia entre los dos números. Fabricar DR alto es precisamente el producto que venden, y por eso el DR no sirve para juzgar si un sitio es bueno: solo mide cuántos enlaces apuntan hacia él, no si merecen existir.
+
 Ahora bien: si te dedicas a esto, un cliente potencial con la barra de Ahrefs instalada va a ver ese número en tu web antes que en ninguna otra. Es un problema comercial, no técnico. Conviene no confundir las dos cosas ni tratar el DR como si fuera salud real del sitio.
 
 ### En la visibilidad en IA: aquí sí
@@ -115,9 +131,10 @@ El daño no es que Google te baje. Es que la respuesta generada sobre tu marca i
 
 1. **Verifica tu dominio en Ahrefs Webmaster Tools.** Es gratis. Te da los dominios de referencia completos, no las dos filas del comprobador público.
 2. **Compara el número con tu actividad real.** Si nunca has hecho captación de enlaces y tienes cientos de dominios, algo va mal. El volumen sin causa es la señal principal.
-3. **Mira el porcentaje de *dofollow*.** Un perfil natural tiene una proporción alta. Un 2% indica que casi todo son comentarios, perfiles y páginas generadas.
-4. **Busca tu dominio entre comillas** en Google, incluyendo `-site:tudominio.com` para excluir tus propias páginas. Los testimonios fabricados suelen aparecer así.
-5. **Fíjate en la forma de las páginas:** extensiones baratas, títulos de treinta palabras, texto en un idioma que no es el tuyo, estrellas de valoración en el título.
+3. **Fíjate en la etiqueta SPAM.** Webmaster Tools marca por su cuenta los dominios que considera spam. En mi caso hizo la clasificación entera sola: todos los infractores venían señalados, y el único directorio legítimo del listado no llevaba la etiqueta.
+4. **Mira el porcentaje de *dofollow*.** Un perfil natural tiene una proporción alta. Un 2% indica que casi todo son comentarios, perfiles y páginas generadas.
+5. **Busca tu dominio entre comillas** en Google, incluyendo `-site:tudominio.com` para excluir tus propias páginas. Los testimonios fabricados suelen aparecer así.
+6. **Fíjate en la forma de las páginas:** extensiones baratas, títulos de treinta palabras, texto en un idioma que no es el tuyo, estrellas de valoración en el título.
 
 ## Qué hacer, por orden
 

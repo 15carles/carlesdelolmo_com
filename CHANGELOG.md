@@ -4,12 +4,14 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 
 ## [No publicado]
 ### Añadido
-- **Declaración de no afiliación (`/no-afiliacion`):** Página legal indexable que desmiente los testimonios fabricados que varias webs de venta de enlaces atribuyen a carlesdelolmo.com, con registro público de dominios detectados (fecha, tipo y captura archivada). Reutiliza `LegalLayout` y emite JSON-LD `WebPage` vinculado a la entidad `#person`. Enlazada desde el bloque legal del footer y desde `public/llms.txt`.
-- **Registro de enlaces no autorizados:** Nuevo `next_app/data/enlacesNoAutorizados.ts` como fuente única de los dominios infractores y de la instantánea del perfil de enlaces; lo consumen la página legal y el artículo del blog.
-- **Artículo (borrador):** `content/posts/red-spam-testimonios-falsos-seo.mdoc` en el cluster `geo-ia`, que analiza la red de spam como caso real y explica por qué el daño está en la visibilidad generativa y no en el ranking. Queda en `status: draft` a la espera de revisión.
+- **Declaración de no afiliación (`/no-afiliacion`):** Página legal indexable que desmiente los testimonios fabricados que varias webs de venta de enlaces atribuyen a carlesdelolmo.com. Incluye el registro público de los 32 dominios detectados (dominio, Domain Rating, tipo y fecha de detección), sección propia para el testimonio suplantado y salvedad expresa sobre `techbehemoths.com`, que aparece en el perfil de enlaces pero es legítimo y no debe desautorizarse. Reutiliza `LegalLayout` y emite JSON-LD `WebPage` vinculado a la entidad `#person`. Enlazada desde el bloque legal del footer, el sitemap y `public/llms.txt`.
+- **Registro de enlaces no autorizados:** Nuevo `next_app/data/enlacesNoAutorizados.ts` como fuente única de los dominios infractores, de los dominios legítimos a preservar y de la instantánea del perfil de enlaces; lo consumen la página legal y el artículo del blog.
+- **Artículo:** `content/posts/red-spam-testimonios-falsos-seo.mdoc`, en el cluster `geo-ia`, que analiza la red como caso real: cómo se reconoce una granja de enlaces (patrón de nombres, TLD baratos y ~998 dominios enlazados por cada uno) y por qué el daño está en la visibilidad generativa y no en el ranking.
+- **Respaldo con fuentes externas:** Tanto la página como el artículo citan tres quejas públicas de terceros sobre la misma red: el hilo de Google Search Central «Negative SEO attack by seoexpress.org» (9 de mayo de 2026), las reseñas de Trustpilot de titulares que nunca contrataron el servicio, y la declaración de no afiliación de Regulatory Intelligence. Esta última nombra `rankio.agency`, que ya figuraba en el registro con DR 59 localizado de forma independiente: dos titulares sin relación entre sí señalando al mismo infractor.
 
 ### Notas
-- Los dominios infractores se listan **siempre como texto sin enlazar**. `rel="nofollow"` es una pista desde 2019, no una directiva, y aun así declararía la asociación y enviaría tráfico de referencia.
+- Los dominios infractores se listan **siempre como texto sin enlazar**. `rel="nofollow"` es una pista desde 2019, no una directiva, y aun así declararía la asociación y enviaría tráfico de referencia. Los únicos enlaces salientes son los de las tres fuentes citadas.
+- Se descartó archivar las páginas infractoras en la Wayback Machine. El campo `captura` permanece en el tipo de datos por si se retoma, pero no se muestra ninguna columna de prueba mientras no haya capturas reales.
 
 ## [v4.2.0] - 2026-07-22
 ### Añadido

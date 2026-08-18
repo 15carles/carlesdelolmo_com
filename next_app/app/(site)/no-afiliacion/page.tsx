@@ -97,9 +97,46 @@ export default function NoAfiliacion() {
             que es cliente satisfecho.
           </p>
           <p>
-            En el caso que documento aquí, la operativa se atribuye públicamente a la red que
-            opera bajo el nombre <code>{RED_SEOEXPRESS}</code>, sobre la que constan reclamaciones
-            de otros titulares de dominios en la misma situación.
+            En el caso que documento aquí, la operativa se atribuye a la red que opera bajo el
+            nombre <code>{RED_SEOEXPRESS}</code>, sobre la que constan quejas públicas de otros
+            titulares en la misma situación. En el foro oficial de Google Search Central hay un
+            hilo abierto el 9 de mayo de 2026 titulado{' '}
+            <a
+              href="https://support.google.com/webmasters/thread/432289588/negative-seo-attack-by-seoexpress-org?hl=en"
+              target="_blank"
+              rel="noopener"
+              className="link-inline"
+            >
+              «Negative SEO attack by seoexpress.org»
+            </a>
+            , y en{' '}
+            <a
+              href="https://www.trustpilot.com/review/seoexpress.org"
+              target="_blank"
+              rel="noopener"
+              className="link-inline"
+            >
+              su ficha de Trustpilot
+            </a>{' '}
+            varias reseñas repiten el mismo relato: nunca contrataron nada y aparecen como caso de
+            éxito.
+          </p>
+          <p>
+            Hay además una coincidencia que conviene dejar por escrito. Regulatory Intelligence
+            publicó una{' '}
+            <a
+              href="https://regulatory-intelligence.org/legal/unauthorized-seo-claims/"
+              target="_blank"
+              rel="noopener"
+              className="link-inline"
+            >
+              declaración sobre enlaces y afirmaciones SEO no autorizadas
+            </a>{' '}
+            en la que niega haber contratado, encargado, pagado ni autorizado nunca a dos dominios:{' '}
+            <code>{RED_SEOEXPRESS}</code> y <code>rankio.agency</code>. Ese segundo dominio figura
+            en el registro de esta página con DR 59, y llegué a él por mi cuenta revisando mi
+            perfil de enlaces, sin conocer entonces esa declaración. Dos titulares sin relación
+            entre sí señalando al mismo infractor por el mismo motivo.
           </p>
           <p>
             Los datos del perfil de enlaces de este sitio a{' '}
@@ -181,7 +218,6 @@ export default function NoAfiliacion() {
                   <th scope="col">DR</th>
                   <th scope="col">Tipo</th>
                   <th scope="col">Detectado</th>
-                  <th scope="col">Prueba</th>
                 </tr>
               </thead>
               <tbody>
@@ -193,20 +229,6 @@ export default function NoAfiliacion() {
                     <td>{enlace.dr ?? '\u2014'}</td>
                     <td>{TIPO_LABEL[enlace.tipo]}</td>
                     <td>{fechaLegible(enlace.detectado)}</td>
-                    <td>
-                      {enlace.captura ? (
-                        <a
-                          href={enlace.captura}
-                          rel="nofollow noopener"
-                          target="_blank"
-                          className="link-inline"
-                        >
-                          Captura archivada
-                        </a>
-                      ) : (
-                        'Pendiente de archivar'
-                      )}
-                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -218,9 +240,10 @@ export default function NoAfiliacion() {
           <h2 id="medidas">5. Qué hago al respecto</h2>
           <ul>
             <li>
-              <strong>Documentar.</strong> Cada dominio detectado se registra con su fecha y,
-              cuando es posible, con una captura archivada en un tercero de confianza. Estas
-              páginas rotan y desaparecen; la prueba no puede depender de que sigan en pie.
+              <strong>Documentar.</strong> Cada dominio detectado se registra aquí con su
+              Domain Rating y su fecha de detección, de forma que el registro quede fechado y sea
+              contrastable aunque las páginas de origen cambien o desaparezcan, que es lo que
+              suele ocurrir con ellas.
             </li>
             <li>
               <strong>Desautorizar.</strong> Los dominios confirmados se incorporan a la lista de
